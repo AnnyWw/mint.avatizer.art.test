@@ -1,0 +1,117 @@
+.modal-backdrop.in{
+    z-index: 0;
+    background: rgb(35 42 56 / 95%);
+    opacity: 1;
+}
+.modal-dialog{
+    margin-top: 100px;
+}
+.modal-content{
+    background: transparent;
+    box-shadow: none;
+    border: 0;
+    padding-bottom: 110px;
+}
+.modal-header{
+    padding: 0;
+    padding-bottom: 20px;
+    border-bottom: 0;
+    display: flex;
+    align-items: center;
+}
+.modal-title{
+    font-weight: 600;
+    font-size: 31px;
+    line-height: 38px;
+    text-transform: capitalize;
+    color: #FFFFFF;
+}
+.modal-header .close{
+    position: absolute;
+    right: 0;
+    margin: 0;
+    opacity: 1;
+    transition: all 0.3s ease-in-out;
+}
+.modal-header .close:hover svg path{
+    fill: #FFFFFF;
+}
+.modal-body{
+    padding: 0;
+
+}
+.modal-desc{
+    padding-right: 40px;
+}
+.modal-body--content{
+    display: flex;
+    margin-top: 21px;
+}
+.modal-desc--generic{
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 25px;
+    color: #FFFFFF;
+    margin-bottom: 5px;
+}
+.modal-desc--text{
+    display: none;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: rgba(255, 255, 255, .8);
+}
+.modal-body--content.active .modal-desc--text.active{
+    display: block;
+}
+.modal-body--content.active .modal-desc--text.paused{
+    display: none;
+}
+.modal-body--content.paused .modal-desc--text.paused{
+    display: block;
+}
+.modal-body--content.paused .modal-desc--text.active{
+    display: none;
+}
+
+
+@media (min-height: 900px) {
+    .modal-dialog{
+        margin-top: 250px;
+    }
+}
+@media (min-width: 768px) {
+    .modal-dialog{
+        width: 400px;
+    }
+}
+@media (max-width:767px) {
+    .modal-dialog{
+        margin-top: 121px;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .modal-desc--generic{
+        font-size: 18px;
+        line-height: 22px;
+    }
+    .modal-desc--text{
+        font-size: 12px;
+        line-height: 15px;
+    }
+    .modal-title{
+        font-size: 22px;
+        line-height: 29px;
+    }
+}
+@media (max-width: 576px) {
+    .modal-dialog{
+       max-width: 300px;
+    }
+    .modal-body img{
+        width: 300px;
+        height: auto;
+    }
+    
+}

@@ -1,0 +1,19 @@
+#AuthType Basic
+#AuthName "Restricted Area"
+#AuthGroupFile /home/access_control
+#AuthUserFile /home/password_control
+#Require group avatizer
+
+<FilesMatch "\.(htpasswd|ini|phps|fla|psd|log)$">
+ Order Allow,Deny
+ Deny from all
+</FilesMatch>
+
+<ifModule mod_headers.c>
+Header set X-XSS-Protection "1; mode=block"
+Header always append X-Frame-Options SAMEORIGIN
+</IfModule>
+
+RedirectMatch 404 /\.git
+
+DirectoryIndex index.html

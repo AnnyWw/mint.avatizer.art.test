@@ -1,0 +1,25 @@
+syntax: glob
+fcgi-bin/*
+cgi-bin/*
+awstats/*
+cp/*
+bin/*
+*.log
+*.log
+*.orig
+*.bkp
+*.bak
+*_bkp.*
+*_bkp
+*.mno
+*.rar
+*.zip
+*.tar
+*.gz
+*.gzip
+*/_notes/*
+.DS_Store
+.hg
+.hg/*
+.hgignore
+/nbproject/

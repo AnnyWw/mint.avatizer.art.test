@@ -1,0 +1,232 @@
+html,
+body {
+    height: 100%;
+}
+
+.btn.socials {
+    background: rgba(255, 255, 255, 0.1);
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    color: #ffffff;
+    padding: 11px 16px;
+    box-shadow: none;
+    border: 0;
+    display: flex;
+    align-items: center;
+    height: 44px;
+    border-radius: 0;
+}
+.btn-discord:hover {
+    background: #404eed;
+}
+.btn-discord:focus {
+    background: #404eed;
+    opacity: 0.3;
+}
+.btn-twitter:hover {
+    background: #1d9bf0;
+}
+.btn-twitter:focus {
+    background: #1d9bf0;
+    opacity: 0.3;
+}
+.btn-opensea:hover {
+    background: #2081e2;
+}
+.btn-opensea:focus {
+    background: #2081e2;
+    opacity: 0.3;
+}
+.btn .buttons-icon {
+    margin-right: 10px;
+    display: inline-block;
+}
+.btn-group .button {
+    margin-left: 12.5px;
+    margin-right: 12.5px;
+}
+
+.btn-404 {
+	display: inline-block;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    color: #fff;
+    padding: 12px 16px;
+    background: #724A69;
+    border-radius: 0;
+    box-shadow: none;
+	transition: all 0.2s linear;
+	border: 0;
+}
+.btn-404:hover {
+    text-decoration: none;
+	background: #6C8643;
+	color: #fff;
+}
+.btn-404:active,
+.btn-404:focus {
+    text-decoration: none;
+	color: #fff;
+	background: #47631C;
+}
+.text-404 {
+	font-weight: 600;
+	font-size: 182px;
+	line-height: 200px;
+    color: #ffffff;
+	text-align: center;
+}
+.page-not-found .title-main{
+	font-weight: 600;
+    font-size: 48px;
+    line-height: 59px;
+    color: #FFFFFF;
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+.page-not-found .text-main {
+	font-weight: 500;
+	font-size: 20px;
+	line-height: 27px;	
+	color: #FFFFFF;
+	margin-bottom: 30px;
+	text-align: center;
+	max-width: 524px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.page-not-found{
+	/* padding-top: 371px;
+	padding-bottom: 345px; */
+	text-align: center;
+	opacity: 0;
+}
+body.loaded .page-not-found{
+	-webkit-animation: 1.5s ease 0s normal forwards 1 fadein;
+    animation: 1.5s ease 0s normal forwards 1 fadein;
+}
+
+.page-not-found-image{
+	margin-left: -18%;
+	margin-top: 106px;
+}
+.container-fluid{
+	padding-left: 40px;
+	padding-right: 40px;
+}
+.page-404 .parentwrap{
+	height: 100%;
+    display: flex;
+    align-items: center;
+}
+.page-404 .header{
+	top: 0;
+}
+.page-404 .footer{
+	position: fixed;
+    bottom: 0;
+	left: 0;
+    width: 100%;
+}
+
+body.loaded.page-404 .footer .content{
+	-webkit-animation: 1.5s ease 0s normal forwards 1 fadein;
+    animation: 1.5s ease 0s normal forwards 1 fadein;
+}
+.page-404 .header .logo-header .list-socials{
+	margin-right: 0;
+}
+
+.parallax{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+	top: 0;
+}
+.parallax .img-parallax{
+    position: absolute;
+    right: 0px;
+    left: 0px;
+    pointer-events: none;
+    width: 100%;
+}
+.page-404 .parallax{
+    opacity: 0;
+}
+body.loaded.page-404 .parallax{
+    -webkit-animation: 1.5s ease 0s normal forwards 1 fadein;
+    animation: 1.5s ease 0s normal forwards 1 fadein;
+}
+@keyframes fadein{
+    0% { opacity:0; }
+    66% { opacity:0; }
+    100% { opacity:1; }
+}
+
+@-webkit-keyframes fadein{
+    0% { opacity:0; }
+    66% { opacity:0; }
+    100% { opacity:1; }
+}
+@-moz-document url-prefix() {
+
+}
+@media (min-width: 1200px) {
+
+	.visible-1024{
+		display: none;
+	}
+	.hidden-1024{
+		display: block;
+	}
+}
+@media (min-width:1200px) and (max-width:1440px){
+
+}
+@media (min-width: 1024px) and (max-width: 1200px){
+
+}
+@media (max-width: 1200px) {
+	.container-fluid{
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+	.text-404{
+		font-size: 120px;
+		line-height: 160px;
+	}
+	.page-not-found .title-main{
+		font-size: 39px;
+		line-height: 52px;
+		margin-bottom: 10px;
+	}
+	.page-not-found .text-main{
+		font-size: 18px;
+		line-height: 24px;
+	}
+}
+
+@media (max-width:768px) {
+	.page-404 .parentwrap{
+		height: auto;
+		display: block;
+	}
+	.page-not-found{
+		padding-top: 103px;
+		padding-bottom: 101px;
+	}
+	.page-not-found .text-main{
+		margin-bottom: 20px;
+	}
+	.page-404 .footer{
+		position: relative;
+	}
+}
+
