@@ -547,7 +547,7 @@ export class MintComponent implements OnInit {
       this.status = 'minted';
     }
     else if(this.phase === 'WL'){
-      if(this.wlMerk && this.wallet && !this.pending && !this.minted){
+      if(this.wlMerk.length > 0 && this.wallet && !this.pending && !this.minted){
         this.status = 'WL';
       }
       else {
