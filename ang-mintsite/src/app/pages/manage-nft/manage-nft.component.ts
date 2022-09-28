@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import Web3Modal from 'web3modal';
+import Web3 from 'web3';
 declare var $: any;
 
 @Component({
@@ -7,7 +9,15 @@ declare var $: any;
   styleUrls: ['./manage-nft.component.scss']
 })
 export class ManageNFTComponent implements OnInit {
-
+  contract:string = '';
+  web3Modal:any = null;
+  web3:any = null;
+  provider:any = null;
+  wallet:string = '';
+  pending:boolean = false;
+  pendingConnect:boolean = false;
+  network:string = '';
+  status:string='';
   constructor() { }
 
   ngOnInit(): void {
@@ -354,6 +364,103 @@ export class ManageNFTComponent implements OnInit {
     $('#connect').click(function () {
       console.log("here")
     })
+
+    this.initWeb3();
+  }
+
+  async initWeb3(){
+    console.log("here")
+    /*const providerOptions = {
+      walletconnect: {
+        package: WalletConnectProvider, // required
+        options: {
+          infuraId: "68bbfa6dd6594f328012419c5b654b2f" // required
+        }
+      }
+    };*/
+    
+    this.web3Modal = new Web3Modal({
+      network: "mainnet", // optional
+      cacheProvider: true, // optional
+      //providerOptions // required
+    });
+
+    try {
+      this.pendingConnect = true;
+      this.getStatus();
+      this.provider = await this.web3Modal.connect();
+      this.web3  = new Web3(this.provider);
+      this.network = await this.web3.eth.net.getNetworkType();
+      console.log(this.network)
+
+      //Display warning if on the wrong network
+      if(this.network !== 'goerli'){
+        //toast("Please switch to the Ethereum Mainnet network.");
+        this.status = 'network'
+        return;
+      }
+
+      let accounts = await this.web3.eth.getAccounts();
+      console.log(accounts)
+      this.wallet = accounts[0];
+      this.pendingConnect = false;
+
+      this.getStatus();
+      
+    }
+    catch(err:any){
+      console.log(err)
+      
+    }
+  }
+
+  
+  async switchNetworks(){
+    try{
+      await this.web3.currentProvider.request({
+        method: 'wallet_switchEthereumChain',
+        params: [{ chainId: Web3.utils.toHex('5') }]
+      });
+      this.initWeb3();
+    }
+    catch(err){
+      console.log(err)
+    }
+  }
+
+  logout(){
+    try {
+      this.web3Modal.clearCachedProvider();
+      location.reload();
+      
+      return {};
+    }
+    catch(err){
+      return null;
+    }
+  }
+
+  
+  
+  getStatus(){
+    this.status = '';
+    console.log(this.wallet)
+    if(this.wallet === ''){
+      this.status = 'connect';
+    }
+    else if(this.network !== 'goerli'){
+      console.log(this.network)
+      this.status = 'network';
+    }
+    else if (this.pendingConnect){
+      this.status = 'pendingConnect';
+    }
+    else if (this.pending){
+      this.status = 'pending';
+    }
+
+    this.status;
+    
   }
 
 }
