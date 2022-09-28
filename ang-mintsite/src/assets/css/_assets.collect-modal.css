@@ -1,12 +1,13 @@
-.modal-backdrop.in{
+.modal-backdrop{
     z-index: 0;
     background: rgb(35 42 56 / 95%);
     opacity: 1;
 }
 .modal-dialog{
     margin-top: 100px;
+   
 }
-.modal-content{
+.modal-content1{
     background: transparent;
     box-shadow: none;
     border: 0;

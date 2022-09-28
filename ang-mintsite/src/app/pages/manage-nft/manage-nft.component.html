@@ -532,86 +532,22 @@
                 </div>
                 <div class="col-xs-12">
                     <div class="splash-collect">
-                        <div class="splash-collect--title">Collected 13</div>
-                        <div class="splash-collect--items">
-                            <a href="#" data-toggle="modal" data-target="#collect-modal-1" class="hPound collect-card">
+                        <div class="splash-collect--title">Collected {{nfts.length}}</div>
+                        <div class="splash-collect--items" *ngFor="let nft of nfts">
+                            <a (click)="popup(nft)"  href="javascript:void(0)" >
                                 <div class="collect-image">
                                     <img src="../../../assets/imgnew/mint/avatyizer-nft-image.svg" width="220" height="220"
                                         alt="avatyizer-nft-image">
                                 </div>
                                 <div class="collect-body">
-                                    <div class="collect-title">Avatizer #147</div>
-                                    <div class="collect-generic">Generation: <span
-                                            class="generic-status active">Active</span></div>
+                                    <div class="collect-title">{{nft.Name}}</div>
+                                    <div class="collect-generic">Generation: 
+                                    <span *ngIf="nft?.Generative" class="generic-status active">Active</span>
+                                    <span *ngIf="!nft?.Generative" class="generic-status active">Paused</span></div>
                                 </div>
                             </a>
-                            <a href="#" data-toggle="modal" data-target="#collect-modal-2" class="hPound collect-card">
-                                <div class="collect-image">
-                                    <img src="../../../assets/imgnew/mint/avatyizer-nft-image-2.svg" width="220" height="220"
-                                        alt="avatyizer-nft-image">
-                                </div>
-                                <div class="collect-body">
-                                    <div class="collect-title">Avatizer #147</div>
-                                    <div class="collect-generic">Generation: <span
-                                            class="generic-status active">Active</span></div>
-                                </div>
-                            </a>
-                            <a href="#" data-toggle="modal" data-target="#collect-modal-3" class="hPound collect-card">
-                                <div class="collect-image">
-                                    <img src="../../../assets/imgnew/mint/avatyizer-nft-image-3.svg" width="220" height="220"
-                                        alt="avatyizer-nft-image">
-                                </div>
-                                <div class="collect-body">
-                                    <div class="collect-title">Avatizer #147</div>
-                                    <div class="collect-generic">Generation: <span
-                                            class="generic-status active">Active</span></div>
-                                </div>
-                            </a>
-                            <a href="#" data-toggle="modal" data-target="#collect-modal-4" class="hPound collect-card">
-                                <div class="collect-image">
-                                    <img src="../../../assets/imgnew/mint/avatyizer-nft-image-2.svg" width="220" height="220"
-                                        alt="avatyizer-nft-image">
-                                </div>
-                                <div class="collect-body">
-                                    <div class="collect-title">Avatizer #147</div>
-                                    <div class="collect-generic">Generation: <span
-                                            class="generic-status active">Active</span></div>
-                                </div>
-                            </a>
-                            <a href="#" data-toggle="modal" data-target="#collect-modal-5" class="hPound collect-card">
-                                <div class="collect-image">
-                                    <img src="../../../assets/imgnew/mint/avatyizer-nft-image-3.svg" width="220" height="220"
-                                        alt="avatyizer-nft-image">
-                                </div>
-                                <div class="collect-body">
-                                    <div class="collect-title">Avatizer #147</div>
-                                    <div class="collect-generic">Generation: <span
-                                            class="generic-status paused">Paused</span></div>
-                                </div>
-                            </a>
-                            <a href="#" data-toggle="modal" data-target="#collect-modal-6" class="hPound collect-card">
-                                <div class="collect-image">
-                                    <img src="../../../assets/imgnew/mint/avatyizer-nft-image.svg" width="220" height="220"
-                                        alt="avatyizer-nft-image">
-                                </div>
-                                <div class="collect-body">
-                                    <div class="collect-title">Avatizer #147</div>
-                                    <div class="collect-generic">Generation: <span
-                                            class="generic-status active">Active</span></div>
-                                </div>
-                            </a>
-                            <a href="#" data-toggle="modal" data-target="#collect-modal-7" class="hPound collect-card">
-                                <div class="collect-image">
-                                    <img src="../../../assets/imgnew/mint/avatyizer-nft-image-3.svg" width="220" height="220"
-                                        alt="avatyizer-nft-image">
-                                </div>
-                                <div class="collect-body">
-                                    <div class="collect-title">Avatizer #147</div>
-                                    <div class="collect-generic">Generation: <span
-                                            class="generic-status active">Active</span></div>
-                                </div>
-                            </a>
-                            <a class="collect-card empty">
+                            
+                            <!--<a class="collect-card empty">
                                 <div class="collect-image">
                                 </div>
                                 <div class="collect-body">
@@ -622,19 +558,21 @@
                                 </div>
                                 <div class="collect-body">
                                 </div>
-                            </a>
+                            </a>-->
                         </div>
+                        
                     </div>
                 </div>
             </div>
 
         </div>
-        <div class="modal fade" id="collect-modal-1" role="dialog" aria-labelledby="collect-modal-1">
+        
+        <div #collectmodal1  class="modal fade modal-backdrop" id="collectmodal1"  aria-labelledby="collectmodal1">
             <div class="modal-dialog" role="document">
-                <div class="modal-content">
+                <div class="modal-content1">
                     <div class="modal-header">
-                        <h4 class="modal-title">Avatizer #210</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><svg width="30"
+                        <h4 class="modal-title">{{select?.Name}}</h4>
+                        <button (click)="closeModel()" type="button" class="close" data-dismiss="modal" aria-label="Close"><svg width="30"
                                 height="31" viewBox="0 0 30 31" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path
                                     d="M29.7089 1.76777L28.2947 0.353553L15.0312 13.617L1.41421 0L0 1.41421L13.617 15.0312L0 28.6482L1.41421 30.0624L15.0312 16.4454L28.2947 29.7089L29.7089 28.2947L16.4454 15.0312L29.7089 1.76777Z"
@@ -648,7 +586,7 @@
                         <div class="modal-body--content active">
                             <div class="modal-desc">
                                 <div class="modal-desc--generic">
-                                    Generation: <span class="generic-status active">Active</span>
+                                    Generation: <span class="generic-status active">{{select?.Generative ? 'Active' : 'Paused'}}</span>
                                 </div>
                                 <div class="modal-desc--text active">NFT once a day at 01:00 PM UTC will generate a different
                                     illustration.
@@ -660,7 +598,7 @@
                             </div>
                             <div class="status-switch">
                                 <label class="checker">
-                                    <input class="manage-checkbox" type="checkbox" checked />
+                                    <input [(ngModel)]="gene" (change)="toggleGen()"  class="manage-checkbox" type="checkbox" checked />
                                     <div class="check-bg"></div>
                                     <div class="checkmark">
                                         <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
@@ -677,6 +615,7 @@
                 </div>
             </div>
         </div>
+
         <div id="footer" class="footer">
             <div class="content">
                 <div class="inner">
@@ -690,3 +629,5 @@
         </div>
     </div>
 </body>
+
+
