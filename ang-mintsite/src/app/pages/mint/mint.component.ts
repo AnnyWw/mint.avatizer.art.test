@@ -420,6 +420,7 @@ export class MintComponent implements OnInit {
 
       let accounts = await this.web3.eth.getAccounts();
       this.wallet = accounts[0];
+     
       this.pendingConnect = false;
       //get phase
       this.contractAv = new this.web3.eth.Contract(abi, "0xB8756CdDeC4F9f06CdF04573383F49a2607b7071");
@@ -432,7 +433,7 @@ export class MintComponent implements OnInit {
       }
 
       let hasTok = await this.contractAv.methods.balanceOf(this.wallet).call();
-      console.log(hasTok)
+   
       if(hasTok > 0){
         this.minted = true;
       }
@@ -440,10 +441,10 @@ export class MintComponent implements OnInit {
         this.minted = false;
       }
       //if wl
-      this.WLCheck(this.wallet);
+      await this.WLCheck(this.wallet);
       //get merk
 
-      this.getStatus();
+      //this.getStatus();
       
     }
     catch(err:any){
@@ -478,12 +479,12 @@ export class MintComponent implements OnInit {
   }
 
   WLCheck(wallet:string){
-    console.log('here');
+
     let res = this.api.getWL(wallet).subscribe(
       (val:any)=>{
     
         this.wlMerk = val['Proof'] as any[];
-        
+        this.getStatus();
       },
       (err)=>{
 
@@ -529,7 +530,7 @@ export class MintComponent implements OnInit {
   
   getStatus(){
     this.status = '';
-    console.log(this.wallet)
+
     if(this.wallet === ''){
       this.status = 'connect';
     }
@@ -560,7 +561,7 @@ export class MintComponent implements OnInit {
         this.status = 'Public';
       }
     }
-    console.log(this.status)
+
     this.status;
     
   }

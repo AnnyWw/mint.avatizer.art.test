@@ -412,6 +412,7 @@ export class ManageNFTComponent implements OnInit {
       let accounts = await this.web3.eth.getAccounts();
       console.log(accounts)
       this.wallet = accounts[0];
+      
       this.contractAv = new this.web3.eth.Contract(abi, "0xB8756CdDeC4F9f06CdF04573383F49a2607b7071");
       this.getOwnership(this.wallet);
       this.pendingConnect = false;

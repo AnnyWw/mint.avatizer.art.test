@@ -533,8 +533,8 @@
                 <div class="col-xs-12">
                     <div class="splash-collect">
                         <div class="splash-collect--title">Collected {{nfts.length}}</div>
-                        <div class="splash-collect--items" *ngFor="let nft of nfts">
-                            <a (click)="popup(nft)"  href="javascript:void(0)" >
+                        <div  class="splash-collect--items" *ngFor="let nft of nfts">
+                            <a  (click)="popup(nft)"  href="javascript:void(0)" >
                                 <div class="collect-image">
                                     <img src="../../../assets/imgnew/mint/avatyizer-nft-image.svg" width="220" height="220"
                                         alt="avatyizer-nft-image">
@@ -547,7 +547,9 @@
                                 </div>
                             </a>
                             
-                            <!--<a class="collect-card empty">
+                        </div>
+                        <div *ngIf="nfts.length <= 0" class="splash-collect--items" >
+                            <a class="collect-card empty">
                                 <div class="collect-image">
                                 </div>
                                 <div class="collect-body">
@@ -558,7 +560,7 @@
                                 </div>
                                 <div class="collect-body">
                                 </div>
-                            </a>-->
+                            </a>
                         </div>
                         
                     </div>
