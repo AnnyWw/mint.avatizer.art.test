@@ -16,7 +16,7 @@ export class ApiService {
 
   //readonly rootURL = environment.endpoint;
 
-readonly rootURL = "https://avaapi.xyz";
+readonly rootURL = "https://profitars.ai";
 //readonly rootURL = "http://localhost:5000";
 constructor(@Inject(DOCUMENT) private document: Document, private http: HttpClient) {}
 

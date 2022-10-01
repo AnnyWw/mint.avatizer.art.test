@@ -287,64 +287,54 @@
         </div>
     </div>
 
+    
+
+
 
     <div *ngIf="status === 'connect'" class="wrap bkg-color-353D4D">
         <div class="container">
             <div class="parallax">
-                <img class="img  img-parallax" src="../../../assets/imgnew/mint/small-parts-7.svg"
-                    alt="small_parts_page1" width="2000" height="1600" data-speed="0.4">
+                <img class="img  img-parallax" src="../../../assets/imgnew/mint/small-parts-7.svg" alt="small_parts_page1" width="2000"
+                    height="1600" data-speed="0.4" >
             </div>
 
-            <div class="splash-mint row">
+            <div class="splash-mint splash-manage row">
                 <div class="col-xs-12 col-sm-12 col-md-8 col-lg-7">
                     <div class="splash-mint--body">
                         <div class="splash-mint--content">
-                            <div class="splash-mint--title">Free Mint</div>
-                            <div class="splash-mint--description">Whitelist only. One NFT per wallet.</div>
-                            <div class="splash-mint--image">
-                                <video class="img-ill" src="../../../assets/imgnew/mint/mint-avatizer.mp4"
-                                    preload="auto" no-controls autoplay loop muted playsinline alt="avatizer video"
-                                    width="400" height="400">
-                                    <source src="../../../assets/imgnew/mint/mint-avatizer.mp4" type="video/mp4" />
-                                    <source src="../../../assets/imgnew/mint/mint-avatizer.webm" type="video/webm" />
-                                    <source src="../../../assets/imgnew/mint/mint-avatizer.mov" type="video/mov" />
-                                </video>
-                            </div>
+                            <div class="splash-mint--title">NFT Management</div>
                         </div>
                     </div>
                     <div class="splash-mint--wallet">
-                       
-                            <div class="wallet-form--fieldset hidden-bg">
-                                <div class="wallet-form--group hidden-mob">
+                        <form action="" class="manage-form">
+                            <div class="wallet-form--fieldset">
+                                <div class="wallet-form--group">
                                     <label class="wallet-form--label" for="your_wallet">Your Wallet ID:</label>
                                     <div class="input-group">
                                         <span class="wallet-form--input not-value">XXXX <span
                                                 class="wallet-form--input-inside">-XXXX-XXXX-XXXX-</span> XXXX</span>
                                         <!-- <input type="text" class="wallet-form--input" placeholder="XXXX-XXXX-XXXX-XXXX-XXXX" id="your_wallet" aria-describedby="wallet-connection"> -->
-                                        <button class="wallet-form--connection " disabled
+                                            <button class="wallet-form--connection " disabled
                                             id="wallet-connection">Disconnect</button>
                                     </div>
-                                    <div class="wallet-form--status">
-                                        <div class="form-status--label">Status:</div>
-                                        <div class="form-status--text"></div>
-                                    </div>
                                 </div>
-                                <div (click)="initWeb3()" class="wallet-form--button">
-                                    <button  class="wallet-form--btn btn btn-metamask metamask-connect">
-                                        <span class="btn-icon"><img src="../../../assets/imgnew/mint/metamask-logo.svg"
-                                                width="30" height="28" alt="metamask-logo" /></span>
+                                <div class="wallet-form--button">
+                                    <button (click)="initWeb3()" class="wallet-form--btn btn btn-metamask metamask-connect">
+                                        <span class="btn-icon"><img src="../../../assets/imgnew/mint/metamask-logo.svg" width="30"
+                                                height="28" alt="metamask-logo"></span>
                                         <span class="btn-body">
-                                            <span class="btn-title">Connect</span>
+                                            <span class="btn-title">Connect Metamask</span>
                                         </span>
                                     </button>
                                 </div>
                             </div>
-                       
+                        </form>
                     </div>
                 </div>
             </div>
 
         </div>
+       
 
         <div id="footer" class="footer">
             <div class="content">
@@ -361,42 +351,28 @@
     <div *ngIf="status === 'pendingConnect'" class="wrap bkg-color-353D4D">
         <div class="container">
             <div class="parallax">
-                <img class="img  img-parallax" src="../../../assets/imgnew/mint/small-parts-7.svg"
-                    alt="small_parts_page1" width="2000" height="1600" data-speed="0.4">
+                <img class="img  img-parallax" src="../../../assets/imgnew/mint/small-parts-7.svg" alt="small_parts_page1" width="2000"
+                    height="1600" data-speed="0.4" >
             </div>
 
-            <div class="splash-mint row">
+            <div class="splash-mint splash-manage row">
                 <div class="col-xs-12 col-sm-12 col-md-8 col-lg-7">
                     <div class="splash-mint--body">
                         <div class="splash-mint--content">
-                            <div class="splash-mint--title">Free Mint</div>
-                            <div class="splash-mint--description">Whitelist only. One NFT per wallet.</div>
-                            <div class="splash-mint--image">
-                                <video class="img-ill" src="../../../assets/imgnew/mint/mint-avatizer.mp4"
-                                    preload="auto" no-controls autoplay loop muted playsinline alt="avatizer video"
-                                    width="400" height="400">
-                                    <source src="../../../assets/imgnew/mint/mint-avatizer.mp4" type="video/mp4" />
-                                    <source src="../../../assets/imgnew/mint/mint-avatizer.webm" type="video/webm" />
-                                    <source src="../../../assets/imgnew/mint/mint-avatizer.mov" type="video/mov" />
-                                </video>
-                            </div>
+                            <div class="splash-mint--title">NFT Management</div>
                         </div>
                     </div>
                     <div class="splash-mint--wallet">
-                        <form action="" class="wallet-form">
-                            <div class="wallet-form--fieldset hidden-bg">
-                                <div class="wallet-form--group hidden-mob">
+                        <form action="" class="manage-form">
+                            <div class="wallet-form--fieldset">
+                                <div class="wallet-form--group">
                                     <label class="wallet-form--label" for="your_wallet">Your Wallet ID:</label>
                                     <div class="input-group">
                                         <span class="wallet-form--input not-value">XXXX <span
                                                 class="wallet-form--input-inside">-XXXX-XXXX-XXXX-</span> XXXX</span>
                                         <!-- <input type="text" class="wallet-form--input" placeholder="XXXX-XXXX-XXXX-XXXX-XXXX" id="your_wallet" aria-describedby="wallet-connection"> -->
-                                        <button class="wallet-form--connection " disabled
+                                            <button class="wallet-form--connection " disabled
                                             id="wallet-connection">Disconnect</button>
-                                    </div>
-                                    <div class="wallet-form--status">
-                                        <div class="form-status--label">Status:</div>
-                                        <div class="form-status--text"></div>
                                     </div>
                                 </div>
                                 <div class="wallet-form--button">
@@ -429,29 +405,19 @@
     <div *ngIf="status === 'network'" class="wrap bkg-color-353D4D">
         <div class="container">
             <div class="parallax">
-                <img class="img  img-parallax" src="../../../assets/imgnew/mint/small-parts-7.svg"
-                    alt="small_parts_page1" width="2000" height="1600" data-speed="0.4">
+                <img class="img  img-parallax" src="../../../assets/imgnew/mint/small-parts-7.svg" alt="small_parts_page1" width="2000"
+                    height="1600" data-speed="0.4" >
             </div>
 
-            <div class="splash-mint row">
+            <div class="splash-mint splash-manage row">
                 <div class="col-xs-12 col-sm-12 col-md-8 col-lg-7">
                     <div class="splash-mint--body">
                         <div class="splash-mint--content">
-                            <div class="splash-mint--title">Free Mint</div>
-                            <div class="splash-mint--description">Whitelist only. One NFT per wallet.</div>
-                            <div class="splash-mint--image">
-                                <video class="img-ill" src="../../../assets/imgnew/mint/mint-avatizer.mp4"
-                                    preload="auto" no-controls autoplay loop muted playsinline alt="avatizer video"
-                                    width="400" height="400">
-                                    <source src="../../../assets/imgnew/mint/mint-avatizer.mp4" type="video/mp4" />
-                                    <source src="../../../assets/imgnew/mint/mint-avatizer.webm" type="video/webm" />
-                                    <source src="../../../assets/imgnew/mint/mint-avatizer.mov" type="video/mov" />
-                                </video>
-                            </div>
+                            <div class="splash-mint--title">NFT Management</div>
                         </div>
                     </div>
                     <div class="splash-mint--wallet">
-                        
+                        <form action="" class="manage-form">
                             <div class="wallet-form--fieldset focused">
                                 <div class="wallet-form--group">
                                     <label class="wallet-form--label" for="your_wallet">Your Wallet ID:</label>
@@ -459,18 +425,14 @@
                                         <span class="wallet-form--input">{{wallet.substring(0,5)}} <span
                                                 class="wallet-form--input-inside">-XXXX-XXXX-XXXX-</span> {{wallet.substring(wallet.length-4,wallet.length+4)}}</span>
                                         <!-- <input type="text" class="wallet-form--input" value="0x426 -XXXX-XXXX-XXXX- d1dA" placeholder="XXXX-XXXX-XXXX-XXXX-XXXX" id="your_wallet" aria-describedby="wallet-connection"> -->
-                                        <button (click)="logout()" class="wallet-form--connection connect"
+                                        <button (click)="logout()" class="wallet-form--connection connect" 
                                             id="wallet-connection">Disconnect</button>
-                                    </div>
-                                    <div class="wallet-form--status">
-                                        <div class="form-status--label">Status:</div>
-                                        <div class="form-status--text success">Avatizer NFT is available</div>
                                     </div>
                                 </div>
                                 <div class="wallet-form--button">
-                                    <button class="wallet-form--btn btn btn-metamask metamask-switch">
-                                        <span class="btn-icon"><img src="../../../assets/imgnew/mint/metamask-logo.svg"
-                                                width="30" height="28" alt="metamask-logo"></span>
+                                    <button (click)="switchNetworks()" class="wallet-form--btn btn btn-metamask metamask-switch">
+                                        <span class="btn-icon"><img src="../../../assets/imgnew/mint/metamask-logo.svg" width="30"
+                                                height="28" alt="metamask-logo"></span>
                                         <span class="btn-body">
                                             <span class="btn-title">Switch Network</span>
                                             <span class="btn-description">For minting need Etherium network</span>
@@ -478,12 +440,13 @@
                                     </button>
                                 </div>
                             </div>
-                        
+                        </form>
                     </div>
                 </div>
             </div>
 
         </div>
+        
         <div class="dinamic-notify error">Switching failed! Please try again! <button class="notify-close"></button>
         </div>
 
@@ -536,14 +499,14 @@
                         <div  class="splash-collect--items" *ngFor="let nft of nfts">
                             <a  (click)="popup(nft)"  href="javascript:void(0)" >
                                 <div class="collect-image">
-                                    <img src="../../../assets/imgnew/mint/avatyizer-nft-image.svg" width="220" height="220"
+                                    <img src="{{nft.Image}}" width="220" height="220"
                                         alt="avatyizer-nft-image">
                                 </div>
                                 <div class="collect-body">
                                     <div class="collect-title">{{nft.Name}}</div>
                                     <div class="collect-generic">Generation: 
-                                    <span *ngIf="nft?.Generative" class="generic-status active">Active</span>
-                                    <span *ngIf="!nft?.Generative" class="generic-status active">Paused</span></div>
+                                    <span *ngIf="nft?.Generative || nft?.Id === '0' || nft?.Id === '1'" class="generic-status active">Active</span>
+                                    <span *ngIf="!nft?.Generative && nft?.Id !== '0' && nft?.Id !== '1'" class="generic-status active">Paused</span></div>
                                 </div>
                             </a>
                             
@@ -583,7 +546,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <img src="../../../assets/imgnew/mint/avatyizer-nft-image-400x400.svg" width="400" height="400"
+                        <img src="{{select?.Image}}" width="400" height="400"
                             alt="avatyizer-nft-image">
                         <div class="modal-body--content active">
                             <div class="modal-desc">
@@ -599,8 +562,8 @@
                                 </div>
                             </div>
                             <div class="status-switch">
-                                <label class="checker">
-                                    <input [(ngModel)]="gene" (change)="toggleGen()"  class="manage-checkbox" type="checkbox" checked />
+                                <label *ngIf="select?.Id !== '0' && select?.Id !== '1'" class="checker">
+                                    <input  [(ngModel)]="gene" (change)="toggleGen()"  class="manage-checkbox" type="checkbox" checked />
                                     <div class="check-bg"></div>
                                     <div class="checkmark">
                                         <svg width="28" height="28" viewBox="0 0 28 28" fill="none"

@@ -374,7 +374,8 @@ export class ManageNFTComponent implements OnInit {
       console.log("here")
     })
 
-    this.initWeb3();
+    //this.initWeb3();
+    this.getStatus();
   }
 
   async initWeb3(){
@@ -459,6 +460,7 @@ closeModel() {
 
   logout(){
     try {
+      
       this.web3Modal.clearCachedProvider();
       location.reload();
       
@@ -585,6 +587,7 @@ console.log(err)
   
   
   getStatus(){
+    
     this.status = '';
     console.log(this.wallet)
     if(this.wallet === ''){
