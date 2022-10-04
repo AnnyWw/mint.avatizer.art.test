@@ -903,10 +903,7 @@
                 </div>
               </div>
               <div class="status-switch">
-                <label
-                  *ngIf="select?.Id !== '0' && select?.Id !== '1'"
-                  class="checker"
-                >
+                <label *ngIf="select?.Id !== '0'" class="checker">
                   <input
                     [(ngModel)]="gene"
                     (change)="toggleGen()"
