@@ -460,7 +460,7 @@ export class ManageNFTComponent implements OnInit {
 
       this.contractAv = new this.web3.eth.Contract(
         abi,
-        '0x31a363671073eb3c932CD8CA6Afb7c7294e3Df67'
+        '0x5D74387c391b88C35425d0Ec9f82750562fc173F'
       );
       this.getOwnership(this.wallet);
       this.pendingConnect = false;
@@ -530,7 +530,7 @@ export class ManageNFTComponent implements OnInit {
         //Gen1
         if (
           nft.token_address.toString().toLowerCase() ===
-          '0x31a363671073eb3c932CD8CA6Afb7c7294e3Df67'.toString().toLowerCase()
+          '0x5D74387c391b88C35425d0Ec9f82750562fc173F'.toString().toLowerCase()
         ) {
           let tok = await this.contractAv.methods.tokenURI(nft.token_id).call();
 

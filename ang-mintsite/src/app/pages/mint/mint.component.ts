@@ -249,14 +249,12 @@ export class MintComponent implements OnInit {
             id: 'video',
             allow: 'autoplay; fullscreen',
           });
-          controls
-            .addClass('embed-responsive embed-responsive-16by9')
-            .css({
-              width: '100%',
-              'padding-bottom': embedHgPr,
-              height: embedHg,
-              position: 'relative',
-            });
+          controls.addClass('embed-responsive embed-responsive-16by9').css({
+            width: '100%',
+            'padding-bottom': embedHgPr,
+            height: embedHg,
+            position: 'relative',
+          });
           controls.nextAll('img').remove();
           controls.html(iframeEl);
           iframeEl[0].contentWindow.postMessage(
@@ -472,7 +470,7 @@ export class MintComponent implements OnInit {
       //get phase
       this.contractAv = new this.web3.eth.Contract(
         abi,
-        '0x31a363671073eb3c932CD8CA6Afb7c7294e3Df67'
+        '0x5D74387c391b88C35425d0Ec9f82750562fc173F'
       );
       let hasStarted = await this.contractAv.methods.saleStarted().call();
       if (!hasStarted) {
