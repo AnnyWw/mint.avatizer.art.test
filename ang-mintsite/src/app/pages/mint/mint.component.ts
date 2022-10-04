@@ -481,11 +481,14 @@ export class MintComponent implements OnInit {
 
       let hasTok = await this.contractAv.methods.balanceOf(this.wallet).call();
 
-      if (hasTok > 0) {
-        this.minted = true;
-      } else {
-        this.minted = false;
-      }
+      // UNCOMMENT THIS WHEN READY
+      // if (hasTok > 0) {
+      //   this.minted = true;
+      // } else {
+      //   this.minted = false;
+      // }
+      // REMOVE THIS WHEN READY
+      this.minted = false;
       //if wl
       await this.WLCheck(this.wallet);
       //get merk
