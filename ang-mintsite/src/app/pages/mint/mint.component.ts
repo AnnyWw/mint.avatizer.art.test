@@ -7,6 +7,7 @@ import { map, filter, tap } from 'rxjs/operators';
 import { TitleStrategy } from '@angular/router';
 import { ActivatedRoute, Router } from '@angular/router';
 const abi = require('../../../assets/config/abi.json');
+import { environment } from 'src/environments/environment';
 //import WalletConnectProvider from "@walletconnect/web3-provider";
 declare var $: any;
 
@@ -31,6 +32,8 @@ export class MintComponent implements OnInit {
   token: number = 0;
   status: string = '';
   contractAv: any = null;
+	FullYear: number = new Date().getFullYear();
+	readonly environment = environment;
 
   constructor(private api: ApiService) {
     this.getStatus();
