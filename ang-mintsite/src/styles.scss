@@ -30,7 +30,7 @@ body {
 *{
     font-family: "ClashGrotesk";
 }
-
+.no-hover:hover{text-decoration: none !important}
 // _assets.collect-modal.css
 .modal-backdrop.in {
     z-index: 0;
