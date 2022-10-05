@@ -8,6 +8,7 @@ import { TitleStrategy } from '@angular/router';
 import { ActivatedRoute, Router } from '@angular/router';
 const abi = require('../../../assets/config/abi.json');
 import { environment } from 'src/environments/environment';
+import { texts } from 'src/environments/texts';
 //import WalletConnectProvider from "@walletconnect/web3-provider";
 declare var $: any;
 
@@ -34,7 +35,7 @@ export class MintComponent implements OnInit {
   contractAv: any = null;
 	FullYear: number = new Date().getFullYear();
 	readonly environment = environment;
-
+	readonly texts = texts;
   constructor(private api: ApiService) {
     this.getStatus();
   }

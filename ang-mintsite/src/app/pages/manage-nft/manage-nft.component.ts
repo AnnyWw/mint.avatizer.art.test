@@ -2,6 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import Web3Modal from 'web3modal';
 import Web3 from 'web3';
 import { environment } from 'src/environments/environment';
+import { texts } from 'src/environments/texts';
 const abi = require('../../../assets/config/abi.json');
 declare var $: any;
 
@@ -27,7 +28,8 @@ export class ManageNFTComponent implements OnInit {
   select: any = null;
   gene: boolean = false;
   readonly environment = environment;
-FullYear: number = new Date().getFullYear();
+  readonly texts = texts;
+  FullYear: number = new Date().getFullYear();
   constructor() {}
 
   ngOnInit(): void {
