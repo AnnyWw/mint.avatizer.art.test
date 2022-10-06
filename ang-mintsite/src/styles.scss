@@ -2451,6 +2451,7 @@ only screen and (min-resolution: 2dppx) {
     display: flex;
     flex-wrap: wrap;
 	justify-content: center;
+	
 }
 
 .collect-card {
@@ -2487,6 +2488,7 @@ only screen and (min-resolution: 2dppx) {
     max-width: 700px;
     flex-wrap: wrap;
     margin: 10px auto 0;
+    justify-content: center;
 }
 
 .splash-collect--title {
