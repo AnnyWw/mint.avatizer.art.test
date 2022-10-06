@@ -2450,6 +2450,7 @@ only screen and (min-resolution: 2dppx) {
 .splash-collect--items {
     display: flex;
     flex-wrap: wrap;
+	justify-content: center;
 }
 
 .collect-card {
@@ -2632,7 +2633,7 @@ only screen and (min-resolution: 2dppx) {
 }
 
 @media (min-width: 731px) {
-    .collect-card:nth-child(3n + 1) {
+    .collect-card:nth-child(3n + 1):not(:last-child){
         margin-left: 0;
     }
 
