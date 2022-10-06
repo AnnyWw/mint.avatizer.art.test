@@ -799,12 +799,12 @@
           <div class="splash-collect">
             <div class="splash-collect--title">You own {{ nfts.length }} Avatizer(s)</div>
             <div class="splash-collect--items" *ngFor="let nft of nfts">
-              <a (click)="popup(nft)" href="javascript:void(0)">
+              <a (click)="popup(nft)" href="javascript:void(0)" class="collect-card">
                 <div class="collect-image">
                   <img
                     src="{{ nft.Image }}"
-                    width="220"
-                    height="220"
+                    
+                    height="240"
                     alt="avatyizer-nft-image"
                   />
                 </div>
