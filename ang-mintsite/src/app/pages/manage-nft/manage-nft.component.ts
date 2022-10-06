@@ -34,7 +34,7 @@ export class ManageNFTComponent implements OnInit {
 
   ngOnInit(): void {
     $(document).ready(function () {
-      console.log('Jquery is working !!!');
+      //console.log('Jquery is working !!!');
 
       // NEW HEADER JS
       $('.menu-tab').click(function () {
@@ -420,7 +420,7 @@ export class ManageNFTComponent implements OnInit {
 
     /* add Web3modal */
     $('#connect').click(function () {
-      console.log('here');
+      //console.log('here');
     });
 
     //this.initWeb3();
@@ -428,12 +428,12 @@ export class ManageNFTComponent implements OnInit {
   }
 
   async initWeb3() {
-    console.log('here');
+    //console.log('here');
     /*const providerOptions = {
       walletconnect: {
         package: WalletConnectProvider, // required
         options: {
-          infuraId: "68bbfa6dd6594f328012419c5b654b2f" // required
+          infuraId: environment.walletconnect_infuraId, //"68bbfa6dd6594f328012419c5b654b2f" // required
         }
       }
     };*/
@@ -450,7 +450,7 @@ export class ManageNFTComponent implements OnInit {
       this.provider = await this.web3Modal.connect();
       this.web3 = new Web3(this.provider);
       this.network = await this.web3.eth.net.getNetworkType();
-      console.log(this.network);
+      //console.log(this.network);
 
       //Display warning if on the wrong network
       if (this.network !== 'goerli') {
@@ -460,12 +460,12 @@ export class ManageNFTComponent implements OnInit {
       }
 
       let accounts = await this.web3.eth.getAccounts();
-      console.log(accounts);
+      //console.log(accounts);
       this.wallet = accounts[0];
 
       this.contractAv = new this.web3.eth.Contract(
         abi,
-        '0x5D74387c391b88C35425d0Ec9f82750562fc173F'
+        environment.contractAv //'0x5D74387c391b88C35425d0Ec9f82750562fc173F'
       );
       this.getOwnership(this.wallet);
       this.pendingConnect = false;
@@ -477,7 +477,7 @@ export class ManageNFTComponent implements OnInit {
   }
 
   popup(token: any) {
-    console.log(token);
+    //console.log(token);
     this.select = token;
     this.gene = token.Generative;
     //this.myModal.nativeElement.click()
@@ -527,15 +527,15 @@ export class ManageNFTComponent implements OnInit {
         ethNFTs = ethNFTs.concat(data.result);
         count1++;
       }
-      console.log(ethNFTs);
+     // console.log(ethNFTs);
 
       this.nfts = [];
 
       for (let nft of ethNFTs) {
         //Gen1
         if (
-          nft.token_address.toString().toLowerCase() ===
-          '0x5D74387c391b88C35425d0Ec9f82750562fc173F'.toString().toLowerCase()
+          nft.token_address.toString().toLowerCase() === environment.contractAv.toString().toLowerCase()
+          //'0x5D74387c391b88C35425d0Ec9f82750562fc173F'.toString().toLowerCase()
         ) {
           let tok = await this.contractAv.methods.tokenURI(nft.token_id).call();
 
@@ -543,7 +543,7 @@ export class ManageNFTComponent implements OnInit {
           let isClaimed = await this.contractAv.methods
             .pausedTokenGenes(nft.token_id)
             .call();
-          console.log(tok);
+          //console.log(tok);
           //Decode URL
           let nftObj = {
             Id: nft.token_id,
@@ -551,7 +551,7 @@ export class ManageNFTComponent implements OnInit {
             Image: data?.image,
             Generative: isClaimed === '0x0' || !isClaimed ? true : false,
           };
-          console.log(nftObj);
+          //console.log(nftObj);
           this.nfts.push(nftObj);
           /*let isClaimed = await this.contractAv.methods.gen1_token_to_jiraverse_pass(nft.token_id).call();
           if(isClaimed === 0){
@@ -574,7 +574,7 @@ export class ManageNFTComponent implements OnInit {
 
       if (response) {
         data = await response.json();
-        console.log(data);
+        //console.log(data);
       }
       return data;
     } catch (err) {}
@@ -599,7 +599,7 @@ export class ManageNFTComponent implements OnInit {
 
       if (response) {
         data = await response.json();
-        console.log(data);
+        //console.log(data);
       }
       return data;
     } catch (err) {
@@ -608,7 +608,7 @@ export class ManageNFTComponent implements OnInit {
   }
 
   async toggleGen() {
-    console.log(this.gene);
+    //console.log(this.gene);
     try {
       if (this.gene) {
         let change = await this.contractAv.methods
@@ -622,7 +622,7 @@ export class ManageNFTComponent implements OnInit {
         this.select.Generative = false;
       }
     } catch (err) {
-      console.log(err);
+      //console.log(err);
     }
   }
 
@@ -630,11 +630,11 @@ export class ManageNFTComponent implements OnInit {
 
   getStatus() {
     this.status = '';
-    console.log(this.wallet);
+    //console.log(this.wallet);
     if (this.wallet === '') {
       this.status = 'connect';
     } else if (this.network !== 'goerli') {
-      console.log(this.network);
+      //console.log(this.network);
       this.status = 'network';
     } else if (this.pendingConnect) {
       this.status = 'pendingConnect';

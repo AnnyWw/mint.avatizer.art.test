@@ -42,7 +42,7 @@ export class MintComponent implements OnInit {
 
   ngOnInit(): void {
     $(document).ready(function () {
-      console.log('Jquery is working !!!');
+     // console.log('Jquery is working !!!');
 
       // NEW HEADER JS
       $('.menu-tab').click(function () {
@@ -433,12 +433,12 @@ export class MintComponent implements OnInit {
   }
 
   async initWeb3() {
-    console.log('here');
+    //console.log('here');
     const providerOptions = {
       walletconnect: {
         package: WalletConnectProvider, // required
         options: {
-          infuraId: '68bbfa6dd6594f328012419c5b654b2f', // required
+          infuraId: environment.walletconnect_infuraId, // '68bbfa6dd6594f328012419c5b654b2f', // required
         },
       },
     };
@@ -474,7 +474,7 @@ export class MintComponent implements OnInit {
       //get phase
       this.contractAv = new this.web3.eth.Contract(
         abi,
-        '0x5d74387c391b88c35425d0ec9f82750562fc173f'
+        environment.contractAv //'0x5d74387c391b88c35425d0ec9f82750562fc173f'
       );
       let hasStarted = await this.contractAv.methods.saleStarted().call();
 
@@ -582,7 +582,7 @@ export class MintComponent implements OnInit {
     if (this.wallet === '') {
       this.status = 'connect';
     } else if (this.network !== 'goerli') {
-      console.log(this.network);
+      //console.log(this.network);
       this.status = 'network';
     } else if (this.pendingConnect) {
       this.status = 'pendingConnect';
