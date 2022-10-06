@@ -2,22 +2,23 @@ import { Component, OnInit, Self } from '@angular/core';
 import Web3Modal from 'web3modal';
 import Web3 from 'web3';
 import { ApiService } from 'src/app/services/api.service';
-import { Observable, of } from 'rxjs';
-import { map, filter, tap } from 'rxjs/operators';
+import { Observable, of} from 'rxjs';
+import { map, filter, tap } from 'rxjs/operators'
 import { TitleStrategy } from '@angular/router';
 import { ActivatedRoute, Router } from '@angular/router';
-const abi = require('../../../assets/config/abi.json');
+const abi = require('../../../assets/config/abi.json')
+import WalletConnectProvider from "@walletconnect/web3-provider";
 import { environment } from 'src/environments/environment';
 import { texts } from 'src/environments/texts';
-//import WalletConnectProvider from "@walletconnect/web3-provider";
 declare var $: any;
 
 @Component({
   selector: 'app-mint',
   templateUrl: './mint.component.html',
-  styleUrls: ['./mint.component.scss'],
+  styleUrls: ['./mint.component.scss']
 })
 export class MintComponent implements OnInit {
+
   phase: string = '';
   wlMerk: any[] = [];
   mintState: string = '';
@@ -37,6 +38,7 @@ export class MintComponent implements OnInit {
 	readonly environment = environment;
 	readonly texts = texts;
   constructor(private api: ApiService) {
+
     this.getStatus();
   }
 
@@ -45,54 +47,45 @@ export class MintComponent implements OnInit {
       console.log('Jquery is working !!!');
 
       // NEW HEADER JS
-      $('.menu-tab').click(function () {
-        $('.main-menu').toggleClass('show');
-        $('.menu-tab').toggleClass('active');
+      $(".menu-tab").click(function () {
+        $(".main-menu").toggleClass("show");
+        $(".menu-tab").toggleClass("active");
       });
 
       $(document).mouseup(function (e: any) {
-        var container = $('.main-menu');
-        var container2 = $('.logo-header');
-        if (
-          container.has(e.target).length === 0 &&
-          container2.has(e.target).length === 0
-        ) {
-          container.removeClass('show');
-          $('.menu-tab').removeClass('active');
+        var container = $(".main-menu");
+        var container2 = $(".logo-header")
+        if (container.has(e.target).length === 0 && container2.has(e.target).length === 0) {
+          container.removeClass("show");
+          $(".menu-tab").removeClass("active");
         }
       });
 
       // FOOTER JS
-      $('#up').click(function () {
-        $('html, body').animate({ scrollTop: 0 }, 500);
+      $("#up").click(function () {
+        $("html, body").animate({ scrollTop: 0 }, 500);
         return false;
       });
 
-      var FSHeight = $('#first_screen_wrap').innerHeight();
+      var FSHeight = $("#first_screen_wrap").innerHeight();
       $(window).on('scroll', function () {
         const position = $(self).scrollTop();
         if (position >= FSHeight) {
-          $('#up').css('opacity', '1');
+          $("#up").css('opacity', '1');
         } else {
-          $('#up').css('opacity', '0');
+          $("#up").css("opacity", "0");
         }
       });
 
       // MANAGE JS
 
-      $('.manage-checkbox').click(function () {
-        if ($(self).is(':checked')) {
-          $(self)
-            .parents('.modal-body--content')
-            .removeClass('paused')
-            .addClass('active');
+      $(".manage-checkbox").click(function () {
+        if ($(self).is(":checked")) {
+          $(self).parents('.modal-body--content').removeClass('paused').addClass('active');
           $('.generic-status').text('Active');
           $('.generic-status').removeClass('paused').addClass('active');
         } else {
-          $(self)
-            .parents('.modal-body--content')
-            .removeClass('active')
-            .addClass('paused');
+          $(self).parents('.modal-body--content').removeClass('active').addClass('paused');
           $('.generic-status').text('Paused');
           $('.generic-status').removeClass('active').addClass('paused');
         }
@@ -109,35 +102,35 @@ export class MintComponent implements OnInit {
           var winH = $(self).height();
           var parentH = imgParent.innerHeight();
 
-          // The next pixel to show on screen
+
+          // The next pixel to show on screen      
           var winBottom = winY + winH;
 
           // If block is shown on screen
           var imgPercent;
           if (winBottom > imgY && winY < imgY + parentH) {
             // Number of pixels shown after block appear
-            var imgBottom = (winBottom - imgY) * speed;
+            var imgBottom = ((winBottom - imgY) * speed);
             // Max number of pixels until block disappear
             var imgTop = winH + parentH;
             // Porcentage between start showing until disappearing
-            imgPercent = (imgBottom / imgTop) * 100 + (50 - speed * 50);
+            imgPercent = ((imgBottom / imgTop) * 100) + (50 - (speed * 50));
           }
           img.css({
             top: imgPercent + '%',
-            transform: 'translateY(-' + imgPercent + '%)',
+            transform: 'translateY(-' + imgPercent + '%)'
           });
         }
         $(document).on({
           scroll: function () {
             parallaxImg();
-          },
-          ready: function () {
+          }, ready: function () {
             parallaxImg();
-          },
+          }
         });
       });
 
-      $('.scrollTo').bind('click', function () {
+      $(".scrollTo").bind('click', function () {
         if ($.scrollTo !== undefined) {
           if ($(self).attr('href').indexOf('#') == 0) {
             $.scrollTo($(self).attr('href'), 600);
@@ -151,9 +144,10 @@ export class MintComponent implements OnInit {
       });
 
       if ($.colorbox !== undefined) {
-        $('.colorbox, .screenshot').colorbox({ opacity: 0.6, speed: 200 });
 
-        $('.overlay').colorbox({
+        $(".colorbox, .screenshot").colorbox({ opacity: 0.6, speed: 200 });
+
+        $(".overlay").colorbox({
           iframe: true,
           title: '',
           notshowbtns: true,
@@ -161,10 +155,10 @@ export class MintComponent implements OnInit {
           opacity: 0.6,
           speed: 200,
           innerHeight: function () {
-            return $.urlParam('height', $(self).attr('href'));
+            return $.urlParam("height", $(self).attr("href"));
           },
           innerWidth: function () {
-            return $.urlParam('width', $(self).attr('href'));
+            return $.urlParam("width", $(self).attr("href"));
           },
           /*            href: function () {
                         return $.urlParam('href', $(self).attr('href'));
@@ -174,34 +168,27 @@ export class MintComponent implements OnInit {
           },
           onClosed: function () {
             // activeScroll = false;
-          },
+          }
         });
       } //end colorbox
 
+
       (function ($) {
-        $('.hPound').bind('click', function (e: any) {
+        $('.hPound').bind("click", function (e: any) {
           var anchor = $(self);
           var dst = $(anchor.attr('href'));
           if (dst.offset() !== undefined) {
-            $('html, body').stop().animate(
-              {
-                scrollTop: dst.offset().top,
-              },
-              1000
-            );
+            $('html, body').stop().animate({
+              scrollTop: dst.offset().top
+            }, 1000);
           }
 
           var wh = $(window).width();
           if (wh <= 768) {
             if (dst.offset() !== undefined) {
-              $('html, body')
-                .stop()
-                .animate(
-                  {
-                    scrollTop: dst.offset().top - 50,
-                  },
-                  1000
-                );
+              $('html, body').stop().animate({
+                scrollTop: dst.offset().top - 50
+              }, 1000);
             }
           }
           e.preventDefault();
@@ -217,7 +204,7 @@ export class MintComponent implements OnInit {
 
           if (parent.length > 0) {
             var play = parent.find('.play:not(.mobile)');
-            if (play.length == 0 || play === undefined || play == 'undefined') {
+            if (play.length == 0 || play === undefined || play == "undefined") {
               play = parent.find('.play-new:not(.mobile)');
             }
 
@@ -232,39 +219,27 @@ export class MintComponent implements OnInit {
         });
 
         var play = $('.play:not(.mobile, .overlay)');
-        if (play.length == 0 || play === undefined || play == 'undefined') {
+        if (play.length == 0 || play === undefined || play == "undefined") {
           play = $('.play-new:not(.mobile, .overlay)');
         }
 
         $('#videoModal').on('show.bs.modal', function (e: any) {
           setTimeout(function () {
             play.click();
-          }, 200);
+          }, 200)
         });
         play.on('click', function (event: any) {
+
           var playself = event.target.closest('a');
-          var play_src = $(playself).attr('data-src');
+          var play_src = $(playself).attr("data-src");
           var controls = $(playself).parent();
           var embedHgPr = controls.parent().height();
           var embedHg = controls.nextAll('img').height();
-          var iframeEl = $('<iframe></iframe>').attr({
-            class: 'embed-responsive-item',
-            src: play_src,
-            id: 'video',
-            allow: 'autoplay; fullscreen',
-          });
-          controls.addClass('embed-responsive embed-responsive-16by9').css({
-            width: '100%',
-            'padding-bottom': embedHgPr,
-            height: embedHg,
-            position: 'relative',
-          });
+          var iframeEl = $('<iframe></iframe>').attr({ class: "embed-responsive-item", src: play_src, id: 'video', allow: 'autoplay; fullscreen' });
+          controls.addClass('embed-responsive embed-responsive-16by9').css({ 'width': '100%', 'padding-bottom': embedHgPr, 'height': embedHg, 'position': 'relative' });
           controls.nextAll('img').remove();
           controls.html(iframeEl);
-          iframeEl[0].contentWindow.postMessage(
-            '{"event":"command","func":"playVideo","args":""}',
-            '*'
-          );
+          iframeEl[0].contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
           return false;
         });
       })($);
@@ -272,9 +247,7 @@ export class MintComponent implements OnInit {
       /* replace retina src images if use class image2x */
       var image2x = function () {
         //console.log('images2x');
-        var pixelRatio = !!window.devicePixelRatio
-          ? window.devicePixelRatio
-          : 1;
+        var pixelRatio = !!window.devicePixelRatio ? window.devicePixelRatio : 1;
 
         //var pixelRatio = 2; //hidden for retina
 
@@ -287,7 +260,7 @@ export class MintComponent implements OnInit {
           }
           __handleBgImageTo2xBg(use_if_file_exists);
 
-          var els = $('img.image2x').get();
+          var els = $("img.image2x").get();
 
           var len = els.length;
 
@@ -315,21 +288,15 @@ export class MintComponent implements OnInit {
             reolaceSrcset(source);
             if (use_if_file_exists) {
               if (UrlExists(src)) {
-                $(els[i]).attr({
-                  src: src,
-                  'data-src': data_src,
-                  'data-srcset': data_srcset,
-                  srcset: srcset,
-                });
+                $(els[i]).attr({ 'src': src, 'data-src': data_src, 'data-srcset': data_srcset, 'srcset': srcset });
               }
-            } else {
-              $(els[i]).attr({
-                src: src,
-                'data-src': data_src,
-                'data-srcset': data_srcset,
-                srcset: srcset,
-              });
             }
+            else {
+
+              $(els[i]).attr({ 'src': src, 'data-src': data_src, 'data-srcset': data_srcset, 'srcset': srcset });
+            }
+
+
           }
         }
 
@@ -340,16 +307,7 @@ export class MintComponent implements OnInit {
 
             if (useIfFileExists) {
               // Example: jQueryEl.css('backgroundImage') = url("/images/upload/bkg-cover/bgHeadLand@2x.jpg")
-              if (
-                UrlExists(
-                  __replaceImgTo2Img(
-                    data_background_image.substring(
-                      5,
-                      data_background_image.length - 2
-                    )
-                  )
-                )
-              ) {
+              if (UrlExists(__replaceImgTo2Img(data_background_image.substring(5, (data_background_image.length - 2))))) {
                 __replaceBgImageTo2xBg(jQueryEl);
               }
             } else {
@@ -360,18 +318,14 @@ export class MintComponent implements OnInit {
         }
 
         function __replaceBgImageTo2xBg(jQueryEl: any) {
-          jQueryEl.attr(
-            'data-background-image',
-            __replaceImgTo2Img(jQueryEl.data('background-image'))
-          );
+          jQueryEl.attr('data-background-image', __replaceImgTo2Img(jQueryEl.data('background-image')));
         }
 
         function __replaceImgTo2Img(currentString: any) {
           if (currentString.match('@2x')) {
             return currentString;
           } else {
-            return currentString
-              .replace('.png', '@2x.png')
+            return currentString.replace('.png', '@2x.png')
               .replace('.jpg', '@2x.jpg')
               .replace('.webp', '@2x.webp');
           }
@@ -390,6 +344,8 @@ export class MintComponent implements OnInit {
           http.send();
           return http.status != 404;
         }
+
+
       };
 
       /*--------------------------------*/
@@ -400,207 +356,223 @@ export class MintComponent implements OnInit {
         if (initLazyload == undefined) {
           initLazyload = function () {
             lozad('.lazyload', {
-              loaded: function (el: any) {
-                el.classList.remove('lazyload');
-              },
-            }).observe();
+              loaded: function (el: any) { el.classList.remove('lazyload') }
+            }
+            ).observe();
+
 
             image2x();
 
             $(window).load(function () {
-              $(document).trigger('scroll', {
-                detail: 'Display on trigger...',
-              });
+              $(document).trigger('scroll', { detail: 'Display on trigger...' });
             });
           };
-        }
+        };
 
         initLazyload();
+
       } else {
         image2x();
-      }
+      };
       /* STOP init lazyload */
+
     });
 
-    document.addEventListener('DOMContentLoaded', function (event) {
+    document.addEventListener("DOMContentLoaded", function (event) {
       $('body').addClass('loaded');
     });
 
     /* add Web3modal */
     $('#connect').click(function () {
-      console.log('here');
-    });
+      console.log("here")
+    })
   }
 
-  async initWeb3() {
-    console.log('here');
-    /*const providerOptions = {
+  async initWeb3(){
+    console.log("here")
+    const providerOptions = {
       walletconnect: {
         package: WalletConnectProvider, // required
         options: {
           infuraId: "68bbfa6dd6594f328012419c5b654b2f" // required
         }
       }
-    };*/
-
+    };
+    
     this.web3Modal = new Web3Modal({
-      network: 'goerli', // optional
+      network: "goerli", // optional
       cacheProvider: true, // optional
-      //providerOptions // required
+      providerOptions // required
     });
 
     try {
       this.pendingConnect = true;
       this.getStatus();
       this.provider = await this.web3Modal.connect();
-      this.web3 = new Web3(this.provider);
+      this.web3  = new Web3(this.provider);
       this.network = await this.web3.eth.net.getNetworkType();
+
 
       //Display warning if on the wrong network
       //if(this.network !== 'main'){
-      //toast("Please switch to the Ethereum Mainnet network.");
-      // return;
+        //toast("Please switch to the Ethereum Mainnet network.");
+       // return;
       //}
 
-      if (this.network !== 'goerli') {
+      if(this.network !== 'goerli'){
         this.status = 'network';
         return;
       }
 
       let accounts = await this.web3.eth.getAccounts();
       this.wallet = accounts[0];
-
+     
       this.pendingConnect = false;
       //get phase
-      this.contractAv = new this.web3.eth.Contract(
-        abi,
-        '0x5D74387c391b88C35425d0Ec9f82750562fc173F'
-      );
+      this.contractAv = new this.web3.eth.Contract(abi, "0xB8756CdDeC4F9f06CdF04573383F49a2607b7071");
       let hasStarted = await this.contractAv.methods.saleStarted().call();
-      if (!hasStarted) {
-        this.phase = 'Public';
-      } else {
-        this.phase = 'WL';
+      
+      if(hasStarted){
+        this.phase='WL';
+      }
+      else{
+        this.phase="not started"
       }
 
       let hasTok = await this.contractAv.methods.balanceOf(this.wallet).call();
-
-      // UNCOMMENT THIS WHEN READY
-      // if (hasTok > 0) {
-      //   this.minted = true;
-      // } else {
-      //   this.minted = false;
-      // }
-      // REMOVE THIS WHEN READY
-      this.minted = false;
+   
+      if(hasTok > 0){
+        this.minted = true;
+      }
+      else{
+        this.minted = false;
+      }
       //if wl
       await this.WLCheck(this.wallet);
       //get merk
 
       //this.getStatus();
-    } catch (err: any) {
-      console.log(err);
+      
+    }
+    catch(err:any){
+      console.log(err)
+      
     }
   }
 
-  async switchNetworks() {
-    try {
+  async switchNetworks(){
+    try{
       await this.web3.currentProvider.request({
         method: 'wallet_switchEthereumChain',
-        params: [{ chainId: Web3.utils.toHex('5') }],
+        params: [{ chainId: Web3.utils.toHex('5') }]
       });
       this.initWeb3();
-    } catch (err) {
-      console.log(err);
+    }
+    catch(err){
+      console.log(err)
     }
   }
 
-  logout() {
+  logout(){
     try {
       this.web3Modal.clearCachedProvider();
       location.reload();
-
+      
       return {};
-    } catch (err) {
+    }
+    catch(err){
       return null;
     }
   }
 
-  WLCheck(wallet: string) {
+  WLCheck(wallet:string){
+
     let res = this.api.getWL(wallet).subscribe(
-      (val: any) => {
+      (val:any)=>{
+    
         this.wlMerk = val['Proof'] as any[];
         this.getStatus();
       },
-      (err) => {}
-    );
+      (err)=>{
+
+      });
+
   }
 
-  async startMint() {
-    try {
+
+
+  async startMint(){
+    if(this.status === 'not started'){
+      return;
+    }
+    try{
       let price = 1;
-      console.log(this.contractAv);
       this.pending = true;
-      this.getStatus();
-      this.contractAv.methods
-        .mint(price, this.wlMerk)
-        .send({ from: this.wallet })
-        .on('transactionHash', async (hash: any) => {
-          this.pending = true;
-          this.getStatus();
-          //toast("Transaction has been started. Please wait for the transaction to be confirmed.");
-        })
-        .on('receipt', async (reciept: any) => {
-          //toast("Transaction has completed.");
-          this.pending = false;
-          console.log(reciept.events.Transfer.returnValues.tokenId);
-          this.minted = true;
-          this.token = reciept.events.Transfer.returnValues.tokenId;
-          this.getStatus();
-        })
-        .on('error', async (error: any) => {
-          //toast(error.message);
-          this.pending = false;
-          this.getStatus();
-        });
-    } catch (err) {
-      console.log(err);
+      this.getStatus()
+      this.contractAv.methods.mint(price, this.wlMerk).send({from:this.wallet})
+      .on("transactionHash", async (hash:any) => {
+        this.pending = true;
+        this.getStatus()
+        //toast("Transaction has been started. Please wait for the transaction to be confirmed.");
+      })
+      .on("receipt", async(reciept:any) => {
+        //toast("Transaction has completed.");
+        this.pending = false;
+        console.log(reciept.events.Transfer.returnValues.tokenId)
+        this.minted = true;
+        this.token = reciept.events.Transfer.returnValues.tokenId;
+        this.getStatus()
+      })
+      .on("error", async(error:any)=>{
+        //toast(error.message);
+        this.pending = false;
+        this.getStatus()
+      });
+    }
+    catch(err){
+      console.log(err)
       this.pending = false;
-      this.getStatus();
+      this.getStatus()
     }
   }
 
-  getStatus() {
+  
+  getStatus(){
     this.status = '';
 
-    if (this.wallet === '') {
+    if(this.wallet === ''){
       this.status = 'connect';
-    } else if (this.network !== 'goerli') {
-      console.log(this.network);
+    }
+    else if(this.network !== 'goerli'){
+      console.log(this.network)
       this.status = 'network';
-    } else if (this.pendingConnect) {
+    }
+    else if (this.pendingConnect){
       this.status = 'pendingConnect';
-    } else if (this.pending) {
+    }
+    else if (this.pending){
       this.status = 'pending';
-    } else if (this.minted) {
+    }
+    else if (this.minted){
       this.status = 'minted';
-    } else if (this.phase === 'WL') {
-      if (
-        this.wlMerk.length > 0 &&
-        this.wallet &&
-        !this.pending &&
-        !this.minted
-      ) {
+    }
+    else if(this.phase === 'WL'){
+      if(this.wlMerk.length > 0 && this.wallet && !this.pending && !this.minted){
         this.status = 'WL';
-      } else {
-        this.status = 'WLNot';
       }
-    } else if (this.phase === 'Public') {
-      if (this.wlMerk && this.wallet && !this.pending && !this.minted) {
-        this.status = 'Public';
+      else {
+        this.status = 'WLNot'
+      }
+      
+    }
+    else if (this.phase === 'not started'){
+      if(this.wlMerk.length > 0 && this.wallet && !this.pending && !this.minted){
+        this.status = 'not started';
       }
     }
 
     this.status;
+    
   }
+
 }
