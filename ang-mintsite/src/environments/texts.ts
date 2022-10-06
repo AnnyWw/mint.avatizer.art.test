@@ -10,7 +10,7 @@ export const texts = {
   status_text_success:"Your Avatizer NFT is available",
   disconnect:"Disconnect",
   switch_network:"Switch network",
-  status_switch_error:"Switching failed! Please try again!",
+  status_switch_error:"Network switch failed, try again",
 	mint_now:"Mint my Avatizer now",
 	status_mint_success:"Congrats! Your Avatizer has been minted",
 	status_address_missing_in_whitelist :"Your wallet is not on the whitelist, minting not possible",
@@ -19,13 +19,16 @@ export const texts = {
 	status_already_minted_nft:"You've minted your Avatizer already.",
 	copyright_adsres:"1800 Diagonal Road #600, Alexandria, VA 22314, USA",
 	copyright_company:"© Electronic Team, Inc.",
-	status_minted_not_started:"Avatizer mint has not started.",
+	status_minted_not_started:"You are a bit early, minting will start soon.",
 	connect_wallet:"Connect my wallet",
 	splash_mint_title_mng: "Avatizer NFT - Free Mint",
 	minting_ethereum_only:"Minting on Ethereum only",
 	daily_reload:"Daily reload",
 	metamask_install:"Install MetaMask",
-	metamask_required:"MetaMask wallet required"
+	metamask_required:"MetaMask wallet required",
+    menu_text_mint:"Free Mint",
+    menu_text_manage:"Manage my Avatizers"
+    
 	
 };
 
