@@ -505,7 +505,7 @@
     </div>
   </div>
 
-  <div *ngIf="wallet === 'ahisiash'" class="wrap bkg-color-353D4D">
+  <div *ngIf="wallet === 'ahisiash'" class="wrap bkg-color-353D4D" id="mint_status_{{wallet}}">
     <div class="container">
       <div class="parallax">
         <img
@@ -620,7 +620,7 @@
       </div>
     </div>
   </div>
-  <div *ngIf="status === 'connect'" class="wrap bkg-color-353D4D">
+  <div *ngIf="status === 'connect_bkp'" class="wrap bkg-color-353D4D" id="mint_status_{{status}}">
     <div class="container">
       <div class="parallax">
         <img
@@ -732,7 +732,7 @@
       </div>
     </div>
   </div>
-  <div *ngIf="status === 'pendingConnect'" class="wrap bkg-color-353D4D">
+  <div *ngIf="status === 'pendingConnect'" class="wrap bkg-color-353D4D" id="mint_status_{{status}}">
     <div class="container">
       <div class="parallax">
         <img
@@ -839,7 +839,7 @@
       </div>
     </div>
   </div>
-  <div *ngIf="status === 'network'" class="wrap bkg-color-353D4D">
+  <div *ngIf="status === 'network'" class="wrap bkg-color-353D4D" id="mint_status_{{status}}">
     <div class="container">
       <div class="parallax">
         <img
@@ -964,7 +964,7 @@
   </div>
   <div
     *ngIf="status === 'WL' || status === 'Public'"
-    class="wrap bkg-color-353D4D"
+    class="wrap bkg-color-353D4D" id="mint_status_{{status}}"
   >
     <div class="container">
       <div class="parallax">
@@ -1074,7 +1074,7 @@
   </div>
   <div
     *ngIf="phase === 'WL' && status === 'WLNot'"
-    class="wrap bkg-color-353D4D"
+    class="wrap bkg-color-353D4D" id="mint_status_{{status}}"
   >
     <div class="container">
       <div class="parallax">
@@ -1204,7 +1204,7 @@
       </div>
     </div>
   </div>
-  <div *ngIf="status === 'minted' && !token" class="wrap bkg-color-353D4D">
+  <div *ngIf="status === 'minted' && !token" class="wrap bkg-color-353D4D" id="mint_status_{{status}}">
     <div class="container">
       <div class="parallax">
         <img
@@ -1331,7 +1331,7 @@
     </div>
   </div>
 
-  <div *ngIf="status === 'pending'" class="wrap bkg-color-353D4D">
+  <div *ngIf="status === 'pending'" class="wrap bkg-color-353D4D" id="mint_status_{{status}}">
     <div class="container">
       <div class="parallax">
         <img
@@ -1420,7 +1420,7 @@
       </div>
     </div>
   </div>
-  <div *ngIf="status === 'minted' && token" class="wrap bkg-color-353D4D">
+  <div *ngIf="status === 'minted' && token" class="wrap bkg-color-353D4D" id="mint_status_{{status}}">
     <div class="container">
       <div class="parallax">
         <img
@@ -1534,7 +1534,7 @@
       </div>
     </div>
   </div>
-  <div *ngIf="status === ''" class="wrap bkg-color-353D4D">
+  <div *ngIf="status === 'connect'" class="wrap bkg-color-353D4D" id="mint_status_empty">
     <div class="container">
       <div class="parallax">
         <img
@@ -1562,7 +1562,7 @@
                   height="360"
                   alt="image"
                 />
-                <div class="splash-nft-text">Avatizer Minting Soon</div>
+                <div class="splash-nft-text">{{texts.minting_soon}}</div>
               </div>
             </div>
           </div>

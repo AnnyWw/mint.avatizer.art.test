@@ -29,7 +29,8 @@ export const texts = {
     menu_text_mint:"Free Mint",
     menu_text_manage:"Manage my Avatizers",
     generate_active_note:"Every Avatizer is visually reloaded/updated daily at 5 pm UTC. Please note, once the new Avatizer is generated, the old one cannot be restored. You can pause daily reload for each Avatizer you own to keep the ones you like.<br><br><b class='modal-desc--note'>Note:</b> pausing or restoring daily reloads will incur gas fees. That's the way the blockchain works.",
-    generate_paused_note:"This Avatizer will not update itself. Its current art will remain unchanged until you enable Daily Reloads.<br><br><b class='modal-desc--note'>Note:</b> pausing or restoring daily reloads will incur gas fees. That's the way the blockchain works."
+    generate_paused_note:"This Avatizer will not update itself. Its current art will remain unchanged until you enable Daily Reloads.<br><br><b class='modal-desc--note'>Note:</b> pausing or restoring daily reloads will incur gas fees. That's the way the blockchain works.",
+    minting_soon:"Avatizer Minting Soon"
     
 	
 };
