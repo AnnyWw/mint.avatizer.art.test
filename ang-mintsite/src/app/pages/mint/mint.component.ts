@@ -7,9 +7,9 @@ import { map, filter, tap } from 'rxjs/operators';
 import { TitleStrategy } from '@angular/router';
 import { ActivatedRoute, Router } from '@angular/router';
 const abi = require('../../../assets/config/abi.json');
+import WalletConnectProvider from '@walletconnect/web3-provider';
 import { environment } from 'src/environments/environment';
 import { texts } from 'src/environments/texts';
-//import WalletConnectProvider from "@walletconnect/web3-provider";
 declare var $: any;
 
 @Component({
@@ -33,16 +33,16 @@ export class MintComponent implements OnInit {
   token: number = 0;
   status: string = '';
   contractAv: any = null;
-	FullYear: number = new Date().getFullYear();
-	readonly environment = environment;
-	readonly texts = texts;
+  FullYear: number = new Date().getFullYear();
+  readonly environment = environment;
+  readonly texts = texts;
   constructor(private api: ApiService) {
     this.getStatus();
   }
 
   ngOnInit(): void {
     $(document).ready(function () {
-      console.log('Jquery is working !!!');
+     // console.log('Jquery is working !!!');
 
       // NEW HEADER JS
       $('.menu-tab').click(function () {
@@ -433,20 +433,20 @@ export class MintComponent implements OnInit {
   }
 
   async initWeb3() {
-    console.log('here');
-    /*const providerOptions = {
+    //console.log('here');
+    const providerOptions = {
       walletconnect: {
         package: WalletConnectProvider, // required
         options: {
-          infuraId: "68bbfa6dd6594f328012419c5b654b2f" // required
-        }
-      }
-    };*/
+          infuraId: environment.walletconnect_infuraId, // '68bbfa6dd6594f328012419c5b654b2f', // required
+        },
+      },
+    };
 
     this.web3Modal = new Web3Modal({
       network: 'goerli', // optional
       cacheProvider: true, // optional
-      //providerOptions // required
+      providerOptions, // required
     });
 
     try {
@@ -474,25 +474,29 @@ export class MintComponent implements OnInit {
       //get phase
       this.contractAv = new this.web3.eth.Contract(
         abi,
-        '0x5D74387c391b88C35425d0Ec9f82750562fc173F'
+        environment.contractAv //'0x5d74387c391b88c35425d0ec9f82750562fc173f'
       );
       let hasStarted = await this.contractAv.methods.saleStarted().call();
-      if (!hasStarted) {
-        this.phase = 'Public';
-      } else {
+
+      if (hasStarted) {
         this.phase = 'WL';
+      } else {
+        this.phase = 'not started';
       }
 
       let hasTok = await this.contractAv.methods.balanceOf(this.wallet).call();
 
-      // UNCOMMENT THIS WHEN READY
-      // if (hasTok > 0) {
+      // UNCOMMENT IN PRODUCTION
+      // if(hasTok > 0){
       //   this.minted = true;
-      // } else {
+      // }
+      // else{
       //   this.minted = false;
       // }
-      // REMOVE THIS WHEN READY
+
+      // REMOVE IN PRODUCTION
       this.minted = false;
+
       //if wl
       await this.WLCheck(this.wallet);
       //get merk
@@ -537,9 +541,11 @@ export class MintComponent implements OnInit {
   }
 
   async startMint() {
+    if (this.status === 'not started') {
+      return;
+    }
     try {
       let price = 1;
-      console.log(this.contractAv);
       this.pending = true;
       this.getStatus();
       this.contractAv.methods
@@ -576,7 +582,7 @@ export class MintComponent implements OnInit {
     if (this.wallet === '') {
       this.status = 'connect';
     } else if (this.network !== 'goerli') {
-      console.log(this.network);
+      //console.log(this.network);
       this.status = 'network';
     } else if (this.pendingConnect) {
       this.status = 'pendingConnect';
@@ -595,9 +601,14 @@ export class MintComponent implements OnInit {
       } else {
         this.status = 'WLNot';
       }
-    } else if (this.phase === 'Public') {
-      if (this.wlMerk && this.wallet && !this.pending && !this.minted) {
-        this.status = 'Public';
+    } else if (this.phase === 'not started') {
+      if (
+        this.wlMerk.length > 0 &&
+        this.wallet &&
+        !this.pending &&
+        !this.minted
+      ) {
+        this.status = 'not started';
       }
     }
 

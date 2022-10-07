@@ -1938,6 +1938,7 @@ only screen and (min-resolution: 2dppx) {
     width: 100%;
     text-align: center;
     left: 0;
+    color: #FFFFFF;
 }
 
 .splash-mint--content {
@@ -2434,6 +2435,8 @@ only screen and (min-resolution: 2dppx) {
 .splash-collect--items {
     display: flex;
     flex-wrap: wrap;
+	justify-content: center;
+	
 }
 
 .collect-card {
@@ -2470,6 +2473,7 @@ only screen and (min-resolution: 2dppx) {
     max-width: 700px;
     flex-wrap: wrap;
     margin: 10px auto 0;
+    justify-content: center;
 }
 
 .splash-collect--title {
@@ -2616,7 +2620,7 @@ only screen and (min-resolution: 2dppx) {
 }
 
 @media (min-width: 731px) {
-    .collect-card:nth-child(3n + 1) {
+    .collect-card:nth-child(3n + 1):not(:last-child){
         margin-left: 0;
     }
 
