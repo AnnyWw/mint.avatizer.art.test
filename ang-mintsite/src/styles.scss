@@ -1885,7 +1885,7 @@ only screen and (min-resolution: 2dppx) {
 
 .splash-mint--body {
     position: relative;
-    padding: 0 50px 50px;
+    padding: 0 30px 30px;
     text-align: center;
     margin: 0 auto;
     max-width: 648px;
@@ -2665,7 +2665,7 @@ only screen and (min-resolution: 2dppx) {
     }
 
     .wallet-form--input {
-        max-width: 122px;
+        max-width: 202px;
         font-size: 18px;
         line-height: 22px;
     }
@@ -2763,7 +2763,12 @@ only screen and (min-resolution: 2dppx) {
         margin-top: 12px !important;
     }
 }
-
+@media (max-width: 441px){
+.splash-mint--title {
+    font-size: 32px;
+    line-height: 42px;
+}
+}
 @media (max-width: 730px) {
     .splash-collect--items {
         max-width: 480px;
@@ -2854,10 +2859,6 @@ only screen and (min-resolution: 2dppx) {
         width: calc(100% + 32px);
     }
 
-    .wallet-form--input {
-        max-width: 122px;
-    }
-
     .dinamic-notify {
         bottom: 75px;
     }
@@ -2918,10 +2919,7 @@ only screen and (min-resolution: 2dppx) {
         min-width: 282px;
     }
 
-    .splash-manage .splash-mint--title {
-        font-size: 36px;
-        line-height: 42px;
-    }
+
 
     .splash-manage .splash-mint--wallet {
         margin-top: -35px;

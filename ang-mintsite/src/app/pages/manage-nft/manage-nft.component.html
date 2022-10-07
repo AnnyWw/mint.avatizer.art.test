@@ -505,7 +505,7 @@
     </div>
   </div>
 
-  <div *ngIf="status === 'connect'" class="wrap bkg-color-353D4D">
+  <div *ngIf="status === 'connect'" class="wrap bkg-color-353D4D wrap-manage">
     <div class="container">
       <div class="parallax">
         <img
@@ -585,7 +585,7 @@
       </div>
     </div>
   </div>
-  <div *ngIf="status === 'pendingConnect'" class="wrap bkg-color-353D4D">
+  <div *ngIf="status === 'pendingConnect'" class="wrap bkg-color-353D4D wrap-manage">
     <div class="container">
       <div class="parallax">
         <img
@@ -657,7 +657,7 @@
       </div>
     </div>
   </div>
-  <div *ngIf="status === 'network'" class="wrap bkg-color-353D4D">
+  <div *ngIf="status === 'network'" class="wrap bkg-color-353D4D wrap-manage">
     <div class="container">
       <div class="parallax">
         <img
@@ -746,7 +746,7 @@
       </div>
     </div>
   </div>
-  <div *ngIf="status === ''" class="wrap bkg-color-353D4D">
+  <div *ngIf="status === ''" class="wrap bkg-color-353D4D wrap-manage">
     <div class="container">
       <div class="parallax">
         <img
@@ -831,14 +831,7 @@
               </a>
             </div>
             <div *ngIf="nfts.length <= 0" class="splash-collect--items">
-              <a class="collect-card empty">
-                <div class="collect-image"></div>
-                <div class="collect-body"></div>
-              </a>
-              <a class="collect-card empty">
-                <div class="collect-image"></div>
-                <div class="collect-body"></div>
-              </a>
+              
             </div>
           </div>
         </div>
