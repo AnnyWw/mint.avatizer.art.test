@@ -27,6 +27,7 @@ export class ManageNFTComponent implements OnInit {
   modal: boolean = true;
   select: any = null;
   gene: boolean = false;
+  isShow: boolean = false;
   readonly environment = environment;
   readonly texts = texts;
   FullYear: number = new Date().getFullYear();
@@ -456,6 +457,7 @@ export class ManageNFTComponent implements OnInit {
       if (this.network !== 'goerli') {
         //toast("Please switch to the Ethereum Mainnet network.");
         this.status = 'network';
+        this.isShow = true;
         return;
       }
 
@@ -636,6 +638,7 @@ export class ManageNFTComponent implements OnInit {
     } else if (this.network !== 'goerli') {
       //console.log(this.network);
       this.status = 'network';
+      
     } else if (this.pendingConnect) {
       this.status = 'pendingConnect';
     } else if (this.pending) {
@@ -643,5 +646,9 @@ export class ManageNFTComponent implements OnInit {
     }
 
     this.status;
+  }
+
+  closeNotify() {
+    this.isShow = !this.isShow;
   }
 }

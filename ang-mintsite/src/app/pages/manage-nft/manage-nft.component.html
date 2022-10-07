@@ -731,8 +731,8 @@
       </div>
     </div>
 
-    <div class="dinamic-notify error">
-      {{texts.status_switch_error}} <button class="notify-close"></button>
+    <div *ngIf="isShow" class="dinamic-notify error">
+      {{texts.status_switch_error}} <button class="notify-close" (click)="closeNotify()"></button>
     </div>
 
     <div id="footer" class="footer">
