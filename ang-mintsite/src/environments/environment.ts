@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  minting_status: "stop", //not_start | start | stop    
+  minting_status: "start", //not_start | start | stop    
   token: 'jdjaosiij28892SIAHI049923701CIGknlklajal',
   mainsiteUrl: 'https://www.avatizer.art',
   openseaUrl: 'https://opensea.io',
