@@ -100,27 +100,11 @@ body {
 }
 
 .modal-desc--text {
-    display: none;
+
     font-weight: 400;
     font-size: 14px;
     line-height: 17px;
     color: rgba(255, 255, 255, .8);
-}
-
-.modal-body--content.active .modal-desc--text.active {
-    display: block;
-}
-
-.modal-body--content.active .modal-desc--text.paused {
-    display: none;
-}
-
-.modal-body--content.paused .modal-desc--text.paused {
-    display: block;
-}
-
-.modal-body--content.paused .modal-desc--text.active {
-    display: none;
 }
 
 

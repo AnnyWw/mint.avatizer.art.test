@@ -890,14 +890,8 @@
                     select?.Generative ? "Active" : "Paused"
                   }}</span>
                 </div>
-                <div class="modal-desc--text active">
-                  Every Avatizer is visually reloaded/updated daily at 5 pm UTC. Please note, once the new Avatizer is generated, the old one cannot be restored. You can pause daily reload for each Avatizer you own to keep the ones you like.<br><br>
-					<b class="modal-desc--note">Note:</b> pausing or restoring daily reloads will incur gas fees. That's the way the blockchain works
+                <div class="modal-desc--text {{select?.Generative ? 'active' : 'paused'}}" [innerHTML]="select?.Generative ? texts.generate_active_note : texts.generate_paused_note"></div>
                 </div>
-                <div class="modal-desc--text paused">
-                  This Avatizer will not update itself. Its current art will remain unchanged until you enable Daily Reloads.
-                </div>
-              </div>
               <div class="status-switch">
                 <label *ngIf="select?.Id !== '0'" class="checker">
                   <input
@@ -935,10 +929,9 @@
     <div id="footer" class="footer">
       <div class="content">
         <div class="inner">
-          <div class="text copyright text-left text-xs-center">
-            {{FullYear}} {{texts.copyright_company}}<br />
-            {{texts.copyright_adsres}}
-          </div>
+          <div class="text copyright text-left text-xs-center" >
+            {{FullYear}} {{texts.copyright_company}}<br />{{texts.copyright_adsres}}
+            </div>
         </div>
       </div>
     </div>
