@@ -524,191 +524,6 @@ body.loaded .main-menu {
     text-decoration: underline;
 }
 
-@media (min-width: 1200px) {
-    .menu-tab {
-        display: none;
-    }
-
-    .main-menu-nav {
-        padding-top: 0;
-        padding-left: 0;
-    }
-
-    .main-menu nav ul li a {
-        padding: 8.5px 0;
-    }
-}
-
-@media (min-width: 555px) {
-    .header .logo-header .list-socials {
-        display: flex;
-    }
-
-    .main-menu .list-socials {
-        display: none;
-    }
-}
-
-@media (max-width: 1200px) {
-    .header {
-        padding-left: 30px;
-        padding-right: 30px;
-        height: 130px;
-    }
-
-    .header .logo-header .logo-content {
-        padding-top: 11px;
-    }
-
-    .menu-tab {
-        display: block;
-    }
-
-    .main-menu {
-        width: 351px;
-        right: -351px;
-        height: 100%;
-        position: fixed;
-        z-index: 1;
-        top: 0px;
-        transition: all 0.6s ease-in-out;
-        margin-top: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        overflow-y: auto;
-        /*end of nav*/
-    }
-
-    .main-menu-nav {
-        padding-top: 117px;
-        padding-left: 40px;
-    }
-
-    .header .logo-header {
-        position: relative;
-    }
-
-    .header .logo-header .list-socials {
-        z-index: 10;
-    }
-
-    .list-socials {
-        margin-right: 75px;
-        padding-top: 22px;
-    }
-
-    .list-socials .socials {
-        font-size: 0;
-        padding: 7px 18px;
-        height: 52px;
-    }
-
-    .list-socials>li:first-child a.socials {
-        margin-right: 10px;
-    }
-
-    .list-socials .btn .buttons-icon {
-        margin-right: 0;
-    }
-}
-
-@media (max-width: 767px) {
-    .header {
-        padding-left: 25px;
-        padding-right: 25px;
-    }
-
-    .header .logo-header .site_name {
-        font-size: 26px;
-        line-height: 32px;
-    }
-
-    .main-menu-nav {
-        padding-left: 25px;
-    }
-
-    .header .logo-header .logo-content {
-        padding-top: 1px;
-    }
-
-    .header .logo-header .list-socials {
-        padding-top: 7px;
-        margin-right: 60px;
-    }
-
-    .main-menu {
-        width: 315px;
-        right: -315px;
-    }
-
-    .menu-tab {
-        top: 22px;
-        right: 0;
-    }
-
-    .main-menu,
-    .menu-tab,
-    .header .list-socials,
-    .header .logo-header .logo-content {
-        opacity: 0;
-        transition: none;
-    }
-
-    body.loaded .main-menu,
-    body.loaded .menu-tab,
-    body.loaded .header .list-socials,
-    body.loaded .header .logo-header .logo-content {
-        -webkit-animation: 1.5s ease 0s normal forwards 1 fadein;
-        animation: 1.5s ease 0s normal forwards 1 fadein;
-    }
-}
-
-@media (max-width: 555px) {
-    .header .logo-header .list-socials {
-        display: none;
-    }
-
-    .main-menu .list-socials {
-        display: flex;
-        padding-top: 0;
-        padding-left: 0;
-        padding-bottom: 50px;
-    }
-
-    .main-menu-nav {
-        padding-top: 20px;
-    }
-
-    .header .logo-header .logo-content {
-        padding-top: 4px;
-    }
-}
-
-@media (max-width: 350px) {
-    .main-menu-nav {
-        padding-left: 15px;
-        padding-top: 20px;
-    }
-
-    .main-menu .main-xs-footer {
-        padding-left: 15px;
-    }
-}
-
-@media only screen and (-webkit-min-device-pixel-ratio: 2),
-only screen and (min--moz-device-pixel-ratio: 2),
-only screen and (-o-min-device-pixel-ratio: 2/1),
-only screen and (min-device-pixel-ratio: 2),
-only screen and (min-resolution: 192dpi),
-only screen and (min-resolution: 2dppx) {
-    .onoff-music {
-        background-position: 11.5px 10px;
-    }
-
-    @media (max-width: 991px) {}
-}
-
 
 // _assets.new-products-splash.css
 
@@ -1117,59 +932,6 @@ body {
     height: 100%;
 }
 
-.btn.socials {
-    background: rgba(255, 255, 255, 0.1);
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 22px;
-    text-align: center;
-    color: #ffffff;
-    padding: 11px 16px;
-    box-shadow: none;
-    border: 0;
-    display: flex;
-    align-items: center;
-    height: 44px;
-    border-radius: 0;
-}
-
-.btn-discord:hover {
-    background: #404eed;
-}
-
-.btn-discord:focus {
-    background: #404eed;
-    opacity: 0.3;
-}
-
-.btn-twitter:hover {
-    background: #1d9bf0;
-}
-
-.btn-twitter:focus {
-    background: #1d9bf0;
-    opacity: 0.3;
-}
-
-.btn-opensea:hover {
-    background: #2081e2;
-}
-
-.btn-opensea:focus {
-    background: #2081e2;
-    opacity: 0.3;
-}
-
-.btn .buttons-icon {
-    margin-right: 10px;
-    display: inline-block;
-}
-
-.btn-group .button {
-    margin-left: 12.5px;
-    margin-right: 12.5px;
-}
-
 .btn-404 {
     display: inline-block;
     font-weight: 500;
@@ -1391,8 +1153,6 @@ body.loaded.page-404 .parallax {
 
 
 // index.css
-
-@charset 'utf-8';
 
 body {
     overflow-x: hidden;
@@ -5815,4 +5575,190 @@ table.table-check-list td.row2 {
 /*------ Colors ------*/
 .text-color-303030 {
     color: #303030 !important;
+}
+
+
+@media (min-width: 1200px) {
+    .menu-tab {
+        display: none;
+    }
+
+    .main-menu-nav {
+        padding-top: 0;
+        padding-left: 0;
+    }
+
+    .main-menu nav ul li a {
+        padding: 8.5px 0;
+    }
+}
+
+@media (min-width: 555px) {
+    .header .logo-header .list-socials {
+        display: flex;
+    }
+
+    .main-menu .list-socials {
+        display: none;
+    }
+}
+
+@media (max-width: 1200px) {
+    .header {
+        padding-left: 30px;
+        padding-right: 30px;
+        height: 130px;
+    }
+
+    .header .logo-header .logo-content {
+        padding-top: 11px;
+    }
+
+    .menu-tab {
+        display: block;
+    }
+
+    .main-menu {
+        width: 351px;
+        right: -351px;
+        height: 100%;
+        position: fixed;
+        z-index: 1;
+        top: 0px;
+        transition: all 0.6s ease-in-out;
+        margin-top: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        overflow-y: auto;
+        /*end of nav*/
+    }
+
+    .main-menu-nav {
+        padding-top: 117px;
+        padding-left: 40px;
+    }
+
+    .header .logo-header {
+        position: relative;
+    }
+
+    .header .logo-header .list-socials {
+        z-index: 10;
+    }
+
+    .list-socials {
+        margin-right: 75px;
+        padding-top: 22px;
+    }
+
+    .list-socials .socials {
+        font-size: 0;
+        padding: 7px 18px;
+        height: 52px;
+    }
+
+    .list-socials>li:first-child a.socials {
+        margin-right: 10px;
+    }
+
+    .list-socials .btn .buttons-icon {
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 767px) {
+    .header {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .header .logo-header .site_name {
+        font-size: 26px;
+        line-height: 32px;
+    }
+
+    .main-menu-nav {
+        padding-left: 25px;
+    }
+
+    .header .logo-header .logo-content {
+        padding-top: 1px;
+    }
+
+    .header .logo-header .list-socials {
+        padding-top: 7px;
+        margin-right: 60px;
+    }
+
+    .main-menu {
+        width: 315px;
+        right: -315px;
+    }
+
+    .menu-tab {
+        top: 22px;
+        right: 0;
+    }
+
+    .main-menu,
+    .menu-tab,
+    .header .list-socials,
+    .header .logo-header .logo-content {
+        opacity: 0;
+        transition: none;
+    }
+
+    body.loaded .main-menu,
+    body.loaded .menu-tab,
+    body.loaded .header .list-socials,
+    body.loaded .header .logo-header .logo-content {
+        -webkit-animation: 1.5s ease 0s normal forwards 1 fadein;
+        animation: 1.5s ease 0s normal forwards 1 fadein;
+    }
+}
+
+@media (max-width: 555px) {
+    .header .logo-header .list-socials {
+        display: none;
+    }
+
+    .main-menu .list-socials {
+        display: flex;
+        padding-top: 0;
+        padding-left: 0;
+        padding-bottom: 50px;
+    }
+
+    .main-menu-nav {
+        padding-top: 20px;
+    }
+
+    .header .logo-header .logo-content {
+        padding-top: 4px;
+    }
+}
+
+@media (max-width: 350px) {
+    .main-menu-nav {
+        padding-left: 15px;
+        padding-top: 20px;
+    }
+
+    .main-menu .main-xs-footer {
+        padding-left: 15px;
+    }
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (min--moz-device-pixel-ratio: 2),
+only screen and (-o-min-device-pixel-ratio: 2/1),
+only screen and (min-device-pixel-ratio: 2),
+only screen and (min-resolution: 192dpi),
+only screen and (min-resolution: 2dppx) {
+    .onoff-music {
+        background-position: 11.5px 10px;
+    }
+
+    @media (max-width: 991px) {}
 }
