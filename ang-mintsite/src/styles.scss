@@ -1948,9 +1948,12 @@ only screen and (min-resolution: 2dppx) {
     opacity: 1 !important;
 }
 
-.btn-metamask.metamask-switch::after,
-.btn-metamask.metamask-connect::after {
+.btn-metamask.metamask-switch::after{
     background: #F6851B !important;
+}
+
+.btn-metamask.metamask-connect::after {
+    background: #1E7EFC !important;
 }
 
 .btn-metamask.btn-opensea::after {
@@ -2074,14 +2077,20 @@ only screen and (min-resolution: 2dppx) {
     background: #EB260C !important;
 }
 
-.btn-metamask.metamask-switch:hover::after,
-.btn-metamask.metamask-connect:hover::after {
+.btn-metamask.metamask-switch:hover::after {
     background: #F69E1B !important;
 }
 
-.btn-metamask.metamask-switch:focus::after,
-.btn-metamask.metamask-connect:focus::after {
+.btn-metamask.metamask-connect:hover::after {
+    background: #1E9FFC !important;
+}
+
+.btn-metamask.metamask-switch:focus::after {
     background: #EB6809 !important;
+}
+
+.btn-metamask.metamask-connect:focus::after {
+    background: #0060DF !important;
 }
 
 .btn-metamask.btn-mint:hover::after {
