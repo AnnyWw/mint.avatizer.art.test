@@ -787,13 +787,6 @@
                 <button
                   class="wallet-form--btn btn btn-metamask metamask-connect"
                 >
-                  <span class="btn-icon"
-                    ><img
-                      src="../../../assets/imgnew/mint/metamask-logo.svg"
-                      width="30"
-                      height="28"
-                      alt="metamask-logo"
-                  /></span>
                   <span class="btn-body">
                     <span class="btn-title">{{texts.connect_wallet}}</span>
                   </span>
@@ -1031,8 +1024,8 @@
         </div>
       </div>
     </div>
-    <div class="dinamic-notify error">
-      {{texts.status_switch_error}} <button class="notify-close"></button>
+    <div *ngIf="isShow" class="dinamic-notify error">
+      {{texts.status_switch_error}} <button class="notify-close" (click)="closeNotify()"></button>
     </div>
 
     <div id="footer" class="footer">
@@ -1603,8 +1596,8 @@
         </div>
       </div>
     </div>
-    <div class="dinamic-notify success">
-      {{texts.status_mint_success}} <button class="notify-close"></button>
+    <div *ngIf="isShowSuccess" class="dinamic-notify success">
+      {{texts.status_mint_success}} <button class="notify-close" (click)="closeSuccessNotify()"></button>
     </div>
 
     <div id="footer" class="footer">
