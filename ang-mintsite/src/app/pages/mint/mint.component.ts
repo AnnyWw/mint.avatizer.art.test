@@ -34,6 +34,8 @@ export class MintComponent implements OnInit {
   status: string = '';
   contractAv: any = null;
   FullYear: number = new Date().getFullYear();
+  isShow: boolean = false;
+  isShowSuccess: boolean = false;
   readonly environment = environment;
   readonly texts = texts;
   constructor(private api: ApiService) {
@@ -464,6 +466,7 @@ export class MintComponent implements OnInit {
 
       if (this.network !== 'goerli') {
         this.status = 'network';
+         this.isShow = true;
         return;
       }
 
@@ -561,6 +564,7 @@ export class MintComponent implements OnInit {
           this.pending = false;
           console.log(reciept.events.Transfer.returnValues.tokenId);
           this.minted = true;
+          this.isShowSuccess = true;
           this.token = reciept.events.Transfer.returnValues.tokenId;
           this.getStatus();
         })
@@ -613,5 +617,11 @@ export class MintComponent implements OnInit {
     }
 
     this.status;
+  }
+   closeNotify() {
+    this.isShow = !this.isShow;
+  }
+  closeSuccessNotify() {
+    this.isShowSuccess = !this.isShowSuccess;
   }
 }
