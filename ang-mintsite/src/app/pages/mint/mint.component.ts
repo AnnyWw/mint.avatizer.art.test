@@ -38,14 +38,13 @@ export class MintComponent implements OnInit {
   isShowSuccess: boolean = false;
   readonly environment = environment;
   readonly texts = texts;
+
   constructor(private api: ApiService) {
     this.getStatus();
   }
 
   ngOnInit(): void {
     $(document).ready(function () {
-     // console.log('Jquery is working !!!');
-
       // NEW HEADER JS
       $('.menu-tab').click(function () {
         $('.main-menu').toggleClass('show');
@@ -435,7 +434,6 @@ export class MintComponent implements OnInit {
   }
 
   async initWeb3() {
-    //console.log('here');
     const providerOptions = {
       walletconnect: {
         package: WalletConnectProvider, // required
@@ -466,19 +464,20 @@ export class MintComponent implements OnInit {
 
       if (this.network !== 'goerli') {
         this.status = 'network';
-         this.isShow = true;
+        this.isShow = true;
         return;
       }
 
       let accounts = await this.web3.eth.getAccounts();
       this.wallet = accounts[0];
-
       this.pendingConnect = false;
+
       //get phase
       this.contractAv = new this.web3.eth.Contract(
         abi,
         environment.contractAv //'0x5d74387c391b88c35425d0ec9f82750562fc173f'
       );
+
       let hasStarted = await this.contractAv.methods.saleStarted().call();
 
       if (hasStarted) {
@@ -516,6 +515,7 @@ export class MintComponent implements OnInit {
         method: 'wallet_switchEthereumChain',
         params: [{ chainId: Web3.utils.toHex('5') }],
       });
+
       this.initWeb3();
     } catch (err) {
       console.log(err);
@@ -534,19 +534,19 @@ export class MintComponent implements OnInit {
   }
 
   WLCheck(wallet: string) {
-    let res = this.api.getWL(wallet).subscribe(
-      (val: any) => {
-        this.wlMerk = val['Proof'] as any[];
-        this.getStatus();
-      },
-      (err) => {}
-    );
+    console.log('wallet', wallet);
+    let res = this.api.getWL(wallet).subscribe((val: any) => {
+      console.log(val);
+      this.wlMerk = val['Proof'] as any[];
+      this.getStatus();
+    });
   }
 
   async startMint() {
     if (this.status === 'not started') {
       return;
     }
+
     try {
       let price = 1;
       this.pending = true;
@@ -562,7 +562,6 @@ export class MintComponent implements OnInit {
         .on('receipt', async (reciept: any) => {
           //toast("Transaction has completed.");
           this.pending = false;
-          console.log(reciept.events.Transfer.returnValues.tokenId);
           this.minted = true;
           this.isShowSuccess = true;
           this.token = reciept.events.Transfer.returnValues.tokenId;
@@ -586,7 +585,6 @@ export class MintComponent implements OnInit {
     if (this.wallet === '') {
       this.status = 'connect';
     } else if (this.network !== 'goerli') {
-      //console.log(this.network);
       this.status = 'network';
     } else if (this.pendingConnect) {
       this.status = 'pendingConnect';
@@ -618,9 +616,11 @@ export class MintComponent implements OnInit {
 
     this.status;
   }
-   closeNotify() {
+
+  closeNotify() {
     this.isShow = !this.isShow;
   }
+
   closeSuccessNotify() {
     this.isShowSuccess = !this.isShowSuccess;
   }
