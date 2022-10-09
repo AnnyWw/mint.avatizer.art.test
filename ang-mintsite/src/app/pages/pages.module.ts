@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MintComponent } from './mint/mint.component';
 import { ManageNFTComponent } from './manage-nft/manage-nft.component';
 import { FormsModule } from '@angular/forms';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -13,7 +14,8 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    SharedModule
   ]
 })
 export class PagesModule { }
