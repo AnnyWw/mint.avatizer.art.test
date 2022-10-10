@@ -1856,7 +1856,7 @@ only screen and (min-resolution: 2dppx) {
 
 .btn-metamask.btn-sm {
     padding: 10px 15px !important;
-    min-width: 162px !important;
+    min-width: 272px !important;
     min-height: 52px !important;
     margin: 0 !important;
     white-space: nowrap !important;
@@ -2127,9 +2127,11 @@ only screen and (min-resolution: 2dppx) {
 }
 
 .wrap-manage {
-    height: 100vh;
+    // height: 100vh;
     display: flex;
     align-items: center;
+    padding-bottom: 130px;
+    padding-top: 216px;
 }
 
 .wrap-manage .splash-manage {
@@ -2438,6 +2440,10 @@ only screen and (min-resolution: 2dppx) {
 
     .wallet-form--button {
         margin-top: 30px;
+    }
+
+    .wrap-manage {
+        padding-top: 105px;
     }
 
     .collect-title {
