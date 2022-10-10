@@ -13,38 +13,46 @@
         />
       </div>
 
-      <div class="splash-mint splash-manage row">
+      <div class="splash-mint splash-manage--connect row">
         <div class="col-xs-12 col-sm-12 col-md-8 col-lg-7">
           <div class="splash-mint--body">
             <div class="splash-mint--content">
               <div class="splash-mint--title">{{texts.manage_nft}}</div>
+              <div class="splash-mint--image">
+                <div class="splash-mint--image">
+                  <video
+                    class="img-ill"
+                    src="../../../assets/imgnew/mint/mint-avatizer.mp4"
+                    preload="auto"
+                    no-controls
+                    autoplay
+                    loop
+                    muted
+                    playsinline
+                    alt="avatizer video"
+                    width="400"
+                    height="400"
+                  >
+                    <source
+                      src="../../../assets/imgnew/mint/mint-avatizer.mp4"
+                      type="video/mp4"
+                    />
+                    <source
+                      src="../../../assets/imgnew/mint/mint-avatizer.webm"
+                      type="video/webm"
+                    />
+                    <source
+                      src="../../../assets/imgnew/mint/mint-avatizer.mov"
+                      type="video/mov"
+                    />
+                  </video>
+                </div>
+              </div>
             </div>
           </div>
           <div class="splash-mint--wallet">
-            <form action="" class="manage-form">
+            <form action="" class="manage-form form--connect">
               <div class="wallet-form--fieldset">
-                <div class="wallet-form--group">
-                  <label class="wallet-form--label" for="your_wallet"
-                    >{{texts.your_wallet_id}}:</label
-                  >
-                  <div class="input-group">
-                    <span class="wallet-form--input not-value"
-                      >XXXX
-                      <span class="wallet-form--input-inside"
-                        >-XXXX-XXXX-XXXX-</span
-                      >
-                      XXXX</span
-                    >
-                    <!-- <input type="text" class="wallet-form--input" placeholder="XXXX-XXXX-XXXX-XXXX-XXXX" id="your_wallet" aria-describedby="wallet-connection"> -->
-                    <button
-                      class="wallet-form--connection"
-                      disabled
-                      id="wallet-connection"
-                    >
-                      {{texts.disconnect}}
-                    </button>
-                  </div>
-                </div>
                 <div class="wallet-form--button">
                   <button
                     (click)="initWeb3()"
@@ -77,11 +85,39 @@
         />
       </div>
 
-      <div class="splash-mint splash-manage row">
+      <div class="splash-mint row">
         <div class="col-xs-12 col-sm-12 col-md-8 col-lg-7">
           <div class="splash-mint--body">
             <div class="splash-mint--content">
               <div class="splash-mint--title">{{texts.splash_mint_title_mng}}</div>
+              <div class="splash-mint--image splash-mint--ntf">
+                <video
+                    class="img-ill"
+                    src="../../../assets/imgnew/mint/mint-avatizer.mp4"
+                    preload="auto"
+                    no-controls
+                    autoplay
+                    loop
+                    muted
+                    playsinline
+                    alt="avatizer video"
+                    width="400"
+                    height="400"
+                  >
+                    <source
+                      src="../../../assets/imgnew/mint/mint-avatizer.mp4"
+                      type="video/mp4"
+                    />
+                    <source
+                      src="../../../assets/imgnew/mint/mint-avatizer.webm"
+                      type="video/webm"
+                    />
+                    <source
+                      src="../../../assets/imgnew/mint/mint-avatizer.mov"
+                      type="video/mov"
+                    />
+                  </video>
+              </div>
             </div>
           </div>
           <div class="splash-mint--wallet">
@@ -127,7 +163,7 @@
 
     <app-footer></app-footer>
   </div>
-  <div *ngIf="status === 'network'" class="wrap bkg-color-353D4D wrap-manage">
+  <div *ngIf="status === 'network'" class="wrap bkg-color-353D4D wrap-manage wrap-network">
     <div class="container">
       <div class="parallax">
         <img
@@ -140,15 +176,43 @@
         />
       </div>
 
-      <div class="splash-mint splash-manage row">
+      <div class="splash-mint row">
         <div class="col-xs-12 col-sm-12 col-md-8 col-lg-7">
           <div class="splash-mint--body">
             <div class="splash-mint--content">
               <div class="splash-mint--title">{{texts.splash_mint_title_mng}}</div>
+              <div class="splash-mint--image">
+                <video
+                    class="img-ill"
+                    src="../../../assets/imgnew/mint/mint-avatizer.mp4"
+                    preload="auto"
+                    no-controls
+                    autoplay
+                    loop
+                    muted
+                    playsinline
+                    alt="avatizer video"
+                    width="400"
+                    height="400"
+                  >
+                    <source
+                      src="../../../assets/imgnew/mint/mint-avatizer.mp4"
+                      type="video/mp4"
+                    />
+                    <source
+                      src="../../../assets/imgnew/mint/mint-avatizer.webm"
+                      type="video/webm"
+                    />
+                    <source
+                      src="../../../assets/imgnew/mint/mint-avatizer.mov"
+                      type="video/mov"
+                    />
+                  </video>
+              </div>
             </div>
           </div>
           <div class="splash-mint--wallet">
-            <form action="" class="manage-form">
+            <form action="" class="manage-form manage-form--network">
               <div class="wallet-form--fieldset focused">
                 <div class="wallet-form--group">
                   <label class="wallet-form--label" for="your_wallet"
@@ -207,7 +271,7 @@
 
     <app-footer></app-footer>
   </div>
-  <div *ngIf="status === ''" class="wrap bkg-color-353D4D wrap-manage">
+  <div *ngIf="status === ''" class="wrap bkg-color-353D4D wrap-manage wrap-collection">
     <div class="container">
       <div class="parallax">
         <img
@@ -260,7 +324,7 @@
           <div class="splash-collect">
             <div class="splash-collect--title">You own {{ nfts.length }} Avatizer(s)</div>
             <div class="splash-collect--items">
-              <a (click)="popup(nft)" href="javascript:void(0)" class="collect-card" *ngFor="let nft of nfts">
+              <a (click)="popup(nft)" data-toggle="modal" href="javascript:void(0)" class="collect-card" *ngFor="let nft of nfts">
                 <div class="collect-image">
                   <img
                     src="{{ nft.Image }}"
@@ -301,10 +365,12 @@
 
     <div
       #collectmodal1
-      class="modal fade modal-backdrop"
+      class="modal fade"
       id="collectmodal1"
+      role="dialog"
       aria-labelledby="collectmodal1"
     >
+      <div class="modal-backdrop fade in"></div>
       <div class="modal-dialog" role="document">
         <div class="modal-content1">
           <div class="modal-header">

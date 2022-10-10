@@ -194,7 +194,7 @@
         />
       </div>
 
-      <div class="splash-mint row">
+      <div class="splash-mint splash-mint--connect row">
         <div class="col-xs-12 col-sm-12 col-md-8 col-lg-7">
           <div class="splash-mint--body">
             <div class="splash-mint--content">
@@ -232,34 +232,8 @@
               </div>
             </div>
           </div>
-          <div class="splash-mint--wallet">
+          <div class="splash-mint--wallet form--connect">
             <div class="wallet-form--fieldset hidden-bg">
-              <div class="wallet-form--group hidden-mob">
-                <label class="wallet-form--label" for="your_wallet"
-                  >{{texts.your_wallet_id}}:</label
-                >
-                <div class="input-group">
-                  <span class="wallet-form--input not-value"
-                    >XXXX
-                    <span class="wallet-form--input-inside"
-                      >-XXXX-XXXX-XXXX-</span
-                    >
-                    XXXX</span
-                  >
-                  <!-- <input type="text" class="wallet-form--input" placeholder="XXXX-XXXX-XXXX-XXXX-XXXX" id="your_wallet" aria-describedby="wallet-connection"> -->
-                  <button
-                    class="wallet-form--connection"
-                    disabled
-                    id="wallet-connection"
-                  >
-                    {{texts.disconnect}}
-                  </button>
-                </div>
-                <div class="wallet-form--status">
-                  <div class="form-status--label">Status:</div>
-                  <div class="form-status--text"></div>
-                </div>
-              </div>
               <div (click)="initWeb3()" class="wallet-form--button">
                 <button
                   class="wallet-form--btn btn btn-metamask metamask-connect"

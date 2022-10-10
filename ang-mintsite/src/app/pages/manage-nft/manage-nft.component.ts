@@ -128,11 +128,13 @@ export class ManageNFTComponent implements OnInit {
   }
 
   openModel() {
-    this.myModal.nativeElement.className = ' modal show modal-backdrop';
+    this.myModal.nativeElement.className = ' modal show fade in';
+    this.myModal.nativeElement.parentElement.offsetParent.className = 'loaded modal-open';
   }
   closeModel() {
     this.select = '';
-    this.myModal.nativeElement.className = 'modal hide';
+    this.myModal.nativeElement.className = 'modal fade';
+    this.myModal.nativeElement.parentElement.offsetParent.className = 'loaded';
   }
 
   async switchNetworks() {
