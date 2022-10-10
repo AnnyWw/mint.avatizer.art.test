@@ -1817,6 +1817,7 @@ only screen and (min-resolution: 2dppx) {
 .wallet-form--button {
     margin-top: 23px;
     position: relative;
+    z-index: 1;
 }
 
 .buttons-group {
