@@ -1579,6 +1579,8 @@ only screen and (min-resolution: 2dppx) {
     display: flex;
     justify-content: center;
     padding-bottom: 183px;
+		flex-direction: column;
+		align-items: center;
 }
 
 .splash-mint--body {
@@ -1817,6 +1819,11 @@ only screen and (min-resolution: 2dppx) {
 .wallet-form--button {
     margin-top: 23px;
     position: relative;
+
+		&.connect{
+			margin-top: -40px !important;
+			z-index: 2;
+		}
 }
 
 .buttons-group {
@@ -1916,6 +1923,7 @@ only screen and (min-resolution: 2dppx) {
     bottom: -23px !important;
     clip-path: polygon(0 46%, 98% 0, 100% 100%, 3% 90%) !important;
     background: rgba(0, 0, 0, 0.1) !important;
+		pointer-events: none;
 }
 
 .btn-metamask.btn-sm::before {
