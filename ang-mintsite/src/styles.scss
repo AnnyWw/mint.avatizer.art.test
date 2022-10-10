@@ -1815,7 +1815,6 @@ only screen and (min-resolution: 2dppx) {
 .wallet-form--button {
     margin-top: 23px;
     position: relative;
-    z-index: 1;
 }
 
 .buttons-group {
@@ -2426,7 +2425,7 @@ only screen and (min-resolution: 2dppx) {
     }
 
     .splash-mint--wallet {
-        margin-top: -50px;
+        margin-top: -40px;
     }
 
     .wallet-form--fieldset::before {
