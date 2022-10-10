@@ -36,7 +36,21 @@ const routes: Routes = [
       },
     },
   },
-  { path: '404', component: NotFoundComponent },
+  { 
+  path: '404', 
+  component: NotFoundComponent,
+  title: 'Avatizer - Page Not Found 404',
+    data: {
+      seo: {
+        metaTags: [
+          {
+            name: 'description',
+            content: 'We are sorry, but the page you are currently looking for is not found.',
+          },
+        ],
+      },
+    },
+  },
   { path: '**', redirectTo: '/404' }
 ];
 
