@@ -8,7 +8,7 @@ declare var $: any;
   styleUrls: ['./not-found.component.scss']
 })
 export class NotFoundComponent implements OnInit {
-
+  counter: number = 10; 
   constructor(private router: Router) { }
 
   ngOnInit(): void {
@@ -16,9 +16,8 @@ export class NotFoundComponent implements OnInit {
       $('body').addClass('loaded');
     });
 
-    setTimeout(() => {
-      this.router.navigate(['/']);
-    }, 10000);  //10s
+    setInterval(() => {
+      this.counter === 0 ? this.router.navigate(['/']) : this.counter--;
+    }, 1000);
   }
-
 }
