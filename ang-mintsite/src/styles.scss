@@ -931,10 +931,13 @@ body.loaded .page-1 .splash-product .animate__fadeIn {
 // 404.css
 
 html,
-body {
+body,
+.page-404 {
     height: 100%;
 }
-
+.page-404 .logo-brand:hover {
+ text-decoration: none;
+}
 .btn-404 {
     display: inline-block;
     font-weight: 500;
