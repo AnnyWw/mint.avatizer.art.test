@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { SeoService } from './services/seo.service';
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { filter, map, mergeMap } from 'rxjs/operators';
-//declare var $: any;
 
 @Component({
   selector: 'app-root',
@@ -10,8 +9,6 @@ import { filter, map, mergeMap } from 'rxjs/operators';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  //isJqueryWorking: any;
-
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
