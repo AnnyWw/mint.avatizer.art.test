@@ -623,7 +623,7 @@ export class ManageNFTComponent implements OnInit {
         this.select.Generative = false;
       }
     } catch (err) {
-      //console.log(err);
+      console.log(err);
     }
   }
 
@@ -631,11 +631,10 @@ export class ManageNFTComponent implements OnInit {
 
   getStatus() {
     this.status = '';
-    //console.log(this.wallet);
+
     if (this.wallet === '') {
       this.status = 'connect';
     } else if (this.network !== 'goerli') {
-      //console.log(this.network);
       this.status = 'network';
     } else if (this.pendingConnect) {
       this.status = 'pendingConnect';
