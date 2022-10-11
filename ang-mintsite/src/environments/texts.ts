@@ -26,7 +26,7 @@ export const texts = {
   connect_wallet: 'Connect my wallet',
   splash_mint_title_mng: 'Avatizer NFT - Free Mint',
   minting_ethereum_only: 'Minting on Ethereum only',
-  daily_reload: 'Daily reload',
+  generation: 'Generation',
   metamask_install: 'Install MetaMask',
   metamask_required: 'MetaMask wallet required',
   menu_text_mint: 'Free Mint',

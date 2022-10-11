@@ -32,6 +32,11 @@ body {
 }
 .no-hover:hover{text-decoration: none !important}
 // _assets.collect-modal.css
+
+.modal-backdrop{
+	background: #232A38 !important;
+}
+
 .modal-backdrop.in {
     z-index: 0;
     background: rgb(35 42 56 / 95%);
@@ -40,6 +45,7 @@ body {
 
 .modal-dialog {
     margin-top: 100px;
+		width: 400px !important;
 }
 
 .modal-content {
@@ -50,9 +56,8 @@ body {
 }
 
 .modal-header {
-    padding: 0;
-    padding-bottom: 20px;
-    border-bottom: 0;
+    padding-bottom: 10px !important;
+    border-bottom: none !important;
     display: flex;
     align-items: center;
 }
@@ -73,35 +78,47 @@ body {
     transition: all 0.3s ease-in-out;
 }
 
+.modal-header .close svg{
+	display: block;
+	width: 30px;
+	height: 30px;
+}
+
 .modal-header .close:hover svg path {
-    fill: #FFFFFF;
+    fill: #FFF;
 }
 
 .modal-body {
-    padding: 0;
+  padding-top: 10px !important;
 
+	img{
+		max-width: 100% !important;
+	}
 }
 
 .modal-desc {
-    padding-right: 40px;
+  //padding-right: 40px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 18px;
 }
 
 .modal-body--content {
-    display: flex;
-    margin-top: 21px;
+    //display: flex;
+    margin-top: 20px;
 }
 
 .modal-desc--generic {
     font-weight: 600;
-    font-size: 20px;
-    line-height: 25px;
-    color: #FFFFFF;
-    margin-bottom: 5px;
+    font-size: 18px;
+    line-height: 22px;
+    color: #FFF;
+    //margin-bottom: 5px;
 }
 
 .modal-desc--text {
-
-    font-weight: 400;
+    font-weight: 500;
     font-size: 14px;
     line-height: 17px;
     color: rgba(255, 255, 255, .8);
@@ -111,12 +128,6 @@ body {
 @media (min-height: 900px) {
     .modal-dialog {
         margin-top: 250px;
-    }
-}
-
-@media (min-width: 768px) {
-    .modal-dialog {
-        width: 400px;
     }
 }
 
@@ -2243,49 +2254,90 @@ only screen and (min-resolution: 2dppx) {
 }
 
 .checker {
-    display: block;
-    font-size: 15px;
-    height: 44px;
-    width: 76px;
-    box-sizing: border-box;
-    padding: 6px;
-    border-radius: 6px;
+    display: flex;
+		font-weight: 500;
+		line-height: 17px;
+    //height: 44px;
+    //width: 76px;
+    //box-sizing: border-box;
+    //padding: 6px;
+    //border-radius: 6px;
+		color: #FFF;
     transition: transform var(--duration) ease;
     cursor: pointer;
-    position: relative;
-    background: #1B222F;
-    border: 2px solid #5E6E8D;
-    margin-bottom: 0;
-    transition: border-color var(--duration) ease;
+    //position: relative;
+    //background: #1B222F;
+    //border: 2px solid #5E6E8D;
+    //margin-bottom: 0;
+    //transition: color var(--duration) ease;
+		margin-bottom: 0;
+
+		&:hover{
+			.checker--label{
+				text-decoration: underline;
+			}
+			
+		}
+
+		&--icon{
+			margin-right: 8px;
+			flex-shrink: 0;
+		}
+
+		&--preloader{
+			display: flex;
+			align-items: center;
+
+			&-circle{
+				width: 18px;
+				height: 18px;
+				border: 1px solid #fff;
+				box-sizing: border-box;
+				border-bottom: none;
+				border-radius: 50%;
+				animation: rotate-left 1s linear infinite;
+				//
+				flex-shrink: 0;
+			}
+
+			&-label{
+				color: #FFF;
+				font-weight: 500;
+				margin: 0;
+				line-height: 17px;
+				margin-left: 8px;
+			}
+		}
 }
 
-.checker:hover {
+
+/*.checker:hover {
     border-color: #ffffff;
-}
+}*/
 
-.checkmark {
-    width: 28px;
-    height: 28px;
-    transition: transform var(--duration) ease;
-    transform: translateX(-8px);
-    z-index: 5;
-}
+// .checkmark {
+//     width: 28px;
+//     height: 28px;
+//     transition: transform var(--duration) ease;
+//     transform: translateX(-8px);
+//     z-index: 5;
+// }
 
-.checkmark svg {
-    display: block;
-    width: 28px;
-    height: 28px;
-    background: #fff;
-    transform: translateX(8px);
-    border-radius: 2px;
-    transition: background-color var(--duration) ease, transform calc(var(--duration) * 1.5) ease;
-}
+// .checkmark svg {
+//     display: block;
+//     width: 28px;
+//     height: 28px;
+//     background: #fff;
+//     transform: translateX(8px);
+//     border-radius: 2px;
+//     transition: background-color var(--duration) ease, transform calc(var(--duration) * 1.5) ease;
+// }
 
-.checkmark svg path {
-    stroke-dasharray: 90 90;
-    stroke-dashoffset: 90;
-    transition: stroke-dashoffset calc(var(--duration) / 3) linear calc(var(--duration) / 3);
-}
+// .checkmark svg path {
+//     stroke-dasharray: 90 90;
+//     stroke-dashoffset: 90;
+//     transition: stroke-dashoffset calc(var(--duration) / 3) linear calc(var(--duration) / 3);
+// }
 
 .manage-checkbox {
     position: absolute;
@@ -2308,37 +2360,37 @@ only screen and (min-resolution: 2dppx) {
     stroke-dashoffset: 0;
 }
 
-.check-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: inherit;
-}
+// .check-bg {
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 100%;
+//     border-radius: inherit;
+// }
 
-.check-bg:before,
-.check-bg:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    border-radius: inherit;
-}
+// .check-bg:before,
+// .check-bg:after {
+//     content: "";
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     height: 100%;
+//     width: 100%;
+//     border-radius: inherit;
+// }
 
-.check-bg:after {
-    background: #1B222F;
-}
+// .check-bg:after {
+//     background: #1B222F;
+// }
 
-.checker.checker:active {
-    transition-duration: calc(var(--duration) / 2);
-}
+// .checker.checker:active {
+//     transition-duration: calc(var(--duration) / 2);
+// }
 
-.checker.checker:active .check-bg::before {
-    opacity: 0.2;
-}
+// .checker.checker:active .check-bg::before {
+//     opacity: 0.2;
+// }
 
 @media (min-width: 731px) {
     .collect-card:nth-child(3n + 1):not(:last-child){
@@ -5494,7 +5546,7 @@ table.table-check-list .bkg-icon {
 }
 
 table.table-check-list .ifont {
-    color: #ffffff;
+    color: #fff;
     font-size: 24px;
 }
 
@@ -5728,4 +5780,14 @@ only screen and (min-resolution: 2dppx) {
     }
 
     @media (max-width: 991px) {}
+}
+
+@keyframes rotate-left {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(-360deg);
+  }
 }

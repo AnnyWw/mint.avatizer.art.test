@@ -27,6 +27,7 @@ export class ManageNFTComponent implements OnInit {
   modal: boolean = true;
   select: any = null;
   gene: boolean = false;
+  showPreloader: boolean = false;
   isShow: boolean = false;
   readonly environment = environment;
   readonly texts = texts;
@@ -231,47 +232,53 @@ export class ManageNFTComponent implements OnInit {
         'https://deep-index.moralis.io/api/v2/' +
         token_address +
         '/nft?chain=goerli';
+
       if (cursor) {
         url += '?cursor=' + cursor;
       }
+
       let response = await fetch(url, {
         headers: new Headers({
           'x-api-key':
             'komhjNL5MNJS8cGgsLeBSTtQcQDSRShS9cAWwPIyLzno7t9vzdgH7rTqsUE8gJ8x',
         }),
       });
+
       let data = null;
 
       if (response) {
         data = await response.json();
-        //console.log(data);
       }
-      return data;
-    } catch (err) {
-      //console.log(err)
-    }
-  }
 
-  async toggleGen() {
-    //console.log(this.gene);
-    try {
-      if (this.gene) {
-        let change = await this.contractAv.methods
-          .unpauseDNAGeneration(this.select.Id)
-          .send({ from: this.wallet });
-        this.select.Generative = true;
-      } else {
-        let change = await this.contractAv.methods
-          .pauseDNAGeneration(this.select.Id)
-          .send({ from: this.wallet });
-        this.select.Generative = false;
-      }
+      return data;
     } catch (err) {
       console.log(err);
     }
   }
 
-  async stopGen() {}
+  async toggleGen() {
+    try {
+      this.showPreloader = true;
+
+      if (this.gene) {
+        await this.contractAv.methods
+          .unpauseDNAGeneration(this.select.Id)
+          .send({ from: this.wallet });
+
+        this.select.Generative = true;
+      } else {
+        await this.contractAv.methods
+          .pauseDNAGeneration(this.select.Id)
+          .send({ from: this.wallet });
+
+        this.select.Generative = false;
+      }
+    } catch (err) {
+      console.log(err);
+    } finally {
+      this.showPreloader = false;
+    }
+  }
 
   getStatus() {
     this.status = '';
