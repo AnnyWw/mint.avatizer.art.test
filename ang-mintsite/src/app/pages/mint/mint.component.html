@@ -1,6 +1,7 @@
 <app-header></app-header>
+
 <ng-template [ngIf]="environment.minting_status === 'not_start'">
-<div  class="wrap bkg-color-353D4D" id="mint_status_{{environment.minting_status}}">
+	<div  class="wrap bkg-color-353D4D" id="mint_status_{{environment.minting_status}}">
     <div class="container">
       <div class="parallax">
         <img
@@ -12,7 +13,6 @@
           data-speed="0.4"
         />
       </div>
-
       <div class="splash-mint row">
         <div class="col-xs-12 col-sm-12 col-md-8 col-lg-7">
           <div class="splash-mint--body">
@@ -39,11 +39,11 @@
                   >{{texts.your_wallet_id}}:</label
                 >
                 <div class="input-group">
-                  <span class="wallet-form--input"
-                    >{{ wallet.substring(0, 5) }}
-                    <span class="wallet-form--input-inside"
-                      >-XXXX-XXXX-XXXX-</span
-                    >
+                  <span class="wallet-form--input">
+										{{ wallet.substring(0, 5) }}
+                  <span class="wallet-form--input-inside">
+										-XXXX-XXXX-XXXX-
+									</span>
                     {{
                       wallet.substring(wallet.length - 4, wallet.length + 4)
                     }}</span
@@ -69,10 +69,9 @@
         </div>
       </div>
     </div>
-
     <app-footer></app-footer>
   </div>    
- </ng-template>
+</ng-template>
 
 <ng-template [ngIf]="environment.minting_status === 'start'">    
   <div *ngIf="wallet === 'ahisiash'" class="wrap bkg-color-353D4D" id="mint_status_{{wallet}}">
@@ -87,7 +86,6 @@
           data-speed="0.4"
         />
       </div>
-
       <div class="splash-mint row">
         <div class="col-xs-12 col-sm-12 col-md-8 col-lg-7">
           <div class="splash-mint--body">
@@ -178,9 +176,9 @@
         </div>
       </div>
     </div>
-
     <app-footer></app-footer>
   </div>
+
   <div *ngIf="status === 'connect'" class="wrap bkg-color-353D4D" id="mint_status_{{status}}">
     <div class="container">
       <div class="parallax">
@@ -193,7 +191,6 @@
           data-speed="0.4"
         />
       </div>
-
       <div class="splash-mint row">
         <div class="col-xs-12 col-sm-12 col-md-8 col-lg-7">
           <div class="splash-mint--body">
@@ -232,51 +229,22 @@
               </div>
             </div>
           </div>
-          <div class="splash-mint--wallet">
-            <div class="wallet-form--fieldset hidden-bg">
-              <div class="wallet-form--group hidden-mob">
-                <label class="wallet-form--label" for="your_wallet"
-                  >{{texts.your_wallet_id}}:</label
-                >
-                <div class="input-group">
-                  <span class="wallet-form--input not-value"
-                    >XXXX
-                    <span class="wallet-form--input-inside"
-                      >-XXXX-XXXX-XXXX-</span
-                    >
-                    XXXX</span
-                  >
-                  <!-- <input type="text" class="wallet-form--input" placeholder="XXXX-XXXX-XXXX-XXXX-XXXX" id="your_wallet" aria-describedby="wallet-connection"> -->
-                  <button
-                    class="wallet-form--connection"
-                    disabled
-                    id="wallet-connection"
-                  >
-                    {{texts.disconnect}}
-                  </button>
-                </div>
-                <div class="wallet-form--status">
-                  <div class="form-status--label">Status:</div>
-                  <div class="form-status--text"></div>
-                </div>
-              </div>
-              <div (click)="initWeb3()" class="wallet-form--button">
-                <button
-                  class="wallet-form--btn btn btn-metamask metamask-connect"
-                >
-                  <span class="btn-body">
-                    <span class="btn-title">{{texts.connect_wallet}}</span>
-                  </span>
-                </button>
-              </div>
-            </div>
-          </div>
+					<div class="wallet-form--button connect">
+						<button
+							(click)="initWeb3()"
+							class="wallet-form--btn btn btn-metamask metamask-connect"
+						>
+							<span class="btn-body">
+								<span class="btn-title">{{texts.connect_wallet}}</span>
+							</span>
+						</button>
+					</div>
         </div>
       </div>
     </div>
-
     <app-footer></app-footer>
   </div>
+
   <div *ngIf="status === 'pendingConnect'" class="wrap bkg-color-353D4D" id="mint_status_{{status}}">
     <div class="container">
       <div class="parallax">
@@ -289,7 +257,6 @@
           data-speed="0.4"
         />
       </div>
-
       <div class="splash-mint row">
         <div class="col-xs-12 col-sm-12 col-md-8 col-lg-7">
           <div class="splash-mint--body">
@@ -372,9 +339,9 @@
         </div>
       </div>
     </div>
-
     <app-footer></app-footer>
   </div>
+
   <div *ngIf="status === 'network'" class="wrap bkg-color-353D4D" id="mint_status_{{status}}">
     <div class="container">
       <div class="parallax">
@@ -387,7 +354,6 @@
           data-speed="0.4"
         />
       </div>
-
       <div class="splash-mint row">
         <div class="col-xs-12 col-sm-12 col-md-8 col-lg-7">
           <div class="splash-mint--body">
@@ -486,9 +452,9 @@
     <div *ngIf="isShow" class="dinamic-notify error">
       {{texts.status_switch_error}} <button class="notify-close" (click)="closeNotify()"></button>
     </div>
-
     <app-footer></app-footer>
   </div>
+
   <div
     *ngIf="status === 'WL' || status === 'Public'"
     class="wrap bkg-color-353D4D" id="mint_status_{{status}}"
@@ -504,7 +470,6 @@
           data-speed="0.4"
         />
       </div>
-
       <div class="splash-mint row">
         <div class="col-xs-12 col-sm-12 col-md-8 col-lg-7">
           <div class="splash-mint--body">
@@ -587,12 +552,12 @@
         </div>
       </div>
     </div>
-
     <app-footer></app-footer>
   </div>
-  <div
-    *ngIf="phase === 'WL' && status === 'WLNot'"
-    class="wrap bkg-color-353D4D" id="mint_status_{{status}}"
+
+  <div 
+		*ngIf="phase === 'WL' && status === 'WLNot'"  
+		class="wrap bkg-color-353D4D" id="mint_status_{{status}}"
   >
     <div class="container">
       <div class="parallax">
@@ -605,7 +570,6 @@
           data-speed="0.4"
         />
       </div>
-
       <div class="splash-mint row">
         <div class="col-xs-12 col-sm-12 col-md-8 col-lg-7">
           <div class="splash-mint--body">
@@ -702,7 +666,6 @@
                     <span class="btn-body">
                       <span class="btn-title">{{texts.manage_nft}}</span>
                     </span>
-             
                 </a>
               </div>
             </div>
@@ -710,9 +673,9 @@
         </div>
       </div>
     </div>
-
     <app-footer></app-footer>
   </div>
+
   <div *ngIf="status === 'minted' && !token" class="wrap bkg-color-353D4D" id="mint_status_{{status}}">
     <div class="container">
       <div class="parallax">
@@ -725,7 +688,6 @@
           data-speed="0.4"
         />
       </div>
-
       <div class="splash-mint row">
         <div class="col-xs-12 col-sm-12 col-md-8 col-lg-7">
           <div class="splash-mint--body">
@@ -827,7 +789,6 @@
         </div>
       </div>
     </div>
-
     <app-footer></app-footer>
   </div>
 
@@ -843,7 +804,6 @@
           data-speed="0.4"
         />
       </div>
-
       <div class="splash-mint row">
         <div class="col-xs-12 col-sm-12 col-md-8 col-lg-7">
           <div class="splash-mint--body">
@@ -908,9 +868,9 @@
         </div>
       </div>
     </div>
-
     <app-footer></app-footer>
   </div>
+
   <div *ngIf="status === 'minted' && token" class="wrap bkg-color-353D4D" id="mint_status_{{status}}">
     <div class="container">
       <div class="parallax">
@@ -923,7 +883,6 @@
           data-speed="0.4"
         />
       </div>
-
       <div class="splash-mint row">
         <div class="col-xs-12 col-sm-12 col-md-8 col-lg-7">
           <div class="splash-mint--body">
@@ -948,19 +907,17 @@
           <div class="splash-mint--wallet">
             <div class="wallet-form--fieldset focused">
               <div class="wallet-form--group">
-                <label class="wallet-form--label" for="your_wallet"
-                  >{{texts.your_wallet_id}}:</label
-                >
+                <label class="wallet-form--label" for="your_wallet">
+									{{ texts.your_wallet_id }}:
+								</label>
                 <div class="input-group">
-                  <span class="wallet-form--input"
-                    >{{ wallet.substring(0, 5)
-                    }}<span class="wallet-form--input-inside"
-                      >-XXXX-XXXX-XXXX-</span
-                    >
-                    {{
-                      wallet.substring(wallet.length - 4, wallet.length + 4)
-                    }}</span
-                  >
+                  <span class="wallet-form--input">
+										{{ wallet.substring(0, 5) }}
+										<span class="wallet-form--input-inside">
+											-XXXX-XXXX-XXXX-
+										</span>
+                    {{ wallet.substring(wallet.length - 4, wallet.length + 4) }}
+									</span>
                   <!-- <input type="text" class="wallet-form--input" value="0x426 -XXXX-XXXX-XXXX- d1dA" placeholder="XXXX-XXXX-XXXX-XXXX-XXXX" id="your_wallet" aria-describedby="wallet-connection"> -->
                   <button
                     (click)="logout()"
@@ -991,7 +948,6 @@
                   </span>
                 </a>
                 <a href="/manageNFT" class="wallet-form--btn btn-sm btn-metamask btn-nft no-hover" title="{{texts.manage_nft}}">
-                 
                     <span class="btn-icon"
                       ><img
                         src="../../../assets/imgnew/mint/manage-logo.svg"
@@ -1002,7 +958,6 @@
                     <span class="btn-body">
                       <span class="btn-title">{{texts.manage_nft}}</span>
                     </span>
-                  
                 </a>
               </div>
             </div>
@@ -1010,13 +965,12 @@
         </div>
       </div>
     </div>
+
     <div *ngIf="isShowSuccess" class="dinamic-notify success">
       {{texts.status_mint_success}} <button class="notify-close" (click)="closeSuccessNotify()"></button>
     </div>
-
     <app-footer></app-footer>
   </div>
-    
     
   <div *ngIf="status === ''" class="wrap bkg-color-353D4D" id="mint_status_empty">
     <div class="container">
@@ -1087,13 +1041,12 @@
         </div>
       </div>
     </div>
-
     <app-footer></app-footer>
   </div>
 </ng-template>
 
 <ng-template [ngIf]="environment.minting_status === 'stop'"> 
-    <div class="wrap bkg-color-353D4D mint_status_stop" id="mint_status_stop">
+  <div class="wrap bkg-color-353D4D mint_status_stop" id="mint_status_stop">
     <div class="container">
       <div class="parallax">
         <img
@@ -1105,7 +1058,6 @@
           data-speed="0.4"
         />
       </div>
-
       <div class="splash-mint row">
         <div class="col-xs-12 col-sm-12 col-md-8 col-lg-7">
           <div class="splash-mint--body">
@@ -1177,7 +1129,6 @@
         </div>
       </div>
     </div>
-
     <app-footer></app-footer>
   </div>
 </ng-template>    

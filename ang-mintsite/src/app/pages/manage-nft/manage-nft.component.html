@@ -1,6 +1,6 @@
 <app-header></app-header>
 
-  <div *ngIf="status === 'connect'" class="wrap bkg-color-353D4D wrap-manage">
+  <div *ngIf="status === 'connect'" class="wrap bkg-color-353D4D">
     <div class="container">
       <div class="parallax">
         <img
@@ -12,59 +12,61 @@
           data-speed="0.4"
         />
       </div>
-
-      <div class="splash-mint splash-manage row">
+      <div class="splash-mint row">
         <div class="col-xs-12 col-sm-12 col-md-8 col-lg-7">
           <div class="splash-mint--body">
             <div class="splash-mint--content">
               <div class="splash-mint--title">{{texts.manage_nft}}</div>
+							<div class="splash-mint--description">
+                {{texts.splash_mint_description_1}}
+              </div>
+              <div class="splash-mint--image">
+                <video
+                  class="img-ill"
+                  src="../../../assets/imgnew/mint/mint-avatizer.mp4"
+                  preload="auto"
+                  no-controls
+                  autoplay
+                  loop
+                  muted
+                  playsinline
+                  alt="avatizer video"
+                  width="400"
+                  height="400"
+                >
+                  <source
+                    src="../../../assets/imgnew/mint/mint-avatizer.mp4"
+                    type="video/mp4"
+                  />
+                  <source
+                    src="../../../assets/imgnew/mint/mint-avatizer.webm"
+                    type="video/webm"
+                  />
+                  <source
+                    src="../../../assets/imgnew/mint/mint-avatizer.mov"
+                    type="video/mov"
+                  />
+                </video>
+              </div>
             </div>
           </div>
-          <div class="splash-mint--wallet">
-            <form action="" class="manage-form">
-              <div class="wallet-form--fieldset">
-                <div class="wallet-form--group">
-                  <label class="wallet-form--label" for="your_wallet"
-                    >{{texts.your_wallet_id}}:</label
-                  >
-                  <div class="input-group">
-                    <span class="wallet-form--input not-value"
-                      >XXXX
-                      <span class="wallet-form--input-inside"
-                        >-XXXX-XXXX-XXXX-</span
-                      >
-                      XXXX</span
-                    >
-                    <!-- <input type="text" class="wallet-form--input" placeholder="XXXX-XXXX-XXXX-XXXX-XXXX" id="your_wallet" aria-describedby="wallet-connection"> -->
-                    <button
-                      class="wallet-form--connection"
-                      disabled
-                      id="wallet-connection"
-                    >
-                      {{texts.disconnect}}
-                    </button>
-                  </div>
-                </div>
-                <div class="wallet-form--button">
-                  <button
-                    (click)="initWeb3()"
-                    class="wallet-form--btn btn btn-metamask metamask-connect"
-                  >
-                    <span class="btn-body">
-                      <span class="btn-title">{{texts.connect_wallet}}</span>
-                    </span>
-                  </button>
-                </div>
-              </div>
-            </form>
-          </div>
+					<div class="wallet-form--button connect">
+						<button
+							(click)="initWeb3()"
+							class="wallet-form--btn btn btn-metamask metamask-connect"
+						>
+							<span class="btn-body">
+								<span class="btn-title">{{texts.connect_wallet}}</span>
+							</span>
+						</button>
+					</div>
         </div>
       </div>
     </div>
-
     <app-footer></app-footer>
   </div>
-  <div *ngIf="status === 'pendingConnect'" class="wrap bkg-color-353D4D wrap-manage">
+
+  <div *ngIf="status === 'pendingConnect'" class="wrap bkg-color-353D4D">
     <div class="container">
       <div class="parallax">
         <img
@@ -76,13 +78,43 @@
           data-speed="0.4"
         />
       </div>
-
-      <div class="splash-mint splash-manage row">
+      <div class="splash-mint row">
         <div class="col-xs-12 col-sm-12 col-md-8 col-lg-7">
           <div class="splash-mint--body">
             <div class="splash-mint--content">
               <div class="splash-mint--title">{{texts.splash_mint_title_mng}}</div>
-            </div>
+							<div class="splash-mint--description">
+                {{texts.splash_mint_description_1}}
+              </div>
+              <div class="splash-mint--image">
+                <video
+                  class="img-ill"
+                  src="../../../assets/imgnew/mint/mint-avatizer.mp4"
+                  preload="auto"
+                  no-controls
+                  autoplay
+                  loop
+                  muted
+                  playsinline
+                  alt="avatizer video"
+                  width="400"
+                  height="400"
+                >
+                  <source
+                    src="../../../assets/imgnew/mint/mint-avatizer.mp4"
+                    type="video/mp4"
+                  />
+                  <source
+                    src="../../../assets/imgnew/mint/mint-avatizer.webm"
+                    type="video/webm"
+                  />
+                  <source
+                    src="../../../assets/imgnew/mint/mint-avatizer.mov"
+                    type="video/mov"
+                  />
+                </video>
+              </div>
+						</div>
           </div>
           <div class="splash-mint--wallet">
             <form action="" class="manage-form">
@@ -124,10 +156,10 @@
         </div>
       </div>
     </div>
-
-    <app-footer></app-footer>
+		<app-footer></app-footer>
   </div>
-  <div *ngIf="status === 'network'" class="wrap bkg-color-353D4D wrap-manage">
+
+  <div *ngIf="status === 'network'" class="wrap bkg-color-353D4D">
     <div class="container">
       <div class="parallax">
         <img
@@ -139,13 +171,43 @@
           data-speed="0.4"
         />
       </div>
-
-      <div class="splash-mint splash-manage row">
+      <div class="splash-mint row">
         <div class="col-xs-12 col-sm-12 col-md-8 col-lg-7">
           <div class="splash-mint--body">
             <div class="splash-mint--content">
               <div class="splash-mint--title">{{texts.splash_mint_title_mng}}</div>
-            </div>
+							<div class="splash-mint--description">
+                {{texts.splash_mint_description_1}}
+              </div>
+              <div class="splash-mint--image">
+                <video
+                  class="img-ill"
+                  src="../../../assets/imgnew/mint/mint-avatizer.mp4"
+                  preload="auto"
+                  no-controls
+                  autoplay
+                  loop
+                  muted
+                  playsinline
+                  alt="avatizer video"
+                  width="400"
+                  height="400"
+                >
+                  <source
+                    src="../../../assets/imgnew/mint/mint-avatizer.mp4"
+                    type="video/mp4"
+                  />
+                  <source
+                    src="../../../assets/imgnew/mint/mint-avatizer.webm"
+                    type="video/webm"
+                  />
+                  <source
+                    src="../../../assets/imgnew/mint/mint-avatizer.mov"
+                    type="video/mov"
+                  />
+                </video>
+              </div>
+						</div>
           </div>
           <div class="splash-mint--wallet">
             <form action="" class="manage-form">
@@ -200,14 +262,13 @@
         </div>
       </div>
     </div>
-
     <div *ngIf="isShow" class="dinamic-notify error">
       {{texts.status_switch_error}} <button class="notify-close" (click)="closeNotify()"></button>
     </div>
-
     <app-footer></app-footer>
   </div>
-  <div *ngIf="status === ''" class="wrap bkg-color-353D4D wrap-manage">
+
+  <div *ngIf="status === ''" class="wrap bkg-color-353D4D">
     <div class="container">
       <div class="parallax">
         <img
@@ -219,13 +280,43 @@
           data-speed="0.4"
         />
       </div>
-
-      <div class="splash-mint splash-manage row">
+      <div class="splash-mint row">
         <div class="col-xs-12 col-sm-12 col-md-8 col-lg-7">
           <div class="splash-mint--body">
             <div class="splash-mint--content">
               <div class="splash-mint--title">{{texts.splash_mint_title_mng}}</div>
-            </div>
+							<div class="splash-mint--description">
+                {{texts.splash_mint_description_1}}
+              </div>
+              <div class="splash-mint--image">
+                <video
+                  class="img-ill"
+                  src="../../../assets/imgnew/mint/mint-avatizer.mp4"
+                  preload="auto"
+                  no-controls
+                  autoplay
+                  loop
+                  muted
+                  playsinline
+                  alt="avatizer video"
+                  width="400"
+                  height="400"
+                >
+                  <source
+                    src="../../../assets/imgnew/mint/mint-avatizer.mp4"
+                    type="video/mp4"
+                  />
+                  <source
+                    src="../../../assets/imgnew/mint/mint-avatizer.webm"
+                    type="video/webm"
+                  />
+                  <source
+                    src="../../../assets/imgnew/mint/mint-avatizer.mov"
+                    type="video/mov"
+                  />
+                </video>
+              </div>
+						</div>
           </div>
           <div class="splash-mint--wallet">
             <div class="wallet-form--fieldset focused">
@@ -291,14 +382,11 @@
                 </div>
               </a>
             </div>
-            <div *ngIf="nfts.length <= 0" class="splash-collect--items">
-              
-            </div>
+            <div *ngIf="nfts.length <= 0" class="splash-collect--items"></div>
           </div>
         </div>
       </div>
     </div>
-
     <div
       #collectmodal1
       class="modal fade modal-backdrop"
@@ -379,6 +467,5 @@
         </div>
       </div>
     </div>
-
     <app-footer></app-footer>
   </div>

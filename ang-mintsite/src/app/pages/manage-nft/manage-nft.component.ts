@@ -31,6 +31,7 @@ export class ManageNFTComponent implements OnInit {
   readonly environment = environment;
   readonly texts = texts;
   FullYear: number = new Date().getFullYear();
+
   constructor() {}
 
   ngOnInit(): void {
@@ -62,7 +63,7 @@ export class ManageNFTComponent implements OnInit {
     /* add Web3modal */
     $('#connect').click(function () {
       //console.log('here');
-    }); 
+    });
 
     //this.initWeb3();
     this.getStatus();
@@ -109,9 +110,9 @@ export class ManageNFTComponent implements OnInit {
         abi,
         environment.contractAv //'0x5D74387c391b88C35425d0Ec9f82750562fc173F'
       );
+
       this.getOwnership(this.wallet);
       this.pendingConnect = false;
-
       this.getStatus();
     } catch (err: any) {
       console.log(err);
@@ -164,28 +165,28 @@ export class ManageNFTComponent implements OnInit {
       let data = (await this.getMoralisData(wallet, null)) as any;
       ethNFTs = ethNFTs.concat(data.result);
       let count1 = 0;
+
       while (data.cursor) {
         data = (await this.getMoralisData(wallet, data.cursor)) as any;
         ethNFTs = ethNFTs.concat(data.result);
         count1++;
       }
-     // console.log(ethNFTs);
 
       this.nfts = [];
 
       for (let nft of ethNFTs) {
         //Gen1
         if (
-          nft.token_address.toString().toLowerCase() === environment.contractAv.toString().toLowerCase()
+          nft.token_address.toString().toLowerCase() ===
+          environment.contractAv.toString().toLowerCase()
           //'0x5D74387c391b88C35425d0Ec9f82750562fc173F'.toString().toLowerCase()
         ) {
           let tok = await this.contractAv.methods.tokenURI(nft.token_id).call();
-
           let data = (await this.decodeURL(tok)) as any;
           let isClaimed = await this.contractAv.methods
             .pausedTokenGenes(nft.token_id)
             .call();
-          //console.log(tok);
+
           //Decode URL
           let nftObj = {
             Id: nft.token_id,
@@ -193,7 +194,7 @@ export class ManageNFTComponent implements OnInit {
             Image: data?.image,
             Generative: isClaimed === '0x0' || !isClaimed ? true : false,
           };
-          //console.log(nftObj);
+
           this.nfts.push(nftObj);
           /*let isClaimed = await this.contractAv.methods.gen1_token_to_jiraverse_pass(nft.token_id).call();
           if(isClaimed === 0){
@@ -201,6 +202,8 @@ export class ManageNFTComponent implements OnInit {
           }*/
         }
       }
+
+      console.log('nfts', this.nfts);
 
       //Show Elgibility
     } catch (err) {
@@ -264,7 +267,7 @@ export class ManageNFTComponent implements OnInit {
         this.select.Generative = false;
       }
     } catch (err) {
-      //console.log(err);
+      console.log(err);
     }
   }
 
@@ -272,13 +275,11 @@ export class ManageNFTComponent implements OnInit {
 
   getStatus() {
     this.status = '';
-    //console.log(this.wallet);
+
     if (this.wallet === '') {
       this.status = 'connect';
     } else if (this.network !== 'goerli') {
-      //console.log(this.network);
       this.status = 'network';
-      
     } else if (this.pendingConnect) {
       this.status = 'pendingConnect';
     } else if (this.pending) {
