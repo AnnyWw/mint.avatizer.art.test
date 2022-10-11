@@ -62,9 +62,9 @@ export class ManageNFTComponent implements OnInit {
     });
 
     /* add Web3modal */
-    $('#connect').click(function () {
-      //console.log('here');
-    });
+    // $('#connect').click(function () {
+    //   console.log('here');
+    // });
 
     //this.initWeb3();
     this.getStatus();
@@ -93,7 +93,6 @@ export class ManageNFTComponent implements OnInit {
       this.provider = await this.web3Modal.connect();
       this.web3 = new Web3(this.provider);
       this.network = await this.web3.eth.net.getNetworkType();
-      //console.log(this.network);
 
       //Display warning if on the wrong network
       if (this.network !== 'goerli') {
@@ -104,7 +103,6 @@ export class ManageNFTComponent implements OnInit {
       }
 
       let accounts = await this.web3.eth.getAccounts();
-      //console.log(accounts);
       this.wallet = accounts[0];
 
       this.contractAv = new this.web3.eth.Contract(
@@ -121,19 +119,16 @@ export class ManageNFTComponent implements OnInit {
   }
 
   popup(token: any) {
-    //console.log(token);
     this.select = token;
     this.gene = token.Generative;
-    //this.myModal.nativeElement.click()
     this.openModel();
-    //$('#collect-modal-1').modal('show');
   }
 
   openModel() {
     this.myModal.nativeElement.className = ' modal show modal-backdrop';
   }
   closeModel() {
-    this.select = '';
+    //this.select = '';
     this.myModal.nativeElement.className = 'modal hide';
   }
 
@@ -220,8 +215,8 @@ export class ManageNFTComponent implements OnInit {
 
       if (response) {
         data = await response.json();
-        //console.log(data);
       }
+
       return data;
     } catch (err) {}
   }
