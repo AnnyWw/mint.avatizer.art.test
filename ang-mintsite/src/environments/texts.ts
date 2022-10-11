@@ -23,7 +23,7 @@ export const texts = {
   copyright_adsres: '1800 Diagonal Road #600, Alexandria, VA 22314, USA',
   copyright_company: '© Electronic Team, Inc.',
   status_minted_not_started: 'You are a bit early, minting will start soon.',
-  connect_wallet: 'Connect My Metamask',
+  connect_wallet: 'Connect my wallet',
   splash_mint_title_mng: 'Avatizer NFT - Free Mint',
   minting_ethereum_only: 'Minting on Ethereum only',
   daily_reload: 'Daily reload',

@@ -203,6 +203,8 @@ export class ManageNFTComponent implements OnInit {
         }
       }
 
+      console.log('nfts', this.nfts);
+
       //Show Elgibility
     } catch (err) {
       console.log(err);
