@@ -2217,6 +2217,10 @@ only screen and (min-resolution: 2dppx) {
 			
 		}
 
+		&--label{
+			font-size: 14px;
+		}
+
 		&--icon{
 			margin-right: 8px;
 			flex-shrink: 0;
@@ -2234,12 +2238,12 @@ only screen and (min-resolution: 2dppx) {
 				border-bottom: none;
 				border-radius: 50%;
 				animation: rotate-left 1s linear infinite;
-				//
 				flex-shrink: 0;
 			}
 
 			&-label{
 				color: #FFF;
+				font-size: 14px;
 				font-weight: 500;
 				margin: 0;
 				line-height: 17px;
