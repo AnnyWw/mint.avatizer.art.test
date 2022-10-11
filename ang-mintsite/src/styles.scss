@@ -35,7 +35,7 @@ body {
 .modal-backdrop.in {
     z-index: 0;
     background: rgb(35 42 56 / 95%);
-    opacity: 1;
+    opacity: 1 !important;
 }
 
 .modal-dialog {
@@ -79,7 +79,10 @@ body {
 
 .modal-body {
     padding: 0;
+}
 
+.modal-body img{
+    object-fit: cover;
 }
 
 .modal-desc {
@@ -928,10 +931,13 @@ body.loaded .page-1 .splash-product .animate__fadeIn {
 // 404.css
 
 html,
-body {
+body,
+.page-404 {
     height: 100%;
 }
-
+.page-404 .logo-brand:hover {
+ text-decoration: none;
+}
 .btn-404 {
     display: inline-block;
     font-weight: 500;
@@ -1046,7 +1052,7 @@ body.loaded.page-404 .footer .content {
     top: 0;
 }
 
-.parallax .img-parallax {
+.parallax .img-parallax{
     position: absolute;
     right: 0px;
     left: 0px;
@@ -1260,27 +1266,6 @@ body {
     color: #CD1A53;
 }
 
-.parallax-girl .img-parallax {
-    position: absolute;
-    top: -310px;
-    right: -490px;
-    pointer-events: none;
-}
-
-.parallax {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    position: absolute;
-    left: 0;
-    top: 0;
-}
-
-.page-1 .parallax {
-    left: -40px;
-    width: 100vw;
-}
-
 .wrap-first .parallax {
     opacity: 0;
 }
@@ -1288,47 +1273,6 @@ body {
 body.loaded .wrap-first .parallax {
     -webkit-animation: 1.5s ease 0s normal forwards 1 fadein;
     animation: 1.5s ease 0s normal forwards 1 fadein;
-}
-
-.parallax .img-parallax {
-    position: absolute;
-    right: 0px;
-    left: 0px;
-    pointer-events: none;
-    width: 100%;
-}
-
-
-.explore-link {
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 20px;
-    color: rgba(255, 255, 255, 0.7);
-    margin-top: 105px;
-    margin-bottom: 50px;
-    cursor: pointer;
-    display: block;
-    border: 0;
-    background: none;
-}
-
-.explore-link:focus,
-.explore-link:active,
-.explore-link:hover {
-    text-decoration: none;
-    color: rgba(255, 255, 255, 0.7);
-    border: 0;
-    background: none;
-}
-
-.explore-link>span {
-    display: block;
-    margin-top: 3px;
-}
-
-.explore-link>span>svg {
-    animation: explore .7s infinite alternate;
-    -webkit-animation: explore .7s infinite alternate;
 }
 
 @keyframes fadein {
@@ -1445,10 +1389,6 @@ body.loaded .wrap-first .parallax {
         height: 100%;
     }
 
-    .parallax-girl .img-parallax {
-        right: -1040px;
-    }
-
     .parallax .img-parallax {
         object-fit: cover;
     }
@@ -1461,20 +1401,6 @@ body.loaded .wrap-first .parallax {
 @media (max-width: 768px) and (min-width: 505px) {}
 
 @media (max-width: 767px) {
-    .page-1 .parallax {
-        left: -15px;
-    }
-
-    .wrap-first .parallax .img-parallax {
-        width: 1000px;
-        height: auto;
-        left: -330px;
-    }
-
-    .parallax-girl .img-parallax {
-        right: -200px;
-    }
-
     .wrap .container-fluid,
     .wrap .container {
         padding-left: 15px;
@@ -1505,15 +1431,6 @@ body.loaded .wrap-first .parallax {
 
     .parent-page-2 .container {
         padding: 0;
-    }
-
-    .page-2 {
-        margin: 0;
-    }
-
-    .page-4 .parallax .img-parallax {
-        width: 1800px;
-        height: auto;
     }
 
     .bg-promo {
@@ -1596,7 +1513,7 @@ only screen and (min-resolution: 2dppx) {
     position: absolute;
     width: 100%;
     height: 100%;
-    left: 0;
+    left: 30px;
     top: 20px;
     background-image: url('./assets/imgnew/mint/bg-splash-mint.svg');
     background-repeat: no-repeat;
@@ -1611,7 +1528,7 @@ only screen and (min-resolution: 2dppx) {
     top: 20px;
     background: #1d2331;
     clip-path: polygon(0 5%, 95% 0, 100% 100%, 6% 95%);
-    width: 501px;
+    width: 507px;
     height: 549px;
     z-index: 0;
     transform: translateX(-50%);
@@ -1621,6 +1538,10 @@ only screen and (min-resolution: 2dppx) {
     max-width: 400px;
     margin: auto;
     position: relative;
+}
+
+.splash-manage--connect .splash-mint--image{
+    margin-top: 23px;
 }
 
 .splash-mint--ntf {
@@ -1660,11 +1581,11 @@ only screen and (min-resolution: 2dppx) {
     font-size: 20px;
     line-height: 27px;
     color: #FFFFFF;
-    margin-bottom: 30px;
+    margin-bottom: 1px;
 }
 
 .splash-mint--wallet {
-    margin: -30px auto 0;
+    margin: -23px auto 0;
 }
 
 .wallet-form--fieldset {
@@ -1834,6 +1755,7 @@ only screen and (min-resolution: 2dppx) {
 
 .buttons-group .wallet-form--btn:first-child {
     margin-right: 20.5px !important;
+    justify-content: center !important;
 }
 .buttons-group .wallet-form--btn:last-child {
     margin-right: auto !important;
@@ -1866,6 +1788,7 @@ only screen and (min-resolution: 2dppx) {
     min-width: 272px !important;
     min-height: 52px !important;
     margin: 0 !important;
+    opacity: 1;
     white-space: nowrap !important;
     justify-content: flex-start !important;
 }
@@ -2013,10 +1936,12 @@ only screen and (min-resolution: 2dppx) {
 
 .btn-metamask:hover {
     color: #FFFFFF !important;
+    text-decoration: none;
 }
 
 .btn-metamask:focus {
     color: #FFFFFF !important;
+    text-decoration: none;
 }
 
 .btn-metamask:hover::after {
@@ -2117,40 +2042,52 @@ only screen and (min-resolution: 2dppx) {
     background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTMiIGhlaWdodD0iMTQiIHZpZXdCb3g9IjAgMCAxMyAxNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEuNDc4MiAwLjY3NjA5N0wwLjQxNzU0IDEuNzM2NzZMNS41NDQwNiA2Ljg2MzI4TDAuNDE3NTM5IDExLjk4OThMMS40NzgyIDEzLjA1MDVMNi42MDQ3MiA3LjkyMzk0TDExLjczMTIgMTMuMDUwNUwxMi43OTE5IDExLjk4OThMNy42NjUzOCA2Ljg2MzI4TDEyLjc5MTkgMS43MzY3NkwxMS43MzEyIDAuNjc2MDk3TDYuNjA0NzIgNS44MDI2MkwxLjQ3ODIgMC42NzYwOTdaIiBmaWxsPSIjM0NDQzUzIi8+Cjwvc3ZnPgo=");
 }
 
+.form--connect .wallet-form--fieldset{
+    padding: 0;
+}
+.form--connect .wallet-form--fieldset::before{
+    display: none;
+}
 
-.splash-manage .splash-mint--body {
+.wrap-network .splash-mint--wallet{
+    margin-top: -15px;
+}
+
+.manage-form.manage-form--network .splash-mint--body {
     padding-bottom: 10px;
 }
 
-.splash-manage .wallet-form--fieldset {
-    padding: 50px 45px;
+.manage-form.manage-form--network .wallet-form--fieldset {
+    padding: 37px 45px 45px 45px;
 }
 
-.splash-manage .wallet-form--fieldset::before {
-    max-height: 141px;
+.manage-form.manage-form--network .wallet-form--fieldset::before {
+    max-height: 137px;
 }
 
-.splash-manage .wallet-form--button {
+.manage-form.manage-form--network .wallet-form--button {
     margin-top: 18px;
 }
 
 .wrap-manage {
-    // height: 100vh;
     display: flex;
     align-items: center;
-    padding-bottom: 130px;
-    padding-top: 216px;
+}
+.wrap-manage.wrap-collection .splash-mint--wallet{
+    margin-top: -40px;
 }
 
 .wrap-manage .splash-manage {
     align-items: center;
-    padding: 0;
 }
 
 .splash-manage {
-    padding-top: 120px;
-    padding-bottom: 274px;
+    padding-top: 0 !important;
+    padding-bottom: 130px;
     flex-wrap: wrap;
+}
+.splash-manage .splash-mint--body{
+    padding-bottom: 10px;
 }
 
 .splash-collect--items {
@@ -2193,7 +2130,7 @@ only screen and (min-resolution: 2dppx) {
     display: flex;
     max-width: 700px;
     flex-wrap: wrap;
-    margin: 10px auto 0;
+    margin: 86px auto 0;
     justify-content: center;
 }
 
@@ -2352,7 +2289,7 @@ only screen and (min-resolution: 2dppx) {
 
 @media (max-width: 767px) {
     .splash-mint {
-        padding-top: 224px;
+        padding-top: 119px;
     }
 
     .splash-mint--title {
@@ -2450,8 +2387,12 @@ only screen and (min-resolution: 2dppx) {
         margin-top: 30px;
     }
 
+    .wallet-form--group .input-group{
+        justify-content: space-between;
+    }
+
     .wrap-manage {
-        padding-top: 105px;
+        padding-top: 0;
     }
 
     .collect-title {
@@ -2472,7 +2413,7 @@ only screen and (min-resolution: 2dppx) {
     }
 
     .splash-manage .wallet-form--fieldset::before {
-        max-height: 124px;
+        min-height: 124px;
         width: 100%;
     }
 
@@ -2566,6 +2507,7 @@ only screen and (min-resolution: 2dppx) {
         margin-top: 10px !important;
     }
 
+    .manage-form.manage-form--network .wallet-form--fieldset,
     .wallet-form--fieldset {
         padding-left: 20px;
         padding-right: 20px;
@@ -2592,7 +2534,6 @@ only screen and (min-resolution: 2dppx) {
 
     .wrap-manage {
         display: block;
-        padding-top: 219px;
     }
 
     .collect-card {
