@@ -146,13 +146,13 @@
                                         fill="#F39A32" />
                                 </svg>
                             </span>
-                            <span class="site_name">Avatizer</span>
+                            <span class="site_name">{{environment.siteName}}</span>
                         </a>
                     </div>
 
                     <ul class="list-socials">
                         <li class="li-row">
-                            <a href="#" title="Discord" class="btn socials transition-all btn-discord" target="_blank">
+                            <a href="{{environment.discordUrl}}" title="Discord" class="btn socials transition-all btn-discord" target="_blank">
 
                                 <span class="buttons-icon">
                                     <img class="image2x hidden-xs hidden-sm hidden-md" src="../../../assets/imgnew/index/discord.svg"
@@ -164,7 +164,7 @@
                             </a>
                         </li>
                         <li class="li-row">
-                            <a href="https://twitter.com/Avatizer_NFT" title="Twitter"
+                            <a href="{{environment.twitterUrl}}" title="Twitter"
                                 class="btn socials transition-all btn-twitter" target="_blank">
 
                                 <span class="buttons-icon">
@@ -177,7 +177,7 @@
                             </a>
                         </li>
                         <li class="li-row">
-                            <a href="#" title="Visit OpenSea" class="btn socials transition-all btn-opensea"
+                            <a href="{{environment.openseaUrl}}" title="Visit OpenSea" class="btn socials transition-all btn-opensea"
                                 target="_blank">
 
                                 <span class="buttons-icon">
@@ -203,15 +203,13 @@
 
                             <div class="text-404">404</div>
 
-                            <h1 class="title-main">Ooops! Page Not Found.</h1>
+                            <h1 class="title-main">{{texts.not_found_title}}</h1>
 
                             <div class="text-main">
-                                This page doesn’t exist or was removed!
-                                Don’t worry, you will be redirected to our
-                                homepage within <span id="redirect_after">{{ counter }}</span> seconds...
+                                {{texts.not_found_description}} <span id="redirect_after">{{ counter }}</span> {{texts.not_found_seconds}}...
                             </div>
 
-                            <a class="btn-404" routerLink="/">Back to Home</a>
+                            <a class="btn-404" routerLink="/">{{texts.not_found_btn_text}}</a>
 
                         </div>
                         <div class="clearfix"></div>
