@@ -488,6 +488,8 @@ export class MintComponent implements OnInit {
 
       let hasTok = await this.contractAv.methods.balanceOf(this.wallet).call();
 
+      console.log('hasTok', hasTok);
+
       // UNCOMMENT IN PRODUCTION
       // if(hasTok > 0){
       //   this.minted = true;
@@ -566,6 +568,7 @@ export class MintComponent implements OnInit {
           this.isShowSuccess = true;
           this.token = reciept.events.Transfer.returnValues.tokenId;
           this.getStatus();
+          console.log('token', this.token);
         })
         .on('error', async (error: any) => {
           //toast(error.message);
@@ -613,6 +616,8 @@ export class MintComponent implements OnInit {
         this.status = 'not started';
       }
     }
+
+    console.log('status', this.status);
 
     this.status;
   }
