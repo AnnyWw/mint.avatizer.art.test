@@ -2293,12 +2293,6 @@ only screen and (min-resolution: 2dppx) {
 			align-items: center;
 
 			&-circle{
-				width: 18px;
-				height: 18px;
-				border: 1px solid #fff;
-				box-sizing: border-box;
-				border-bottom: none;
-				border-radius: 50%;
 				animation: rotate-left 1s linear infinite;
 				flex-shrink: 0;
 			}
