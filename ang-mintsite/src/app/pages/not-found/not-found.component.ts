@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { texts } from 'src/environments/texts';
 declare var $: any;
 
 @Component({
@@ -8,6 +9,7 @@ declare var $: any;
   styleUrls: ['./not-found.component.scss']
 })
 export class NotFoundComponent implements OnInit {
+  readonly texts = texts;
   counter: number = 10; 
   constructor(private router: Router) { }
 
