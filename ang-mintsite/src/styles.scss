@@ -1746,6 +1746,7 @@ only screen and (min-resolution: 2dppx) {
 
 .buttons-group .wallet-form--btn:first-child {
     margin-right: 20.5px !important;
+    justify-content: center !important;
 }
 
 .wallet-form--btn {
@@ -1776,6 +1777,7 @@ only screen and (min-resolution: 2dppx) {
     min-width: 272px !important;
     min-height: 52px !important;
     margin: 0 !important;
+    opacity: 1;
     white-space: nowrap !important;
     justify-content: flex-start !important;
 }
@@ -1922,10 +1924,12 @@ only screen and (min-resolution: 2dppx) {
 
 .btn-metamask:hover {
     color: #FFFFFF !important;
+    text-decoration: none;
 }
 
 .btn-metamask:focus {
     color: #FFFFFF !important;
+    text-decoration: none;
 }
 
 .btn-metamask:hover::after {
