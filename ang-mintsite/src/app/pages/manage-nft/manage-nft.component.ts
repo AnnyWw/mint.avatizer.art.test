@@ -27,7 +27,7 @@ export class ManageNFTComponent implements OnInit {
   modal: boolean = true;
   select: any = null;
   gene: boolean = false;
-  showPreloader: boolean = false;
+  //showPreloader: boolean = false;
   isShow: boolean = false;
   readonly environment = environment;
   readonly texts = texts;
@@ -189,6 +189,7 @@ export class ManageNFTComponent implements OnInit {
             Name: data?.name,
             Image: data?.image,
             Generative: isClaimed === '0x0' || !isClaimed ? true : false,
+            showPreloader: false,
           };
 
           this.nfts.push(nftObj);
@@ -253,7 +254,7 @@ export class ManageNFTComponent implements OnInit {
 
   async toggleGen() {
     try {
-      this.showPreloader = true;
+      this.select.showPreloader = true;
 
       if (this.gene) {
         await this.contractAv.methods
@@ -271,7 +272,7 @@ export class ManageNFTComponent implements OnInit {
     } catch (err) {
       console.log(err);
     } finally {
-      this.showPreloader = false;
+      this.select.showPreloader = false;
     }
   }
 
