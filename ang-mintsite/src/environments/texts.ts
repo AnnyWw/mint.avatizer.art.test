@@ -8,7 +8,7 @@ export const texts = {
   splash_mint_description_2:
     'Allowlist and whitelist only. One NFT per wallet.',
   your_wallet_id: 'Your wallet ID',
-  status_text_success: 'Your Avatizer NFT is available',
+  status_text_success: 'You are on the whitelist, minting will open soon',
   disconnect: 'Disconnect',
   switch_network: 'Switch network',
   status_switch_error: 'Network switch failed, try again',
@@ -36,12 +36,13 @@ export const texts = {
   generate_paused_note:
     "This Avatizer will not update itself. Its current art will remain unchanged until you enable Daily Reloads.<br><br><b class='modal-desc--note'>Note:</b> pausing or restoring daily reloads will incur gas fees. That's the way the blockchain works.",
   minting_soon: 'Avatizer Minting Soon',
-  minting_stoped:"Avatizer Minting is stoped",
+  minting_stoped: 'Avatizer Minting is stoped',
   opensea_btn_text: 'Visit OpenSea',
   not_found_title: 'Ooops! Page Not Found.',
-  not_found_description: 'This page doesn’t exist or was removed! Don’t worry, you will be redirected to our homepage within',
+  not_found_description:
+    'This page doesn’t exist or was removed! Don’t worry, you will be redirected to our homepage within',
   not_found_seconds: 'seconds',
-  not_found_btn_text: 'Back to Home'
+  not_found_btn_text: 'Back to Home',
 };
 
 /*
