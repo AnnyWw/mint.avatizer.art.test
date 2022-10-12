@@ -27,6 +27,7 @@ export class ManageNFTComponent implements OnInit {
   modal: boolean = true;
   select: any = null;
   gene: boolean = false;
+  //showPreloader: boolean = false;
   isShow: boolean = false;
   readonly environment = environment;
   readonly texts = texts;
@@ -61,9 +62,9 @@ export class ManageNFTComponent implements OnInit {
     });
 
     /* add Web3modal */
-    $('#connect').click(function () {
-      //console.log('here');
-    });
+    // $('#connect').click(function () {
+    //   console.log('here');
+    // });
 
     //this.initWeb3();
     this.getStatus();
@@ -71,42 +72,42 @@ export class ManageNFTComponent implements OnInit {
 
   startParallax() {
     $(document).ready(function () {
-    $('.img-parallax').each(function(){
+      $('.img-parallax').each(function () {
         var img = $(this);
         var imgParent = $(this).parent();
-        function parallaxImg () {
-            var speed = img.data('speed');
-            var imgY = imgParent.offset().top;
-            var winY = $(window).scrollTop();
-            var winH = $(window).height();
-            var parentH = imgParent.innerHeight();
+        function parallaxImg() {
+          var speed = img.data('speed');
+          var imgY = imgParent.offset().top;
+          var winY = $(window).scrollTop();
+          var winH = $(window).height();
+          var parentH = imgParent.innerHeight();
 
+          // The next pixel to show on screen
+          var winBottom = winY + winH;
 
-            // The next pixel to show on screen      
-            var winBottom = winY + winH;
-
-            // If block is shown on screen
-            if (winBottom > imgY && winY < imgY + parentH) {
+          // If block is shown on screen
+          if (winBottom > imgY && winY < imgY + parentH) {
             // Number of pixels shown after block appear
-            var imgBottom = ((winBottom - imgY) * speed);
+            var imgBottom = (winBottom - imgY) * speed;
             // Max number of pixels until block disappear
             var imgTop = winH + parentH;
             // Porcentage between start showing until disappearing
-            var imgPercent = ((imgBottom / imgTop) * 100) + (50 - (speed * 50));
-            }
-            img.css({
+            var imgPercent = (imgBottom / imgTop) * 100 + (50 - speed * 50);
+          }
+          img.css({
             top: imgPercent + '%',
-            transform: 'translateY(-' + imgPercent + '%)'
-            });
+            transform: 'translateY(-' + imgPercent + '%)',
+          });
         }
         $(document).on({
-            scroll: function () {
+          scroll: function () {
             parallaxImg();
-            }, ready: function () {
+          },
+          ready: function () {
             parallaxImg();
-            }
+          },
         });
-    });
+      });
     });
   }
 
@@ -133,7 +134,6 @@ export class ManageNFTComponent implements OnInit {
       this.provider = await this.web3Modal.connect();
       this.web3 = new Web3(this.provider);
       this.network = await this.web3.eth.net.getNetworkType();
-      //console.log(this.network);
 
       //Display warning if on the wrong network
       if (this.network !== 'goerli') {
@@ -144,7 +144,6 @@ export class ManageNFTComponent implements OnInit {
       }
 
       let accounts = await this.web3.eth.getAccounts();
-      //console.log(accounts);
       this.wallet = accounts[0];
 
       this.contractAv = new this.web3.eth.Contract(
@@ -161,20 +160,18 @@ export class ManageNFTComponent implements OnInit {
   }
 
   popup(token: any) {
-    //console.log(token);
     this.select = token;
     this.gene = token.Generative;
-    //this.myModal.nativeElement.click()
     this.openModel();
-    //$('#collect-modal-1').modal('show');
   }
 
   openModel() {
     this.myModal.nativeElement.className = ' modal show fade in';
-    this.myModal.nativeElement.parentElement.offsetParent.className = 'loaded modal-open';
+    this.myModal.nativeElement.parentElement.offsetParent.className =
+      'loaded modal-open';
   }
   closeModel() {
-    this.select = '';
+    //this.select = '';
     this.myModal.nativeElement.className = 'modal fade';
     this.myModal.nativeElement.parentElement.offsetParent.className = 'loaded';
   }
@@ -236,6 +233,7 @@ export class ManageNFTComponent implements OnInit {
             Name: data?.name,
             Image: data?.image,
             Generative: isClaimed === '0x0' || !isClaimed ? true : false,
+            showPreloader: false,
           };
 
           this.nfts.push(nftObj);
@@ -262,8 +260,8 @@ export class ManageNFTComponent implements OnInit {
 
       if (response) {
         data = await response.json();
-        //console.log(data);
       }
+
       return data;
     } catch (err) {}
   }
@@ -274,47 +272,53 @@ export class ManageNFTComponent implements OnInit {
         'https://deep-index.moralis.io/api/v2/' +
         token_address +
         '/nft?chain=goerli';
+
       if (cursor) {
         url += '?cursor=' + cursor;
       }
+
       let response = await fetch(url, {
         headers: new Headers({
           'x-api-key':
             'komhjNL5MNJS8cGgsLeBSTtQcQDSRShS9cAWwPIyLzno7t9vzdgH7rTqsUE8gJ8x',
         }),
       });
+
       let data = null;
 
       if (response) {
         data = await response.json();
-        //console.log(data);
       }
-      return data;
-    } catch (err) {
-      //console.log(err)
-    }
-  }
 
-  async toggleGen() {
-    //console.log(this.gene);
-    try {
-      if (this.gene) {
-        let change = await this.contractAv.methods
-          .unpauseDNAGeneration(this.select.Id)
-          .send({ from: this.wallet });
-        this.select.Generative = true;
-      } else {
-        let change = await this.contractAv.methods
-          .pauseDNAGeneration(this.select.Id)
-          .send({ from: this.wallet });
-        this.select.Generative = false;
-      }
+      return data;
     } catch (err) {
       console.log(err);
     }
   }
 
-  async stopGen() {}
+  async toggleGen() {
+    try {
+      this.select.showPreloader = true;
+
+      if (this.gene) {
+        await this.contractAv.methods
+          .unpauseDNAGeneration(this.select.Id)
+          .send({ from: this.wallet });
+
+        this.select.Generative = true;
+      } else {
+        await this.contractAv.methods
+          .pauseDNAGeneration(this.select.Id)
+          .send({ from: this.wallet });
+
+        this.select.Generative = false;
+      }
+    } catch (err) {
+      console.log(err);
+    } finally {
+      this.select.showPreloader = false;
+    }
+  }
 
   getStatus() {
     this.status = '';
