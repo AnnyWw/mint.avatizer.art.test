@@ -1,4 +1,4 @@
-import { Component, Directive, OnInit, Self } from '@angular/core';
+import { Component, HostListener, OnInit, Self } from '@angular/core';
 import Web3Modal from 'web3modal';
 import Web3 from 'web3';
 import { ApiService } from 'src/app/services/api.service';
@@ -7,15 +7,6 @@ import WalletConnectProvider from '@walletconnect/web3-provider';
 import { environment } from 'src/environments/environment';
 import { texts } from 'src/environments/texts';
 declare var $: any;
-@Directive({
-    selector: 'video[autoplay]',
-    host: {
-        'autoplay': '',
-        'oncanplay': 'this.play()',
-        'onloadedmetadata': 'this.muted = true'
-    }
-})
-export class VideoAutoplayDirective {}
 @Component({
   selector: 'app-mint',
   templateUrl: './mint.component.html',
@@ -42,6 +33,14 @@ export class MintComponent implements OnInit {
   isShowSuccess: boolean = false;
   readonly environment = environment;
   readonly texts = texts;
+
+  @HostListener('window:load')
+  onLoad() {
+    $('body').addClass('loaded');
+    // $('.img-ill')[0].play();
+    console.log($('.img-ill'));
+    
+  }
 
   constructor(private api: ApiService) {
     this.getStatus();
