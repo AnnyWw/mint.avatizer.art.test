@@ -282,6 +282,7 @@ export class MintComponent implements OnInit {
         !this.minted
       ) {
         this.status = 'WL';
+        //this.status = 'WLNot';
       } else {
         this.status = 'WLNot';
       }
