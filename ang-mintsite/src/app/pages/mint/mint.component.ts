@@ -37,9 +37,6 @@ export class MintComponent implements OnInit {
   @HostListener('window:load')
   onLoad() {
     $('body').addClass('loaded');
-    // $('.img-ill')[0].play();
-    console.log($('.img-ill'));
-    
   }
 
   constructor(private api: ApiService) {
@@ -48,6 +45,7 @@ export class MintComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.playVideo();
     $(document).ready(function () {
       // MANAGE JS
       $('.manage-checkbox').click(function () {
@@ -114,6 +112,15 @@ export class MintComponent implements OnInit {
         });
       });
     });
+  }
+
+  async playVideo() {
+    let videoElem = document.getElementById("video");
+    try {
+      await videoElem[0].play();
+    } catch (err) {
+      // console.log(err);
+    }
   }
 
   async initWeb3() {
