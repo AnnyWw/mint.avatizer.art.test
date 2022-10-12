@@ -1,79 +1,6 @@
 <app-header></app-header>
 
-<ng-template [ngIf]="environment.minting_status === 'not_start'">
-	<div  class="wrap bkg-color-353D4D" id="mint_status_{{environment.minting_status}}">
-    <div class="container">
-      <div class="parallax">
-        <img
-          class="img-parallax"
-          src="../../../assets/imgnew/mint/small-parts-7.svg"
-          alt="small_parts_page1"
-          width="2000"
-          height="1600"
-          data-speed="0.4"
-        />
-      </div>
-      <div class="splash-mint row">
-        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-7">
-          <div class="splash-mint--body">
-            <div class="splash-mint--content">
-              <div class="splash-mint--title">{{texts.splash_mint_title}}</div>
-              <div class="splash-mint--description">
-                {{texts.splash_mint_description_1}}
-              </div>
-              <div class="splash-mint--image splash-mint--ntf">
-                <img
-                  src="../../../assets/imgnew/mint/image-nft.svg"
-                  width="270"
-                  height="360"
-                  alt="image"
-                />
-                <div class="splash-nft-text">{{texts.minting_soon}}</div>
-              </div>
-            </div>
-          </div>
-          <div class="splash-mint--wallet">
-            <div class="wallet-form--fieldset focused">
-              <div class="wallet-form--group">
-                <label class="wallet-form--label" for="your_wallet"
-                  >{{texts.your_wallet_id}}:</label
-                >
-                <div class="input-group">
-                  <span class="wallet-form--input">
-										{{ wallet.substring(0, 5) }}
-                  <span class="wallet-form--input-inside">
-										-XXXX-XXXX-XXXX-
-									</span>
-                    {{
-                      wallet.substring(wallet.length - 4, wallet.length + 4)
-                    }}</span
-                  >
-                  <!-- <input type="text" class="wallet-form--input" value="0x426 -XXXX-XXXX-XXXX- d1dA" placeholder="XXXX-XXXX-XXXX-XXXX-XXXX" id="your_wallet" aria-describedby="wallet-connection"> -->
-                  <button
-                    (click)="logout()"
-                    class="wallet-form--connection connect"
-                    id="wallet-connection"
-                  >
-                    {{texts.disconnect}}
-                  </button>
-                </div>
-                <div class="wallet-form--status">
-                  <div class="form-status--label">Status:</div>
-                  <div class="form-status--text warning">
-                    {{texts.status_minted_not_started}}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <app-footer></app-footer>
-  </div>    
-</ng-template>
-
-<ng-template [ngIf]="environment.minting_status === 'start'">    
+<ng-template [ngIf]="environment.minting_status === 'start' || environment.minting_status === 'not_start'">    
   <div *ngIf="wallet === 'ahisiash'" class="wrap bkg-color-353D4D" id="mint_status_{{wallet}}">
     <div class="container">
       <div class="parallax">
@@ -476,7 +403,108 @@
   </div>
 
   <div
-    *ngIf="status === 'WL' || status === 'Public'"
+    *ngIf="(status === 'WL' || status === 'Public') && environment.minting_status === 'start'" 
+    class="wrap bkg-color-353D4D" id="mint_status_{{status}}"
+  >
+    <div class="container">
+      <div class="parallax">
+        <img
+          class="img img-parallax"
+          src="../../../assets/imgnew/mint/small-parts-7.svg"
+          alt="small_parts_page1"
+          width="2000"
+          height="1600"
+          data-speed="0.4"
+        />
+      </div>
+      <div class="splash-mint row">
+        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-7">
+          <div class="splash-mint--body">
+            <div class="splash-mint--content">
+              <div class="splash-mint--title">{{texts.splash_mint_title}}</div>
+              <div class="splash-mint--description">
+                {{texts.splash_mint_description_1}}
+              </div>
+              <div class="splash-mint--image">
+                <video
+                  class="img-ill"
+                  src="../../../assets/imgnew/mint/mint-avatizer.mp4"
+                  preload="auto"
+                  no-controls
+                  autoplay
+                  loop
+                  muted
+                  playsinline
+                  alt="avatizer video"
+                  width="400"
+                  height="400"
+                >
+                  <source
+                    src="../../../assets/imgnew/mint/mint-avatizer.mp4"
+                    type="video/mp4"
+                  />
+                  <source
+                    src="../../../assets/imgnew/mint/mint-avatizer.webm"
+                    type="video/webm"
+                  />
+                  <source
+                    src="../../../assets/imgnew/mint/mint-avatizer.mov"
+                    type="video/mov"
+                  />
+                </video>
+              </div>
+            </div>
+          </div>
+          <div class="splash-mint--wallet">
+            <div class="wallet-form--fieldset focused">
+              <div class="wallet-form--group">
+                <label class="wallet-form--label" for="your_wallet"
+                  >{{texts.your_wallet_id}}:</label
+                >
+                <div class="input-group">
+                  <span class="wallet-form--input"
+                    >{{ wallet.substring(0, 5) }}
+                    <span class="wallet-form--input-inside"
+                      >-XXXX-XXXX-XXXX-</span
+                    >
+                    {{
+                      wallet.substring(wallet.length - 4, wallet.length + 4)
+                    }}</span
+                  >
+                  <!-- <input type="text" class="wallet-form--input" value="0x426 -XXXX-XXXX-XXXX- d1dA" placeholder="XXXX-XXXX-XXXX-XXXX-XXXX" id="your_wallet" aria-describedby="wallet-connection"> -->
+                  <button
+                    (click)="logout()"
+                    class="wallet-form--connection connect"
+                    id="wallet-connection"
+                  >
+                    {{texts.disconnect}}
+                  </button>
+                </div>
+                <div class="wallet-form--status">
+                  <div class="form-status--label">Status:</div>
+                  <div class="form-status--text success">
+                    {{texts.status_on_whitelist_success}}
+                  </div>
+                </div>
+                  
+              </div>
+              <div (click)="startMint()" class="wallet-form--button">
+                <button class="wallet-form--btn btn btn-metamask btn-mint">
+                  <span class="btn-body">
+                    <span class="btn-title">{{texts.mint_now}}</span>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <app-footer></app-footer>
+  </div>
+
+<div
+    *ngIf="(status === 'WL' || status === 'Public') && environment.minting_status === 'not_start'"
     class="wrap bkg-color-353D4D" id="mint_status_{{status}}"
   >
     <div class="container">
@@ -562,7 +590,7 @@
 								<div class="wallet-form--status" style="margin-top: 10px">
                   <div class="form-status--label">Mint opens on:</div>
                   <div class="form-status--text warning">
-                    Tue, Oct 18, 2022 @ 11:00 AM EST (NYC Time)
+                   {{environment.minting_date_start}} 
                   </div>
                 </div>
               </div>
@@ -579,8 +607,9 @@
       </div>
     </div>
     <app-footer></app-footer>
-  </div>
-
+  </div>    
+    
+    
   <div 
 		*ngIf="phase === 'WL' && status === 'WLNot'"  
 		class="wrap bkg-color-353D4D" id="mint_status_{{status}}"
