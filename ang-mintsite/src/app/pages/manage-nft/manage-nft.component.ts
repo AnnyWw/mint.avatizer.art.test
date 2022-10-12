@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import Web3Modal from 'web3modal';
 import Web3 from 'web3';
 import { environment } from 'src/environments/environment';
@@ -33,7 +33,14 @@ export class ManageNFTComponent implements OnInit {
   readonly texts = texts;
   FullYear: number = new Date().getFullYear();
 
-  constructor() {}
+  @HostListener('window:load')
+  onLoad() {
+    $('body').addClass('loaded');
+  }
+
+  constructor() {
+    this.onLoad();
+  }
 
   ngOnInit(): void {
     $(document).ready(function () {
@@ -55,10 +62,6 @@ export class ManageNFTComponent implements OnInit {
           $('.generic-status').removeClass('active').addClass('paused');
         }
       });
-    });
-
-    document.addEventListener('DOMContentLoaded', function (event) {
-      $('body').addClass('loaded');
     });
 
     /* add Web3modal */

@@ -1,4 +1,4 @@
-import { Component, OnInit, Self } from '@angular/core';
+import { Component, HostListener, OnInit, Self } from '@angular/core';
 import Web3Modal from 'web3modal';
 import Web3 from 'web3';
 import { ApiService } from 'src/app/services/api.service';
@@ -35,7 +35,13 @@ export class MintComponent implements OnInit {
   readonly environment = environment;
   readonly texts = texts;
 
+  @HostListener('window:load')
+  onLoad() {
+    $('body').addClass('loaded');
+  }
+
   constructor(private api: ApiService) {
+    this.onLoad();
     this.getStatus();
   }
 
@@ -59,11 +65,7 @@ export class MintComponent implements OnInit {
           $('.generic-status').removeClass('active').addClass('paused');
         }
       });
-    });
-
-    document.addEventListener('DOMContentLoaded', function (event) {
-      $('body').addClass('loaded');
-    });
+    });    
 
     /* add Web3modal */
     $('#connect').click(function () {

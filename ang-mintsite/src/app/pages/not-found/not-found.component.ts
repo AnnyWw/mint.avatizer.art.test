@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { texts } from 'src/environments/texts';
 import { environment } from 'src/environments/environment';
@@ -13,13 +13,18 @@ export class NotFoundComponent implements OnInit, OnDestroy {
   readonly texts = texts;
   readonly environment = environment;
   counter: number = 10; 
-  constructor(private router: Router) { }
+
+  @HostListener('window:load')
+  onLoad() {
+    $('body').addClass('loaded');
+  }
+
+  constructor(private router: Router) { 
+    this.onLoad();
+  }
   interval;
 
   ngOnInit(): void {
-    document.addEventListener('DOMContentLoaded', function (event) {
-      $('body').addClass('loaded');
-    });
 
     this.interval = setInterval(() => {
       if (this.counter === 0) {
