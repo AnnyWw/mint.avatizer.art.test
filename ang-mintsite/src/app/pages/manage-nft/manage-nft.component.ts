@@ -32,7 +32,7 @@ export class ManageNFTComponent implements OnInit {
   readonly environment = environment;
   readonly texts = texts;
   FullYear: number = new Date().getFullYear();
-    nft_collect_title: string = texts.tokens_loading;
+    nft_collect_title: string = texts.tokens_loading_start;
 
   @HostListener('window:load')
   onLoad() {
@@ -247,8 +247,8 @@ export class ManageNFTComponent implements OnInit {
           }*/
         }
       }
-        this.nft_collect_title = texts.tokens_length.replace( '%length%', this.nfts.length.toString()); 
-      console.log('nfts', this.nfts);
+        this.nft_collect_title = texts.tokens_loading_stop.replace( '%length%', this.nfts.length.toString()); 
+      //console.log('nfts', this.nfts);
 
       //Show Elgibility
     } catch (err) {
@@ -283,8 +283,7 @@ export class ManageNFTComponent implements OnInit {
 
       let response = await fetch(url, {
         headers: new Headers({
-          'x-api-key':
-            'komhjNL5MNJS8cGgsLeBSTtQcQDSRShS9cAWwPIyLzno7t9vzdgH7rTqsUE8gJ8x',
+          'x-api-key': environment.moralis_api_key, //'komhjNL5MNJS8cGgsLeBSTtQcQDSRShS9cAWwPIyLzno7t9vzdgH7rTqsUE8gJ8x',
         }),
       });
 

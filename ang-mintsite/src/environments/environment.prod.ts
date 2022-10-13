@@ -10,4 +10,5 @@ export const environment = {
   contractAv: '0x241981C4Cc9901BF01234649DcbD3188dd1E71bf',
   walletconnect_infuraId: '68bbfa6dd6594f328012419c5b654b2f',
   minting_date_start: 'Tue, Oct 18, 2022 @ 11:00 AM EST (NYC Time)',
+  moralis_api_key:'komhjNL5MNJS8cGgsLeBSTtQcQDSRShS9cAWwPIyLzno7t9vzdgH7rTqsUE8gJ8x'
 };
