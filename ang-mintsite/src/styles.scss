@@ -1621,7 +1621,9 @@ only screen and (min-resolution: 2dppx) {
     left: 0;
     top: 0;
 }
-
+.mint_status_network .wallet-form--fieldset::before {
+    max-height: 137px
+}
 .wallet-form--fieldset>* {
     position: relative;
 }
