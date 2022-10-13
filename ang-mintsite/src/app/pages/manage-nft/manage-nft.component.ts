@@ -32,6 +32,7 @@ export class ManageNFTComponent implements OnInit {
   readonly environment = environment;
   readonly texts = texts;
   FullYear: number = new Date().getFullYear();
+    nft_collect_title: string = texts.tokens_loading;
 
   @HostListener('window:load')
   onLoad() {
@@ -246,7 +247,7 @@ export class ManageNFTComponent implements OnInit {
           }*/
         }
       }
-
+        this.nft_collect_title = texts.tokens_length.replace( '%length%', this.nfts.length.toString()); 
       console.log('nfts', this.nfts);
 
       //Show Elgibility
