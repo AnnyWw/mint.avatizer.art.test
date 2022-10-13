@@ -45,8 +45,8 @@ export const texts = {
   not_found_btn_text: 'Back to Home',
   status_on_whitelist_success: 'You are on the whitelist',
   status_nft_is_available: 'Your Avatizer NFT is available',
-  tokens_loading    :'Loading... one moment',
-  tokens_length    :'You own %length% Avatizer(s)'
+  tokens_loading_start    :'Loading... one moment, please',
+  tokens_loading_stop    :'You own %length% Avatizer(s)'
 };
 
 /*
