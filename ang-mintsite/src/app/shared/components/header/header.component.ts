@@ -7,7 +7,7 @@ declare var $: any;
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
   readonly environment = environment;
@@ -15,20 +15,17 @@ export class HeaderComponent implements OnInit {
   currentUrl: string;
   FullYear: number = new Date().getFullYear();
 
-  constructor(public router: Router) { }
+  constructor(public router: Router) {}
 
   ngOnInit(): void {
     this.currentUrl = this.router.routerState.snapshot.url;
     $(document).ready(function () {
-      //console.log('Jquery is working !!!');
-
       // NEW HEADER JS
       $('.menu-tab').click(function () {
         $('.main-menu').toggleClass('show');
         $('.menu-tab').toggleClass('active');
       });
 
-      
       $(document).mouseup(function (e: any) {
         var container = $('.main-menu');
         var container2 = $('.logo-header');
@@ -40,10 +37,6 @@ export class HeaderComponent implements OnInit {
           $('.menu-tab').removeClass('active');
         }
       });
-      
-      
     });
-    
   }
-
 }
