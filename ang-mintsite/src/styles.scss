@@ -89,17 +89,15 @@ body {
 }
 
 .modal-body {
-    padding: 0;
+    padding: 10px 0 0 !important;
 }
 
 .modal-body img{
     object-fit: cover;
-		padding-top: 10px !important;
 		max-width: 100% !important;
 }
 
 .modal-desc {
-  //padding-right: 40px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -107,7 +105,6 @@ body {
 }
 
 .modal-body--content {
-    //display: flex;
     margin-top: 20px;
 }
 
@@ -116,7 +113,6 @@ body {
     font-size: 18px;
     line-height: 22px;
     color: #FFF;
-    //margin-bottom: 5px;
 }
 
 .modal-desc--text {

@@ -1,9 +1,17 @@
-import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  HostListener,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import Web3Modal from 'web3modal';
 import Web3 from 'web3';
+import WalletConnectProvider from '@walletconnect/web3-provider';
 import { environment } from 'src/environments/environment';
 import { texts } from 'src/environments/texts';
 const abi = require('../../../assets/config/abi.json');
+import { consoleLog } from '../../utils';
 declare var $: any;
 
 @Component({
@@ -115,20 +123,19 @@ export class ManageNFTComponent implements OnInit {
   }
 
   async initWeb3() {
-    //console.log('here');
-    /*const providerOptions = {
+    const providerOptions = {
       walletconnect: {
         package: WalletConnectProvider, // required
         options: {
           infuraId: environment.walletconnect_infuraId, //"68bbfa6dd6594f328012419c5b654b2f" // required
-        }
-      }
-    };*/
+        },
+      },
+    };
 
     this.web3Modal = new Web3Modal({
       network: 'goerli', // optional
       cacheProvider: true, // optional
-      //providerOptions // required
+      providerOptions, // required
     });
 
     try {
@@ -247,7 +254,7 @@ export class ManageNFTComponent implements OnInit {
         }
       }
 
-      console.log('nfts', this.nfts);
+      consoleLog('nfts', this.nfts);
 
       //Show Elgibility
     } catch (err) {
