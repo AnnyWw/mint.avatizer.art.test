@@ -337,7 +337,7 @@
         </div>
         <div class="col-xs-12">
           <div class="splash-collect">
-            <div class="splash-collect--title">You own {{ nfts.length }} Avatizer(s)</div>
+            <div class="splash-collect--title" [innerHTML]="nft_collect_title"></div>
             <div class="splash-collect--items">
               <a (click)="popup(nft)" data-toggle="modal" href="javascript:void(0)" class="collect-card" *ngFor="let nft of nfts">
                 <div class="collect-image">
