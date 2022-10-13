@@ -43,7 +43,8 @@ export const texts = {
     'This page doesn’t exist or was removed! Don’t worry, you will be redirected to our homepage within',
   not_found_seconds: 'seconds',
   not_found_btn_text: 'Back to Home',
-  status_on_whitelist_success: 'You are on the whitelist'
+  status_on_whitelist_success: 'You are on the whitelist',
+  status_nft_is_available: 'Your Avatizer NFT is available'
 };
 
 /*
