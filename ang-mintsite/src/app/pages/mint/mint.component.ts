@@ -6,6 +6,7 @@ const abi = require('../../../assets/config/abi.json');
 import WalletConnectProvider from '@walletconnect/web3-provider';
 import { environment } from 'src/environments/environment';
 import { texts } from 'src/environments/texts';
+import { consoleLog } from '../../utils';
 declare var $: any;
 
 @Component({
@@ -65,7 +66,7 @@ export class MintComponent implements OnInit {
           $('.generic-status').removeClass('active').addClass('paused');
         }
       });
-    });    
+    });
 
     /* add Web3modal */
     $('#connect').click(function () {
@@ -169,7 +170,7 @@ export class MintComponent implements OnInit {
 
       let hasTok = await this.contractAv.methods.balanceOf(this.wallet).call();
 
-      console.log('hasTok', hasTok);
+      consoleLog('hasTok', hasTok);
 
       // UNCOMMENT IN PRODUCTION
       // if(hasTok > 0){
@@ -182,11 +183,8 @@ export class MintComponent implements OnInit {
       // REMOVE IN PRODUCTION
       this.minted = false;
 
-      //if wl
+      //if wl get merk
       await this.WLCheck(this.wallet);
-      //get merk
-
-      //this.getStatus();
     } catch (err: any) {
       console.log(err);
     }
@@ -217,9 +215,9 @@ export class MintComponent implements OnInit {
   }
 
   WLCheck(wallet: string) {
-    console.log('wallet', wallet);
-    let res = this.api.getWL(wallet).subscribe((val: any) => {
-      console.log(val);
+    consoleLog('wallet', wallet);
+    this.api.getWL(wallet).subscribe((val: any) => {
+      consoleLog(val);
       this.wlMerk = val['Proof'] as any[];
       this.getStatus();
     });
@@ -249,7 +247,7 @@ export class MintComponent implements OnInit {
           this.isShowSuccess = true;
           this.token = reciept.events.Transfer.returnValues.tokenId;
           this.getStatus();
-          console.log('token', this.token);
+          consoleLog('token', this.token);
         })
         .on('error', async (error: any) => {
           //toast(error.message);
@@ -299,9 +297,9 @@ export class MintComponent implements OnInit {
       }
     }
 
-    console.log('status', this.status);
+    consoleLog('status', this.status);
 
-    this.status;
+    //this.status;
     this.startParallax();
   }
 
