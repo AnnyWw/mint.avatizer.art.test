@@ -8,7 +8,6 @@ import { environment } from 'src/environments/environment';
 import { texts } from 'src/environments/texts';
 import { consoleLog } from '../../utils';
 declare var $: any;
-
 @Component({
   selector: 'app-mint',
   templateUrl: './mint.component.html',
@@ -47,6 +46,7 @@ export class MintComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.playVideo();
     $(document).ready(function () {
       // MANAGE JS
       $('.manage-checkbox').click(function () {
@@ -113,6 +113,15 @@ export class MintComponent implements OnInit {
         });
       });
     });
+  }
+
+  async playVideo() {
+    let videoElem = document.getElementById("video");
+    try {
+      await videoElem[0].play();
+    } catch (err) {
+      // console.log(err);
+    }
   }
 
   async initWeb3() {
