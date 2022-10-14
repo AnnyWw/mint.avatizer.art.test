@@ -14,10 +14,13 @@ export class HeaderComponent implements OnInit {
   readonly texts = texts;
   currentUrl: string;
   FullYear: number = new Date().getFullYear();
+  isOpenSea: boolean;
 
   constructor(public router: Router) {}
 
   ngOnInit(): void {
+    this.isOpenSea = environment.minting_status === 'start' ? true : false;
+    
     this.currentUrl = this.router.routerState.snapshot.url;
     $(document).ready(function () {
       // NEW HEADER JS

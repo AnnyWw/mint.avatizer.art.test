@@ -287,40 +287,43 @@
                 Join Twitter
               </a>
             </li>
-             
-            <!--li class="li-row">
-              <a
-                href="{{environment.openseaUrl}}"
-                title="Visit OpenSea"
-                class="hPound_bkp btn socials transition-all btn-opensea"
-                target="_blank"
-              >
-                <span class="buttons-icon">
-                  <img
-                    class="image2x hidden-xs hidden-sm hidden-md"
-                    src="../../../assets/imgnew/index/opensea.svg"
-                    width="30"
-                    height="25"
-                    alt="opensea"
-                    data-src=""
-                    data-srcset=""
-                    srcset=""
-                  />
-                  <img
-                    class="image2x visible-xs visible-sm visible-md"
-                    src="../../../assets/imgnew/index/opensea.svg"
-                    width="26"
-                    height="26"
-                    alt="opensea"
-                    data-src=""
-                    data-srcset=""
-                    srcset=""
-                  />
-                </span>
-                Visit OpenSea
-              </a>
-            </li-->
+            <!-- " -->
+            <ng-container *ngIf="isOpenSea">
+              <li class="li-row">
+                <a
+                  href="{{environment.openseaUrl}}" 
+                  title="Visit OpenSea"
+                  class="hPound_bkp btn socials transition-all btn-opensea"
+                  target="_blank"
+                >
+                  <span class="buttons-icon">
+                    <img
+                      class="image2x hidden-xs hidden-sm hidden-md"
+                      src="../../../assets/imgnew/index/opensea.svg"
+                      width="30"
+                      height="25"
+                      alt="opensea"
+                      data-src=""
+                      data-srcset=""
+                      srcset=""
+                    />
+                    <img
+                      class="image2x visible-xs visible-sm visible-md"
+                      src="../../../assets/imgnew/index/opensea.svg"
+                      width="26"
+                      height="26"
+                      alt="opensea"
+                      data-src=""
+                      data-srcset=""
+                      srcset=""
+                    />
+                  </span>
+                  Visit OpenSea
+                </a>
+              </li>
+            </ng-container>
             
+
           </ul>
           <div class="menu-tab">
             <div id="one"></div>
