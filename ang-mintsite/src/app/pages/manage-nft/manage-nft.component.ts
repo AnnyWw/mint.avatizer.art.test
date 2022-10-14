@@ -40,7 +40,7 @@ export class ManageNFTComponent implements OnInit {
   readonly environment = environment;
   readonly texts = texts;
   FullYear: number = new Date().getFullYear();
-    nft_collect_title: string = texts.tokens_loading_start;
+  nft_collect_title: string = texts.tokens_loading_start;
 
   @HostListener('window:load')
   onLoad() {
@@ -181,6 +181,7 @@ export class ManageNFTComponent implements OnInit {
     this.myModal.nativeElement.parentElement.offsetParent.className =
       'loaded modal-open';
   }
+
   closeModel() {
     //this.select = '';
     this.myModal.nativeElement.className = 'modal fade';
@@ -255,7 +256,10 @@ export class ManageNFTComponent implements OnInit {
         }
       }
 
-      this.nft_collect_title = texts.tokens_loading_stop.replace( '%length%', this.nfts.length.toString()); 
+      this.nft_collect_title = texts.tokens_loading_stop.replace(
+        '%length%',
+        this.nfts.length.toString()
+      );
 
       consoleLog('nfts', this.nfts);
 
@@ -308,27 +312,31 @@ export class ManageNFTComponent implements OnInit {
     }
   }
 
-  async toggleGen() {
+  async toggleGen(tokenId: string) {
+    const currentToken = this.nfts.find((token) => token.Id === tokenId);
+
+    if (!currentToken) return;
+
     try {
-      this.select.showPreloader = true;
+      currentToken.showPreloader = true;
 
       if (this.gene) {
         await this.contractAv.methods
-          .unpauseDNAGeneration(this.select.Id)
+          .unpauseDNAGeneration(currentToken.Id)
           .send({ from: this.wallet });
 
-        this.select.Generative = true;
+        currentToken.Generative = true;
       } else {
         await this.contractAv.methods
-          .pauseDNAGeneration(this.select.Id)
+          .pauseDNAGeneration(currentToken.Id)
           .send({ from: this.wallet });
 
-        this.select.Generative = false;
+        currentToken.Generative = false;
       }
     } catch (err) {
       console.log(err);
     } finally {
-      this.select.showPreloader = false;
+      currentToken.showPreloader = false;
     }
   }
 
