@@ -390,7 +390,7 @@
                 <label *ngIf="select?.Id !== '0' && !select?.showPreloader" class="checker">
                   <input
                     [(ngModel)]="gene"
-                    (change)="toggleGen()"
+                    (change)="toggleGen(select?.Id)"
                     class="manage-checkbox"
                     type="checkbox"
                     checked
