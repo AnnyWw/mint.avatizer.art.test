@@ -3,7 +3,7 @@ export const environment = {
   minting_status: 'start', //not_start | start | stop  | paused
   token: 'jdjaosiij28892SIAHI049923701CIGknlklajal',
   mainsiteUrl: 'https://www.avatizer.art',
-  openseaUrl: 'https://opensea.io',
+  openseaUrl: 'https://opensea.io/collection/avatizer',
   twitterUrl: 'https://twitter.com/Avatizer_NFT',
   discordUrl: 'https://discord.gg/avatizer',
   siteName: 'Avatizer',
