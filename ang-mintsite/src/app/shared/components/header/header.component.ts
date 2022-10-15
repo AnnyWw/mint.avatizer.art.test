@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit {
   constructor(public router: Router) {}
 
   ngOnInit(): void {
-    this.isOpenSea = environment.minting_status === 'start' ? true : false;
+    this.isOpenSea = environment.minting_status === 'not_start' ? false : true ;
     
     this.currentUrl = this.router.routerState.snapshot.url;
     $(document).ready(function () {
