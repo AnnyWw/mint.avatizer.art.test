@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  minting_status: 'start', //not_start | start | stop  | paused
+  minting_status: 'not_start', //not_start | start | stop  | paused
   token: 'jdjaosiij28892SIAHI049923701CIGknlklajal',
   mainsiteUrl: 'https://www.avatizer.art',
   openseaUrl: 'https://opensea.io/collection/avatizer',
