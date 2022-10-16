@@ -135,7 +135,7 @@ export class MintComponent implements OnInit {
     };
 
     this.web3Modal = new Web3Modal({
-      network: 'mainnet', // optional
+      network: 'main', // optional
       cacheProvider: true, // optional
       providerOptions, // required
     });
@@ -153,7 +153,7 @@ export class MintComponent implements OnInit {
       // return;
       //}
 
-      if (this.network !== 'mainnet') {
+      if (this.network !== 'main') {
         this.status = 'network';
         this.isShow = true;
         return;
@@ -270,7 +270,7 @@ export class MintComponent implements OnInit {
 
     if (this.wallet === '') {
       this.status = 'connect';
-    } else if (this.network !== 'mainnet') {
+    } else if (this.network !== 'main') {
       this.status = 'network';
     } else if (this.pendingConnect) {
       this.status = 'pendingConnect';
