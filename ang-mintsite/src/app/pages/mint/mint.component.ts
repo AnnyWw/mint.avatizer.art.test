@@ -137,7 +137,7 @@ export class MintComponent implements OnInit {
     };
 
     this.web3Modal = new Web3Modal({
-      network: 'main', // optional
+      network: environment.network, //'main', // optional
       cacheProvider: true, // optional
       providerOptions, // required
     });
@@ -155,7 +155,7 @@ export class MintComponent implements OnInit {
       // return;
       //}
 
-      if (this.network !== 'main') {
+      if (this.network !== environment.network) {
         this.status = 'network';
         this.isShow = true;
         return;
@@ -173,13 +173,13 @@ export class MintComponent implements OnInit {
 
       let hasStarted = await this.contractAv.methods.saleStarted().call();
 
-      if (hasStarted) {
+      if (hasStarted && environment.minting_status === 'start'  ) {
         this.phase = 'WL';
       } else {
         this.phase = 'not started';
       }
-
-      let hasTok = await this.contractAv.methods.balanceOf(this.wallet).call();
+      
+     let hasTok = await this.contractAv.methods.balanceOf(this.wallet).call();
 
       consoleLog('hasTok', hasTok);
 
@@ -200,7 +200,7 @@ export class MintComponent implements OnInit {
     try {
       await this.web3.currentProvider.request({
         method: 'wallet_switchEthereumChain',
-        params: [{ chainId: Web3.utils.toHex('5') }],
+        params: [{ chainId: Web3.utils.toHex('1') }],
       });
 
       this.initWeb3();
@@ -272,7 +272,7 @@ export class MintComponent implements OnInit {
 
     if (this.wallet === '') {
       this.status = 'connect';
-    } else if (this.network !== 'main') {
+    } else if (this.network !== environment.network) {
       this.status = 'network';
     } else if (this.pendingConnect) {
       this.status = 'pendingConnect';
@@ -280,7 +280,7 @@ export class MintComponent implements OnInit {
       this.status = 'pending';
     } else if (this.minted) {
       this.status = 'minted';
-    } else if (this.phase === 'WL') {
+    } else if (this.phase === 'WL' ) {
       if (
         this.wlMerk.length > 0 &&
         this.wallet &&
@@ -288,11 +288,11 @@ export class MintComponent implements OnInit {
         !this.minted
       ) {
         this.status = 'WL';
-        //this.status = 'WLNot';
       } else {
         this.status = 'WLNot';
       }
-    } else if (this.phase === 'not started') {
+    }
+      else if (this.phase === 'not started') {
       if (
         this.wlMerk.length > 0 &&
         this.wallet &&
@@ -300,10 +300,20 @@ export class MintComponent implements OnInit {
         !this.minted
       ) {
         this.status = 'not started';
+          
+      } else {
+        this.status = 'WLNot';
+        //   this.status = 'WL';
       }
-    }
-
-    consoleLog('status', this.status);
+    } 
+    consoleLog('phase:', this.phase);  
+    consoleLog('wallet:', this.wallet);  
+    consoleLog('network:', this.network);  
+    consoleLog('pendingConnect:', this.pendingConnect);  
+    consoleLog('pending:', this.pending);  
+    consoleLog('minted:', this.minted);  
+    consoleLog('status:', this.status);
+   
 
     //this.status;
     this.startParallax();
