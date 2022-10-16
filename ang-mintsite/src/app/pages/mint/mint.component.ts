@@ -137,7 +137,7 @@ export class MintComponent implements OnInit {
     };
 
     this.web3Modal = new Web3Modal({
-      network: 'main', // optional
+      network: environment.network, //'main', // optional
       cacheProvider: true, // optional
       providerOptions, // required
     });
@@ -155,7 +155,7 @@ export class MintComponent implements OnInit {
       // return;
       //}
 
-      if (this.network !== 'main') {
+      if (this.network !== environment.network) {
         this.status = 'network';
         this.isShow = true;
         return;
@@ -178,9 +178,6 @@ export class MintComponent implements OnInit {
       } else {
         this.phase = 'not started';
       }
-
-    
-      consoleLog('phase', this.phase);
       
      let hasTok = await this.contractAv.methods.balanceOf(this.wallet).call();
 
@@ -272,8 +269,18 @@ export class MintComponent implements OnInit {
 
   getStatus() {
     this.status = '';
-      
-    if (this.phase === 'WL') {
+
+    if (this.wallet === '') {
+      this.status = 'connect';
+    } else if (this.network !== environment.network) {
+      this.status = 'network';
+    } else if (this.pendingConnect) {
+      this.status = 'pendingConnect';
+    } else if (this.pending) {
+      this.status = 'pending';
+    } else if (this.minted) {
+      this.status = 'minted';
+    } else if (this.phase === 'WL' || this.phase === 'not started') {
       if (
         this.wlMerk.length > 0 &&
         this.wallet &&
@@ -285,62 +292,15 @@ export class MintComponent implements OnInit {
       } else {
         this.status = 'WLNot';
       }
-    } else if (this.wallet === '') {
-      this.status = 'connect';
-    } else if (this.network !== 'goerli') {
-      this.status = 'network';
-    } else if (this.pendingConnect) {
-      this.status = 'pendingConnect';
-    } else if (this.pending) {
-      this.status = 'pending';
-    } else if (this.minted) {
-      this.status = 'minted';
-    } else if (this.phase === 'not started') {
-      if (
-        this.wlMerk.length > 0 &&
-        this.wallet &&
-        !this.pending &&
-        !this.minted
-      ) {
-        this.status = 'not started';
-      }
-    }     
-
-/*    if (this.wallet === '') {
-      this.status = 'connect';
-    } else if (this.network !== 'main') {
-      this.status = 'network';
-    } else if (this.pendingConnect) {
-      this.status = 'pendingConnect';
-    } else if (this.pending) {
-      this.status = 'pending';
-    } else if (this.minted) {
-      this.status = 'minted';
-    } else if (this.phase === 'WL') {
-      if (
-        this.wlMerk.length > 0 &&
-        this.wallet &&
-        !this.pending &&
-        !this.minted
-      ) {
-        this.status = 'WL';
-        //this.status = 'WLNot';
-      } else {
-        this.status = 'WLNot';
-      }
-    } else if (this.phase === 'not started') {
-      if (
-        this.wlMerk.length > 0 &&
-        this.wallet &&
-        !this.pending &&
-        !this.minted
-      ) {
-        this.status = 'not started';
-      }
-    }*/
-
-    consoleLog('status', this.status);
-    consoleLog('phase', this.phase);  
+    } 
+    consoleLog('phase:', this.phase);  
+    consoleLog('wallet:', this.wallet);  
+    consoleLog('network:', this.network);  
+    consoleLog('pendingConnect:', this.pendingConnect);  
+    consoleLog('pending:', this.pending);  
+    consoleLog('minted:', this.minted);  
+    consoleLog('status:', this.status);
+   
 
     //this.status;
     this.startParallax();

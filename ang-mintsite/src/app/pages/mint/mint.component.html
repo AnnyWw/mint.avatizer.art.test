@@ -1,7 +1,7 @@
 <app-header></app-header>
 
 <ng-template [ngIf]="environment.minting_status === 'paused'">
-	<div  class="wrap bkg-color-353D4D" id="mint_status_{{environment.minting_status}}">
+	<div  class="wrap bkg-color-353D4D" id="wallet={{wallet}}&status={{status}}&phase={{phase}}">
     <div class="container">
       <div class="parallax">
         <img
@@ -74,7 +74,7 @@
 </ng-template>
 
 <ng-template [ngIf]="environment.minting_status === 'start' || environment.minting_status === 'not_start'">    
-  <div *ngIf="wallet === 'ahisiash'" class="wrap bkg-color-353D4D" id="mint_status_{{wallet}}">
+  <div *ngIf="wallet === 'ahisiash'" class="wrap bkg-color-353D4D"  id="wallet={{wallet}}&status={{status}}&phase={{phase}}">
     <div class="container">
       <div class="parallax">
         <img
@@ -167,7 +167,7 @@
     <app-footer></app-footer>
   </div>
 
-  <div *ngIf="status === 'connect'" class="wrap bkg-color-353D4D" id="mint_status_{{status}}">
+  <div *ngIf="status === 'connect'" class="wrap bkg-color-353D4D" id="wallet={{wallet}}&status={{status}}&phase={{phase}}">
     <div class="container">
       <div class="parallax" >
         <img
@@ -222,7 +222,7 @@
     <app-footer></app-footer>
   </div>
 
-  <div *ngIf="status === 'pendingConnect'" class="wrap bkg-color-353D4D" id="mint_status_{{status}}">
+  <div *ngIf="status === 'pendingConnect'" class="wrap bkg-color-353D4D" id="wallet={{wallet}}&status={{status}}&phase={{phase}}">
     <div class="container">
       <div class="parallax">
         <img
@@ -307,7 +307,7 @@
     <app-footer></app-footer>
   </div>
 
-  <div *ngIf="status === 'network'" class="wrap bkg-color-353D4D mint_status_{{status}}" id="mint_status_{{status}}">
+  <div *ngIf="status === 'network'" class="wrap bkg-color-353D4D mint_status_{{status}}" id="wallet={{wallet}}&status={{status}}&phase={{phase}}">
     <div class="container">
       <div class="parallax">
         <img
@@ -405,7 +405,7 @@
 
   <div
     *ngIf="(status === 'WL' || status === 'Public') && environment.minting_status === 'start'" 
-    class="wrap bkg-color-353D4D" id="mint_status_{{status}}"
+    class="wrap bkg-color-353D4D" id="wallet={{wallet}}&status={{status}}&phase={{phase}}"
   >
     <div class="container">
       <div class="parallax">
@@ -494,7 +494,7 @@
 
 <div
     *ngIf="(status === 'WL' || status === 'Public') && environment.minting_status === 'not_start'"
-    class="wrap bkg-color-353D4D" id="mint_status_{{status}}"
+    class="wrap bkg-color-353D4D" id="wallet={{wallet}}&status={{status}}&phase={{phase}}"
   >
     <div class="container">
       <div class="parallax">
@@ -588,8 +588,8 @@
     
     
   <div 
-		*ngIf="phase === 'WL' && status === 'WLNot'"  
-		class="wrap bkg-color-353D4D" id="mint_status_{{status}}"
+		*ngIf="phase === 'WL'  && status === 'WLNot'"  
+		class="wrap bkg-color-353D4D" id="wallet={{wallet}}&status={{status}}&phase={{phase}}"
   >
     <div class="container">
       <div class="parallax">
@@ -695,8 +695,104 @@
     </div>
     <app-footer></app-footer>
   </div>
+    
+ <div 
+		*ngIf="phase === 'not started' && status === 'WLNot'"  
+		class="wrap bkg-color-353D4D" id="wallet={{wallet}}&status={{status}}&phase={{phase}}"
+  >
+    <div class="container">
+      <div class="parallax">
+        <img
+          class="img img-parallax"
+          src="../../../assets/imgnew/mint/small-parts-7.svg"
+          alt="small_parts_page1"
+          width="2000"
+          height="1600"
+          data-speed="0.4"
+        />
+      </div>
+      <div class="splash-mint row">
+        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-7">
+          <div class="splash-mint--body">
+            <div class="splash-mint--content">
+              <div class="splash-mint--title">{{texts.splash_mint_title}}</div>
+              <div class="splash-mint--description">
+                {{texts.splash_mint_description_1}}
+              </div>
+              <div class="splash-mint--image">
+                <video
+                  poster="../../../assets/imgnew/mint/image-mint.svg"
+                  class="img-ill"
+                  preload="auto"
+                  no-controls
+                  playsinline
+                  loop muted autoplay oncanplay="this.play()" onloadedmetadata="this.muted = true"
+                  alt="avatizer video"
+                  *ngIf="true"
+                  width="400"
+                  height="400"
+                >
+                <source src="../../../assets/imgnew/mint/mint-avatizer.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </div>
+          <div class="splash-mint--wallet">
+            <div class="wallet-form--fieldset focused">
+              <div class="wallet-form--group">
+                <label class="wallet-form--label" for="your_wallet"
+                  >{{texts.your_wallet_id}}:</label
+                >
+                <div class="input-group">
+                  <span class="wallet-form--input"
+                    >{{ wallet.substring(0, 5) }}
+                    <span class="wallet-form--input-inside"
+                      >-XXXX-XXXX-XXXX-</span
+                    >
+                    {{
+                      wallet.substring(wallet.length - 4, wallet.length + 4)
+                    }}</span
+                  >
+                  <!-- <input type="text" class="wallet-form--input" value="0x426 -XXXX-XXXX-XXXX- d1dA" placeholder="XXXX-XXXX-XXXX-XXXX-XXXX" id="your_wallet" aria-describedby="wallet-connection"> -->
+                  <button
+                    (click)="logout()"
+                    class="wallet-form--connection connect"
+                    id="wallet-connection"
+                  >
+                    {{texts.disconnect}}
+                  </button>
+                </div>
+                <div class="wallet-form--status">
+                  <div class="form-status--label">Status:</div>
+                  <div class="form-status--text error">
+                    {{texts.status_address_missing_in_whitelist}}
+                  </div>
+                </div>
+              </div>
+              <div class="wallet-form--button buttons-group">
 
-  <div *ngIf="status === 'minted' && !token" class="wrap bkg-color-353D4D" id="mint_status_{{status}}">
+                <a href="/manageNFT" class="wallet-form--btn btn-sm btn-metamask btn-nft">
+ 
+                    <span class="btn-icon"
+                      ><img
+                        src="../../../assets/imgnew/mint/manage-logo.svg"
+                        width="16"
+                        height="17"
+                        alt="manage logo"
+                    /></span>
+                    <span class="btn-body">
+                      <span class="btn-title">{{texts.manage_nft}}</span>
+                    </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <app-footer></app-footer>
+  </div>
+  <div *ngIf="status === 'minted' && !token" class="wrap bkg-color-353D4D" id="wallet={{wallet}}&status={{status}}&phase={{phase}}">
     <div class="container">
       <div class="parallax">
         <img
@@ -800,7 +896,7 @@
     <app-footer></app-footer>
   </div>
 
-  <div *ngIf="status === 'pending'" class="wrap bkg-color-353D4D" id="mint_status_{{status}}">
+  <div *ngIf="status === 'pending'" class="wrap bkg-color-353D4D" id="wallet={{wallet}}&status={{status}}&phase={{phase}}">
     <div class="container">
       <div class="parallax">
         <img

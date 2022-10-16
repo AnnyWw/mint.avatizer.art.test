@@ -12,6 +12,7 @@ export const environment = {
   minting_date_start: 'Tue, Oct 18, 2022 @ 11:00 AM EST (NYC Time)',
   moralis_api_key:
     '8kEmud1tbZttJ6IZdoVSejGjUt4NXlbJXjLqEu5HsjRezZYkXZv1pEX6BslaWQ8T',
+    network:'main'
 };
 
 /*
