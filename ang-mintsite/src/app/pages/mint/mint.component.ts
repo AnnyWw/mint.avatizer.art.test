@@ -198,7 +198,7 @@ export class MintComponent implements OnInit {
     try {
       await this.web3.currentProvider.request({
         method: 'wallet_switchEthereumChain',
-        params: [{ chainId: Web3.utils.toHex('5') }],
+        params: [{ chainId: Web3.utils.toHex('1') }],
       });
 
       this.initWeb3();
