@@ -179,7 +179,10 @@ export class MintComponent implements OnInit {
         this.phase = 'not started';
       }
 
-      let hasTok = await this.contractAv.methods.balanceOf(this.wallet).call();
+    
+      consoleLog('phase', this.phase);
+      
+     let hasTok = await this.contractAv.methods.balanceOf(this.wallet).call();
 
       consoleLog('hasTok', hasTok);
 
@@ -274,8 +277,41 @@ export class MintComponent implements OnInit {
 
   getStatus() {
     this.status = '';
+      
+    if (this.phase === 'WL') {
+      if (
+        this.wlMerk.length > 0 &&
+        this.wallet &&
+        !this.pending &&
+        !this.minted
+      ) {
+        this.status = 'WL';
+        //this.status = 'WLNot';
+      } else {
+        this.status = 'WLNot';
+      }
+    } else if (this.wallet === '') {
+      this.status = 'connect';
+    } else if (this.network !== 'goerli') {
+      this.status = 'network';
+    } else if (this.pendingConnect) {
+      this.status = 'pendingConnect';
+    } else if (this.pending) {
+      this.status = 'pending';
+    } else if (this.minted) {
+      this.status = 'minted';
+    } else if (this.phase === 'not started') {
+      if (
+        this.wlMerk.length > 0 &&
+        this.wallet &&
+        !this.pending &&
+        !this.minted
+      ) {
+        this.status = 'not started';
+      }
+    }     
 
-    if (this.wallet === '') {
+/*    if (this.wallet === '') {
       this.status = 'connect';
     } else if (this.network !== 'goerli') {
       this.status = 'network';
@@ -306,9 +342,10 @@ export class MintComponent implements OnInit {
       ) {
         this.status = 'not started';
       }
-    }
+    }*/
 
     consoleLog('status', this.status);
+    consoleLog('phase', this.phase);  
 
     //this.status;
     this.startParallax();
