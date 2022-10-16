@@ -1,5 +1,5 @@
 export const environment = {
-  production: true,
+  production: false,
   minting_status: 'start', //not_start | start | stop  | paused
   token: 'jdjaosiij28892SIAHI049923701CIGknlklajal',
   mainsiteUrl: 'https://www.avatizer.art',
