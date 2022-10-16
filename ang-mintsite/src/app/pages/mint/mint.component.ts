@@ -173,7 +173,7 @@ export class MintComponent implements OnInit {
 
       let hasStarted = await this.contractAv.methods.saleStarted().call();
 
-      if (hasStarted) {
+      if (hasStarted && environment.minting_status === 'start'  ) {
         this.phase = 'WL';
       } else {
         this.phase = 'not started';
@@ -280,7 +280,7 @@ export class MintComponent implements OnInit {
       this.status = 'pending';
     } else if (this.minted) {
       this.status = 'minted';
-    } else if (this.phase === 'WL' || this.phase === 'not started') {
+    } else if (this.phase === 'WL' ) {
       if (
         this.wlMerk.length > 0 &&
         this.wallet &&
@@ -288,9 +288,22 @@ export class MintComponent implements OnInit {
         !this.minted
       ) {
         this.status = 'WL';
-        //this.status = 'WLNot';
       } else {
         this.status = 'WLNot';
+      }
+    }
+      else if (this.phase === 'not started') {
+      if (
+        this.wlMerk.length > 0 &&
+        this.wallet &&
+        !this.pending &&
+        !this.minted
+      ) {
+        this.status = 'not started';
+          
+      } else {
+        this.status = 'WLNot';
+        //   this.status = 'WL';
       }
     } 
     consoleLog('phase:', this.phase);  

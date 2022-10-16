@@ -404,7 +404,7 @@
   </div>
 
   <div
-    *ngIf="(status === 'WL' || status === 'Public') && environment.minting_status === 'start'" 
+    *ngIf="(status === 'WL' || status === 'Public') && (phase === 'WL')" 
     class="wrap bkg-color-353D4D" id="wallet={{wallet}}&status={{status}}&phase={{phase}}"
   >
     <div class="container">
@@ -493,7 +493,7 @@
   </div>
 
 <div
-    *ngIf="(status === 'WL' || status === 'Public') && environment.minting_status === 'not_start'"
+    *ngIf="(status === 'WL' || status === 'Public') && (phase === 'not started')"
     class="wrap bkg-color-353D4D" id="wallet={{wallet}}&status={{status}}&phase={{phase}}"
   >
     <div class="container">
@@ -674,7 +674,7 @@
                     <span class="btn-title">OpenSea</span>
                   </span>
       		</a>
-                <a href="/manageNFT" class="wallet-form--btn btn-sm btn-metamask btn-nft">
+                <!--a href="/manageNFT" class="wallet-form--btn btn-sm btn-metamask btn-nft">
  
                     <span class="btn-icon"
                       ><img
@@ -686,7 +686,7 @@
                     <span class="btn-body">
                       <span class="btn-title">{{texts.manage_nft}}</span>
                     </span>
-                </a>
+                </a-->
               </div>
             </div>
           </div>
@@ -769,7 +769,7 @@
                   </div>
                 </div>
               </div>
-              <div class="wallet-form--button buttons-group">
+              <!--div class="wallet-form--button buttons-group">
 
                 <a href="/manageNFT" class="wallet-form--btn btn-sm btn-metamask btn-nft">
  
@@ -784,7 +784,7 @@
                       <span class="btn-title">{{texts.manage_nft}}</span>
                     </span>
                 </a>
-              </div>
+              </div-->
             </div>
           </div>
         </div>
