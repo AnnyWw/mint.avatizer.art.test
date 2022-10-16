@@ -1768,6 +1768,10 @@ only screen and (min-resolution: 2dppx) {
 .buttons-group .wallet-form--btn:last-child {
     margin-right: auto !important;
 }
+.buttons-group .wallet-form--btn:only-child {
+    margin-right: auto !important;
+    margin-left: auto !important;
+}
 .wallet-form--btn {
     font-weight: 500;
     font-size: 14px;
