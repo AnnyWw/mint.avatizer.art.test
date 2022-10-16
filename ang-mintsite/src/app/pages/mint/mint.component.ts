@@ -34,6 +34,7 @@ export class MintComponent implements OnInit {
   isShowSuccess: boolean = false;
   readonly environment = environment;
   readonly texts = texts;
+  isOpenSea: boolean;
 
   @HostListener('window:load')
   onLoad() {
@@ -46,6 +47,7 @@ export class MintComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.isOpenSea = environment.minting_status === 'not_start' ? false : true ;
     this.playVideo();
     $(document).ready(function () {
       // MANAGE JS
