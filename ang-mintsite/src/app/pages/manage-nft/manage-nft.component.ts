@@ -134,7 +134,7 @@ export class ManageNFTComponent implements OnInit {
     };
 
     this.web3Modal = new Web3Modal({
-      network: 'goerli', // optional
+      network: 'main', // optional
       cacheProvider: true, // optional
       providerOptions, // required
     });
@@ -147,7 +147,7 @@ export class ManageNFTComponent implements OnInit {
       this.network = await this.web3.eth.net.getNetworkType();
 
       //Display warning if on the wrong network
-      if (this.network !== 'goerli') {
+      if (this.network !== 'main') {
         //toast("Please switch to the Ethereum Mainnet network.");
         this.status = 'network';
         this.isShow = true;
@@ -286,9 +286,7 @@ export class ManageNFTComponent implements OnInit {
   async getMoralisData(token_address: string, cursor: any) {
     try {
       let url =
-        'https://deep-index.moralis.io/api/v2/' +
-        token_address +
-        '/nft?chain=goerli';
+        'https://deep-index.moralis.io/api/v2/' + token_address + '/nft';
 
       if (cursor) {
         url += '?cursor=' + cursor;
@@ -345,7 +343,7 @@ export class ManageNFTComponent implements OnInit {
 
     if (this.wallet === '') {
       this.status = 'connect';
-    } else if (this.network !== 'goerli') {
+    } else if (this.network !== 'main') {
       this.status = 'network';
     } else if (this.pendingConnect) {
       this.status = 'pendingConnect';
