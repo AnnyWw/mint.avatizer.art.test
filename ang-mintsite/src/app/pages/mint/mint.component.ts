@@ -118,7 +118,7 @@ export class MintComponent implements OnInit {
   }
 
   async playVideo() {
-    let videoElem = document.getElementById("video");
+    let videoElem = document.getElementById('video');
     try {
       await videoElem[0].play();
     } catch (err) {
@@ -137,7 +137,7 @@ export class MintComponent implements OnInit {
     };
 
     this.web3Modal = new Web3Modal({
-      network: 'goerli', // optional
+      network: 'main', // optional
       cacheProvider: true, // optional
       providerOptions, // required
     });
@@ -155,7 +155,7 @@ export class MintComponent implements OnInit {
       // return;
       //}
 
-      if (this.network !== 'goerli') {
+      if (this.network !== 'main') {
         this.status = 'network';
         this.isShow = true;
         return;
@@ -186,16 +186,11 @@ export class MintComponent implements OnInit {
 
       consoleLog('hasTok', hasTok);
 
-      // UNCOMMENT IN PRODUCTION
-      // if(hasTok > 0){
-      //   this.minted = true;
-      // }
-      // else{
-      //   this.minted = false;
-      // }
-
-      // REMOVE IN PRODUCTION
-      this.minted = false;
+      if (hasTok > 0) {
+        this.minted = true;
+      } else {
+        this.minted = false;
+      }
 
       //if wl get merk
       await this.WLCheck(this.wallet);
@@ -208,7 +203,7 @@ export class MintComponent implements OnInit {
     try {
       await this.web3.currentProvider.request({
         method: 'wallet_switchEthereumChain',
-        params: [{ chainId: Web3.utils.toHex('5') }],
+        params: [{ chainId: Web3.utils.toHex('1') }],
       });
 
       this.initWeb3();
@@ -313,7 +308,7 @@ export class MintComponent implements OnInit {
 
 /*    if (this.wallet === '') {
       this.status = 'connect';
-    } else if (this.network !== 'goerli') {
+    } else if (this.network !== 'main') {
       this.status = 'network';
     } else if (this.pendingConnect) {
       this.status = 'pendingConnect';
