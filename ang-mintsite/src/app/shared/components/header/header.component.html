@@ -287,14 +287,14 @@
                 Join Twitter
               </a>
             </li>
-            <!-- " -->
-            <ng-container *ngIf="isOpenSea">
+    
               <li class="li-row">
                 <a
                   href="{{environment.openseaUrl}}" 
                   title="Visit OpenSea"
                   class="hPound_bkp btn socials transition-all btn-opensea"
                   target="_blank"
+                   style="display:none"
                 >
                   <span class="buttons-icon">
                     <img
@@ -321,7 +321,7 @@
                   Visit OpenSea
                 </a>
               </li>
-            </ng-container>
+       
             
 
           </ul>
@@ -400,12 +400,12 @@
                 </a>
               </li>
               
-              <li class="li-row" *ngIf="isOpenSea">
+              <li class="li-row" >
                 <a
                   href="{{environment.openseaUrl}}"
                   title="Visit OpenSea"
                   class="hPound_bkp btn socials transition-all btn-opensea"
-                  target="_blank">
+                  target="_blank" style="display:none">
                   <span class="buttons-icon">
                     <img
                       class="image2x hidden-xs hidden-sm hidden-md"
