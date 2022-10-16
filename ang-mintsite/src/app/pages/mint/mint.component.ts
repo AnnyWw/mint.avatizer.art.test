@@ -48,6 +48,7 @@ export class MintComponent implements OnInit {
 
   ngOnInit(): void {
     this.isOpenSea = environment.minting_status === 'not_start' ? false : true ;
+      
     this.playVideo();
     $(document).ready(function () {
       // MANAGE JS
@@ -72,8 +73,10 @@ export class MintComponent implements OnInit {
 
     /* add Web3modal */
     $('#connect').click(function () {
-      console.log('here');
+        consoleLog('here');
     });
+    
+
   }
 
   startParallax() {
@@ -299,10 +302,12 @@ export class MintComponent implements OnInit {
         !this.pending &&
         !this.minted
       ) {
-        this.status = 'not started';
+        this.status = 'not started'; //right
+       //   this.status = 'WL';
           
       } else {
-        this.status = 'WLNot';
+        this.status = 'WLNot'; //right
+        //this.status = 'not started';  
         //   this.status = 'WL';
       }
     } 
@@ -316,6 +321,7 @@ export class MintComponent implements OnInit {
    
 
     //this.status;
+    this.updateStatusButtons();
     this.startParallax();
   }
 
@@ -326,4 +332,12 @@ export class MintComponent implements OnInit {
   closeSuccessNotify() {
     this.isShowSuccess = !this.isShowSuccess;
   }
+    
+  updateStatusButtons(){
+    if(this.status === 'WL'){
+      $('.btn-opensea').show();  
+    }else{
+        $('.btn-opensea').hide();
+    }
+  }    
 }
