@@ -47,8 +47,8 @@ export class MintComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.isOpenSea = environment.minting_status === 'not_start' ? false : true ;
-      
+    this.isOpenSea = environment.minting_status === 'not_start' ? false : true;
+
     this.playVideo();
     $(document).ready(function () {
       // MANAGE JS
@@ -73,10 +73,8 @@ export class MintComponent implements OnInit {
 
     /* add Web3modal */
     $('#connect').click(function () {
-        consoleLog('here');
+      consoleLog('here');
     });
-    
-
   }
 
   startParallax() {
@@ -140,7 +138,7 @@ export class MintComponent implements OnInit {
     };
 
     this.web3Modal = new Web3Modal({
-      network: environment.network, //'main', // optional
+      //network: environment.network, //'main', // optional
       cacheProvider: true, // optional
       providerOptions, // required
     });
@@ -176,13 +174,13 @@ export class MintComponent implements OnInit {
 
       let hasStarted = await this.contractAv.methods.saleStarted().call();
 
-      if (hasStarted && environment.minting_status === 'start'  ) {
+      if (hasStarted && environment.minting_status === 'start') {
         this.phase = 'WL';
       } else {
         this.phase = 'not started';
       }
-      
-     let hasTok = await this.contractAv.methods.balanceOf(this.wallet).call();
+
+      let hasTok = await this.contractAv.methods.balanceOf(this.wallet).call();
 
       consoleLog('hasTok', hasTok);
 
@@ -283,7 +281,7 @@ export class MintComponent implements OnInit {
       this.status = 'pending';
     } else if (this.minted) {
       this.status = 'minted';
-    } else if (this.phase === 'WL' ) {
+    } else if (this.phase === 'WL') {
       if (
         this.wlMerk.length > 0 &&
         this.wallet &&
@@ -294,8 +292,7 @@ export class MintComponent implements OnInit {
       } else {
         this.status = 'WLNot';
       }
-    }
-      else if (this.phase === 'not started') {
+    } else if (this.phase === 'not started') {
       if (
         this.wlMerk.length > 0 &&
         this.wallet &&
@@ -303,22 +300,20 @@ export class MintComponent implements OnInit {
         !this.minted
       ) {
         this.status = 'not started'; //right
-       //   this.status = 'WL';
-          
+        //   this.status = 'WL';
       } else {
         this.status = 'WLNot'; //right
-        //this.status = 'not started';  
+        //this.status = 'not started';
         //   this.status = 'WL';
       }
-    } 
-    consoleLog('phase:', this.phase);  
-    consoleLog('wallet:', this.wallet);  
-    consoleLog('network:', this.network);  
-    consoleLog('pendingConnect:', this.pendingConnect);  
-    consoleLog('pending:', this.pending);  
-    consoleLog('minted:', this.minted);  
+    }
+    consoleLog('phase:', this.phase);
+    consoleLog('wallet:', this.wallet);
+    consoleLog('network:', this.network);
+    consoleLog('pendingConnect:', this.pendingConnect);
+    consoleLog('pending:', this.pending);
+    consoleLog('minted:', this.minted);
     consoleLog('status:', this.status);
-   
 
     //this.status;
     this.updateStatusButtons();
@@ -332,12 +327,12 @@ export class MintComponent implements OnInit {
   closeSuccessNotify() {
     this.isShowSuccess = !this.isShowSuccess;
   }
-    
-  updateStatusButtons(){
-    if(this.status === 'WL'){
-      $('.btn-opensea').show();  
-    }else{
-        $('.btn-opensea').hide();
+
+  updateStatusButtons() {
+    if (this.status === 'WL') {
+      $('.btn-opensea').show();
+    } else {
+      $('.btn-opensea').hide();
     }
-  }    
+  }
 }

@@ -135,7 +135,7 @@ export class ManageNFTComponent implements OnInit {
     };
 
     this.web3Modal = new Web3Modal({
-      network:  environment.network, // optional
+      //network:  environment.network, // optional
       cacheProvider: true, // optional
       providerOptions, // required
     });
@@ -148,7 +148,7 @@ export class ManageNFTComponent implements OnInit {
       this.network = await this.web3.eth.net.getNetworkType();
 
       //Display warning if on the wrong network
-      if (this.network !==  environment.network) {
+      if (this.network !== environment.network) {
         //toast("Please switch to the Ethereum Mainnet network.");
         this.status = 'network';
         this.isShow = true;
@@ -167,13 +167,12 @@ export class ManageNFTComponent implements OnInit {
 
       let hasStarted = await this.contractAv.methods.saleStarted().call();
 
-      if (hasStarted && environment.minting_status === 'start'  ) {
+      if (hasStarted && environment.minting_status === 'start') {
         this.phase = 'WL';
       } else {
         this.phase = 'not started';
-      }        
-        
-        
+      }
+
       this.getOwnership(this.wallet);
       this.pendingConnect = false;
       this.getStatus();
@@ -355,7 +354,7 @@ export class ManageNFTComponent implements OnInit {
 
     if (this.wallet === '') {
       this.status = 'connect';
-    } else if (this.network !==  environment.network) {
+    } else if (this.network !== environment.network) {
       this.status = 'network';
     } else if (this.pendingConnect) {
       this.status = 'pendingConnect';
@@ -371,12 +370,11 @@ export class ManageNFTComponent implements OnInit {
   closeNotify() {
     this.isShow = !this.isShow;
   }
-  updateStatusButtons(){
-    if(this.phase === 'WL'){
-      $('.btn-opensea').show();  
-    }else{
-        $('.btn-opensea').hide();
+  updateStatusButtons() {
+    if (this.phase === 'WL') {
+      $('.btn-opensea').show();
+    } else {
+      $('.btn-opensea').hide();
     }
-      
-  }    
+  }
 }
