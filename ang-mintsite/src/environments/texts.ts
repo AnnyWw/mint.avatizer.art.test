@@ -4,7 +4,7 @@
 
 export const texts = {
   splash_mint_title: 'Avatizer NFT - Free Mint',
-  splash_mint_description_1: 'Allowlist and whitelist only. One NFT per wallet.',
+  splash_mint_description_1: 'Whitelist only. One NFT per wallet.',
   splash_mint_description_2:
     'Allowlist and whitelist only. One NFT per wallet.',
   your_wallet_id: 'Your wallet ID',
