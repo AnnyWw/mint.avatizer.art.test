@@ -35,8 +35,7 @@ export class MintComponent implements OnInit {
   readonly environment = environment;
   readonly texts = texts;
   isOpenSea: boolean;
-  isDisconnect: boolean;
-  isStatusConnected: boolean;    
+     isDisconnect: boolean;
 
   @HostListener('window:load')
   onLoad() {
@@ -50,10 +49,7 @@ export class MintComponent implements OnInit {
 
   ngOnInit(): void {
     this.isOpenSea = environment.minting_status === 'not_start' ? false : true;
-    this.isDisconnect = false;
-    this.isStatusConnected = true;
-      
-
+  this.isDisconnect = false;
     this.playVideo();
     $(document).ready(function () {
       // MANAGE JS
@@ -80,7 +76,6 @@ export class MintComponent implements OnInit {
     $('#connect').click(function () {
       consoleLog('here');
     });
-      this.updateStatusButtons();
   }
 
   startParallax() {
@@ -179,12 +174,12 @@ export class MintComponent implements OnInit {
       );
 
       let hasStarted = await this.contractAv.methods.saleStarted().call();
-        //if (hasStarted && environment.phase > 1) {
-      if (hasStarted ) {
+
+      if (hasStarted && environment.minting_status === 'start') {
         this.phase = 'WL';
       } else {
         this.phase = 'not started'; //right
-        //  this.phase = 'WL';
+         // this.phase = 'WL';
       }
 
       let hasTok = await this.contractAv.methods.balanceOf(this.wallet).call();
@@ -308,14 +303,12 @@ export class MintComponent implements OnInit {
       ) {
         this.status = 'not started'; //right
         //   this.status = 'WL';
-        //  this.status = 'minted';
       } else {
         this.status = 'WLNot'; //right
         //this.status = 'not started';
         //   this.status = 'WL';
       }
     }
-      
     consoleLog('phase:', this.phase);
     consoleLog('wallet:', this.wallet);
     consoleLog('network:', this.network);
@@ -325,9 +318,8 @@ export class MintComponent implements OnInit {
     consoleLog('status:', this.status);
 
     //this.status;
-    this.updateIsStatusConnected();
+        this.updateIsDisconnect();
     this.updateStatusButtons();
-    this.updateIsDisconnect();
     this.startParallax();
   }
 
@@ -340,16 +332,13 @@ export class MintComponent implements OnInit {
   }
 
   updateStatusButtons() {
-    if (environment.phase > 1 && this.status !== 'not started' && this.status !== 'connect' && this.status !== 'network' && this.status !== 'pendingConnect' ) {
+    if (this.status === 'WL') {
       $('.btn-opensea').show();
     } else {
       $('.btn-opensea').hide();
     }
   }
-  updateIsDisconnect() {
+      updateIsDisconnect() {
       this.isDisconnect = this.status === 'connect' ? false : true;
   } 
-  updateIsStatusConnected() {
-      this.isStatusConnected = (this.status === 'connect' || this.status === 'network' || this.status === 'pendingConnect') ? true : false;
-  }       
 }
