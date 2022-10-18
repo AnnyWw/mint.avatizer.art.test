@@ -70,7 +70,7 @@ export class MintComponent implements OnInit {
           $('.generic-status').removeClass('active').addClass('paused');
         }
       });
-      this.updateStatusButtons();
+     // this.updateStatusButtons();
     });
 
     /* add Web3modal */
@@ -176,7 +176,7 @@ export class MintComponent implements OnInit {
 
       let hasStarted = await this.contractAv.methods.saleStarted().call();
 
-      if (hasStarted && environment.minting_status === 'start') {
+      if (hasStarted) {
         this.phase = 'WL';
       } else {
         this.phase = 'not started'; //right
