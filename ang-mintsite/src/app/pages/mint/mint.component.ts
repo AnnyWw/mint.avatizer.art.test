@@ -35,6 +35,7 @@ export class MintComponent implements OnInit {
   readonly environment = environment;
   readonly texts = texts;
   isOpenSea: boolean;
+     isDisconnect: boolean;
 
   @HostListener('window:load')
   onLoad() {
@@ -48,7 +49,7 @@ export class MintComponent implements OnInit {
 
   ngOnInit(): void {
     this.isOpenSea = environment.minting_status === 'not_start' ? false : true;
-
+  this.isDisconnect = false;
     this.playVideo();
     $(document).ready(function () {
       // MANAGE JS
@@ -177,7 +178,8 @@ export class MintComponent implements OnInit {
       if (hasStarted && environment.minting_status === 'start') {
         this.phase = 'WL';
       } else {
-        this.phase = 'not started';
+        this.phase = 'not started'; //right
+         // this.phase = 'WL';
       }
 
       let hasTok = await this.contractAv.methods.balanceOf(this.wallet).call();
@@ -316,6 +318,7 @@ export class MintComponent implements OnInit {
     consoleLog('status:', this.status);
 
     //this.status;
+        this.updateIsDisconnect();
     this.updateStatusButtons();
     this.startParallax();
   }
@@ -335,4 +338,7 @@ export class MintComponent implements OnInit {
       $('.btn-opensea').hide();
     }
   }
+      updateIsDisconnect() {
+      this.isDisconnect = this.status === 'connect' ? false : true;
+  } 
 }

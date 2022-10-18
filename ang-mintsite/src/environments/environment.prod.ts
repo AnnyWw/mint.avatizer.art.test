@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  minting_status: 'start', //not_start | start | stop  | paused
+  minting_status: 'start', //not_start | start | stop  | paused | start2
   token: 'jdjaosiij28892SIAHI049923701CIGknlklajal',
   mainsiteUrl: 'https://www.avatizer.art',
   openseaUrl: 'https://opensea.io/collection/avatizer',
@@ -19,5 +19,6 @@ export const environment = {
 minting_status: 'not_start' - You are a bit early, minting will start soon.
 minting_status: 'start' - mint is started
 minting_status: 'paused' - 'You are a bit early, minting will start soon.'
+minting_status: 'start2' - mint 2 is started
 minting_status: 'stop' - SOLD OUT
 */
