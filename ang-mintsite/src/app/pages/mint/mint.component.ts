@@ -51,7 +51,7 @@ export class MintComponent implements OnInit {
   ngOnInit(): void {
     this.isOpenSea = environment.minting_status === 'not_start' ? false : true;
     this.isDisconnect = false;
-    this.isStatusConnected = false;
+    this.isStatusConnected = true;
       
 
     this.playVideo();
@@ -179,8 +179,8 @@ export class MintComponent implements OnInit {
       );
 
       let hasStarted = await this.contractAv.methods.saleStarted().call();
-
-      if (hasStarted && environment.minting_status === 'start') {
+        //if (hasStarted && environment.phase > 1) {
+      if (hasStarted ) {
         this.phase = 'WL';
       } else {
         this.phase = 'not started'; //right
@@ -340,7 +340,7 @@ export class MintComponent implements OnInit {
   }
 
   updateStatusButtons() {
-    if (environment.phase > 1 && this.status !== 'not started' ) {
+    if (environment.phase > 1 && this.status !== 'not started' && this.status !== 'connect' && this.status !== 'network' && this.status !== 'pendingConnect' ) {
       $('.btn-opensea').show();
     } else {
       $('.btn-opensea').hide();
