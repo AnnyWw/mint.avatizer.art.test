@@ -35,7 +35,7 @@ export class MintComponent implements OnInit {
   readonly environment = environment;
   readonly texts = texts;
   isOpenSea: boolean;
-     isDisconnect: boolean;
+  isDisconnect: boolean;
 
   @HostListener('window:load')
   onLoad() {
@@ -180,18 +180,19 @@ export class MintComponent implements OnInit {
         this.phase = 'WL';
       } else {
         this.phase = 'not started'; //right
-         // this.phase = 'WL';
+        // this.phase = 'WL';
       }
 
-      let hasTok = await this.contractAv.methods.balanceOf(this.wallet).call();
+      //let hasTok = await this.contractAv.methods.balanceOf(this.wallet).call();
 
-      consoleLog('hasTok', hasTok);
+      //consoleLog('hasTok', hasTok);
 
-      if (hasTok > 0) {
-        this.minted = true;
-      } else {
-        this.minted = false;
-      }
+      // if (hasTok > 0) {
+      //   this.minted = true;
+      // } else {
+      //   this.minted = false;
+      // }
+      this.minted = false;
 
       //if wl get merk
       await this.WLCheck(this.wallet);
@@ -319,7 +320,7 @@ export class MintComponent implements OnInit {
     consoleLog('status:', this.status);
 
     //this.status;
-        this.updateIsDisconnect();
+    this.updateIsDisconnect();
     this.updateStatusButtons();
     this.startParallax();
   }
@@ -333,14 +334,14 @@ export class MintComponent implements OnInit {
   }
 
   updateStatusButtons() {
-      $('.btn-opensea').show();
+    $('.btn-opensea').show();
     /*if (this.status === 'WL' || this.status === 'minted' ) {
       $('.btn-opensea').show();
     } else {
       $('.btn-opensea').hide();
     }*/
   }
-      updateIsDisconnect() {
-      this.isDisconnect = this.status === 'connect' ? false : true;
-  } 
+  updateIsDisconnect() {
+    this.isDisconnect = this.status === 'connect' ? false : true;
+  }
 }
