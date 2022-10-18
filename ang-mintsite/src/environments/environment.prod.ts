@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  minting_status: 'start', //not_start | start | stop  | paused
+  minting_status: 'start', //not_start | start | stop  | paused | start2
   token: 'jdjaosiij28892SIAHI049923701CIGknlklajal',
   mainsiteUrl: 'https://www.avatizer.art',
   openseaUrl: 'https://opensea.io/collection/avatizer',
@@ -12,12 +12,30 @@ export const environment = {
   minting_date_start: 'Tue, Oct 18, 2022 @ 11:00 AM EST (NYC Time)',
   moralis_api_key:
     '8kEmud1tbZttJ6IZdoVSejGjUt4NXlbJXjLqEu5HsjRezZYkXZv1pEX6BslaWQ8T',
-    network:'main'
+    network:'main',
+    phase: 2
 };
-
 /*
 minting_status: 'not_start' - You are a bit early, minting will start soon.
 minting_status: 'start' - mint is started
 minting_status: 'paused' - 'You are a bit early, minting will start soon.'
+minting_status: 'start2' - mint phase 2
 minting_status: 'stop' - SOLD OUT
 */
+/*
+phase: 1 'not_start' - You are on the whitelist, minting will open soon.
+phase: 2 'start' - mint phase 1
+phase: 3 'paused' - 'You are a bit early, minting will start soon.'
+phase: 4 'start2' - mint phase 2
+phase: 5 'stop' - SOLD OUT
+*/
+
+/*
+ * For easier debugging in development mode, you can import the following file
+ * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
+ *
+ * This import should be commented out in production mode because it will have a negative impact
+ * on performance if an error is thrown.
+ */
+// import 'zone.js/plugins/zone-error';  // Included with Angular CLI.
+
