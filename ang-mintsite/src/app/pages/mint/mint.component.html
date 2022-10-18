@@ -1,7 +1,9 @@
 <app-header></app-header>
 
-<ng-template [ngIf]="environment.minting_status === 'paused'">
-	<div  class="wrap bkg-color-353D4D" id="wallet={{wallet}}&status={{status}}&phase={{phase}}">
+<ng-container [ngIf]="environment.minting_status === 'paused'">
+    <ng-template [ngIf]="isStatusConnected; then  status_connected; else status_paused"></ng-template>
+    <ng-template #status_paused>
+	<div  class="wrap bkg-color-353D4D" id="status_paused">
     <div class="container">
       <div class="parallax">
         <img
@@ -52,7 +54,7 @@
                   <button
                     (click)="logout()"
                     class="wallet-form--connection connect"
-                    id="wallet-connection"
+                    id="wallet-connection" *ngIf="isDisconnect"
                   >
                     {{texts.disconnect}}
                   </button>
@@ -70,15 +72,16 @@
       </div>
     </div>
     <app-footer></app-footer>
-  </div>    
-</ng-template>
+  </div>
+        </ng-template>
+</ng-container>
 
-<ng-template [ngIf]="environment.minting_status === 'start' || environment.minting_status === 'start2' || environment.minting_status === 'not_start'">    
-  <div *ngIf="wallet === 'ahisiash'" class="wrap bkg-color-353D4D"  id="wallet={{wallet}}&status={{status}}&phase={{phase}}">
+<ng-template #status_connected>
+<div *ngIf="status === 'network'" class="wrap bkg-color-353D4D mint_status_{{status}}" id="wallet={{wallet}}&status={{status}}&phase={{phase}}">
     <div class="container">
       <div class="parallax">
         <img
-          class=" img-parallax"
+          class="img img-parallax"
           src="../../../assets/imgnew/mint/small-parts-7.svg"
           alt="small_parts_page1"
           width="2000"
@@ -92,8 +95,7 @@
             <div class="splash-mint--content">
               <div class="splash-mint--title">{{texts.splash_mint_title}}</div>
               <div class="splash-mint--description">
-               
-                 {{environment.minting_status === 'start2' ? texts.splash_mint_description_2 : texts.splash_mint_description_1}}                
+                 {{environment.minting_status === 'start2' ? texts.splash_mint_description_2 : texts.splash_mint_description_1}}
               </div>
               <div class="splash-mint--image">
                 <video
@@ -114,61 +116,64 @@
             </div>
           </div>
           <div class="splash-mint--wallet">
-            <form action="" class="wallet-form">
-              <div class="wallet-form--fieldset hidden-bg">
-                <div class="wallet-form--group hidden-mob">
-                  <label class="wallet-form--label" for="your_wallet"
-                    >{{texts.your_wallet_id}}:</label
+            <div class="wallet-form--fieldset focused">
+              <div class="wallet-form--group">
+                <label class="wallet-form--label" for="your_wallet"
+                  >{{texts.your_wallet_id}}:</label
+                >
+                <div class="input-group">
+                  <span class="wallet-form--input"
+                    >{{ wallet.substring(0, 5) }}
+                    <span class="wallet-form--input-inside"
+                      >-XXXX-XXXX-XXXX-</span
+                    >
+                    {{
+                      wallet.substring(wallet.length - 4, wallet.length + 4)
+                    }}</span
                   >
-                  <div class="input-group">
-                    <span class="wallet-form--input not-value"
-                      >XXXX
-                      <span class="wallet-form--input-inside"
-                        >-XXXX-XXXX-XXXX-</span
-                      >
-                      XXXX</span
-                    >
-                    <!-- <input type="text" class="wallet-form--input" placeholder="XXXX-XXXX-XXXX-XXXX-XXXX" id="your_wallet" aria-describedby="wallet-connection"> -->
-                    <button
-                      class="wallet-form--connection"
-                      disabled
-                      id="wallet-connection"
-                    >
-                      {{texts.disconnect}}
-                    </button>
-                  </div>
-                  <div class="wallet-form--status">
-                    <div class="form-status--label">Status:</div>
-                    <div class="form-status--text"></div>
-                  </div>
-                </div>
-                <div class="wallet-form--button">
-                  <button class="wallet-form--btn btn btn-metamask">
-                    <span class="btn-icon"
-                      ><img
-                        src="../../../assets/imgnew/mint/metamask-logo.svg"
-                        width="30"
-                        height="28"
-                        alt="metamask-logo"
-                    /></span>
-                    <span class="btn-body">
-                      <span class="btn-title">{{texts.metamask_install}}</span>
-                      <span class="btn-description"
-                        >{{texts.metamask_required}}</span
-                      >
-                    </span>
+                  <button
+                    (click)="logout()"
+                    class="wallet-form--connection connect"
+                    id="wallet-connection" *ngIf="isDisconnect"
+                  >
+                    {{texts.disconnect}}
                   </button>
                 </div>
+
               </div>
-            </form>
+              <div class="wallet-form--button">
+                <button
+                  (click)="switchNetworks()"
+                  class="wallet-form--btn btn btn-metamask metamask-switch"
+                >
+                  <span class="btn-icon"
+                    ><img
+                      src="../../../assets/imgnew/mint/metamask-logo.svg"
+                      width="30"
+                      height="28"
+                      alt="metamask-logo"
+                  /></span>
+                  <span class="btn-body">
+                    <span class="btn-title">{{texts.switch_network}}</span>
+                    <span class="btn-description"
+                      >{{texts.minting_ethereum_only}}</span
+                    >
+                  </span>
+                </button>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
     </div>
+    <div *ngIf="isShow" class="dinamic-notify error">
+      {{texts.status_switch_error}} <button class="notify-close" (click)="closeNotify()"></button>
+    </div>
     <app-footer></app-footer>
   </div>
 
-  <div *ngIf="status === 'connect'" class="wrap bkg-color-353D4D" id="wallet={{wallet}}&status={{status}}&phase={{phase}}">
+<div *ngIf="status === 'connect'" class="wrap bkg-color-353D4D" id="wallet={{wallet}}&status={{status}}&phase={{phase}}">
     <div class="container">
       <div class="parallax" >
         <img
@@ -280,7 +285,7 @@
                     <button
                       class="wallet-form--connection"
                       disabled
-                      id="wallet-connection"
+                      id="wallet-connection" *ngIf="isDisconnect"
                     >
                       {{texts.disconnect}}
                     </button>
@@ -307,12 +312,16 @@
     </div>
     <app-footer></app-footer>
   </div>
+</ng-template>
 
-  <div *ngIf="status === 'network'" class="wrap bkg-color-353D4D mint_status_{{status}}" id="wallet={{wallet}}&status={{status}}&phase={{phase}}">
+
+
+<ng-template #status_other>    
+  <div *ngIf="wallet === 'ahisiash'" class="wrap bkg-color-353D4D"  id="wallet={{wallet}}&status={{status}}&phase={{phase}}">
     <div class="container">
       <div class="parallax">
         <img
-          class="img img-parallax"
+          class=" img-parallax"
           src="../../../assets/imgnew/mint/small-parts-7.svg"
           alt="small_parts_page1"
           width="2000"
@@ -326,7 +335,8 @@
             <div class="splash-mint--content">
               <div class="splash-mint--title">{{texts.splash_mint_title}}</div>
               <div class="splash-mint--description">
-                 {{environment.minting_status === 'start2' ? texts.splash_mint_description_2 : texts.splash_mint_description_1}}
+               
+                 {{environment.minting_status === 'start2' ? texts.splash_mint_description_2 : texts.splash_mint_description_1}}                
               </div>
               <div class="splash-mint--image">
                 <video
@@ -347,62 +357,63 @@
             </div>
           </div>
           <div class="splash-mint--wallet">
-            <div class="wallet-form--fieldset focused">
-              <div class="wallet-form--group">
-                <label class="wallet-form--label" for="your_wallet"
-                  >{{texts.your_wallet_id}}:</label
-                >
-                <div class="input-group">
-                  <span class="wallet-form--input"
-                    >{{ wallet.substring(0, 5) }}
-                    <span class="wallet-form--input-inside"
-                      >-XXXX-XXXX-XXXX-</span
+            <form action="" class="wallet-form">
+              <div class="wallet-form--fieldset hidden-bg">
+                <div class="wallet-form--group hidden-mob">
+                  <label class="wallet-form--label" for="your_wallet"
+                    >{{texts.your_wallet_id}}:</label
+                  >
+                  <div class="input-group">
+                    <span class="wallet-form--input not-value"
+                      >XXXX
+                      <span class="wallet-form--input-inside"
+                        >-XXXX-XXXX-XXXX-</span
+                      >
+                      XXXX</span
                     >
-                    {{
-                      wallet.substring(wallet.length - 4, wallet.length + 4)
-                    }}</span
-                  >
-                  <button
-                    (click)="logout()"
-                    class="wallet-form--connection connect"
-                    id="wallet-connection"
-                  >
-                    {{texts.disconnect}}
+                    <!-- <input type="text" class="wallet-form--input" placeholder="XXXX-XXXX-XXXX-XXXX-XXXX" id="your_wallet" aria-describedby="wallet-connection"> -->
+                    <button
+                      class="wallet-form--connection"
+                      disabled
+                      id="wallet-connection" *ngIf="isDisconnect"
+                    >
+                      {{texts.disconnect}}
+                    </button>
+                  </div>
+                  <div class="wallet-form--status">
+                    <div class="form-status--label">Status:</div>
+                    <div class="form-status--text"></div>
+                  </div>
+                </div>
+                <div class="wallet-form--button">
+                  <button class="wallet-form--btn btn btn-metamask">
+                    <span class="btn-icon"
+                      ><img
+                        src="../../../assets/imgnew/mint/metamask-logo.svg"
+                        width="30"
+                        height="28"
+                        alt="metamask-logo"
+                    /></span>
+                    <span class="btn-body">
+                      <span class="btn-title">{{texts.metamask_install}}</span>
+                      <span class="btn-description"
+                        >{{texts.metamask_required}}</span
+                      >
+                    </span>
                   </button>
                 </div>
-
               </div>
-              <div class="wallet-form--button">
-                <button
-                  (click)="switchNetworks()"
-                  class="wallet-form--btn btn btn-metamask metamask-switch"
-                >
-                  <span class="btn-icon"
-                    ><img
-                      src="../../../assets/imgnew/mint/metamask-logo.svg"
-                      width="30"
-                      height="28"
-                      alt="metamask-logo"
-                  /></span>
-                  <span class="btn-body">
-                    <span class="btn-title">{{texts.switch_network}}</span>
-                    <span class="btn-description"
-                      >{{texts.minting_ethereum_only}}</span
-                    >
-                  </span>
-                </button>
-              </div>
-            </div>
-
+            </form>
           </div>
         </div>
       </div>
     </div>
-    <div *ngIf="isShow" class="dinamic-notify error">
-      {{texts.status_switch_error}} <button class="notify-close" (click)="closeNotify()"></button>
-    </div>
     <app-footer></app-footer>
   </div>
+
+  
+
+  
 
   <div
     *ngIf="(status === 'WL' || status === 'Public') && (phase === 'WL')" 
@@ -465,7 +476,7 @@
                   <button
                     (click)="logout()"
                     class="wallet-form--connection connect"
-                    id="wallet-connection"
+                    id="wallet-connection" *ngIf="isDisconnect"
                   >
                     {{texts.disconnect}}
                   </button>
@@ -554,7 +565,7 @@
                   <button
                     (click)="logout()"
                     class="wallet-form--connection connect"
-                    id="wallet-connection"
+                    id="wallet-connection" *ngIf="isDisconnect"
                   >
                     {{texts.disconnect}}
                   </button>
@@ -649,7 +660,7 @@
                   <button
                     (click)="logout()"
                     class="wallet-form--connection connect"
-                    id="wallet-connection"
+                    id="wallet-connection" *ngIf="isDisconnect"
                   >
                     {{texts.disconnect}}
                   </button>
@@ -758,7 +769,7 @@
                   <button
                     (click)="logout()"
                     class="wallet-form--connection connect"
-                    id="wallet-connection"
+                    id="wallet-connection" *ngIf="isDisconnect"
                   >
                     {{texts.disconnect}}
                   </button>
@@ -851,7 +862,7 @@
                   <button
                     (click)="logout()"
                     class="wallet-form--connection connect"
-                    id="wallet-connection"
+                    id="wallet-connection" *ngIf="isDisconnect"
                   >
                     {{texts.disconnect}}
                   </button>
@@ -947,7 +958,7 @@
                   <button
                     (click)="logout()"
                     class="wallet-form--connection connect"
-                    id="wallet-connection"
+                    id="wallet-connection" *ngIf="isDisconnect"
                   >
                     {{texts.disconnect}}
                   </button>
@@ -1027,7 +1038,7 @@
                   <button
                     (click)="logout()"
                     class="wallet-form--connection connect"
-                    id="wallet-connection"
+                    id="wallet-connection" *ngIf="isDisconnect"
                   >
                     {{texts.disconnect}}
                   </button>
@@ -1130,6 +1141,7 @@
                     (click)="logout()"
                     class="wallet-form--connection connect"
                     id="wallet-connection"
+                          *ngIf="isDisconnect"
                   >
                     {{texts.disconnect}}
                   </button>
@@ -1150,7 +1162,7 @@
   </div>
 </ng-template>
 
-<ng-template [ngIf]="environment.minting_status === 'stop'"> 
+<ng-template #status_stop> 
   <div class="wrap bkg-color-353D4D mint_status_stop" id="mint_status_stop">
     <div class="container">
       <div class="parallax">
@@ -1202,6 +1214,7 @@
                     (click)="logout()"
                     class="wallet-form--connection connect"
                     id="wallet-connection"
+                          *ngIf="isDisconnect"
                   >
                     {{texts.disconnect}}
                   </button>
@@ -1237,3 +1250,4 @@
     <app-footer></app-footer>
   </div>
 </ng-template>    
+
