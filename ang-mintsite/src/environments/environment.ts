@@ -17,6 +17,7 @@ export const environment = {
   moralis_api_key:'8kEmud1tbZttJ6IZdoVSejGjUt4NXlbJXjLqEu5HsjRezZYkXZv1pEX6BslaWQ8T',
   network:'main'    
 };
+
 /*
 minting_status: 'not_start' - You are a bit early, minting will start soon.
 minting_status: 'start' - mint is started

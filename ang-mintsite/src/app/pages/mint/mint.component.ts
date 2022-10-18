@@ -49,7 +49,7 @@ export class MintComponent implements OnInit {
 
   ngOnInit(): void {
     this.isOpenSea = environment.minting_status === 'not_start' ? false : true;
-  this.isDisconnect = false;
+    this.isDisconnect = false;
     this.playVideo();
     $(document).ready(function () {
       // MANAGE JS
@@ -70,6 +70,7 @@ export class MintComponent implements OnInit {
           $('.generic-status').removeClass('active').addClass('paused');
         }
       });
+      this.updateStatusButtons();
     });
 
     /* add Web3modal */
@@ -332,11 +333,12 @@ export class MintComponent implements OnInit {
   }
 
   updateStatusButtons() {
-    if (this.status === 'WL') {
+      $('.btn-opensea').show();
+    /*if (this.status === 'WL' || this.status === 'minted' ) {
       $('.btn-opensea').show();
     } else {
       $('.btn-opensea').hide();
-    }
+    }*/
   }
       updateIsDisconnect() {
       this.isDisconnect = this.status === 'connect' ? false : true;
