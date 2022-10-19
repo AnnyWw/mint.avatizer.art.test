@@ -183,16 +183,16 @@ export class MintComponent implements OnInit {
         // this.phase = 'WL';
       }
 
-      //let hasTok = await this.contractAv.methods.balanceOf(this.wallet).call();
+      let hasTok = await this.contractAv.methods.balanceOf(this.wallet).call();
 
-      //consoleLog('hasTok', hasTok);
+      consoleLog('hasTok', hasTok);
 
-      // if (hasTok > 0) {
-      //   this.minted = true;
-      // } else {
-      //   this.minted = false;
-      // }
-      this.minted = false;
+       if (hasTok > 0) {
+         this.minted = true;
+       } else {
+         this.minted = false;
+       }
+
 
       //if wl get merk
       await this.WLCheck(this.wallet);
