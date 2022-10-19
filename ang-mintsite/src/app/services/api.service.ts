@@ -14,7 +14,7 @@ export class ApiService {
   //readonly rootURL = environment.endpoint;
   //readonly rootURL = "http://localhost:5000";
 
-  readonly rootURL = 'https://profitars.ai';
+  readonly rootURL = 'https://profitars.ai/proof/';
 
   constructor(
     @Inject(DOCUMENT) private document: Document,
