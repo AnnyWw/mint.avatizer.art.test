@@ -5,22 +5,8 @@ import { MintComponent } from './pages/mint/mint.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'mint', pathMatch: 'full' },
-  {
-    path: 'mint',
-    component: MintComponent,
-    title: 'Avatizer - Mint',
-    data: {
-      seo: {
-        metaTags: [
-          {
-            name: 'description',
-            content: 'Avatizer NFT - Free Mint. One NFT per wallet.',
-          },
-        ],
-      },
-    },
-  },
+  { path: '', redirectTo: 'manageNFT', pathMatch: 'full' },
+  
   {
     path: 'manageNFT',
     component: ManageNFTComponent,
