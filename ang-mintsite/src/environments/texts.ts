@@ -46,7 +46,8 @@ export const texts = {
   status_on_whitelist_success: 'You are on the whitelist',
   status_nft_is_available: 'Your Avatizer NFT is available',
   tokens_loading_start    :'Loading... one moment, please',
-  tokens_loading_stop    :'You own %length% Avatizer(s)'
+  tokens_loading_stop    :'You own %length% Avatizer(s)',
+	manage_nft_description: 'You can manage NFTs here from both collections'
 };
 
 /*
