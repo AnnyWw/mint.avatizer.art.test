@@ -2619,8 +2619,9 @@ only screen and (min-resolution: 2dppx) {
     }
 
     .btn-metamask {
-        min-width: 100% !important;
-        max-width: 100% !important;
+        min-width: 90% !important;
+        max-width: 90% !important;
+		min-width: auto !important;
     }
 
     .btn-metamask.metamask-connect .btn-title {
