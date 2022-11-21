@@ -2085,6 +2085,9 @@ only screen and (min-resolution: 2dppx) {
     display: flex;
     align-items: center;
 }
+.wrap-manage.wrap-collection {
+    padding-top: 100px;
+}
 .wrap-manage.wrap-collection .splash-mint--wallet{
     margin-top: -40px;
 }
