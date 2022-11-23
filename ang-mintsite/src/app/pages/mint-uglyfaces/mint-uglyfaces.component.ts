@@ -49,75 +49,13 @@ export class MintUglyfacesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.isOpenSea = environment.minting_status === 'not_start' ? false : true;
+    this.isOpenSea = environment.minting_status_ugfs === 'not_start' ? false : true;
     this.isDisconnect = false;
     this.playVideo();
-    $(document).ready(function () {
-      // MANAGE JS
-      $('.manage-checkbox').click(function () {
-        if ($(self).is(':checked')) {
-          $(self)
-            .parents('.modal-body--content')
-            .removeClass('paused')
-            .addClass('active');
-          $('.generic-status').text('Active');
-          $('.generic-status').removeClass('paused').addClass('active');
-        } else {
-          $(self)
-            .parents('.modal-body--content')
-            .removeClass('active')
-            .addClass('paused');
-          $('.generic-status').text('Paused');
-          $('.generic-status').removeClass('active').addClass('paused');
-        }
-      });
-     // this.updateStatusButtons();
-    });
 
     /* add Web3modal */
     $('#connect').click(function () {
       consoleLog('here');
-    });
-  }
-
-  startParallax() {
-    $(document).ready(function () {
-      $('.img-parallax').each(function () {
-        var img = $(this);
-        var imgParent = $(this).parent();
-        function parallaxImg() {
-          var speed = img.data('speed');
-          var imgY = imgParent.offset().top;
-          var winY = $(window).scrollTop();
-          var winH = $(window).height();
-          var parentH = imgParent.innerHeight();
-
-          // The next pixel to show on screen
-          var winBottom = winY + winH;
-
-          // If block is shown on screen
-          if (winBottom > imgY && winY < imgY + parentH) {
-            // Number of pixels shown after block appear
-            var imgBottom = (winBottom - imgY) * speed;
-            // Max number of pixels until block disappear
-            var imgTop = winH + parentH;
-            // Porcentage between start showing until disappearing
-            var imgPercent = (imgBottom / imgTop) * 100 + (50 - speed * 50);
-          }
-          img.css({
-            top: imgPercent + '%',
-            transform: 'translateY(-' + imgPercent + '%)',
-          });
-        }
-        $(document).on({
-          scroll: function () {
-            parallaxImg();
-          },
-          ready: function () {
-            parallaxImg();
-          },
-        });
-      });
     });
   }
 
@@ -141,7 +79,7 @@ export class MintUglyfacesComponent implements OnInit {
     };
 
     this.web3Modal = new Web3Modal({
-      //network: environment.network, //'main', // optional
+      network: environment.network, //'main', // optional
       cacheProvider: true, // optional
       providerOptions, // required
     });
@@ -206,7 +144,7 @@ export class MintUglyfacesComponent implements OnInit {
     try {
       await this.web3.currentProvider.request({
         method: 'wallet_switchEthereumChain',
-        params: [{ chainId: Web3.utils.toHex('1') }],
+        params: [{ chainId: Web3.utils.toHex('5') }],
       });
 
       this.initWeb3();
@@ -323,7 +261,6 @@ export class MintUglyfacesComponent implements OnInit {
     //this.status;
     this.updateIsDisconnect();
     this.updateStatusButtons();
-    this.startParallax();
   }
 
   closeNotify() {
@@ -343,6 +280,6 @@ export class MintUglyfacesComponent implements OnInit {
     }*/
   }
   updateIsDisconnect() {
-    this.isDisconnect = this.status === 'connect' ? true : true;
+    this.isDisconnect = this.status === 'connect' ? false : true;
   }
 }
