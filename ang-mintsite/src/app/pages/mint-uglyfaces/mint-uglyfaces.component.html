@@ -73,11 +73,10 @@
                 <div class="col-xs-12 col-sm-12 col-md-8 col-lg-7">
                     <div class="splash-mint--body">
                         <div class="splash-mint--content">
-                            <div class="splash-mint--title">{{environment.minting_status === 'start' ||
-                                environment.minting_status === 'start2' ? texts.splash_mint_title_ugfs_2 :
+                            <div class="splash-mint--title">{{environment.minting_status === 'phase_whitelist' ? texts.splash_mint_title_ugfs_2 :
                                 texts.splash_mint_title_ugfs_1}}</div>
                             <div class="splash-mint--description">
-                                {{environment.minting_status === 'start2' ? texts.splash_mint_description_ugfs_2 :
+                                {{environment.minting_status === 'phase_whitelist' ? texts.splash_mint_description_ugfs_2 :
                                 texts.splash_mint_description_ugfs_1}}
                             </div>
                             <div class="splash-mint--image">
@@ -111,11 +110,10 @@
                 <div class="col-xs-12 col-sm-12 col-md-8 col-lg-7">
                     <div class="splash-mint--body">
                         <div class="splash-mint--content">
-                            <div class="splash-mint--title">{{environment.minting_status === 'start' ||
-                                environment.minting_status === 'start2' ? texts.splash_mint_title_ugfs_2 :
+                            <div class="splash-mint--title">{{environment.minting_status === 'phase_whitelist' ? texts.splash_mint_title_ugfs_2 :
                                 texts.splash_mint_title_ugfs_1}}</div>
                             <div class="splash-mint--description">
-                                {{environment.minting_status === 'start2' ? texts.splash_mint_description_ugfs_2 :
+                                {{environment.minting_status === 'phase_whitelist' ? texts.splash_mint_description_ugfs_2 :
                                 texts.splash_mint_description_ugfs_1}}
                             </div>
                             <div class="splash-mint--image">
@@ -149,11 +147,10 @@
                 <div class="col-xs-12 col-sm-12 col-md-8 col-lg-7">
                     <div class="splash-mint--body">
                         <div class="splash-mint--content">
-                            <div class="splash-mint--title">{{environment.minting_status === 'start' ||
-                                environment.minting_status === 'start2' ? texts.splash_mint_title_ugfs_2 :
+                            <div class="splash-mint--title">{{environment.minting_status === 'phase_whitelist' ? texts.splash_mint_title_ugfs_2 :
                                 texts.splash_mint_title_ugfs_1}}</div>
                             <div class="splash-mint--description">
-                                {{environment.minting_status === 'start2' ? texts.splash_mint_description_ugfs_2 :
+                                {{environment.minting_status === 'phase_whitelist' ? texts.splash_mint_description_ugfs_2 :
                                 texts.splash_mint_description_ugfs_1}}
                             </div>
                             <div class="splash-mint--image">
@@ -197,70 +194,9 @@
                 </div>
             </div>
         </div>
-        <div *ngIf="isShow" class="dinamic-notify error">
+        <!-- <div *ngIf="isShow" class="dinamic-notify error"> -->
+        <div class="dinamic-notify error">
             {{texts.status_switch_error}} <button class="notify-close" (click)="closeNotify()"></button>
-        </div>
-        <app-footer></app-footer>
-    </div>
-
-    <!-- <div *ngIf="(status === 'WL' || status === 'Public') && (phase === 'WL')"  -->
-    <div class="wrap bkg-color-353D4D"
-        id="wallet={{wallet}}&status={{status}}&phase={{phase}}">
-        <div class="container">
-            <div class="splash-mint row">
-                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-7">
-                    <div class="splash-mint--body">
-                        <div class="splash-mint--content">
-                            <div class="splash-mint--title">{{texts.splash_mint_title}}</div>
-                            <div class="splash-mint--description">
-                                {{environment.minting_status === 'start2' ? texts.splash_mint_description_2 :
-                                texts.splash_mint_description_1}}
-                            </div>
-                            <div class="splash-mint--image">
-                                <video poster="../../../assets/imgnew/ugly-faces/for-animation2.svg" class="img-ill"
-                                    preload="auto" no-controls playsinline loop muted autoplay oncanplay="this.play()"
-                                    onloadedmetadata="this.muted = true" alt="avatizer video" *ngIf="true" width="345"
-                                    height="345">
-                                    <source src="../../../assets/imgnew/ugly-faces/mint.mp4" type="video/mp4">
-                                </video>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="splash-mint--wallet">
-                        <div class="wallet-form--fieldset focused">
-                            <div class="wallet-form--group">
-                                
-                                <div class="input-group">
-                                    <span class="wallet-form--input">{{ wallet.substring(0, 5) }}
-                                        <span class="wallet-form--input-inside">-XXXX-XXXX-XXXX-</span>
-                                        {{
-                                        wallet.substring(wallet.length - 4, wallet.length + 4)
-                                        }}</span>
-                                    <!-- <input type="text" class="wallet-form--input" value="0x426 -XXXX-XXXX-XXXX- d1dA" placeholder="XXXX-XXXX-XXXX-XXXX-XXXX" id="your_wallet" aria-describedby="wallet-connection"> -->
-                                    <button (click)="logout()" class="wallet-form--connection connect"
-                                        id="wallet-connection" *ngIf="isDisconnect">
-                                        {{texts.disconnect}}
-                                    </button>
-                                </div>
-                                <div class="wallet-form--status">
-                                    
-                                    <div class="form-status--text success">
-                                        {{texts.status_nft_is_available}}
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div (click)="startMint()" class="wallet-form--button">
-                            <button class="wallet-form--btn btn btn-metamask btn-mint">
-                                <span class="btn-body">
-                                    <span class="btn-title">{{texts.mint_now}}</span>
-                                </span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
         <app-footer></app-footer>
     </div>
@@ -304,57 +240,6 @@
                                     <div class="form-status--text success">
                                         {{texts.status_text_success_ugfs}}
                                         <div>{{texts.status_text_success_ugfs_1}} {{environment.minting_date_start}}</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <app-footer></app-footer>
-    </div>
-
-
-    <!-- <div *ngIf="phase === 'WL'  && status === 'WLNot'" -->
-    <div class="wrap bkg-color-353D4D" id="wallet={{wallet}}&status={{status}}&phase={{phase}}">
-        <div class="container">
-            <div class="splash-mint row">
-                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-7">
-                    <div class="splash-mint--body">
-                        <div class="splash-mint--content">
-                            <div class="splash-mint--title">{{texts.splash_mint_title_ugfs_2}}</div>
-                            <div class="splash-mint--description">
-                                {{texts.splash_mint_description_ugfs_2}}
-                            </div>
-                            <div class="splash-mint--image">
-                                <video poster="../../../assets/imgnew/ugly-faces/for-animation2.svg" class="img-ill"
-                                    preload="auto" no-controls playsinline loop muted autoplay oncanplay="this.play()"
-                                    onloadedmetadata="this.muted = true" alt="avatizer video" *ngIf="true" width="345"
-                                    height="345">
-                                    <source src="../../../assets/imgnew/ugly-faces/mint.mp4" type="video/mp4">
-                                </video>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="splash-mint--wallet">
-                        <div class="wallet-form--fieldset focused">
-                            <div class="wallet-form--group">
-                                <div class="input-group">
-                                    <span class="wallet-form--input">{{ wallet.substring(0, 5) }}
-                                        <span class="wallet-form--input-inside">. . .</span>
-                                        {{
-                                        wallet.substring(wallet.length - 4, wallet.length + 4)
-                                        }}</span>
-                                    <!-- <input type="text" class="wallet-form--input" value="0x426 -XXXX-XXXX-XXXX- d1dA" placeholder="XXXX-XXXX-XXXX-XXXX-XXXX" id="your_wallet" aria-describedby="wallet-connection"> -->
-                                    <button (click)="logout()" class="wallet-form--connection connect"
-                                        id="wallet-connection" *ngIf="isDisconnect">
-                                        {{texts.disconnect}}
-                                    </button>
-                                </div>
-                                <div class="wallet-form--status error">
-                                    <div class="form-status--text error">
-                                        {{texts.status_address_missing_in_whitelist_ugfs}}
                                     </div>
                                 </div>
                             </div>
@@ -415,7 +300,8 @@
         </div>
         <app-footer></app-footer>
     </div>
-    <!-- <div *ngIf="status === 'minted' && !token"  -->
+
+    <!-- <div *ngIf="(status === 'WL' || status === 'Public') && (phase === 'WL')"  -->
     <div class="wrap bkg-color-353D4D"
         id="wallet={{wallet}}&status={{status}}&phase={{phase}}">
         <div class="container">
@@ -423,10 +309,126 @@
                 <div class="col-xs-12 col-sm-12 col-md-8 col-lg-7">
                     <div class="splash-mint--body">
                         <div class="splash-mint--content">
-                            <div class="splash-mint--title">{{texts.splash_mint_title}}</div>
+                            <div class="splash-mint--title">{{texts.splash_mint_title_ugfs_2}}</div>
                             <div class="splash-mint--description">
-                                {{environment.minting_status === 'start2' ? texts.splash_mint_description_2 :
+                                {{environment.minting_status === 'phase_whitelist' ? texts.splash_mint_description_2 :
                                 texts.splash_mint_description_1}}
+                            </div>
+                            <div class="splash-mint--image">
+                                <video poster="../../../assets/imgnew/ugly-faces/for-animation2.svg" class="img-ill"
+                                    preload="auto" no-controls playsinline loop muted autoplay oncanplay="this.play()"
+                                    onloadedmetadata="this.muted = true" alt="avatizer video" *ngIf="true" width="345"
+                                    height="345">
+                                    <source src="../../../assets/imgnew/ugly-faces/mint.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="splash-mint--wallet">
+                        <div class="wallet-form--fieldset focused">
+                            <div class="wallet-form--group">
+                                <div class="input-group">
+                                    <span class="wallet-form--input">{{ wallet.substring(0, 5) }}
+                                        <span class="wallet-form--input-inside">. . .</span>
+                                        {{
+                                        wallet.substring(wallet.length - 4, wallet.length + 4)
+                                        }}</span>
+                                    <button (click)="logout()" class="wallet-form--connection connect"
+                                        id="wallet-connection" *ngIf="isDisconnect">
+                                        {{texts.disconnect}}
+                                    </button>
+                                </div>
+                                
+                                <div class="wallet-form--status">
+                                    <div class="form-status--text success">
+                                        <div>{{texts.status_text_success_ugfs}}</div>
+                                        3 {{texts.status_nft_is_available_ugfs}}
+                                    </div>
+                                </div>
+
+                                <div class="wallet-available-nft">
+                                    <div class="pressed">1 NFT</div>
+                                    <div>2 NFTs</div>
+                                    <div>3 NFTs</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div (click)="startMint()" class="wallet-form--button">
+                            <button class="wallet-form--btn btn btn-metamask btn-mint">
+                                <span class="btn-body">
+                                    <span class="btn-title">{{texts.mint_now_ugfs}}</span>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <app-footer></app-footer>
+    </div>
+
+    <!-- <div *ngIf="phase === 'WL'  && status === 'WLNot'" -->
+    <div class="wrap bkg-color-353D4D" id="wallet={{wallet}}&status={{status}}&phase={{phase}}">
+        <div class="container">
+            <div class="splash-mint row">
+                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-7">
+                    <div class="splash-mint--body">
+                        <div class="splash-mint--content">
+                            <div class="splash-mint--title">{{texts.splash_mint_title_ugfs_2}}</div>
+                            <div class="splash-mint--description">
+                                {{texts.splash_mint_description_ugfs_2}}
+                            </div>
+                            <div class="splash-mint--image">
+                                <video poster="../../../assets/imgnew/ugly-faces/for-animation2.svg" class="img-ill"
+                                    preload="auto" no-controls playsinline loop muted autoplay oncanplay="this.play()"
+                                    onloadedmetadata="this.muted = true" alt="avatizer video" *ngIf="true" width="345"
+                                    height="345">
+                                    <source src="../../../assets/imgnew/ugly-faces/mint.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="splash-mint--wallet">
+                        <div class="wallet-form--fieldset focused">
+                            <div class="wallet-form--group">
+                                <div class="input-group">
+                                    <span class="wallet-form--input">{{ wallet.substring(0, 5) }}
+                                        <span class="wallet-form--input-inside">. . .</span>
+                                        {{
+                                        wallet.substring(wallet.length - 4, wallet.length + 4)
+                                        }}</span>
+                                    <!-- <input type="text" class="wallet-form--input" value="0x426 -XXXX-XXXX-XXXX- d1dA" placeholder="XXXX-XXXX-XXXX-XXXX-XXXX" id="your_wallet" aria-describedby="wallet-connection"> -->
+                                    <button (click)="logout()" class="wallet-form--connection connect"
+                                        id="wallet-connection" *ngIf="isDisconnect">
+                                        {{texts.disconnect}}
+                                    </button>
+                                </div>
+                                <div class="wallet-form--status error">
+                                    <div class="form-status--text error">
+                                        {{texts.status_address_missing_in_whitelist_ugfs}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <app-footer></app-footer>
+    </div>
+
+    
+    <div *ngIf="status === 'minted' && !token" 
+     class="wrap bkg-color-353D4D"
+        id="wallet={{wallet}}&status={{status}}&phase={{phase}}">
+        <div class="container">
+            <div class="splash-mint row">
+                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-7">
+                    <div class="splash-mint--body">
+                        <div class="splash-mint--content">
+                            <div class="splash-mint--title">{{texts.splash_mint_title_ugfs_2}}</div>
+                            <div class="splash-mint--description">
+                                {{texts.splash_mint_description_1}}
                             </div>
                             <div class="splash-mint--image">
                                 <video poster="../../../assets/imgnew/ugly-faces/for-animation2.svg" class="img-ill"
@@ -444,7 +446,7 @@
                                 
                                 <div class="input-group">
                                     <span class="wallet-form--input">{{ wallet.substring(0, 5) }}
-                                        <span class="wallet-form--input-inside">-XXXX-XXXX-XXXX-</span>
+                                        <span class="wallet-form--input-inside">. . .</span>
                                         {{
                                         wallet.substring(wallet.length - 4, wallet.length + 4)
                                         }}</span>
@@ -457,18 +459,10 @@
                                 <div class="wallet-form--status">
                                     
                                     <div class="form-status--text warning">
-                                        {{texts.status_already_minted_nft}}
+                                        {{texts.status_no_longer_ugfs}}
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="wallet-form--button">
-                            <button (click)="startMint()" class="wallet-form--btn btn btn-metamask btn-mint"
-                                disabled>
-                                <span class="btn-body">
-                                    <span class="btn-title">{{texts.mint_now}}</span>
-                                </span>
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -485,10 +479,9 @@
                 <div class="col-xs-12 col-sm-12 col-md-8 col-lg-7">
                     <div class="splash-mint--body">
                         <div class="splash-mint--content">
-                            <div class="splash-mint--title">{{texts.splash_mint_title}}</div>
+                            <div class="splash-mint--title">{{texts.splash_mint_title_ugfs_2}}</div>
                             <div class="splash-mint--description">
-                                {{environment.minting_status === 'start2' ? texts.splash_mint_description_2 :
-                                texts.splash_mint_description_1}}
+                                {{texts.splash_mint_description_1}}
                             </div>
                             <div class="splash-mint--image ">
                                 <video poster="../../../assets/imgnew/ugly-faces/for-animation2.svg" class="img-ill"
@@ -506,7 +499,7 @@
                                 
                                 <div class="input-group">
                                     <span class="wallet-form--input">{{ wallet.substring(0, 5) }}
-                                        <span class="wallet-form--input-inside">-XXXX-XXXX-XXXX-</span>
+                                        <span class="wallet-form--input-inside">. . .</span>
                                         {{
                                         wallet.substring(wallet.length - 4, wallet.length + 4)
                                         }}</span>
@@ -517,18 +510,12 @@
                                     </button>
                                 </div>
                                 <div class="wallet-form--status">
-                                    
-                                    <div class="form-status--text process">{{texts.status_getting_nft}}</div>
+                                    <div class="form-status--text process">
+                                        <span class="getting-icon"></span>
+                                        <span>{{texts.status_getting_nft_ugfs}}</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="wallet-form--button">
-                            <button (click)="startMint()" class="wallet-form--btn btn btn-metamask btn-mint"
-                                disabled>
-                                <span class="btn-body">
-                                    <span class="btn-title">{{texts.mint_now}}</span>
-                                </span>
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -544,10 +531,9 @@
                 <div class="col-xs-12 col-sm-12 col-md-8 col-lg-7">
                     <div class="splash-mint--body">
                         <div class="splash-mint--content">
-                            <div class="splash-mint--title">{{texts.splash_mint_title}}</div>
+                            <div class="splash-mint--title">{{texts.splash_mint_title_ugfs_2}}</div>
                             <div class="splash-mint--description">
-                                {{environment.minting_status === 'start2' ? texts.splash_mint_description_2 :
-                                texts.splash_mint_description_1}}
+                                {{texts.splash_mint_description_1}}
                             </div>
                             <div class="splash-mint--image ">
                                 <video poster="../../../assets/imgnew/ugly-faces/for-animation2.svg" class="img-ill"
@@ -562,14 +548,11 @@
                     <div class="splash-mint--wallet">
                         <div class="wallet-form--fieldset focused">
                             <div class="wallet-form--group">
-                                <label class="wallet-form--label" for="your_wallet">
-                                    {{ texts.your_wallet_id }}:
-                                </label>
                                 <div class="input-group">
                                     <span class="wallet-form--input">
                                         {{ wallet.substring(0, 5) }}
                                         <span class="wallet-form--input-inside">
-                                            -XXXX-XXXX-XXXX-
+                                            . . .
                                         </span>
                                         {{ wallet.substring(wallet.length - 4, wallet.length + 4) }}
                                     </span>
@@ -582,18 +565,10 @@
                                 <div class="wallet-form--status">
                                     
                                     <div class="form-status--text warning">
-                                        {{texts.status_already_minted_nft}}
+                                        {{texts.status_no_longer_ugfs}}
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="wallet-form--button">
-                            <button (click)="startMint()" class="wallet-form--btn btn btn-metamask btn-mint"
-                                disabled>
-                                <span class="btn-body">
-                                    <span class="btn-title">{{texts.mint_now}}</span>
-                                </span>
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -606,57 +581,6 @@
         <app-footer></app-footer>
     </div>
 
-    <!-- <div *ngIf="status === ''"  -->
-    <div class="wrap bkg-color-353D4D" id="mint_status_empty">
-        <div class="container">
-            <div class="splash-mint row">
-                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-7">
-                    <div class="splash-mint--body">
-                        <div class="splash-mint--content">
-                            <div class="splash-mint--title">{{texts.splash_mint_title}}</div>
-                            <div class="splash-mint--description">
-                                {{texts.splash_mint_description_1}}
-                            </div>
-                            <div class="splash-mint--image ">
-                                <video poster="../../../assets/imgnew/ugly-faces/for-animation.svg" class="img-ill"
-                                    preload="auto" no-controls playsinline loop muted autoplay oncanplay="this.play()"
-                                    onloadedmetadata="this.muted = true" alt="avatizer video" *ngIf="true" width="345"
-                                    height="345">
-                                    <source src="../../../assets/imgnew/ugly-faces/before-mint.mp4" type="video/mp4">
-                                </video>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="splash-mint--wallet">
-                        <div class="wallet-form--fieldset focused">
-                            <div class="wallet-form--group">
-                                
-                                <div class="input-group">
-                                    <span class="wallet-form--input">{{ wallet.substring(0, 5) }}
-                                        <span class="wallet-form--input-inside">-XXXX-XXXX-XXXX-</span>
-                                        {{
-                                        wallet.substring(wallet.length - 4, wallet.length + 4)
-                                        }}</span>
-                                    <!-- <input type="text" class="wallet-form--input" value="0x426 -XXXX-XXXX-XXXX- d1dA" placeholder="XXXX-XXXX-XXXX-XXXX-XXXX" id="your_wallet" aria-describedby="wallet-connection"> -->
-                                    <button (click)="logout()" class="wallet-form--connection connect"
-                                        id="wallet-connection" *ngIf="isDisconnect">
-                                        {{texts.disconnect}}
-                                    </button>
-                                </div>
-                                <div class="wallet-form--status">
-                                    
-                                    <div class="form-status--text warning">
-                                        {{texts.status_minted_not_started}}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <app-footer></app-footer>
-    </div>
 <!-- </ng-template> -->
 
 <!-- <ng-template [ngIf]="environment.minting_status === 'stop'"> -->
@@ -666,19 +590,22 @@
                 <div class="col-xs-12 col-sm-12 col-md-8 col-lg-7">
                     <div class="splash-mint--body">
                         <div class="splash-mint--content">
-                            <div class="splash-mint--title">{{texts.splash_mint_title}}</div>
+                            <div class="splash-mint--title">{{texts.splash_mint_title_ugfs_stop}}</div>
                             <div class="splash-mint--description">
-                                {{texts.splash_mint_description_2}}
+                                {{texts.splash_mint_description_ugfs_stop}}
                             </div>
                         </div>
                     </div>
                     <div class="splash-mint--wallet">
                         <div class="wallet-form--button buttons-group">
                             <a href="{{environment.openseaUrl}}" title="{{texts.opensea_btn_text}}" target="_blank"
-                                class="wallet-form--btn btn btn-metamask btn-opensea" style="display:none">
-
-                                <span class="btn-icon"><img src="../../../assets/imgnew/mint/opensea-logo.svg"
-                                        width="19" height="18" alt="{{texts.opensea_btn_text}}" /></span>
+                                class="wallet-form--btn btn btn-metamask btn-opensea-white">
+                                <span class="btn-icon">
+                                    <svg width="40" height="36" viewBox="0 0 40 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M2.46305 20.5625L2.59271 20.3679L11.0206 7.20036C11.1502 7.00577 11.4096 7.00577 11.5392 7.26523C12.9655 10.4436 14.1324 14.3355 13.6138 16.8004C13.3545 17.8382 12.7062 19.2004 11.9282 20.4328C11.8634 20.6274 11.7337 20.822 11.6041 20.9517C11.5392 21.0166 11.4744 21.0815 11.3447 21.0815H2.65754C2.46305 21.0166 2.33339 20.7571 2.46305 20.5625Z" fill="#2081E2"/>
+                                    <path d="M40 23.027V25.1027C40 25.2324 39.9352 25.2973 39.8055 25.3622C39.1572 25.6216 36.8882 26.6595 35.9805 27.9568C33.5818 31.2649 31.7666 36 27.7472 36H10.8266C4.86223 36 0 31.1351 0 25.1027V24.9081C0 24.7784 0.129661 24.6487 0.25932 24.6487H9.7893C9.98379 24.6487 10.1135 24.8432 10.1135 24.973C10.0486 25.5568 10.1783 26.2054 10.4376 26.7892C11.0211 27.9567 12.188 28.6054 13.4198 28.6054H18.0875V24.973H13.4846C13.2253 24.973 13.0956 24.7135 13.2253 24.5189C13.2901 24.454 13.3549 24.3892 13.4198 24.2595C13.8736 23.6108 14.457 22.7027 15.1053 21.6C15.5592 20.8865 15.9481 20.0432 16.2723 19.2649C16.3371 19.1351 16.4019 19.0054 16.4668 18.8108C16.5316 18.5514 16.6613 18.2919 16.7261 18.0973C16.7909 17.9027 16.8558 17.7081 16.9206 17.5135C17.0502 16.8649 17.1151 16.1514 17.1151 15.373C17.1151 15.1135 17.1151 14.7892 17.0502 14.4649C17.0502 14.1405 16.9854 13.8162 16.9854 13.4919C16.9854 13.2324 16.9206 12.9081 16.8557 12.6486C16.7909 12.1946 16.7261 11.8054 16.5964 11.3514L16.5316 11.2216C16.4668 10.9622 16.4019 10.6378 16.2723 10.3784C16.013 9.47027 15.6888 8.56216 15.3647 7.78378C15.235 7.45946 15.1053 7.13514 14.9757 6.81081C14.7812 6.35676 14.5867 5.9027 14.3922 5.51351C14.3274 5.31892 14.1977 5.18919 14.1329 4.99459C14.0681 4.8 13.9384 4.6054 13.8736 4.4108C13.8088 4.28107 13.7439 4.15135 13.6791 4.02162L13.0956 2.98378C13.0308 2.85405 13.1605 2.65946 13.2901 2.72432L16.8557 3.6973L17.3096 3.82702L17.8282 3.95675L18.0227 4.02162V1.88108C18.0227 0.843239 18.8655 0 19.8379 0C20.3566 0 20.8104 0.194587 21.1345 0.518911C21.4587 0.843235 21.6532 1.29729 21.6532 1.81621V4.92972L22.0421 5.05945C22.0421 5.05945 22.107 5.05946 22.107 5.12432C22.1718 5.18919 22.3015 5.31892 22.4959 5.44865C22.6256 5.57837 22.7553 5.70811 22.9498 5.83784C23.2739 6.0973 23.7277 6.48648 24.1815 6.87567C24.3112 7.0054 24.4408 7.07026 24.5057 7.19999C25.0891 7.71891 25.7374 8.36757 26.3857 9.08108C26.5802 9.27568 26.7099 9.47027 26.9044 9.66486C27.0989 9.85946 27.2285 10.1189 27.423 10.3135C27.6175 10.573 27.8768 10.8973 28.0713 11.1568C28.1361 11.2865 28.2658 11.4162 28.3306 11.6108C28.59 12 28.7844 12.3892 29.0438 12.7784C29.1086 12.973 29.2383 13.1676 29.3031 13.3622C29.5624 13.8811 29.7569 14.4 29.8217 14.9838C29.8865 15.1135 29.8865 15.2432 29.8865 15.3081C29.9514 15.4378 29.9514 15.6324 29.9514 15.827C30.0162 16.4108 29.9514 16.9297 29.8865 17.5135C29.8217 17.773 29.7569 17.9676 29.6921 18.227C29.6272 18.4216 29.5624 18.6811 29.4327 18.9405C29.2382 19.3946 28.9789 19.8486 28.7196 20.3027C28.6548 20.4324 28.5251 20.627 28.3955 20.8216C28.2658 21.0162 28.1361 21.1459 28.0713 21.3405C27.9416 21.5351 27.7472 21.7297 27.6175 21.9243C27.4878 22.1189 27.3582 22.3135 27.1637 22.5081C26.9692 22.7676 26.7099 23.027 26.5154 23.2865C26.3857 23.4162 26.2561 23.6108 26.0616 23.7405C25.9319 23.8703 25.8023 24.0649 25.6078 24.1946C25.4133 24.3892 25.2188 24.5838 25.0243 24.7135L24.6353 25.0378C24.5705 25.1027 24.5057 25.1027 24.4408 25.1027H21.5883V28.7351H25.154C25.9319 28.7351 26.7099 28.4757 27.2934 27.9568C27.4878 27.7622 28.3955 26.9838 29.4976 25.8162C29.5624 25.7513 29.5624 25.7514 29.6272 25.7514L39.4814 22.8973C39.8703 22.7027 40 22.8324 40 23.027Z" fill="#2081E2"/>
+                                    </svg>
+                                </span>
                                 <span class="btn-body">
                                     <span class="btn-title">{{texts.opensea_btn_text}}</span>
                                 </span>

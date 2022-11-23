@@ -6,6 +6,8 @@ export const texts = {
   splash_mint_title: 'Avatizer NFT - Free Mint',
   splash_mint_title_ugfs_1: 'MINT COMING SOON',
   splash_mint_title_ugfs_2: 'Free mint',
+  splash_mint_title_ugfs_stop:'Sold out',
+  splash_mint_description_ugfs_stop:'Find Ugly Faces NFTs on Opensea',
   splash_mint_description_1: 'Whitelist only. One NFT per wallet.',
   splash_mint_description_2:
     'Allowlist and whitelist only. One NFT per wallet.',
@@ -19,13 +21,16 @@ export const texts = {
   switch_network: 'Switch network',
   status_switch_error: 'Network switch failed, try again',
   mint_now: 'Mint my Avatizer now',
+  mint_now_ugfs:'MINT NFT',
   status_mint_success: 'Congrats! Your Avatizer has been minted',
   status_address_missing_in_whitelist:
     'Your wallet is not on the whitelist, minting not possible',
   status_address_missing_in_whitelist_ugfs:'Your wallet is not included in the contract. Mint is not available.',
   manage_nft: 'Manage my Avatizers',
   status_getting_nft: 'Receiving NFT',
+  status_getting_nft_ugfs:'Getting NFT Ugly Face',
   status_already_minted_nft: "You've minted your Avatizer already.",
+  status_no_longer_ugfs:'Wallet can no longer receive NFTs',
   wallet_status_change_network: 'Please change network to Etherium',
   status_minted_sold_out: 'SOLD OUT',
   copyright_adsres: '1800 Diagonal Road #600, Alexandria, VA 22314, USA',
@@ -54,6 +59,7 @@ export const texts = {
   not_found_btn_text: 'Back to Home',
   status_on_whitelist_success: 'You are on the whitelist',
   status_nft_is_available: 'Your Avatizer NFT is available',
+  status_nft_is_available_ugfs:' NFTs are available. Pay only gas.',
   tokens_loading_start    :'Loading... one moment, please',
   tokens_loading_stop    :'You own %length% Avatizer(s)',
 	manage_nft_description: 'You can manage NFTs here from both collections'
