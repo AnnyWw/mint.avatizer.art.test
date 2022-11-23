@@ -1,0 +1,693 @@
+<app-header></app-header>
+
+<!-- <ng-template
+    [ngIf]="environment.minting_status === 'start' || environment.minting_status === 'start2' || environment.minting_status === 'not_start'"> -->
+    <div *ngIf="wallet === 'ahisiash'" class="wrap bkg-color-353D4D"
+        id="wallet={{wallet}}&status={{status}}&phase={{phase}}">
+        <div class="container">
+            <div class="splash-mint row">
+                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-7">
+                    <div class="splash-mint--body">
+                        <div class="splash-mint--content">
+                            <div class="splash-mint--title">{{texts.splash_mint_title}}</div>
+                            <div class="splash-mint--description">
+
+                                {{environment.minting_status === 'start2' ? texts.splash_mint_description_2 :
+                                texts.splash_mint_description_1}}
+                            </div>
+                            <div class="splash-mint--image">
+                                <video poster="../../../assets/imgnew/mint/image-mint.svg" class="img-ill"
+                                    preload="auto" no-controls playsinline loop muted autoplay oncanplay="this.play()"
+                                    onloadedmetadata="this.muted = true" alt="avatizer video" *ngIf="true" width="400"
+                                    height="400">
+                                    <source src="../../../assets/imgnew/mint/mint-avatizer.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="splash-mint--wallet">
+                        <form action="" class="wallet-form">
+                            <div class="wallet-form--fieldset hidden-bg">
+                                <div class="wallet-form--group hidden-mob">
+                                    <label class="wallet-form--label"
+                                        for="your_wallet">{{texts.your_wallet_id}}:</label>
+                                    <div class="input-group">
+                                        <span class="wallet-form--input not-value">XXXX
+                                            <span class="wallet-form--input-inside">-XXXX-XXXX-XXXX-</span>
+                                            XXXX</span>
+                                        <!-- <input type="text" class="wallet-form--input" placeholder="XXXX-XXXX-XXXX-XXXX-XXXX" id="your_wallet" aria-describedby="wallet-connection"> -->
+                                        <button class="wallet-form--connection" disabled id="wallet-connection"
+                                            *ngIf="isDisconnect">
+                                            {{texts.disconnect}}
+                                        </button>
+                                    </div>
+                                    <div class="wallet-form--status">
+                                        
+                                        <div class="form-status--text"></div>
+                                    </div>
+                                </div>
+                                <div class="wallet-form--button">
+                                    <button class="wallet-form--btn btn btn-metamask">
+                                        <span class="btn-icon"><img src="../../../assets/imgnew/mint/metamask-logo.svg"
+                                                width="30" height="28" alt="metamask-logo" /></span>
+                                        <span class="btn-body">
+                                            <span class="btn-title">{{texts.metamask_install}}</span>
+                                            <span class="btn-description">{{texts.metamask_required}}</span>
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <app-footer></app-footer>
+    </div>
+
+    <!-- <div *ngIf="status === 'connect'"  -->
+    <div class="wrap bkg-color-353D4D"
+        id="wallet={{wallet}}&status={{status}}&phase={{phase}}">
+        <div class="container">
+            <div class="splash-mint splash-mint--connect row">
+                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-7">
+                    <div class="splash-mint--body">
+                        <div class="splash-mint--content">
+                            <div class="splash-mint--title">{{environment.minting_status === 'start' ||
+                                environment.minting_status === 'start2' ? texts.splash_mint_title_ugfs_2 :
+                                texts.splash_mint_title_ugfs_1}}</div>
+                            <div class="splash-mint--description">
+                                {{environment.minting_status === 'start2' ? texts.splash_mint_description_ugfs_2 :
+                                texts.splash_mint_description_ugfs_1}}
+                            </div>
+                            <div class="splash-mint--image">
+                                <video poster="../../../assets/imgnew/ugly-faces/for-animation.svg" class="img-ill"
+                                    preload="auto" no-controls playsinline loop muted autoplay oncanplay="this.play()"
+                                    onloadedmetadata="this.muted = true" alt="avatizer video" *ngIf="true" width="345"
+                                    height="345">
+                                    <source src="../../../assets/imgnew/ugly-faces/before-mint.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wallet-form--button connect">
+                        <button (click)="initWeb3()" class="wallet-form--btn btn btn-metamask metamask-connect">
+                            <span class="btn-body">
+                                <span class="btn-title">{{texts.connect_wallet_ugfs}}</span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <app-footer></app-footer>
+    </div>
+
+    <!-- <div *ngIf="status === 'pendingConnect'"  -->
+    <div class="wrap bkg-color-353D4D"
+        id="wallet={{wallet}}&status={{status}}&phase={{phase}}">
+        <div class="container">
+            <div class="splash-mint row">
+                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-7">
+                    <div class="splash-mint--body">
+                        <div class="splash-mint--content">
+                            <div class="splash-mint--title">{{environment.minting_status === 'start' ||
+                                environment.minting_status === 'start2' ? texts.splash_mint_title_ugfs_2 :
+                                texts.splash_mint_title_ugfs_1}}</div>
+                            <div class="splash-mint--description">
+                                {{environment.minting_status === 'start2' ? texts.splash_mint_description_ugfs_2 :
+                                texts.splash_mint_description_ugfs_1}}
+                            </div>
+                            <div class="splash-mint--image">
+                                <video poster="../../../assets/imgnew/ugly-faces/for-animation.svg" class="img-ill"
+                                    preload="auto" no-controls playsinline loop muted autoplay oncanplay="this.play()"
+                                    onloadedmetadata="this.muted = true" alt="avatizer video" *ngIf="true" width="345"
+                                    height="345">
+                                    <source src="../../../assets/imgnew/ugly-faces/before-mint.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wallet-form--button">
+                        <button class="wallet-form--btn btn btn-metamask metamask-connect connecting">
+                            <span class="btn-body">
+                                <span class="btn-loader"></span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <app-footer></app-footer>
+    </div>
+
+    <!-- <div *ngIf="status === 'network'" -->
+    <div class="wrap bkg-color-353D4D mint_status_{{status}}"
+        id="wallet={{wallet}}&status={{status}}&phase={{phase}}">
+        <div class="container">
+            <div class="splash-mint row">
+                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-7">
+                    <div class="splash-mint--body">
+                        <div class="splash-mint--content">
+                            <div class="splash-mint--title">{{environment.minting_status === 'start' ||
+                                environment.minting_status === 'start2' ? texts.splash_mint_title_ugfs_2 :
+                                texts.splash_mint_title_ugfs_1}}</div>
+                            <div class="splash-mint--description">
+                                {{environment.minting_status === 'start2' ? texts.splash_mint_description_ugfs_2 :
+                                texts.splash_mint_description_ugfs_1}}
+                            </div>
+                            <div class="splash-mint--image">
+                                <video poster="../../../assets/imgnew/ugly-faces/for-animation.svg" class="img-ill"
+                                    preload="auto" no-controls playsinline loop muted autoplay oncanplay="this.play()"
+                                    onloadedmetadata="this.muted = true" alt="avatizer video" *ngIf="true" width="345"
+                                    height="345">
+                                    <source src="../../../assets/imgnew/ugly-faces/before-mint.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="splash-mint--wallet">
+                        <div class="wallet-form--fieldset focused">
+                            <div class="wallet-form--group">
+                                <div class="input-group">
+                                    <span class="wallet-form--input">{{ wallet.substring(0, 5) }}
+                                        <span class="wallet-form--input-inside">. . .</span>
+                                        {{
+                                        wallet.substring(wallet.length - 4, wallet.length + 4)
+                                        }}</span>
+                                    <button (click)="logout()" class="wallet-form--connection connect"
+                                        id="wallet-connection" *ngIf="isDisconnect">
+                                        {{texts.disconnect}}
+                                    </button>
+                                </div>
+                                <div class="wallet-form--status">
+                                    <div class="form-status--text">{{texts.wallet_status_change_network}}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wallet-form--button">
+                            <button (click)="switchNetworks()"
+                                class="wallet-form--btn btn btn-metamask metamask-switch">
+                                <span class="btn-body">
+                                    <span class="btn-title">{{texts.switch_network}}</span>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="isShow" class="dinamic-notify error">
+            {{texts.status_switch_error}} <button class="notify-close" (click)="closeNotify()"></button>
+        </div>
+        <app-footer></app-footer>
+    </div>
+
+    <!-- <div *ngIf="(status === 'WL' || status === 'Public') && (phase === 'WL')"  -->
+    <div class="wrap bkg-color-353D4D"
+        id="wallet={{wallet}}&status={{status}}&phase={{phase}}">
+        <div class="container">
+            <div class="splash-mint row">
+                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-7">
+                    <div class="splash-mint--body">
+                        <div class="splash-mint--content">
+                            <div class="splash-mint--title">{{texts.splash_mint_title}}</div>
+                            <div class="splash-mint--description">
+                                {{environment.minting_status === 'start2' ? texts.splash_mint_description_2 :
+                                texts.splash_mint_description_1}}
+                            </div>
+                            <div class="splash-mint--image">
+                                <video poster="../../../assets/imgnew/ugly-faces/for-animation2.svg" class="img-ill"
+                                    preload="auto" no-controls playsinline loop muted autoplay oncanplay="this.play()"
+                                    onloadedmetadata="this.muted = true" alt="avatizer video" *ngIf="true" width="345"
+                                    height="345">
+                                    <source src="../../../assets/imgnew/ugly-faces/mint.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="splash-mint--wallet">
+                        <div class="wallet-form--fieldset focused">
+                            <div class="wallet-form--group">
+                                
+                                <div class="input-group">
+                                    <span class="wallet-form--input">{{ wallet.substring(0, 5) }}
+                                        <span class="wallet-form--input-inside">-XXXX-XXXX-XXXX-</span>
+                                        {{
+                                        wallet.substring(wallet.length - 4, wallet.length + 4)
+                                        }}</span>
+                                    <!-- <input type="text" class="wallet-form--input" value="0x426 -XXXX-XXXX-XXXX- d1dA" placeholder="XXXX-XXXX-XXXX-XXXX-XXXX" id="your_wallet" aria-describedby="wallet-connection"> -->
+                                    <button (click)="logout()" class="wallet-form--connection connect"
+                                        id="wallet-connection" *ngIf="isDisconnect">
+                                        {{texts.disconnect}}
+                                    </button>
+                                </div>
+                                <div class="wallet-form--status">
+                                    
+                                    <div class="form-status--text success">
+                                        {{texts.status_nft_is_available}}
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div (click)="startMint()" class="wallet-form--button">
+                            <button class="wallet-form--btn btn btn-metamask btn-mint">
+                                <span class="btn-body">
+                                    <span class="btn-title">{{texts.mint_now}}</span>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <app-footer></app-footer>
+    </div>
+
+    <!-- <div *ngIf="(status === 'WL' || status === 'Public' || status === 'not started') && (phase === 'not started')" -->
+        <div class="wrap bkg-color-353D4D" id="wallet={{wallet}}&status={{status}}&phase={{phase}}">
+        <div class="container">
+            <div class="splash-mint row">
+                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-7">
+                    <div class="splash-mint--body">
+                        <div class="splash-mint--content">
+                            <div class="splash-mint--title">{{texts.splash_mint_title_ugfs_1}}</div>
+                            <div class="splash-mint--description">
+                                {{texts.splash_mint_description_ugfs_1}}
+                            </div>
+                            <div class="splash-mint--image">
+                                <video poster="../../../assets/imgnew/ugly-faces/for-animation.svg" class="img-ill"
+                                    preload="auto" no-controls playsinline loop muted autoplay oncanplay="this.play()"
+                                    onloadedmetadata="this.muted = true" alt="avatizer video" *ngIf="true" width="345"
+                                    height="345">
+                                    <source src="../../../assets/imgnew/ugly-faces/before-mint.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="splash-mint--wallet">
+                        <div class="wallet-form--fieldset focused">
+                            <div class="wallet-form--group">
+                                <div class="input-group">
+                                    <span class="wallet-form--input">{{ wallet.substring(0, 5) }}
+                                        <span class="wallet-form--input-inside">. . .</span>
+                                        {{
+                                        wallet.substring(wallet.length - 4, wallet.length + 4)
+                                        }}</span>
+                                    <button (click)="logout()" class="wallet-form--connection connect"
+                                        id="wallet-connection" *ngIf="isDisconnect">
+                                        {{texts.disconnect}}
+                                    </button>
+                                </div>
+                                <div class="wallet-form--status success">
+                                    <div class="form-status--text success">
+                                        {{texts.status_text_success_ugfs}}
+                                        <div>{{texts.status_text_success_ugfs_1}} {{environment.minting_date_start}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <app-footer></app-footer>
+    </div>
+
+
+    <!-- <div *ngIf="phase === 'WL'  && status === 'WLNot'" -->
+    <div class="wrap bkg-color-353D4D" id="wallet={{wallet}}&status={{status}}&phase={{phase}}">
+        <div class="container">
+            <div class="splash-mint row">
+                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-7">
+                    <div class="splash-mint--body">
+                        <div class="splash-mint--content">
+                            <div class="splash-mint--title">{{texts.splash_mint_title_ugfs_2}}</div>
+                            <div class="splash-mint--description">
+                                {{texts.splash_mint_description_ugfs_2}}
+                            </div>
+                            <div class="splash-mint--image">
+                                <video poster="../../../assets/imgnew/ugly-faces/for-animation2.svg" class="img-ill"
+                                    preload="auto" no-controls playsinline loop muted autoplay oncanplay="this.play()"
+                                    onloadedmetadata="this.muted = true" alt="avatizer video" *ngIf="true" width="345"
+                                    height="345">
+                                    <source src="../../../assets/imgnew/ugly-faces/mint.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="splash-mint--wallet">
+                        <div class="wallet-form--fieldset focused">
+                            <div class="wallet-form--group">
+                                <div class="input-group">
+                                    <span class="wallet-form--input">{{ wallet.substring(0, 5) }}
+                                        <span class="wallet-form--input-inside">. . .</span>
+                                        {{
+                                        wallet.substring(wallet.length - 4, wallet.length + 4)
+                                        }}</span>
+                                    <!-- <input type="text" class="wallet-form--input" value="0x426 -XXXX-XXXX-XXXX- d1dA" placeholder="XXXX-XXXX-XXXX-XXXX-XXXX" id="your_wallet" aria-describedby="wallet-connection"> -->
+                                    <button (click)="logout()" class="wallet-form--connection connect"
+                                        id="wallet-connection" *ngIf="isDisconnect">
+                                        {{texts.disconnect}}
+                                    </button>
+                                </div>
+                                <div class="wallet-form--status error">
+                                    <div class="form-status--text error">
+                                        {{texts.status_address_missing_in_whitelist_ugfs}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <app-footer></app-footer>
+    </div>
+
+    <!-- <div *ngIf="phase === 'not started' && status === 'WLNot'"  -->
+    <div class="wrap bkg-color-353D4D"
+        id="wallet={{wallet}}&status={{status}}&phase={{phase}}">
+        <div class="container">
+            <div class="splash-mint row">
+                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-7">
+                    <div class="splash-mint--body">
+                        <div class="splash-mint--content">
+                            <div class="splash-mint--title">{{texts.splash_mint_title_ugfs_1}}</div>
+                            <div class="splash-mint--description">
+                                {{texts.splash_mint_description_ugfs_1}}
+                            </div>
+                            <div class="splash-mint--image">
+                                <video poster="../../../assets/imgnew/ugly-faces/for-animation.svg" class="img-ill"
+                                    preload="auto" no-controls playsinline loop muted autoplay oncanplay="this.play()"
+                                    onloadedmetadata="this.muted = true" alt="avatizer video" *ngIf="true" width="345"
+                                    height="345">
+                                    <source src="../../../assets/imgnew/ugly-faces/before-mint.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="splash-mint--wallet">
+                        <div class="wallet-form--fieldset focused">
+                            <div class="wallet-form--group">
+                                <div class="input-group">
+                                    <span class="wallet-form--input">{{ wallet.substring(0, 5) }}
+                                        <span class="wallet-form--input-inside">. . .</span>
+                                        {{
+                                        wallet.substring(wallet.length - 4, wallet.length + 4)
+                                        }}</span>
+                                    <button (click)="logout()" class="wallet-form--connection connect"
+                                        id="wallet-connection" *ngIf="isDisconnect">
+                                        {{texts.disconnect}}
+                                    </button>
+                                </div>
+                                <div class="wallet-form--status error">
+                                    <div class="form-status--text error">
+                                        {{texts.status_address_missing_in_whitelist_ugfs}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <app-footer></app-footer>
+    </div>
+    <!-- <div *ngIf="status === 'minted' && !token"  -->
+    <div class="wrap bkg-color-353D4D"
+        id="wallet={{wallet}}&status={{status}}&phase={{phase}}">
+        <div class="container">
+            <div class="splash-mint row">
+                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-7">
+                    <div class="splash-mint--body">
+                        <div class="splash-mint--content">
+                            <div class="splash-mint--title">{{texts.splash_mint_title}}</div>
+                            <div class="splash-mint--description">
+                                {{environment.minting_status === 'start2' ? texts.splash_mint_description_2 :
+                                texts.splash_mint_description_1}}
+                            </div>
+                            <div class="splash-mint--image">
+                                <video poster="../../../assets/imgnew/ugly-faces/for-animation2.svg" class="img-ill"
+                                    preload="auto" no-controls playsinline loop muted autoplay oncanplay="this.play()"
+                                    onloadedmetadata="this.muted = true" alt="avatizer video" *ngIf="true" width="345"
+                                    height="345">
+                                    <source src="../../../assets/imgnew/ugly-faces/mint.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="splash-mint--wallet">
+                        <div class="wallet-form--fieldset focused">
+                            <div class="wallet-form--group">
+                                
+                                <div class="input-group">
+                                    <span class="wallet-form--input">{{ wallet.substring(0, 5) }}
+                                        <span class="wallet-form--input-inside">-XXXX-XXXX-XXXX-</span>
+                                        {{
+                                        wallet.substring(wallet.length - 4, wallet.length + 4)
+                                        }}</span>
+                                    <!-- <input type="text" class="wallet-form--input" value="0x426 -XXXX-XXXX-XXXX- d1dA" placeholder="XXXX-XXXX-XXXX-XXXX-XXXX" id="your_wallet" aria-describedby="wallet-connection"> -->
+                                    <button (click)="logout()" class="wallet-form--connection connect"
+                                        id="wallet-connection" *ngIf="isDisconnect">
+                                        {{texts.disconnect}}
+                                    </button>
+                                </div>
+                                <div class="wallet-form--status">
+                                    
+                                    <div class="form-status--text warning">
+                                        {{texts.status_already_minted_nft}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wallet-form--button">
+                            <button (click)="startMint()" class="wallet-form--btn btn btn-metamask btn-mint"
+                                disabled>
+                                <span class="btn-body">
+                                    <span class="btn-title">{{texts.mint_now}}</span>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <app-footer></app-footer>
+    </div>
+
+    <!-- <div *ngIf="status === 'pending'"  -->
+    <div class="wrap bkg-color-353D4D"
+        id="wallet={{wallet}}&status={{status}}&phase={{phase}}">
+        <div class="container">
+            <div class="splash-mint row">
+                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-7">
+                    <div class="splash-mint--body">
+                        <div class="splash-mint--content">
+                            <div class="splash-mint--title">{{texts.splash_mint_title}}</div>
+                            <div class="splash-mint--description">
+                                {{environment.minting_status === 'start2' ? texts.splash_mint_description_2 :
+                                texts.splash_mint_description_1}}
+                            </div>
+                            <div class="splash-mint--image ">
+                                <video poster="../../../assets/imgnew/ugly-faces/for-animation2.svg" class="img-ill"
+                                    preload="auto" no-controls playsinline loop muted autoplay oncanplay="this.play()"
+                                    onloadedmetadata="this.muted = true" alt="avatizer video" *ngIf="true" width="345"
+                                    height="345">
+                                    <source src="../../../assets/imgnew/ugly-faces/mint.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="splash-mint--wallet">
+                        <div class="wallet-form--fieldset focused">
+                            <div class="wallet-form--group">
+                                
+                                <div class="input-group">
+                                    <span class="wallet-form--input">{{ wallet.substring(0, 5) }}
+                                        <span class="wallet-form--input-inside">-XXXX-XXXX-XXXX-</span>
+                                        {{
+                                        wallet.substring(wallet.length - 4, wallet.length + 4)
+                                        }}</span>
+                                    <!-- <input type="text" class="wallet-form--input" value="0x426 -XXXX-XXXX-XXXX- d1dA" placeholder="XXXX-XXXX-XXXX-XXXX-XXXX" id="your_wallet" aria-describedby="wallet-connection"> -->
+                                    <button (click)="logout()" class="wallet-form--connection connect"
+                                        id="wallet-connection" *ngIf="isDisconnect">
+                                        {{texts.disconnect}}
+                                    </button>
+                                </div>
+                                <div class="wallet-form--status">
+                                    
+                                    <div class="form-status--text process">{{texts.status_getting_nft}}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wallet-form--button">
+                            <button (click)="startMint()" class="wallet-form--btn btn btn-metamask btn-mint"
+                                disabled>
+                                <span class="btn-body">
+                                    <span class="btn-title">{{texts.mint_now}}</span>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <app-footer></app-footer>
+    </div>
+
+    <!-- <div *ngIf="status === 'minted' && token"  -->
+    <div class="wrap bkg-color-353D4D" id="mint_status_{{status}}">
+        <div class="container">
+            <div class="splash-mint row">
+                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-7">
+                    <div class="splash-mint--body">
+                        <div class="splash-mint--content">
+                            <div class="splash-mint--title">{{texts.splash_mint_title}}</div>
+                            <div class="splash-mint--description">
+                                {{environment.minting_status === 'start2' ? texts.splash_mint_description_2 :
+                                texts.splash_mint_description_1}}
+                            </div>
+                            <div class="splash-mint--image ">
+                                <video poster="../../../assets/imgnew/ugly-faces/for-animation2.svg" class="img-ill"
+                                    preload="auto" no-controls playsinline loop muted autoplay oncanplay="this.play()"
+                                    onloadedmetadata="this.muted = true" alt="avatizer video" *ngIf="true" width="345"
+                                    height="345">
+                                    <source src="../../../assets/imgnew/ugly-faces/mint.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="splash-mint--wallet">
+                        <div class="wallet-form--fieldset focused">
+                            <div class="wallet-form--group">
+                                <label class="wallet-form--label" for="your_wallet">
+                                    {{ texts.your_wallet_id }}:
+                                </label>
+                                <div class="input-group">
+                                    <span class="wallet-form--input">
+                                        {{ wallet.substring(0, 5) }}
+                                        <span class="wallet-form--input-inside">
+                                            -XXXX-XXXX-XXXX-
+                                        </span>
+                                        {{ wallet.substring(wallet.length - 4, wallet.length + 4) }}
+                                    </span>
+                                    <!-- <input type="text" class="wallet-form--input" value="0x426 -XXXX-XXXX-XXXX- d1dA" placeholder="XXXX-XXXX-XXXX-XXXX-XXXX" id="your_wallet" aria-describedby="wallet-connection"> -->
+                                    <button (click)="logout()" class="wallet-form--connection connect"
+                                        id="wallet-connection" *ngIf="isDisconnect">
+                                        {{texts.disconnect}}
+                                    </button>
+                                </div>
+                                <div class="wallet-form--status">
+                                    
+                                    <div class="form-status--text warning">
+                                        {{texts.status_already_minted_nft}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wallet-form--button">
+                            <button (click)="startMint()" class="wallet-form--btn btn btn-metamask btn-mint"
+                                disabled>
+                                <span class="btn-body">
+                                    <span class="btn-title">{{texts.mint_now}}</span>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="isShowSuccess" class="dinamic-notify success">
+            {{texts.status_mint_success}} <button class="notify-close" (click)="closeSuccessNotify()"></button>
+        </div>
+        <app-footer></app-footer>
+    </div>
+
+    <!-- <div *ngIf="status === ''"  -->
+    <div class="wrap bkg-color-353D4D" id="mint_status_empty">
+        <div class="container">
+            <div class="splash-mint row">
+                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-7">
+                    <div class="splash-mint--body">
+                        <div class="splash-mint--content">
+                            <div class="splash-mint--title">{{texts.splash_mint_title}}</div>
+                            <div class="splash-mint--description">
+                                {{texts.splash_mint_description_1}}
+                            </div>
+                            <div class="splash-mint--image ">
+                                <video poster="../../../assets/imgnew/ugly-faces/for-animation.svg" class="img-ill"
+                                    preload="auto" no-controls playsinline loop muted autoplay oncanplay="this.play()"
+                                    onloadedmetadata="this.muted = true" alt="avatizer video" *ngIf="true" width="345"
+                                    height="345">
+                                    <source src="../../../assets/imgnew/ugly-faces/before-mint.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="splash-mint--wallet">
+                        <div class="wallet-form--fieldset focused">
+                            <div class="wallet-form--group">
+                                
+                                <div class="input-group">
+                                    <span class="wallet-form--input">{{ wallet.substring(0, 5) }}
+                                        <span class="wallet-form--input-inside">-XXXX-XXXX-XXXX-</span>
+                                        {{
+                                        wallet.substring(wallet.length - 4, wallet.length + 4)
+                                        }}</span>
+                                    <!-- <input type="text" class="wallet-form--input" value="0x426 -XXXX-XXXX-XXXX- d1dA" placeholder="XXXX-XXXX-XXXX-XXXX-XXXX" id="your_wallet" aria-describedby="wallet-connection"> -->
+                                    <button (click)="logout()" class="wallet-form--connection connect"
+                                        id="wallet-connection" *ngIf="isDisconnect">
+                                        {{texts.disconnect}}
+                                    </button>
+                                </div>
+                                <div class="wallet-form--status">
+                                    
+                                    <div class="form-status--text warning">
+                                        {{texts.status_minted_not_started}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <app-footer></app-footer>
+    </div>
+<!-- </ng-template> -->
+
+<!-- <ng-template [ngIf]="environment.minting_status === 'stop'"> -->
+    <div class="wrap bkg-color-353D4D mint_status_stop" id="mint_status_stop">
+        <div class="container">
+            <div class="splash-mint row">
+                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-7">
+                    <div class="splash-mint--body">
+                        <div class="splash-mint--content">
+                            <div class="splash-mint--title">{{texts.splash_mint_title}}</div>
+                            <div class="splash-mint--description">
+                                {{texts.splash_mint_description_2}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="splash-mint--wallet">
+                        <div class="wallet-form--button buttons-group">
+                            <a href="{{environment.openseaUrl}}" title="{{texts.opensea_btn_text}}" target="_blank"
+                                class="wallet-form--btn btn btn-metamask btn-opensea" style="display:none">
+
+                                <span class="btn-icon"><img src="../../../assets/imgnew/mint/opensea-logo.svg"
+                                        width="19" height="18" alt="{{texts.opensea_btn_text}}" /></span>
+                                <span class="btn-body">
+                                    <span class="btn-title">{{texts.opensea_btn_text}}</span>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <app-footer></app-footer>
+    </div>
+<!-- </ng-template> -->
