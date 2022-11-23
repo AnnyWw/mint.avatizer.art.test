@@ -61,7 +61,10 @@ export const texts = {
   status_nft_is_available: 'Your Avatizer NFT is available',
   status_nft_is_available_ugfs:' NFTs are available. Pay only gas.',
   tokens_loading_start    :'Loading... one moment, please',
-  tokens_loading_stop    :'You own %length% Avatizer(s)'
+  tokens_loading_stop    :'You own %length% Avatizer(s)',
+	menu_text_manage_uglyfaces :'Manage Ugly Faces',
+	menu_text_mint_uglyfaces : 'MINT Ugly Faces',
+	menu_text_uglyfaces : 'Ugly Faces'
 };
 
 /*

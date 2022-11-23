@@ -25,6 +25,21 @@ const routes: Routes = [
     },
   },
   {
+    path: 'manage-uglyfaces',
+    component: ManageUglyfacesComponent,
+    title: 'Avatizer - Manage my Uglyfaces NFT collection',
+    data: {
+      seo: {
+        metaTags: [
+          {
+            name: 'description',
+            content: 'Manage my Uglyfaces. Pausing or restoring daily reloads.',
+          },
+        ],
+      },
+    },
+  },
+  {
     path: 'manageNFT',
     component: ManageNFTComponent,
     title: 'Avatizer - Manage my collection',
@@ -54,22 +69,8 @@ const routes: Routes = [
       },
     },
   },
-  { path: '**', redirectTo: '/404' },
-  {
-    path: 'manage-uglyfaces',
-    component: ManageUglyfacesComponent,
-    title: 'Avatizer - Manage my Uglyfaces NFT collection',
-    data: {
-      seo: {
-        metaTags: [
-          {
-            name: 'description',
-            content: 'Manage my Uglyfaces. Pausing or restoring daily reloads.',
-          },
-        ],
-      },
-    },
-  }
+  
+  { path: '**', redirectTo: '/404' }
 ];
 
 @NgModule({
