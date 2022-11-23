@@ -9,7 +9,6 @@ import { RouterModule } from '@angular/router';
 import { MintUglyfacesComponent } from './mint-uglyfaces/mint-uglyfaces.component';
 
 
-
 @NgModule({
   declarations: [
     MintComponent,
