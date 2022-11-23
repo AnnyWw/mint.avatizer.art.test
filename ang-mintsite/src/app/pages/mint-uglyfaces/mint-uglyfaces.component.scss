@@ -1,0 +1,81 @@
+.wrap{
+    background-image: url(../../../assets/imgnew/ugly-faces/bg.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.splash-mint:not(.splash-manage) .splash-mint--body::after,
+.splash-mint:not(.splash-manage) .splash-mint--body::before{
+    display: none;
+}
+.splash-mint--description{
+    margin-bottom: 20px;
+}
+.btn-metamask::before{
+    display: none;
+}
+.btn-metamask.metamask-connect::after{
+    background: #F45741 !important;
+}
+.btn-metamask.metamask-switch::after{
+    background: #F45741 !important;
+}
+.btn-metamask{
+    min-width: 345px !important;
+}
+.btn-loader{
+    width: 30px;
+    height: 30px;
+    border-width: 4px;
+}
+.wallet-form--button{
+    margin-top: 0 !important;
+}
+.splash-mint--body{
+    padding-bottom: 0;
+}
+.splash-mint--image{
+    max-width: 345px;
+    display: flex;
+}
+.splash-mint--wallet{
+    margin-top: 0;
+}
+.wallet-form--fieldset::before{
+    display: none;
+}
+.wallet-form--fieldset{
+    max-width: 345px;
+    background: #000000;
+    padding: 15px 17px 22px 17px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 27px;
+    color: #CCCCCC;
+}
+.wallet-form--input{
+    padding-bottom: 14px;
+}
+.wallet-form--status{
+    background: rgba(204, 204, 204, 0.2);
+    border-radius: 50px;
+    text-align: center;
+    padding: 6px 12px;
+}
+.form-status--text{
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 21px;
+    min-height: auto;
+}
+.form-status--text.success{
+    color: #65C743;
+}
+.wallet-form--status.success{
+    background: rgba(101, 199, 67, 0.2);
+}
+.form-status--text.error{
+    color: #FD6767;
+}
+.wallet-form--status.error{
+    background: rgba(253, 103, 103, 0.2);
+}
