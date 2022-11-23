@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   minting_status: 'stop', //not_start | start | stop | paused | start2
+  minting_status_ugfs: 'not_started', //not_started | phase_whitelist | stoped
   token: 'jdjaosiij28892SIAHI049923701CIGknlklajal',
   mainsiteUrl: 'https://www.avatizer.art',
   openseaUrl: 'https://opensea.io/collection/avatizer',
@@ -16,7 +17,7 @@ export const environment = {
   walletconnect_infuraId: '5cefff2052fb40bd93b90658d9949089', //'68bbfa6dd6594f328012419c5b654b2f',//'5cefff2052fb40bd93b90658d9949089',
   minting_date_start: 'Tue, Oct 18, 2022 @ 11:00 AM EST (NYC Time)',
   moralis_api_key:'8kEmud1tbZttJ6IZdoVSejGjUt4NXlbJXjLqEu5HsjRezZYkXZv1pEX6BslaWQ8T',
-  network:'main'    
+  network:'goerli'    
 };
 
 /*
