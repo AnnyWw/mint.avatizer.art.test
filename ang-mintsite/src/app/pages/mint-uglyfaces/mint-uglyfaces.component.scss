@@ -114,6 +114,22 @@
 }
 .wallet-form--input{
     padding-bottom: 14px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 27px;
+    color: #CCCCCC;
+}
+.wallet-form--input-inside{
+    color: #CCCCCC;
+}
+.wallet-form--connection{
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 27px;
+    padding-bottom: 14px;
+}
+.wallet-form--connection.connect{
+    color: #4FB5FF;
 }
 .wallet-form--status{
     background: rgba(204, 204, 204, 0.2);
