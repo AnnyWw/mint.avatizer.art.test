@@ -7,6 +7,7 @@ import { SharedModule } from '../shared/shared.module';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { RouterModule } from '@angular/router';
 import { MintUglyfacesComponent } from './mint-uglyfaces/mint-uglyfaces.component';
+import { ManageUglyfacesComponent } from './manage-uglyfaces/manage-uglyfaces.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { MintUglyfacesComponent } from './mint-uglyfaces/mint-uglyfaces.componen
     MintComponent,
     ManageNFTComponent,
     NotFoundComponent,
-    MintUglyfacesComponent
+    MintUglyfacesComponent,
+	ManageUglyfacesComponent
   ],
   imports: [
     CommonModule,
