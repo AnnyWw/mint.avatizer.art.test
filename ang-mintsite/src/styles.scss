@@ -1193,6 +1193,16 @@ body {
     align-items: center;
     height: 44px;
     border-radius: 0;
+    transition: all 0.3s ease-in-out;
+}
+.btn.socials .buttons-icon{
+    transition: all 0.3s ease-in-out;
+}
+.btn.socials:focus{
+    color: rgba(255, 255, 255, 0.3) !important;
+}
+.btn.socials:focus .buttons-icon{
+    opacity: .3;
 }
 
 .btn-discord:hover {
@@ -1201,7 +1211,6 @@ body {
 
 .btn-discord:focus {
     background: #404eed;
-    opacity: 0.3;
 }
 
 .btn-twitter:hover {
@@ -1210,7 +1219,6 @@ body {
 
 .btn-twitter:focus {
     background: #1d9bf0;
-    opacity: 0.3;
 }
 
 .btn-opensea:hover {
@@ -1219,7 +1227,6 @@ body {
 
 .btn-opensea:focus {
     background: #2081e2;
-    opacity: 0.3;
 }
 
 .btn .buttons-icon {
@@ -1930,8 +1937,8 @@ only screen and (min-resolution: 2dppx) {
     -webkit-transform: translateZ(0);
     -ms-transform: translateZ(0);
     transform: translateZ(0);
-    -webkit-animation: circle-loader-spin 1s infinite linear;
-    animation: circle-loader-spin 1s infinite linear;
+    -webkit-animation: circle-loader-spin 2.1s infinite linear;
+    animation: circle-loader-spin 2.1s infinite linear;
 }
 
 @keyframes circle-loader-spin {

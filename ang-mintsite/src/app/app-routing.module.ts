@@ -4,6 +4,7 @@ import { ManageNFTComponent } from './pages/manage-nft/manage-nft.component';
 import { MintUglyfacesComponent } from './pages/mint-uglyfaces/mint-uglyfaces.component';
 import { MintComponent } from './pages/mint/mint.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { ManageUglyfacesComponent } from './pages/manage-uglyfaces/manage-uglyfaces.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'mint-uglyfaces', pathMatch: 'full' },
@@ -18,6 +19,21 @@ const routes: Routes = [
           {
             name: 'description',
             content: "Ugly Faces intrigue with their unusual and modern art. There’s also a major advantage in the fact that Ugly Faces are a generative art project!",
+          },
+        ],
+      },
+    },
+  },
+  {
+    path: 'manage-uglyfaces',
+    component: ManageUglyfacesComponent,
+    title: 'Avatizer - Manage my Uglyfaces NFT collection',
+    data: {
+      seo: {
+        metaTags: [
+          {
+            name: 'description',
+            content: 'Manage my Uglyfaces. Pausing or restoring daily reloads.',
           },
         ],
       },
@@ -53,6 +69,7 @@ const routes: Routes = [
       },
     },
   },
+  
   { path: '**', redirectTo: '/404' }
 ];
 

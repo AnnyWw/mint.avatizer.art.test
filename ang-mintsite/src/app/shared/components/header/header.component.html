@@ -478,7 +478,7 @@
                 <a
                   href="https://www.avatizer.art/ugly-faces/"
                   title="UGLY FACES"
-                  ><span>Ugly Faces</span></a
+                  ><span>{{texts.menu_text_uglyfaces}}</span></a
                 >
               </li>
               <li>
@@ -486,14 +486,21 @@
                   routerLink="/mint-uglyfaces"
                   title="MINT Ugly Faces"
                   [class.active]="currentUrl === '/mint-uglyfaces'"
-                  ><span>MINT Ugly Faces</span></a
+                  ><span>{{texts.menu_text_mint_uglyfaces}}</span></a
+                >
+              </li>
+			  <li>
+                <a
+                  routerLink="/manage-uglyfaces"
+                  title="MINT Ugly Faces"
+                  [class.active]="currentUrl === '/manage-uglyfaces'"
+                  ><span>{{texts.menu_text_manage_uglyfaces}}</span></a
                 >
               </li>
               <li>
                 <a
                   routerLink="/manageNFT"
                   title="{{texts.menu_text_manage}}"
-                  class="anchor"
                   [class.active]="currentUrl === '/manageNFT'"
                   ><span>{{texts.menu_text_manage}}</span></a
                 >

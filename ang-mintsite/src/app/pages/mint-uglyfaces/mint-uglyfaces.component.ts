@@ -4,7 +4,7 @@ import Web3 from 'web3';
 import { ApiService } from 'src/app/services/api.service';
 const abi = require('../../../assets/config/abi.json');
 import WalletConnectProvider from '@walletconnect/web3-provider';
-import { environment } from 'src/environments/environment';
+import { environment } from 'src/environments/environment_uglyfaces';
 import { texts } from 'src/environments/texts';
 import { consoleLog } from '../../utils';
 declare var $: any;

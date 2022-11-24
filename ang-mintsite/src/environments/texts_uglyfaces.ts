@@ -3,7 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const texts = {
-  splash_mint_title: 'Avatizer NFT - Free Mint',
+  splash_mint_title: 'Ugly Faces NFT - Free Mint',
   splash_mint_title_ugfs_1: 'MINT COMING SOON',
   splash_mint_title_ugfs_2: 'Free mint',
   splash_mint_title_ugfs_stop:'Sold out',
@@ -20,13 +20,13 @@ export const texts = {
   disconnect: 'Disconnect',
   switch_network: 'Switch network',
   status_switch_error: 'Network switch failed, try again',
-  mint_now: 'Mint my Avatizer now',
+  mint_now: 'Mint my Ugly Faces now',
   mint_now_ugfs:'MINT NFT',
   status_mint_success: 'Congrats! Your Avatizer has been minted',
   status_address_missing_in_whitelist:
     'Your wallet is not on the whitelist, minting not possible',
   status_address_missing_in_whitelist_ugfs:'Your wallet is not included in the contract. Mint is not available.',
-  manage_nft: 'Manage my Avatizers',
+  manage_nft: 'Manage my Ugly Faces',
   status_getting_nft: 'Receiving NFT',
   status_getting_nft_ugfs:'Getting NFT Ugly Face',
   status_already_minted_nft: "You've minted your Avatizer already.",
@@ -44,13 +44,13 @@ export const texts = {
   metamask_install: 'Install MetaMask',
   metamask_required: 'MetaMask wallet required',
   menu_text_mint: 'Free Mint',
-  menu_text_manage: 'Manage my Avatizers',
+  menu_text_manage: 'Manage my Ugly Faces',
   generate_active_note:
-    "Every Avatizer is visually reloaded/updated daily at 5 pm UTC. Please note, once the new Avatizer is generated, the old one cannot be restored. You can pause daily reload for each Avatizer you own to keep the ones you like.<br><br><b class='modal-desc--note'>Note:</b> pausing or restoring daily reloads will incur gas fees. That's the way the blockchain works.",
+    "Every Ugly Face is visually reloaded/updated daily at 5 pm UTC. Please note, once the new Ugly Face is generated, the old one cannot be restored. You can pause daily reload for each Ugly Face you own to keep the ones you like.<br><br><b class='modal-desc--note'>Note:</b> pausing or restoring daily reloads will incur gas fees. That's the way the blockchain works.",
   generate_paused_note:
-    "This Avatizer will not update itself. Its current art will remain unchanged until you enable Daily Reloads.<br><br><b class='modal-desc--note'>Note:</b> pausing or restoring daily reloads will incur gas fees. That's the way the blockchain works.",
-  minting_soon: 'Avatizer Minting Soon',
-  minting_stoped: 'Avatizer Minting is stoped',
+    "This Ugly Face will not update itself. Its current art will remain unchanged until you enable Daily Reloads.<br><br><b class='modal-desc--note'>Note:</b> pausing or restoring daily reloads will incur gas fees. That's the way the blockchain works.",
+  minting_soon: 'Ugly Faces Minting Soon',
+  minting_stoped: 'Ugly Faces Minting is stoped',
   opensea_btn_text: 'Visit OpenSea',
   not_found_title: 'Ooops! Page Not Found.',
   not_found_description:
@@ -58,11 +58,10 @@ export const texts = {
   not_found_seconds: 'seconds',
   not_found_btn_text: 'Back to Home',
   status_on_whitelist_success: 'You are on the whitelist',
-  status_nft_is_available: 'Your Avatizer NFT is available',
+  status_nft_is_available: 'Your Ugly Faces NFT is available',
   status_nft_is_available_ugfs:' NFTs are available. Pay only gas.',
   tokens_loading_start    :'Loading... one moment, please',
   tokens_loading_stop    :'You own %length% Avatizer(s)',
-	manage_nft_description: 'You can manage NFTs here from both collections',
 	menu_text_manage_uglyfaces :'Manage Ugly Faces',
 	menu_text_mint_uglyfaces : 'MINT Ugly Faces',
 	menu_text_uglyfaces : 'Ugly Faces'
