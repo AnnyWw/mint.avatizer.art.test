@@ -5554,7 +5554,9 @@ table.table-check-list td.row2 {
     .menu-tab {
         display: none;
     }
-
+    .main-menu.show{
+        background-color: transparent;
+    }
     .main-menu-nav {
         padding-top: 0;
         padding-left: 0;
@@ -5562,6 +5564,13 @@ table.table-check-list td.row2 {
 
     .main-menu nav ul li a {
         padding: 8.5px 0;
+    }
+}
+
+@media (min-width: 767px) {
+    .main-menu .main-xs-footer{
+        padding-left: 40px;
+        padding-right: 40px;
     }
 }
 
@@ -5602,12 +5611,16 @@ table.table-check-list td.row2 {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        overflow-y: auto;
+        overflow: hidden;
         /*end of nav*/
+    }
+    .main-menu-container{
+        margin-top: 117px;
+        overflow: auto;
     }
 
     .main-menu-nav {
-        padding-top: 117px;
+        // padding-top: 117px;
         padding-left: 40px;
     }
 
@@ -5694,7 +5707,9 @@ table.table-check-list td.row2 {
     .header .logo-header .list-socials {
         display: none;
     }
-
+    .main-menu-container{
+        margin-top: 0;
+    }
     .main-menu .list-socials {
         display: flex;
         padding-top: 0;
