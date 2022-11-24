@@ -29,7 +29,7 @@ export class MintUglyfacesComponent implements OnInit {
   network: string = '';
   token: number = 0;
   status: string = '';
-  contractAvUgFs: any = null;
+  contractAv: any = null;
   FullYear: number = new Date().getFullYear();
   isShow: boolean = false;
   isShowSuccess: boolean = false;
@@ -49,7 +49,7 @@ export class MintUglyfacesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.isOpenSea = environment.minting_status_ugfs === 'not_start' ? false : true;
+    this.isOpenSea = environment.minting_status === 'not_start' ? false : true;
     this.isDisconnect = false;
     this.playVideo();
 
@@ -108,12 +108,12 @@ export class MintUglyfacesComponent implements OnInit {
       this.pendingConnect = false;
 
       //get phase
-      this.contractAvUgFs = new this.web3.eth.Contract(
+      this.contractAv = new this.web3.eth.Contract(
         abi,
-        environment.contractAvUgFs //'0x5d74387c391b88c35425d0ec9f82750562fc173f'
+        environment.contractAv //'0x5d74387c391b88c35425d0ec9f82750562fc173f'
       );
 
-      let hasStarted = await this.contractAvUgFs.methods.saleStarted().call();
+      let hasStarted = await this.contractAv.methods.saleStarted().call();
 
       if (hasStarted) {
         this.phase = 'WL';
@@ -122,7 +122,7 @@ export class MintUglyfacesComponent implements OnInit {
         // this.phase = 'WL';
       }
 
-      let hasTok = await this.contractAvUgFs.methods.balanceOf(this.wallet).call();
+      let hasTok = await this.contractAv.methods.balanceOf(this.wallet).call();
 
       consoleLog('hasTok', hasTok);
 
@@ -182,7 +182,7 @@ export class MintUglyfacesComponent implements OnInit {
       let price = 1;
       this.pending = true;
       this.getStatus();
-      this.contractAvUgFs.methods
+      this.contractAv.methods
         .mint(price, this.wlMerk)
         .send({ from: this.wallet })
         .on('transactionHash', async (hash: any) => {

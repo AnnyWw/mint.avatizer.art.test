@@ -1,7 +1,7 @@
 <app-header></app-header>
 
 <!-- <ng-template
-    [ngIf]="environment.minting_status_ugfs === 'phase_whitelist' || environment.minting_status_ugfs === 'not_started'"> -->
+    [ngIf]="environment.minting_status === 'phase_whitelist' || environment.minting_status === 'not_started'"> -->
     <div *ngIf="wallet === 'ahisiash'" class="wrap bkg-color-353D4D"
         id="wallet={{wallet}}&status={{status}}&phase={{phase}}">
         <div class="container">
@@ -73,10 +73,10 @@
                 <div class="col-xs-12 col-sm-12 col-md-8 col-lg-7">
                     <div class="splash-mint--body">
                         <div class="splash-mint--content">
-                            <div class="splash-mint--title">{{environment.minting_status_ugfs === 'phase_whitelist' ? texts.splash_mint_title_ugfs_2 :
+                            <div class="splash-mint--title">{{environment.minting_status === 'phase_whitelist' ? texts.splash_mint_title_ugfs_2 :
                                 texts.splash_mint_title_ugfs_1}}</div>
                             <div class="splash-mint--description">
-                                {{environment.minting_status_ugfs === 'phase_whitelist' ? texts.splash_mint_description_ugfs_2 :
+                                {{environment.minting_status === 'phase_whitelist' ? texts.splash_mint_description_ugfs_2 :
                                 texts.splash_mint_description_ugfs_1}}
                             </div>
                             <div class="splash-mint--image">
@@ -110,10 +110,10 @@
                 <div class="col-xs-12 col-sm-12 col-md-8 col-lg-7">
                     <div class="splash-mint--body">
                         <div class="splash-mint--content">
-                            <div class="splash-mint--title">{{environment.minting_status_ugfs === 'phase_whitelist' ? texts.splash_mint_title_ugfs_2 :
+                            <div class="splash-mint--title">{{environment.minting_status === 'phase_whitelist' ? texts.splash_mint_title_ugfs_2 :
                                 texts.splash_mint_title_ugfs_1}}</div>
                             <div class="splash-mint--description">
-                                {{environment.minting_status_ugfs === 'phase_whitelist' ? texts.splash_mint_description_ugfs_2 :
+                                {{environment.minting_status === 'phase_whitelist' ? texts.splash_mint_description_ugfs_2 :
                                 texts.splash_mint_description_ugfs_1}}
                             </div>
                             <div class="splash-mint--image">
@@ -147,10 +147,10 @@
                 <div class="col-xs-12 col-sm-12 col-md-8 col-lg-7">
                     <div class="splash-mint--body">
                         <div class="splash-mint--content">
-                            <div class="splash-mint--title">{{environment.minting_status_ugfs === 'phase_whitelist' ? texts.splash_mint_title_ugfs_2 :
+                            <div class="splash-mint--title">{{environment.minting_status === 'phase_whitelist' ? texts.splash_mint_title_ugfs_2 :
                                 texts.splash_mint_title_ugfs_1}}</div>
                             <div class="splash-mint--description">
-                                {{environment.minting_status_ugfs === 'phase_whitelist' ? texts.splash_mint_description_ugfs_2 :
+                                {{environment.minting_status === 'phase_whitelist' ? texts.splash_mint_description_ugfs_2 :
                                 texts.splash_mint_description_ugfs_1}}
                             </div>
                             <div class="splash-mint--image">
@@ -310,7 +310,7 @@
                         <div class="splash-mint--content">
                             <div class="splash-mint--title">{{texts.splash_mint_title_ugfs_2}}</div>
                             <div class="splash-mint--description">
-                                {{environment.minting_status_ugfs === 'phase_whitelist' ? texts.splash_mint_description_2 :
+                                {{environment.minting_status === 'phase_whitelist' ? texts.splash_mint_description_2 :
                                 texts.splash_mint_description_1}}
                             </div>
                             <div class="splash-mint--image">
