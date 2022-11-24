@@ -11,9 +11,8 @@ export const environment = {
   contractAvUgFs: '0x9DC9Ccd5C99BE3478a261E90b2C1746C2eB9612E',
   walletconnect_infuraId: '5cefff2052fb40bd93b90658d9949089', //'68bbfa6dd6594f328012419c5b654b2f',//'5cefff2052fb40bd93b90658d9949089',
   minting_date_start: 'Tue, Oct 18, 2022 @ 11:00 AM EST (NYC Time)',
-  moralis_api_key:
-    '8kEmud1tbZttJ6IZdoVSejGjUt4NXlbJXjLqEu5HsjRezZYkXZv1pEX6BslaWQ8T',
-    network:'main'
+  moralis_api_key: '8kEmud1tbZttJ6IZdoVSejGjUt4NXlbJXjLqEu5HsjRezZYkXZv1pEX6BslaWQ8T',
+  network:'main'
 };
 
 /*
