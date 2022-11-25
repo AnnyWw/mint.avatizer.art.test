@@ -49,6 +49,8 @@ export const texts = {
     "Every Avatizer is visually reloaded/updated daily at 5 pm UTC. Please note, once the new Avatizer is generated, the old one cannot be restored. You can pause daily reload for each Avatizer you own to keep the ones you like.<br><br><b class='modal-desc--note'>Note:</b> pausing or restoring daily reloads will incur gas fees. That's the way the blockchain works.",
   generate_paused_note:
     "This Avatizer will not update itself. Its current art will remain unchanged until you enable Daily Reloads.<br><br><b class='modal-desc--note'>Note:</b> pausing or restoring daily reloads will incur gas fees. That's the way the blockchain works.",
+  generate_active_note_ugfs:"Every Ugly Faces is visually reloaded/updated daily at 5 pm UTC. Please note, once the new Ugly Faces is generated, the old one cannot be restored. You can pause daily reload for each Avatizer you own to keep the ones you like.<br><br><b class='modal-desc--note'>Note:</b> pausing or restoring daily reloads will incur gas fees. That's the way the blockchain works.",
+  generate_paused_note_ugfs:"This Ugly Faces will not update itself. Its current art will remain unchanged until you enable Daily Reloads.<br><br><b class='modal-desc--note'>Note:</b> pausing or restoring daily reloads will incur gas fees. That's the way the blockchain works.",
   minting_soon: 'Avatizer Minting Soon',
   minting_stoped: 'Avatizer Minting is stoped',
   opensea_btn_text: 'Visit OpenSea',
@@ -62,10 +64,13 @@ export const texts = {
   status_nft_is_available_ugfs:' NFTs are available. Pay only gas.',
   tokens_loading_start    :'Loading... one moment, please',
   tokens_loading_stop    :'You own %length% Avatizer(s)',
+  tokens_loading_stop_ugfs    :'You own %length% Ugly Faces NFT(s)',
 	manage_nft_description: 'You can manage NFTs here from both collections',
 	menu_text_manage_uglyfaces :'Manage Ugly Faces',
 	menu_text_mint_uglyfaces : 'MINT Ugly Faces',
-	menu_text_uglyfaces : 'Ugly Faces'
+	menu_text_uglyfaces : 'Ugly Faces',
+  manage_nft_ugfs:'Manage my Ugly Faces',
+  status_mint_error:'Mint failed! Please try again!'
 };
 
 /*

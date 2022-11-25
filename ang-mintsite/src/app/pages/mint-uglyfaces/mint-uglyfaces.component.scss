@@ -189,7 +189,7 @@
     padding-bottom: 3px;
     justify-content: center;
 }
-.wallet-available-nft > button{
+.wallet-available-nft  button{
     font-weight: 500;
     font-size: 16px;
     line-height: 21px;
@@ -204,20 +204,24 @@
     cursor: pointer;
     transition: all 0.3s ease-in-out;
 }
-.wallet-available-nft > button:first-child{
+.wallet-available-nft > div{
+    display: flex;
+    width: 100%;
+}
+.wallet-available-nft  button:first-child{
     margin-left: 0;
 }
-.wallet-available-nft > button:last-child{
+.wallet-available-nft  button:last-child{
     margin-right: 0;
 }
-.wallet-available-nft > button:hover{
+.wallet-available-nft  button:hover{
     border-color: #959595;
 }
-.wallet-available-nft > button:focus{
+.wallet-available-nft  button:focus{
     border-color: #fff;
     color: #fff;
 }
-.wallet-available-nft > button.pressed{
+.wallet-available-nft  button.pressed{
     border-color: #4FB5FF;
     color: #4FB5FF;
 }
@@ -244,6 +248,11 @@
     color: #FFFFFF;
     background: #E55223;
 }
+.dinamic-notify.success{
+    color: #FFFFFF;
+    background: #3CCC53;
+}
+.dinamic-notify.success .notify-close::after,
 .dinamic-notify.error .notify-close::after{
     content:'';
     display: block;
@@ -287,7 +296,7 @@
         padding-top: 15px !important;
         padding-bottom: 17px !important;
     }
-    .wallet-available-nft > button{
+    .wallet-available-nft  button{
         font-size: 14px;
         line-height: 19px;
         padding: 7px 17.5px;

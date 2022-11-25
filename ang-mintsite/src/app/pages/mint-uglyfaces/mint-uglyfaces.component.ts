@@ -3,8 +3,9 @@ import Web3Modal from 'web3modal';
 import Web3 from 'web3';
 import { ApiService } from 'src/app/services/api.service';
 const abi = require('../../../assets/config/abi.json');
+const whitelist = require('../../../environments/whitelist.json');
 import WalletConnectProvider from '@walletconnect/web3-provider';
-import { environment } from 'src/environments/environment_uglyfaces';
+import { environment } from 'src/environments/environment';
 import { texts } from 'src/environments/texts';
 import { consoleLog } from '../../utils';
 declare var $: any;
@@ -16,7 +17,8 @@ declare var $: any;
 })
 export class MintUglyfacesComponent implements OnInit {
   phase: string = '';
-  wlMerk: any[] = [];
+  wlMerk: boolean = false;
+  proof: any[] = [];
   mintState: string = '';
   contract: string = '';
   web3Modal: any = null;
@@ -29,7 +31,7 @@ export class MintUglyfacesComponent implements OnInit {
   network: string = '';
   token: number = 0;
   status: string = '';
-  contractAv: any = null;
+  contractAvUgfs: any = null;
   FullYear: number = new Date().getFullYear();
   isShow: boolean = false;
   isShowSuccess: boolean = false;
@@ -37,6 +39,9 @@ export class MintUglyfacesComponent implements OnInit {
   readonly texts = texts;
   isOpenSea: boolean;
   isDisconnect: boolean;
+  availableNFT: number = 0;
+  amountNFT: number = 1;
+  inStockNFT: number;
 
   @HostListener('window:load')
   onLoad() {
@@ -49,10 +54,11 @@ export class MintUglyfacesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.isOpenSea = environment.minting_status === 'not_start' ? false : true;
+    
+    this.isOpenSea = environment.minting_status === 'not_started' ? false : true;
     this.isDisconnect = false;
     this.playVideo();
-
+    
     /* add Web3modal */
     $('#connect').click(function () {
       consoleLog('here');
@@ -91,52 +97,46 @@ export class MintUglyfacesComponent implements OnInit {
       this.web3 = new Web3(this.provider);
       this.network = await this.web3.eth.net.getNetworkType();
 
-      //Display warning if on the wrong network
-      //if(this.network !== 'main'){
-      //toast("Please switch to the Ethereum Mainnet network.");
-      // return;
-      //}
+      let accounts = await this.web3.eth.getAccounts();
+      this.wallet = accounts[0];
+      
 
       if (this.network !== environment.network) {
         this.status = 'network';
-        this.isShow = true;
         return;
       }
 
-      let accounts = await this.web3.eth.getAccounts();
-      this.wallet = accounts[0];
-      this.pendingConnect = false;
-
       //get phase
-      this.contractAv = new this.web3.eth.Contract(
+      this.contractAvUgfs = new this.web3.eth.Contract(
         abi,
-        environment.contractAv //'0x5d74387c391b88c35425d0ec9f82750562fc173f'
+        environment.contractAvUgfs //'0x5d74387c391b88c35425d0ec9f82750562fc173f'
       );
 
-      let hasStarted = await this.contractAv.methods.saleStarted().call();
-
-      if (hasStarted) {
+      // let hasStarted = await this.contractAvUgfs.methods.saleStarted().call();
+      let hasStarted = environment.minting_status_ugfs;
+      // consoleLog(hasStarted)
+      if (hasStarted === 'phase_whitelist') {
         this.phase = 'WL';
       } else {
         this.phase = 'not started'; //right
         // this.phase = 'WL';
       }
 
-      let hasTok = await this.contractAv.methods.balanceOf(this.wallet).call();
-
-      consoleLog('hasTok', hasTok);
-
-       if (hasTok > 0) {
-         this.minted = true;
-       } else {
-         this.minted = false;
-       }
-
-
       //if wl get merk
       await this.WLCheck(this.wallet);
+      this.pendingConnect = true;
+      this.inStockNFT = await this.contractAvUgfs.methods.numberMinted(this.wallet).call();
+      console.log('inStockNFT' ,this.inStockNFT);
+      
+      //  if (this.inStockNFT > 0) {
+      //    this.minted = true;
+      //  } else {
+      //    this.minted = false;
+      //  }
+       this.getStatus();
     } catch (err: any) {
       console.log(err);
+      
     }
   }
 
@@ -150,6 +150,7 @@ export class MintUglyfacesComponent implements OnInit {
       this.initWeb3();
     } catch (err) {
       console.log(err);
+      this.isShow = true;
     }
   }
 
@@ -165,12 +166,29 @@ export class MintUglyfacesComponent implements OnInit {
   }
 
   WLCheck(wallet: string) {
-    consoleLog('wallet', wallet);
+    consoleLog('WLCheck wallet', wallet);
     this.api.getWL(wallet).subscribe((val: any) => {
-      consoleLog(val);
-      this.wlMerk = val['Proof'] as any[];
+      consoleLog('get wl::', val);
+      this.proof = val['Proof'] as any[];
+      console.log('this proof', this.proof);
+      this.pendingConnect = false;
       this.getStatus();
     });
+
+    if (whitelist[wallet] !== undefined) {
+      console.log(whitelist[wallet]);
+      this.availableNFT = whitelist[wallet];
+    } else {
+      console.log('availableNFT', this.availableNFT);
+      this.availableNFT = 1;
+    }
+   
+  }
+
+  setAmountNft(amount: number) {
+    this.amountNFT = amount;
+    console.log(this.amountNFT);
+    
   }
 
   async startMint() {
@@ -179,11 +197,12 @@ export class MintUglyfacesComponent implements OnInit {
     }
 
     try {
-      let price = 1;
+      let amount = this.amountNFT;
       this.pending = true;
       this.getStatus();
-      this.contractAv.methods
-        .mint(price, this.wlMerk)
+      
+      this.contractAvUgfs.methods
+        .mint(amount, this.availableNFT, this.proof)
         .send({ from: this.wallet })
         .on('transactionHash', async (hash: any) => {
           this.pending = true;
@@ -196,11 +215,13 @@ export class MintUglyfacesComponent implements OnInit {
           this.minted = true;
           this.isShowSuccess = true;
           this.token = reciept.events.Transfer.returnValues.tokenId;
+          this.inStockNFT = await this.contractAvUgfs.methods.numberMinted(this.wallet).call();
           this.getStatus();
           consoleLog('token', this.token);
         })
         .on('error', async (error: any) => {
           //toast(error.message);
+          this.isShow = true;
           this.pending = false;
           this.getStatus();
         });
@@ -226,10 +247,8 @@ export class MintUglyfacesComponent implements OnInit {
       this.status = 'minted';
     } else if (this.phase === 'WL') {
       if (
-        this.wlMerk.length > 0 &&
-        this.wallet &&
-        !this.pending &&
-        !this.minted
+        this.proof.length > 0 &&
+        this.wallet
       ) {
         this.status = 'WL';
       } else {
@@ -237,10 +256,8 @@ export class MintUglyfacesComponent implements OnInit {
       }
     } else if (this.phase === 'not started') {
       if (
-        this.wlMerk.length > 0 &&
-        this.wallet &&
-        !this.pending &&
-        !this.minted
+        this.proof.length > 0 &&
+        this.wallet
       ) {
         this.status = 'not started'; //right
         //   this.status = 'WL';
