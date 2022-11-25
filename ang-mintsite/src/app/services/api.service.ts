@@ -15,7 +15,7 @@ export class ApiService {
   //readonly rootURL = environment.endpoint;
   //readonly rootURL = "http://localhost:5000";
 
-  readonly rootURL = 'https://profitars.ai';
+  readonly rootURL = 'https://profitars.ai/';
 
   constructor(
     @Inject(DOCUMENT) private document: Document,
@@ -27,11 +27,20 @@ export class ApiService {
       headers: new HttpHeaders({ Authorization: environment.token }),
     };
 
-    const hash: string = Web3.utils.soliditySha3(wallet, whitelist[wallet]);
+    if (whitelist[wallet] !== undefined) {
+      const hash: string = Web3.utils.soliditySha3(wallet, whitelist[wallet]);
       return this.http.post(
-        this.rootURL + '/api/WL/Proof',
+        this.rootURL + 'api/WL/Proof',
         { address: hash },
         httpOptions
       );
+    } else {
+      return this.http.post(
+        this.rootURL + 'api/WL/Proof',
+        { address: wallet },
+        httpOptions
+      );
+    }
+
   }
 }
