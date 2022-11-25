@@ -8,7 +8,7 @@ import {
 import Web3Modal from 'web3modal';
 import Web3 from 'web3';
 import WalletConnectProvider from '@walletconnect/web3-provider';
-import { environment } from 'src/environments/environment_uglyfaces';
+import { environment } from 'src/environments/environment';
 import { texts } from 'src/environments/texts';
 const abi = require('../../../assets/config/abi.json');
 import { consoleLog } from '../../utils';
@@ -30,7 +30,7 @@ export class ManageUglyfacesComponent implements OnInit {
   pendingConnect: boolean = false;
   network: string = '';
   status: string = '';
-  contractAv: any = null;
+  contractAvUgfs: any = null;
   nfts: any[] = [];
   modal: boolean = true;
   select: any = null;
@@ -83,47 +83,6 @@ export class ManageUglyfacesComponent implements OnInit {
     this.getStatus();
   }
 
-  startParallax() {
-    $(document).ready(function () {
-      $('.img-parallax').each(function () {
-        var img = $(this);
-        var imgParent = $(this).parent();
-        function parallaxImg() {
-          var speed = img.data('speed');
-          var imgY = imgParent.offset().top;
-          var winY = $(window).scrollTop();
-          var winH = $(window).height();
-          var parentH = imgParent.innerHeight();
-
-          // The next pixel to show on screen
-          var winBottom = winY + winH;
-
-          // If block is shown on screen
-          if (winBottom > imgY && winY < imgY + parentH) {
-            // Number of pixels shown after block appear
-            var imgBottom = (winBottom - imgY) * speed;
-            // Max number of pixels until block disappear
-            var imgTop = winH + parentH;
-            // Porcentage between start showing until disappearing
-            var imgPercent = (imgBottom / imgTop) * 100 + (50 - speed * 50);
-          }
-          img.css({
-            top: imgPercent + '%',
-            transform: 'translateY(-' + imgPercent + '%)',
-          });
-        }
-        $(document).on({
-          scroll: function () {
-            parallaxImg();
-          },
-          ready: function () {
-            parallaxImg();
-          },
-        });
-      });
-    });
-  }
-
   async initWeb3() {
     const providerOptions = {
       walletconnect: {
@@ -147,27 +106,27 @@ export class ManageUglyfacesComponent implements OnInit {
       this.web3 = new Web3(this.provider);
       this.network = await this.web3.eth.net.getNetworkType();
 
+      let accounts = await this.web3.eth.getAccounts();
+      this.wallet = accounts[0];
+
       //Display warning if on the wrong network
       if (this.network !== environment.network) {
         //toast("Please switch to the Ethereum Mainnet network.");
         this.status = 'network';
-        this.isShow = true;
+        
         return;
       }
 
-      let accounts = await this.web3.eth.getAccounts();
-      this.wallet = accounts[0];
-
-      this.contractAv = new this.web3.eth.Contract(
+      this.contractAvUgfs = new this.web3.eth.Contract(
         abi,
-        environment.contractAv //'0x5D74387c391b88C35425d0Ec9f82750562fc173F'
+        environment.contractAvUgfs //'0x5D74387c391b88C35425d0Ec9f82750562fc173F'
       );
 
       //get phase
 
-      let hasStarted = await this.contractAv.methods.saleStarted().call();
+      let hasStarted = await this.contractAvUgfs.methods.saleStarted().call();
 
-      if (hasStarted && environment.minting_status === 'start') {
+      if (hasStarted && environment.minting_status_ugfs === 'phase_whitelist') {
         this.phase = 'WL';
       } else {
         this.phase = 'not started';
@@ -202,11 +161,12 @@ export class ManageUglyfacesComponent implements OnInit {
     try {
       await this.web3.currentProvider.request({
         method: 'wallet_switchEthereumChain',
-        params: [{ chainId: Web3.utils.toHex('1') }],
+        params: [{ chainId: Web3.utils.toHex('5') }],
       });
       this.initWeb3();
     } catch (err) {
       console.log(err);
+      this.isShow = true;
     }
   }
 
@@ -240,12 +200,15 @@ export class ManageUglyfacesComponent implements OnInit {
         //Gen1
         if (
           nft.token_address.toString().toLowerCase() ===
-          environment.contractAv.toString().toLowerCase()
+          environment.contractAvUgfs.toString().toLowerCase()
           //'0x5D74387c391b88C35425d0Ec9f82750562fc173F'.toString().toLowerCase()
         ) {
-          let tok = await this.contractAv.methods.tokenURI(nft.token_id).call();
+          console.log('nft.token_id', nft.token_id);
+          let tok = await this.contractAvUgfs.methods.tokenURI(nft.token_id).call();
           let data = (await this.decodeURL(tok)) as any;
-          let isClaimed = await this.contractAv.methods
+          
+          
+          let isClaimed = await this.contractAvUgfs.methods
             .pausedTokenGenes(nft.token_id)
             .call();
 
@@ -259,14 +222,14 @@ export class ManageUglyfacesComponent implements OnInit {
           };
 
           this.nfts.push(nftObj);
-          /*let isClaimed = await this.contractAv.methods.gen1_token_to_jiraverse_pass(nft.token_id).call();
+          /*let isClaimed = await this.contractAvUgfs.methods.gen1_token_to_jiraverse_pass(nft.token_id).call();
           if(isClaimed === 0){
             gen.push(nft.token_id);
           }*/
         }
       }
 
-      this.nft_collect_title = texts.tokens_loading_stop.replace(
+      this.nft_collect_title = texts.tokens_loading_stop_ugfs.replace(
         '%length%',
         this.nfts.length.toString()
       );
@@ -296,7 +259,7 @@ export class ManageUglyfacesComponent implements OnInit {
   async getMoralisData(token_address: string, cursor: any) {
     try {
       let url =
-        'https://deep-index.moralis.io/api/v2/' + token_address + '/nft';
+        'https://deep-index.moralis.io/api/v2/' + token_address + '/nft' + environment.chain; //TODO: delete on release version chain
 
       if (cursor) {
         url += '?cursor=' + cursor;
@@ -325,13 +288,13 @@ export class ManageUglyfacesComponent implements OnInit {
       this.select.showPreloader = true;
 
       if (this.gene) {
-        await this.contractAv.methods
+        await this.contractAvUgfs.methods
           .unpauseDNAGeneration(this.select.Id)
           .send({ from: this.wallet });
 
         this.select.Generative = true;
       } else {
-        await this.contractAv.methods
+        await this.contractAvUgfs.methods
           .pauseDNAGeneration(this.select.Id)
           .send({ from: this.wallet });
 
@@ -359,7 +322,6 @@ export class ManageUglyfacesComponent implements OnInit {
 
     this.status;
     this.updateStatusButtons();
-    this.startParallax();
   }
 
   closeNotify() {

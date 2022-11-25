@@ -2,39 +2,20 @@
 
   <div *ngIf="status === 'connect'" class="wrap bkg-color-353D4D">
     <div class="container">
-      <div class="parallax">
-        <img
-          class=" img-parallax"
-          src="../../../assets/imgnew/mint/small-parts-7.svg"
-          alt="small_parts_page1"
-          width="2000"
-          height="1600"
-          data-speed="0.4"
-        />
-      </div>
-
       <div class="splash-mint splash-manage--connect row">
         <div class="col-xs-12 col-sm-12 col-md-8 col-lg-7">
           <div class="splash-mint--body">
             <div class="splash-mint--content">
-              <div class="splash-mint--title">{{texts.manage_nft}}</div>
+              <div class="splash-mint--title">{{texts.manage_nft_ugfs}}</div>
 							<div class="splash-mint--description">
                
               </div>
               <div class="splash-mint--image">
-                <video
-                  poster="../../../assets/imgnew/mint/image-mint.svg"
-                  class="img-ill"
-                  preload="auto"
-                  no-controls
-                  playsinline
-                  loop muted autoplay oncanplay="this.play()" onloadedmetadata="this.muted = true"
-                  alt="avatizer video"
-                  *ngIf="true"
-                  width="400"
-                  height="400"
-                >
-                <source src="../../../assets/imgnew/mint/mint-avatizer.mp4" type="video/mp4">
+                <video poster="../../../assets/imgnew/ugly-faces/for-animation2.svg" class="img-ill"
+                    preload="auto" no-controls playsinline loop muted autoplay oncanplay="this.play()"
+                    onloadedmetadata="this.muted = true" alt="avatizer video" *ngIf="true" width="345"
+                    height="345">
+                    <source src="../../../assets/imgnew/ugly-faces/mint.mp4" type="video/mp4">
                 </video>
               </div>
             </div>
@@ -45,7 +26,7 @@
 							class="wallet-form--btn btn btn-metamask metamask-connect"
 						>
 							<span class="btn-body">
-								<span class="btn-title">{{texts.connect_wallet}}</span>
+								<span class="btn-title">{{texts.connect_wallet_ugfs}}</span>
 							</span>
 						</button>
 					</div>
@@ -57,38 +38,20 @@
 
   <div *ngIf="status === 'pendingConnect'" class="wrap bkg-color-353D4D">
     <div class="container">
-      <div class="parallax">
-        <img
-          class=" img-parallax"
-          src="../../../assets/imgnew/mint/small-parts-7.svg"
-          alt="small_parts_page1"
-          width="2000"
-          height="1600"
-          data-speed="0.4"
-        />
-      </div>
       <div class="splash-mint row">
         <div class="col-xs-12 col-sm-12 col-md-8 col-lg-7">
           <div class="splash-mint--body">
             <div class="splash-mint--content">
-              <div class="splash-mint--title">{{texts.splash_mint_title_mng}}</div>
+              <div class="splash-mint--title">{{texts.manage_nft_ugfs}}</div>
 							<div class="splash-mint--description">
                
               </div>
               <div class="splash-mint--image">
-                <video
-                  poster="../../../assets/imgnew/mint/image-mint.svg"
-                  class="img-ill"
-                  preload="auto"
-                  no-controls
-                  playsinline
-                  loop muted autoplay oncanplay="this.play()" onloadedmetadata="this.muted = true"
-                  alt="avatizer video"
-                  *ngIf="true"
-                  width="400"
-                  height="400"
-                >
-                <source src="../../../assets/imgnew/mint/mint-avatizer.mp4" type="video/mp4">
+                <video poster="../../../assets/imgnew/ugly-faces/for-animation2.svg" class="img-ill"
+                    preload="auto" no-controls playsinline loop muted autoplay oncanplay="this.play()"
+                    onloadedmetadata="this.muted = true" alt="avatizer video" *ngIf="true" width="345"
+                    height="345">
+                    <source src="../../../assets/imgnew/ugly-faces/mint.mp4" type="video/mp4">
                 </video>
               </div>
 						</div>
@@ -97,16 +60,15 @@
             <form action="" class="manage-form">
               <div class="wallet-form--fieldset">
                 <div class="wallet-form--group">
-                  <label class="wallet-form--label" for="your_wallet"
-                    >{{texts.your_wallet_id}}:</label
-                  >
                   <div class="input-group">
-                    <span class="wallet-form--input not-value"
-                      >XXXX
+                    <span class="wallet-form--input"
+                      >{{ wallet.substring(0, 5) }}
                       <span class="wallet-form--input-inside"
-                        >-XXXX-XXXX-XXXX-</span
+                        >. . .</span
                       >
-                      XXXX</span
+                      {{
+                        wallet.substring(wallet.length - 4, wallet.length + 4)
+                      }}</span
                     >
                     <!-- <input type="text" class="wallet-form--input" placeholder="XXXX-XXXX-XXXX-XXXX-XXXX" id="your_wallet" aria-describedby="wallet-connection"> -->
                     <button
@@ -118,57 +80,39 @@
                     </button>
                   </div>
                 </div>
-                <div class="wallet-form--button">
-                  <button
-                    class="wallet-form--btn btn btn-metamask metamask-connect connecting"
-                  >
-                    <span class="btn-body">
-                      <span class="btn-loader"></span>
-                    </span>
-                  </button>
-                </div>
+              </div>
+              <div class="wallet-form--button">
+                <button
+                  class="wallet-form--btn btn btn-metamask metamask-connect connecting"
+                >
+                  <span class="btn-body">
+                    <span class="btn-loader"></span>
+                  </span>
+                </button>
               </div>
             </form>
           </div>
         </div>
       </div>
     </div>
-		<app-footer></app-footer>
+    <app-footer></app-footer>
   </div>
   <div *ngIf="status === 'network'" class="wrap bkg-color-353D4D wrap-manage wrap-network">
     <div class="container">
-      <div class="parallax">
-        <img
-          class=" img-parallax"
-          src="../../../assets/imgnew/mint/small-parts-7.svg"
-          alt="small_parts_page1"
-          width="2000"
-          height="1600"
-          data-speed="0.4"
-        />
-      </div>
       <div class="splash-mint row">
         <div class="col-xs-12 col-sm-12 col-md-8 col-lg-7">
           <div class="splash-mint--body">
             <div class="splash-mint--content">
-              <div class="splash-mint--title">{{texts.splash_mint_title_mng}}</div>
+              <div class="splash-mint--title">{{texts.manage_nft_ugfs}}</div>
 							<div class="splash-mint--description">
               
               </div>
               <div class="splash-mint--image">
-                <video
-                  poster="../../../assets/imgnew/mint/image-mint.svg"
-                  class="img-ill"
-                  preload="auto"
-                  no-controls
-                  playsinline
-                  loop muted autoplay oncanplay="this.play()" onloadedmetadata="this.muted = true"
-                  alt="avatizer video"
-                  *ngIf="true"
-                  width="400"
-                  height="400"
-                >
-                <source src="../../../assets/imgnew/mint/mint-avatizer.mp4" type="video/mp4">
+                <video poster="../../../assets/imgnew/ugly-faces/for-animation2.svg" class="img-ill"
+                    preload="auto" no-controls playsinline loop muted autoplay oncanplay="this.play()"
+                    onloadedmetadata="this.muted = true" alt="avatizer video" *ngIf="true" width="345"
+                    height="345">
+                    <source src="../../../assets/imgnew/ugly-faces/mint.mp4" type="video/mp4">
                 </video>
               </div>
 						</div>
@@ -177,14 +121,11 @@
             <form action="" class="manage-form manage-form--network">
               <div class="wallet-form--fieldset focused">
                 <div class="wallet-form--group">
-                  <label class="wallet-form--label" for="your_wallet"
-                    >{{texts.your_wallet_id}}:</label
-                  >
                   <div class="input-group">
                     <span class="wallet-form--input"
                       >{{ wallet.substring(0, 5) }}
                       <span class="wallet-form--input-inside"
-                        >-XXXX-XXXX-XXXX-</span
+                        >. . .</span
                       >
                       {{
                         wallet.substring(wallet.length - 4, wallet.length + 4)
@@ -200,26 +141,16 @@
                     </button>
                   </div>
                 </div>
-                <div class="wallet-form--button">
-                  <button
-                    (click)="switchNetworks()"
-                    class="wallet-form--btn btn btn-metamask metamask-switch"
-                  >
-                    <span class="btn-icon"
-                      ><img
-                        src="../../../assets/imgnew/mint/metamask-logo.svg"
-                        width="30"
-                        height="28"
-                        alt="metamask-logo"
-                    /></span>
-                    <span class="btn-body">
-                      <span class="btn-title">{{texts.switch_network}}</span>
-                      <span class="btn-description"
-                        >{{texts.minting_ethereum_only}}</span
-                      >
-                    </span>
-                  </button>
-                </div>
+              </div>
+              <div class="wallet-form--button">
+                <button
+                  (click)="switchNetworks()"
+                  class="wallet-form--btn btn btn-metamask metamask-switch"
+                >
+                  <span class="btn-body">
+                    <span class="btn-title">{{texts.switch_network}}</span>
+                  </span>
+                </button>
               </div>
             </form>
           </div>
@@ -233,53 +164,21 @@
   </div>
   <div *ngIf="status === ''" class="wrap bkg-color-353D4D wrap-manage wrap-collection">
     <div class="container">
-      <div class="parallax">
-        <img
-          class=" img-parallax"
-          src="../../../assets/imgnew/mint/small-parts-7.svg"
-          alt="small_parts_page1"
-          width="2000"
-          height="1600"
-          data-speed="0.4"
-        />
-      </div>
       <div class="splash-mint row">
         <div class="col-xs-12 col-sm-12 col-md-8 col-lg-7">
           <div class="splash-mint--body">
             <div class="splash-mint--content">
-              <div class="splash-mint--title">{{texts.manage_nft}}</div>
-							<div class="splash-mint--description">
-               
-              </div>
-              <div class="splash-mint--image">
-                <video
-                  poster="../../../assets/imgnew/mint/image-mint.svg"
-                  class="img-ill"
-                  preload="auto"
-                  no-controls
-                  playsinline
-                  loop muted autoplay oncanplay="this.play()" onloadedmetadata="this.muted = true"
-                  alt="avatizer video"
-                  *ngIf="true"
-                  width="400"
-                  height="400"
-                >
-                <source src="../../../assets/imgnew/mint/mint-avatizer.mp4" type="video/mp4">
-                </video>
-              </div>
+              <div class="splash-mint--title">{{texts.manage_nft_ugfs}}</div> 
 						</div>
           </div>
           <div class="splash-mint--wallet">
             <div class="wallet-form--fieldset focused">
               <div class="wallet-form--group">
-                <label class="wallet-form--label" for="your_wallet"
-                  >{{texts.your_wallet_id}}:</label
-                >
                 <div class="input-group">
                   <span class="wallet-form--input"
                     >{{ wallet.substring(0, 5) }}
                     <span class="wallet-form--input-inside"
-                      >-XXXX-XXXX-XXXX-</span
+                      >. . .</span
                     >
                     {{
                       wallet.substring(wallet.length - 4, wallet.length + 4)
@@ -420,7 +319,7 @@
               <div class="status-switch">
 								<div 
 									class="modal-desc--text {{select?.Generative ? 'active' : 'paused'}}" 
-									[innerHTML]="select?.Generative ? texts.generate_active_note : texts.generate_paused_note"
+									[innerHTML]="select?.Generative ? texts.generate_active_note_ugfs : texts.generate_paused_note_ugfs"
 								>
 								</div>
               </div>

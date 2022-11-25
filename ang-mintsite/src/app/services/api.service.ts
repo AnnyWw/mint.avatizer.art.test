@@ -4,7 +4,8 @@ import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { DOCUMENT } from '@angular/common';
-//const Web3 = require('web3');
+const whitelist = require('../../environments/whitelist.json');
+const Web3 = require('web3');
 //let web3 = new Web3('ws://localhost:8546');
 
 @Injectable({
@@ -26,10 +27,11 @@ export class ApiService {
       headers: new HttpHeaders({ Authorization: environment.token }),
     };
 
-    return this.http.post(
-      this.rootURL + '/api/WL/Proof',
-      { address: wallet },
-      httpOptions
-    );
+    const hash: string = Web3.utils.soliditySha3(wallet, whitelist[wallet]);
+      return this.http.post(
+        this.rootURL + '/api/WL/Proof',
+        { address: hash },
+        httpOptions
+      );
   }
 }
