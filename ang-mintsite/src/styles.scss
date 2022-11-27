@@ -502,12 +502,14 @@ body.loaded .main-menu {
     background-color: rgba(2, 14, 27, 0.9);
     transition: all 0.6s ease-in-out;
     margin-top: 0;
+    z-index: 9;
+}
+.main-menu-container{
     display: flex !important;
     flex-direction: column;
     justify-content: space-between;
-    z-index: 9;
+    height: 100%;
 }
-
 .main-menu .copyright {
     font-weight: 500;
     font-size: 14px;

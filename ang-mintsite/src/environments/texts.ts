@@ -22,6 +22,8 @@ export const texts = {
   status_switch_error: 'Network switch failed, try again',
   mint_now: 'Mint my Avatizer now',
   mint_now_ugfs:'MINT NFT',
+  mint_now_ugfs_2:'MINT 2 NFTs',
+  mint_now_ugfs_3:'MINT 3 NFTs',
   status_mint_success: 'Congrats! Your Avatizer has been minted',
   status_address_missing_in_whitelist:
     'Your wallet is not on the whitelist, minting not possible',

@@ -146,7 +146,6 @@ export class MintUglyfacesComponent implements OnInit {
         method: 'wallet_switchEthereumChain',
         params: [{ chainId: Web3.utils.toHex('5') }],
       });
-
       this.initWeb3();
     } catch (err) {
       console.log(err);
