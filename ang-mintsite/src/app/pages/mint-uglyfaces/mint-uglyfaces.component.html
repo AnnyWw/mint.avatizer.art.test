@@ -181,7 +181,7 @@
                                         wallet.substring(wallet.length - 4, wallet.length + 4)
                                         }}</span>
                                     <button (click)="logout()" class="wallet-form--connection connect"
-                                        id="wallet-connection" *ngIf="isDisconnect">
+                                        id="wallet-connection">
                                         {{texts.disconnect}}
                                     </button>
                                 </div>
@@ -352,7 +352,7 @@
                                     </div>
                                 </div>
                                 <div class="wallet-available-nft" [ngSwitch]="availableNFT-inStockNFT">
-                                    <ng-container *ngSwitchCase="availableNFT-inStockNFT">
+                                    <ng-container *ngSwitchCase="3">
                                             <button (click)="setAmountNft(1)" [ngClass]="amountNFT == 1 ? 'pressed' : ''">1 NFT</button>
                                             <button (click)="setAmountNft(2)" [ngClass]="amountNFT == 2 ? 'pressed' : ''">2 NFTs</button>
                                             <button (click)="setAmountNft(3)" [ngClass]="amountNFT == 3 ? 'pressed' : ''">3 NFTs</button>
@@ -367,7 +367,9 @@
                         <div (click)="startMint()" class="wallet-form--button">
                             <button class="wallet-form--btn btn btn-metamask btn-mint">
                                 <span class="btn-body">
-                                    <span class="btn-title">{{texts.mint_now_ugfs}}</span>
+                                    <span class="btn-title" *ngIf="amountNFT == 1">{{texts.mint_now_ugfs}}</span>
+                                    <span class="btn-title" *ngIf="amountNFT == 2">{{texts.mint_now_ugfs_2}}</span>
+                                    <span class="btn-title" *ngIf="amountNFT == 3">{{texts.mint_now_ugfs_3}}</span>
                                 </span>
                             </button>
                         </div>
@@ -580,7 +582,7 @@
                                     </div>
                                 </div>
                                 <div class="wallet-available-nft" [ngSwitch]="availableNFT-inStockNFT">
-                                    <ng-container *ngSwitchCase="availableNFT-inStockNFT">
+                                    <ng-container *ngSwitchCase="3">
                                             <button (click)="setAmountNft(1)" [ngClass]="amountNFT == 1 ? 'pressed' : ''">1 NFT</button>
                                             <button (click)="setAmountNft(2)" [ngClass]="amountNFT == 2 ? 'pressed' : ''">2 NFTs</button>
                                             <button (click)="setAmountNft(3)" [ngClass]="amountNFT == 3 ? 'pressed' : ''">3 NFTs</button>
@@ -595,7 +597,9 @@
                         <div (click)="startMint()" class="wallet-form--button">
                             <button class="wallet-form--btn btn btn-metamask btn-mint">
                                 <span class="btn-body">
-                                    <span class="btn-title">{{texts.mint_now_ugfs}}</span>
+                                    <span class="btn-title" *ngIf="amountNFT == 1">{{texts.mint_now_ugfs}}</span>
+                                    <span class="btn-title" *ngIf="amountNFT == 2">{{texts.mint_now_ugfs_2}}</span>
+                                    <span class="btn-title" *ngIf="amountNFT == 3">{{texts.mint_now_ugfs_3}}</span>
                                 </span>
                             </button>
                         </div>

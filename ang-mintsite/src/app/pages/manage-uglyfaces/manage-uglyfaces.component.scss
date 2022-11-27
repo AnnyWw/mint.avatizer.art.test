@@ -102,6 +102,9 @@
 .wrap-manage.wrap-collection .splash-mint--wallet{
     margin-top: 19px;
 }
+.wrap-collection-empty .splash-mint--image{
+    margin-top: 23px;
+}
 .splash-mint--wallet{
     margin-top: 0;
 }
@@ -148,6 +151,8 @@
     border-radius: 50px;
     text-align: center;
     padding: 6px 12px;
+    margin-top: 14px;
+    margin-bottom: 6px;
 }
 .form-status--text{
     font-weight: 500;
@@ -188,44 +193,6 @@
 .wrap{
     display: flex;
     align-items: center;
-}
-.wallet-available-nft{
-    display: flex;
-    padding-top: 21px;
-    padding-bottom: 3px;
-    justify-content: center;
-}
-.wallet-available-nft > button{
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 21px;
-    color: #959595;
-    text-align: center;
-    padding: 7px 24.5px;
-    background: #000000;
-    border-radius: 30px;
-    border: 1.5px solid transparent;
-    margin: 0 4.5px;
-    flex-grow: 1;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-}
-.wallet-available-nft > button:first-child{
-    margin-left: 0;
-}
-.wallet-available-nft > button:last-child{
-    margin-right: 0;
-}
-.wallet-available-nft > button:hover{
-    border-color: #959595;
-}
-.wallet-available-nft > button:focus{
-    border-color: #fff;
-    color: #fff;
-}
-.wallet-available-nft > button.pressed{
-    border-color: #4FB5FF;
-    color: #4FB5FF;
 }
 
 .dinamic-notify{
@@ -286,6 +253,7 @@
     .splash-mint--description{
         margin-bottom: 14px;
     }
+    .manage-form.manage-form--network .wallet-form--fieldset,
     .wallet-form--fieldset{
         max-width: 300px;
         padding: 12px 19px 20px 19px;

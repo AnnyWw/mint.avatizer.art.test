@@ -140,6 +140,9 @@
                       {{texts.disconnect}}
                     </button>
                   </div>
+                  <div class="wallet-form--status">
+                      <div class="form-status--text">{{texts.wallet_status_change_network}}</div>
+                  </div>
                 </div>
               </div>
               <div class="wallet-form--button">
@@ -162,7 +165,7 @@
     </div>
     <app-footer></app-footer>
   </div>
-  <div *ngIf="status === ''" class="wrap bkg-color-353D4D wrap-manage wrap-collection">
+  <div *ngIf="status === '' && nfts.length > 0" class="wrap bkg-color-353D4D wrap-manage wrap-collection">
     <div class="container">
       <div class="splash-mint row">
         <div class="col-xs-12 col-sm-12 col-md-8 col-lg-7">
@@ -330,3 +333,57 @@
     </div>
     <app-footer></app-footer>
   </div>
+  <div *ngIf="status === '' && nfts.length <= 0" class="wrap bkg-color-353D4D wrap-collection-empty">
+    <div class="container">
+      <div class="splash-mint row">
+        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-7">
+          <div class="splash-mint--body">
+            <div class="splash-mint--content">
+              <div class="splash-mint--title">{{texts.manage_nft_ugfs}}</div> 
+              <div class="splash-mint--image">
+                <video poster="../../../assets/imgnew/ugly-faces/for-animation2.svg" class="img-ill"
+                    preload="auto" no-controls playsinline loop muted autoplay oncanplay="this.play()"
+                    onloadedmetadata="this.muted = true" alt="avatizer video" *ngIf="true" width="345"
+                    height="345">
+                    <source src="../../../assets/imgnew/ugly-faces/mint.mp4" type="video/mp4">
+                </video>
+              </div>
+						</div>
+          </div>
+          <div class="splash-mint--wallet">
+            <div class="wallet-form--fieldset focused">
+              <div class="wallet-form--group">
+                <div class="input-group">
+                  <span class="wallet-form--input"
+                    >{{ wallet.substring(0, 5) }}
+                    <span class="wallet-form--input-inside"
+                      >. . .</span
+                    >
+                    {{
+                      wallet.substring(wallet.length - 4, wallet.length + 4)
+                    }}</span
+                  >
+                  <!-- <input type="text" class="wallet-form--input" value="0x426 -XXXX-XXXX-XXXX- d1dA" placeholder="XXXX-XXXX-XXXX-XXXX-XXXX" id="your_wallet" aria-describedby="wallet-connection"> -->
+                  <button
+                    (click)="logout()"
+                    class="wallet-form--connection connect"
+                    id="wallet-connection"
+                  >
+                    {{texts.disconnect}}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12">
+          <div class="splash-collect">
+            <div class="splash-collect--title" [innerHTML]="nft_collect_title"></div>
+            <div *ngIf="nfts.length <= 0" class="splash-collect--items"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <app-footer></app-footer>
+  </div>
+
