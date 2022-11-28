@@ -345,13 +345,19 @@
                                     </button>
                                 </div>
                                 
-                                <div class="wallet-form--status">
+                                <div *ngIf="availableNFT-inStockNFT > 0" class="wallet-form--status">
                                     <div class="form-status--text success">
                                         <div>{{texts.status_text_success_ugfs}}</div>
                                         {{availableNFT-inStockNFT}} {{texts.status_nft_is_available_ugfs}}
                                     </div>
                                 </div>
-                                <div class="wallet-available-nft" [ngSwitch]="availableNFT-inStockNFT">
+                                <div *ngIf="availableNFT-inStockNFT == 0" class="wallet-form--status">
+                                    <div class="form-status--text warning">
+                                        {{texts.status_no_longer_ugfs}}
+                                    </div>
+                                </div>
+                                <div class="wallet-available-nft" [ngClass]="availableNFT-inStockNFT == 0 ? 'hidden' : ''">
+                                <ng-template [ngSwitch]="availableNFT-inStockNFT">
                                     <ng-container *ngSwitchCase="3">
                                             <button (click)="setAmountNft(1)" [ngClass]="amountNFT == 1 ? 'pressed' : ''">1 NFT</button>
                                             <button (click)="setAmountNft(2)" [ngClass]="amountNFT == 2 ? 'pressed' : ''">2 NFTs</button>
@@ -361,11 +367,12 @@
                                             <button (click)="setAmountNft(1)" [ngClass]="amountNFT == 1 ? 'pressed' : ''">1 NFT</button>
                                             <button (click)="setAmountNft(2)" [ngClass]="amountNFT == 2 ? 'pressed' : ''">2 NFTs</button>
                                     </ng-container>
+                                </ng-template>
                                 </div>
                             </div>
                         </div>
-                        <div (click)="startMint()" class="wallet-form--button">
-                            <button class="wallet-form--btn btn btn-metamask btn-mint">
+                        <div  class="wallet-form--button" *ngIf="availableNFT-inStockNFT > 0" >
+                            <button (click)="startMint()" [disabled]="availableNFT-inStockNFT == 0" class="wallet-form--btn btn btn-metamask btn-mint">
                                 <span class="btn-body">
                                     <span class="btn-title" *ngIf="amountNFT == 1">{{texts.mint_now_ugfs}}</span>
                                     <span class="btn-title" *ngIf="amountNFT == 2">{{texts.mint_now_ugfs_2}}</span>
@@ -575,13 +582,19 @@
                                     </button>
                                 </div>
                                 
-                                <div class="wallet-form--status">
+                                <div *ngIf="availableNFT-inStockNFT > 0" class="wallet-form--status">
                                     <div class="form-status--text success">
                                         <div>{{texts.status_text_success_ugfs}}</div>
                                         {{availableNFT-inStockNFT}} {{texts.status_nft_is_available_ugfs}}
                                     </div>
                                 </div>
-                                <div class="wallet-available-nft" [ngSwitch]="availableNFT-inStockNFT">
+                                <div *ngIf="availableNFT-inStockNFT == 0" class="wallet-form--status">
+                                    <div class="form-status--text warning">
+                                        {{texts.status_no_longer_ugfs}}
+                                    </div>
+                                </div>
+                                <div class="wallet-available-nft" [ngClass]="availableNFT-inStockNFT == 0 ? 'hidden' : ''">
+                                <ng-template [ngSwitch]="availableNFT-inStockNFT">
                                     <ng-container *ngSwitchCase="3">
                                             <button (click)="setAmountNft(1)" [ngClass]="amountNFT == 1 ? 'pressed' : ''">1 NFT</button>
                                             <button (click)="setAmountNft(2)" [ngClass]="amountNFT == 2 ? 'pressed' : ''">2 NFTs</button>
@@ -591,11 +604,12 @@
                                             <button (click)="setAmountNft(1)" [ngClass]="amountNFT == 1 ? 'pressed' : ''">1 NFT</button>
                                             <button (click)="setAmountNft(2)" [ngClass]="amountNFT == 2 ? 'pressed' : ''">2 NFTs</button>
                                     </ng-container>
+                                </ng-template>
                                 </div>
                             </div>
                         </div>
-                        <div (click)="startMint()" class="wallet-form--button">
-                            <button class="wallet-form--btn btn btn-metamask btn-mint">
+                        <div class="wallet-form--button" *ngIf="availableNFT-inStockNFT > 0">
+                            <button (click)="startMint()" [disabled]="availableNFT-inStockNFT == 0" class="wallet-form--btn btn btn-metamask btn-mint">
                                 <span class="btn-body">
                                     <span class="btn-title" *ngIf="amountNFT == 1">{{texts.mint_now_ugfs}}</span>
                                     <span class="btn-title" *ngIf="amountNFT == 2">{{texts.mint_now_ugfs_2}}</span>
