@@ -235,6 +235,9 @@
 .collect-card{
     background-color: #000;
 }
+.collect-title{
+    font-size: 19px;
+}
 .modal-backdrop{
     background-color: rgba(0,0,0,.95) !important;
 }
@@ -242,6 +245,9 @@
     padding-left: 0;
 }
 @media (max-width: 767px) {
+    .wrap-manage.wrap-collection{
+        padding-top: 0;
+    }
     .splash-mint{
         padding-top: 114px !important;
         padding-bottom: 140px !important;
@@ -253,7 +259,11 @@
     .splash-mint--description{
         margin-bottom: 14px;
     }
-    .manage-form.manage-form--network .wallet-form--fieldset,
+    .wrap-collection-empty .wallet-form--fieldset,
+    .wrap-manage .wallet-form--fieldset{
+        max-width: 300px !important;
+        padding: 12px 19px 11px 19px !important;
+    }
     .wallet-form--fieldset{
         max-width: 300px;
         padding: 12px 19px 20px 19px;
@@ -281,5 +291,13 @@
         font-size: 14px;
         line-height: 19px;
         padding: 7px 17.5px;
+    }
+    .collect-title{
+        font-size: 18px;
+    }
+}
+@media (max-width: 576px) {
+    .collect-card{
+        max-width:165px;
     }
 }
