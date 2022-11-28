@@ -244,6 +244,15 @@
 .modal-header{
     padding-left: 0;
 }
+@media (min-height: 900px) {
+    .modal-dialog{
+        margin-top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+    }
+}
 @media (max-width: 767px) {
     .wrap-manage.wrap-collection{
         padding-top: 0;
