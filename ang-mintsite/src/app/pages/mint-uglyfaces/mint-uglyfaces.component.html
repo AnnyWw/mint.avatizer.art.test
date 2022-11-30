@@ -358,6 +358,11 @@
                                 </div>
                                 <div class="wallet-available-nft" [ngClass]="availableNFT-inStockNFT == 0 ? 'hidden' : ''">
                                 <ng-container [ngSwitch]="availableNFT-inStockNFT">
+                                    <ng-container *ngSwitchCase="6">
+                                            <button (click)="setAmountNft(1)" [ngClass]="amountNFT == 1 ? 'pressed' : ''">1 NFT</button>
+                                            <button (click)="setAmountNft(2)" [ngClass]="amountNFT == 2 ? 'pressed' : ''">2 NFTs</button>
+                                            <button (click)="setAmountNft(3)" [ngClass]="amountNFT == 3 ? 'pressed' : ''">3 NFTs</button>
+                                    </ng-container>
                                     <ng-container *ngSwitchCase="3">
                                             <button (click)="setAmountNft(1)" [ngClass]="amountNFT == 1 ? 'pressed' : ''">1 NFT</button>
                                             <button (click)="setAmountNft(2)" [ngClass]="amountNFT == 2 ? 'pressed' : ''">2 NFTs</button>
@@ -595,6 +600,11 @@
                                 </div>
                                 <div class="wallet-available-nft" [ngClass]="availableNFT-inStockNFT == 0 ? 'hidden' : ''">
                                 <ng-container [ngSwitch]="availableNFT-inStockNFT">
+                                    <ng-container *ngSwitchCase="6">
+                                            <button (click)="setAmountNft(1)" [ngClass]="amountNFT == 1 ? 'pressed' : ''">1 NFT</button>
+                                            <button (click)="setAmountNft(2)" [ngClass]="amountNFT == 2 ? 'pressed' : ''">2 NFTs</button>
+                                            <button (click)="setAmountNft(3)" [ngClass]="amountNFT == 3 ? 'pressed' : ''">3 NFTs</button>
+                                    </ng-container>
                                     <ng-container *ngSwitchCase="3">
                                             <button (click)="setAmountNft(1)" [ngClass]="amountNFT == 1 ? 'pressed' : ''">1 NFT</button>
                                             <button (click)="setAmountNft(2)" [ngClass]="amountNFT == 2 ? 'pressed' : ''">2 NFTs</button>
