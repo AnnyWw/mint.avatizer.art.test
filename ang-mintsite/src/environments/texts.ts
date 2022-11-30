@@ -11,8 +11,8 @@ export const texts = {
   splash_mint_description_1: 'Whitelist only. One NFT per wallet.',
   splash_mint_description_2:
     'Allowlist and whitelist only. One NFT per wallet.',
-  splash_mint_description_ugfs_1: 'You can check your whitelisting.',
-  splash_mint_description_ugfs_2: 'Whitelist only. One NFT per wallet.',
+  splash_mint_description_ugfs_1: 'You can check whether your wallet is on the Whitelist',
+  splash_mint_description_ugfs_2: 'Only the Whitelisted can mint Ugly Faces NFTs.',
   your_wallet_id: 'Your wallet ID',
   status_text_success: 'You are on the whitelist, minting will open soon',
   status_text_success_ugfs:'Whitelisting confirmed!',
@@ -25,15 +25,17 @@ export const texts = {
   mint_now_ugfs_2:'MINT 2 NFTs',
   mint_now_ugfs_3:'MINT 3 NFTs',
   status_mint_success: 'Congrats! Your Avatizer has been minted',
+  status_mint_success_ugfs: 'Congrats! Your Ugly Faces NFT has been minted',
   status_address_missing_in_whitelist:
     'Your wallet is not on the whitelist, minting not possible',
-  status_address_missing_in_whitelist_ugfs:'Your wallet is not included in the contract. Mint is not available.',
+  status_address_missing_in_whitelist_ugfs:'Your wallet is not included on the Whitelist. Mint is not available.',
   manage_nft: 'Manage my Avatizers',
   status_getting_nft: 'Receiving NFT',
-  status_getting_nft_ugfs:'Getting NFT Ugly Face',
+  status_getting_nft_ugfs:'Getting Ugly Faces NFT(s)',
   status_already_minted_nft: "You've minted your Avatizer already.",
   status_no_longer_ugfs:'Wallet can no longer receive NFTs',
   wallet_status_change_network: 'Please change network to Etherium',
+  wallet_status_change_network_ugfs:'Please, switch the network to Ethereum',
   status_minted_sold_out: 'SOLD OUT',
   copyright_adsres: '1800 Diagonal Road #600, Alexandria, VA 22314, USA',
   copyright_company: '© Electronic Team, Inc.',
@@ -51,8 +53,8 @@ export const texts = {
     "Every Avatizer is visually reloaded/updated daily at 5 pm UTC. Please note, once the new Avatizer is generated, the old one cannot be restored. You can pause daily reload for each Avatizer you own to keep the ones you like.<br><br><b class='modal-desc--note'>Note:</b> pausing or restoring daily reloads will incur gas fees. That's the way the blockchain works.",
   generate_paused_note:
     "This Avatizer will not update itself. Its current art will remain unchanged until you enable Daily Reloads.<br><br><b class='modal-desc--note'>Note:</b> pausing or restoring daily reloads will incur gas fees. That's the way the blockchain works.",
-  generate_active_note_ugfs:"Every Ugly Faces is visually reloaded/updated daily at 5 pm UTC. Please note, once the new Ugly Faces is generated, the old one cannot be restored. You can pause daily reload for each Avatizer you own to keep the ones you like.<br><br><b class='modal-desc--note'>Note:</b> pausing or restoring daily reloads will incur gas fees. That's the way the blockchain works.",
-  generate_paused_note_ugfs:"This Ugly Faces will not update itself. Its current art will remain unchanged until you enable Daily Reloads.<br><br><b class='modal-desc--note'>Note:</b> pausing or restoring daily reloads will incur gas fees. That's the way the blockchain works.",
+  generate_active_note_ugfs:"Every Ugly Faces NFT is visually reloaded/updated daily at 5 pm UTC. Please note, once the new look of an Ugly Faces NFT is generated, the old one cannot be restored. You can pause daily reloads for each Ugly Faces NFT you own to keep the ones you like.<br><br><b class='modal-desc--note'>Note:</b> pausing or restoring daily reloads will incur gas fees. That's the way the blockchain works.",
+  generate_paused_note_ugfs:"This Ugly Faces NFT will not update itself. Its current art will remain unchanged until you enable Daily Reloads.<br><br><b class='modal-desc--note'>Note:</b> pausing or restoring daily reloads will incur gas fees. That's the way the blockchain works.",
   minting_soon: 'Avatizer Minting Soon',
   minting_stoped: 'Avatizer Minting is stoped',
   opensea_btn_text: 'Visit OpenSea',
@@ -63,7 +65,8 @@ export const texts = {
   not_found_btn_text: 'Back to Home',
   status_on_whitelist_success: 'You are on the whitelist',
   status_nft_is_available: 'Your Avatizer NFT is available',
-  status_nft_is_available_ugfs:' NFTs are available. Pay only gas.',
+  status_nft_is_available_ugfs:' NFTs are available. Only gas payments are required.',
+  status_nft_is_available_ugfs_1: 'NFT is available. Only gas payment required.',
   tokens_loading_start    :'Loading... one moment, please',
   tokens_loading_stop    :'You own %length% Avatizer(s)',
   tokens_loading_stop_ugfs    :'You own %length% Ugly Faces NFT(s)',
@@ -71,8 +74,9 @@ export const texts = {
 	menu_text_manage_uglyfaces :'Manage Ugly Faces',
 	menu_text_mint_uglyfaces : 'MINT Ugly Faces',
 	menu_text_uglyfaces : 'Ugly Faces',
-  manage_nft_ugfs:'Manage my Ugly Faces',
-  status_mint_error:'Mint failed! Please try again!'
+  manage_nft_ugfs:'Manage my Ugly Faces NFT(s)',
+  status_mint_error:'Mint failed! Please try again!',
+  status_mint_error_2:'Transaction canceled! Please try again!'
 };
 
 /*
