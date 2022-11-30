@@ -74,7 +74,8 @@ export const texts = {
 	menu_text_manage_uglyfaces :'Manage Ugly Faces',
 	menu_text_mint_uglyfaces : 'MINT Ugly Faces',
 	menu_text_uglyfaces : 'Ugly Faces',
-  manage_nft_ugfs:'Manage my Ugly Faces NFT(s)',
+  manage_nft_ugfs_manage:'Manage my',
+  manage_nft_ugfs:'Ugly Faces NFT(s)',
   status_mint_error:'Mint failed! Please try again!',
   status_mint_error_2:'Transaction canceled! Please try again!'
 };
