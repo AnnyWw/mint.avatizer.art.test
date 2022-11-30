@@ -7,7 +7,7 @@ export const texts = {
   splash_mint_title_ugfs_1: 'MINT COMING SOON',
   splash_mint_title_ugfs_2: 'Free mint',
   splash_mint_title_ugfs_stop:'Sold out',
-  splash_mint_description_ugfs_stop:'Find Ugly Faces NFTs on Opensea',
+  splash_mint_description_ugfs_stop:'Find Ugly Faces NFTs on OpenSea',
   splash_mint_description_1: 'Whitelist only. One NFT per wallet.',
   splash_mint_description_2:
     'Allowlist and whitelist only. One NFT per wallet.',
