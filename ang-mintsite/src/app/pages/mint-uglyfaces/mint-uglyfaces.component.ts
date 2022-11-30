@@ -213,7 +213,7 @@ export class MintUglyfacesComponent implements OnInit {
           this.pending = false;
           this.minted = true;
           this.isShowSuccess = true;
-          this.token = reciept.events.Transfer.returnValues.tokenId;
+          this.token = reciept.events?.Transfer?.returnValues?.tokenId;
           this.inStockNFT = await this.contractAvUgfs.methods.numberMinted(this.wallet).call();
           this.getStatus();
           consoleLog('token', this.token);
