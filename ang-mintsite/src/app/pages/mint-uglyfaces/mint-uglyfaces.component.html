@@ -356,9 +356,9 @@
                                         {{texts.status_no_longer_ugfs}}
                                     </div>
                                 </div>
-                                <div class="wallet-available-nft" [ngClass]="availableNFT-inStockNFT == 0 ? 'hidden' : ''">
+                                <div class="wallet-available-nft" [ngClass]="availableNFT-inStockNFT <= 1 ? 'hidden' : ''">
                                 <ng-container [ngSwitch]="availableNFT-inStockNFT">
-                                    <ng-container *ngSwitchCase="6">
+                                    <ng-container *ngSwitchCase="5">
                                             <button (click)="setAmountNft(1)" [ngClass]="amountNFT == 1 ? 'pressed' : ''">1 NFT</button>
                                             <button (click)="setAmountNft(2)" [ngClass]="amountNFT == 2 ? 'pressed' : ''">2 NFTs</button>
                                             <button (click)="setAmountNft(3)" [ngClass]="amountNFT == 3 ? 'pressed' : ''">3 NFTs</button>
@@ -445,60 +445,6 @@
         <app-footer></app-footer>
     </div>
 
-    
-    <div *ngIf="status === 'minted' && !token" 
-     class="wrap bkg-color-353D4D"
-        id="wallet={{wallet}}&status={{status}}&phase={{phase}}">
-        <div class="container">
-            <div class="splash-mint row">
-                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-7">
-                    <div class="splash-mint--body">
-                        <div class="splash-mint--content">
-                            <div class="splash-mint--title">{{texts.splash_mint_title_ugfs_2}}</div>
-                            <div class="splash-mint--description">
-                                {{texts.splash_mint_description_ugfs_2}}
-                            </div>
-                            <div class="splash-mint--image">
-                                <video poster="../../../assets/imgnew/ugly-faces/for-animation2.svg" class="img-ill"
-                                    preload="auto" no-controls playsinline loop muted autoplay oncanplay="this.play()"
-                                    onloadedmetadata="this.muted = true" alt="avatizer video" *ngIf="true" width="345"
-                                    height="345">
-                                    <source src="../../../assets/imgnew/ugly-faces/mint.mp4" type="video/mp4">
-                                </video>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="splash-mint--wallet">
-                        <div class="wallet-form--fieldset focused">
-                            <div class="wallet-form--group">
-                                
-                                <div class="input-group">
-                                    <span class="wallet-form--input">{{ wallet.substring(0, 5) }}
-                                        <span class="wallet-form--input-inside">. . .</span>
-                                        {{
-                                        wallet.substring(wallet.length - 4, wallet.length + 4)
-                                        }}</span>
-                                    <!-- <input type="text" class="wallet-form--input" value="0x426 -XXXX-XXXX-XXXX- d1dA" placeholder="XXXX-XXXX-XXXX-XXXX-XXXX" id="your_wallet" aria-describedby="wallet-connection"> -->
-                                    <button (click)="logout()" class="wallet-form--connection connect"
-                                        id="wallet-connection" *ngIf="isDisconnect">
-                                        {{texts.disconnect}}
-                                    </button>
-                                </div>
-                                <div class="wallet-form--status">
-                                    
-                                    <div class="form-status--text warning">
-                                        {{texts.status_no_longer_ugfs}}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <app-footer></app-footer>
-    </div>
-
     <div *ngIf="status === 'pending'"  class="wrap bkg-color-353D4D"
         id="wallet={{wallet}}&status={{status}}&phase={{phase}}">
         <div class="container">
@@ -551,7 +497,7 @@
         <app-footer></app-footer>
     </div>
 
-    <div *ngIf="status === 'minted' && token" class="wrap bkg-color-353D4D" id="mint_status_{{status}}">
+    <div *ngIf="status === 'minted'" class="wrap bkg-color-353D4D" id="mint_status_{{status}}">
         <div class="container">
             <div class="splash-mint row">
                 <div class="col-xs-12 col-sm-12 col-md-8 col-lg-7">
@@ -598,9 +544,9 @@
                                         {{texts.status_no_longer_ugfs}}
                                     </div>
                                 </div>
-                                <div class="wallet-available-nft" [ngClass]="availableNFT-inStockNFT == 0 ? 'hidden' : ''">
+                                <div class="wallet-available-nft" [ngClass]="availableNFT-inStockNFT <= 1 ? 'hidden' : ''">
                                 <ng-container [ngSwitch]="availableNFT-inStockNFT">
-                                    <ng-container *ngSwitchCase="6">
+                                    <ng-container *ngSwitchCase="5">
                                             <button (click)="setAmountNft(1)" [ngClass]="amountNFT == 1 ? 'pressed' : ''">1 NFT</button>
                                             <button (click)="setAmountNft(2)" [ngClass]="amountNFT == 2 ? 'pressed' : ''">2 NFTs</button>
                                             <button (click)="setAmountNft(3)" [ngClass]="amountNFT == 3 ? 'pressed' : ''">3 NFTs</button>
