@@ -7,33 +7,33 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ManageUglyfacesComponent } from './pages/manage-uglyfaces/manage-uglyfaces.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'mint-uglyfaces', pathMatch: 'full' },
+  { path: '', redirectTo: 'mint-ugly-faces', pathMatch: 'full' },
   
   {
-    path: 'mint-uglyfaces',
+    path: 'mint-ugly-faces',
     component: MintUglyfacesComponent,
-    title: 'Ugly Faces – unusual and modern generative NFT art',
+    title: 'Ugly Faces - Mint',
     data: {
       seo: {
         metaTags: [
           {
             name: 'description',
-            content: "Ugly Faces intrigue with their unusual and modern art. There’s also a major advantage in the fact that Ugly Faces are a generative art project!",
+            content: "Ugly Faces NFT - Free Mint.",
           },
         ],
       },
     },
   },
   {
-    path: 'manage-uglyfaces',
+    path: 'manage-ugly-faces',
     component: ManageUglyfacesComponent,
-    title: 'Avatizer - Manage my Uglyfaces NFT collection',
+    title: 'Ugly Faces - Manage my collection',
     data: {
       seo: {
         metaTags: [
           {
             name: 'description',
-            content: 'Manage my Uglyfaces. Pausing or restoring daily reloads.',
+            content: 'Manage my Ugly Faces NFTs. Pausing or restoring daily reloads.',
           },
         ],
       },

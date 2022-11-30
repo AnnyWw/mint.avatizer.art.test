@@ -186,7 +186,7 @@
                                     </button>
                                 </div>
                                 <div class="wallet-form--status">
-                                    <div class="form-status--text">{{texts.wallet_status_change_network}}</div>
+                                    <div class="form-status--text">{{texts.wallet_status_change_network_ugfs}}</div>
                                 </div>
                             </div>
                         </div>
@@ -246,7 +246,7 @@
                                 <div class="wallet-form--status success">
                                     <div class="form-status--text success">
                                         {{texts.status_text_success_ugfs}}
-                                        <div>{{texts.status_text_success_ugfs_1}} {{environment.minting_date_start}}</div>
+                                        <div>{{texts.status_text_success_ugfs_1}} {{environment.minting_date_start_ugfs}}</div>
                                     </div>
                                 </div>
                             </div>
@@ -386,7 +386,7 @@
         </div>
         <app-footer></app-footer>
          <div *ngIf="isShow" class="dinamic-notify error">
-            {{texts.status_mint_error}} <button class="notify-close" (click)="closeNotify()"></button>
+            {{texts.status_mint_error_2}} <button class="notify-close" (click)="closeNotify()"></button>
         </div>
     </div>
 
@@ -585,7 +585,7 @@
                                 <div *ngIf="availableNFT-inStockNFT > 0" class="wallet-form--status">
                                     <div class="form-status--text success">
                                         <div>{{texts.status_text_success_ugfs}}</div>
-                                        {{availableNFT-inStockNFT}} {{texts.status_nft_is_available_ugfs}}
+                                        {{availableNFT-inStockNFT}} {{availableNFT-inStockNFT == 1 ? texts.status_nft_is_available_ugfs_1 : texts.status_nft_is_available_ugfs}}
                                     </div>
                                 </div>
                                 <div *ngIf="availableNFT-inStockNFT == 0" class="wallet-form--status">
@@ -623,7 +623,7 @@
         </div>
 
         <div *ngIf="isShowSuccess" class="dinamic-notify success">
-            {{texts.status_mint_success}} <button class="notify-close" (click)="closeSuccessNotify()"></button>
+            {{texts.status_mint_success_ugfs}} <button class="notify-close" (click)="closeSuccessNotify()"></button>
         </div>
         <app-footer></app-footer>
     </div>
