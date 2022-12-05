@@ -12,7 +12,7 @@ export const texts = {
   splash_mint_description_2:
     'Allowlist and whitelist only. One NFT per wallet.',
   splash_mint_description_ugfs_1: 'You can check whether your wallet is on the Whitelist',
-  splash_mint_description_ugfs_2: 'Only the Whitelisted can mint Ugly Faces NFTs.',
+  splash_mint_description_ugfs_2: 'Only Whitelisters can mint Ugly Faces NFTs.',
   your_wallet_id: 'Your wallet ID',
   status_text_success: 'You are on the whitelist, minting will open soon',
   status_text_success_ugfs:'Whitelisting confirmed!',
