@@ -85,7 +85,7 @@ export class MintUglyfacesComponent implements OnInit {
     };
 
     this.web3Modal = new Web3Modal({
-      network: environment.network, //'main', // optional
+      // network: environment.network, //'main', // optional
       cacheProvider: true, // optional
       providerOptions, // required
     });
