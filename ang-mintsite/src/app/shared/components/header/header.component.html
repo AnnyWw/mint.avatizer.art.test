@@ -290,7 +290,7 @@
     
               <li class="li-row">
                 <a
-                  href="{{environment.openseaUrl}}" 
+                  href="{{currentUrl == '/mint' || currentUrl == '/manageNFT' ? environment.openseaUrl : environment.openseaUrlUgfs}}" 
                   title="Visit OpenSea"
                   class="hPound_bkp btn socials transition-all btn-opensea"
                   target="_blank"
@@ -403,7 +403,7 @@
               
               <li class="li-row" >
                 <a
-                  href="{{environment.openseaUrl}}"
+                  href="{{currentUrl == '/mint' || currentUrl == '/manageNFT' ? environment.openseaUrl : environment.openseaUrlUgfs}}"
                   title="Visit OpenSea"
                   class="hPound_bkp btn socials transition-all btn-opensea"
                   target="_blank" >

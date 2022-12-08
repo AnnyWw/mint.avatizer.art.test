@@ -5,10 +5,11 @@
 export const environment = {
   production: false,
   minting_status: 'stop', //not_start | start | stop | paused | start2
-  minting_status_ugfs: 'not_started', //not_started | phase_whitelist | stoped
+  minting_status_ugfs: 'phase_whitelist', //not_started | phase_whitelist | stoped
   token: 'jdjaosiij28892SIAHI049923701CIGknlklajal',
   mainsiteUrl: 'https://www.avatizer.art',
   openseaUrl: 'https://opensea.io/collection/avatizer',
+  openseaUrlUgfs: 'https://opensea.io/collection/onchain-ugly-faces',
   twitterUrl: 'https://twitter.com/Avatizer_NFT',
   discordUrl: 'https://discord.gg/avatizer',
   siteName: 'Avatizer',
