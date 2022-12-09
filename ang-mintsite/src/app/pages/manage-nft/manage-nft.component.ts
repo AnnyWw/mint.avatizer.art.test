@@ -358,18 +358,18 @@ export class ManageNFTComponent implements OnInit {
     }
 
     this.status;
-    this.updateStatusButtons();
+    // this.updateStatusButtons();
     this.startParallax();
   }
 
   closeNotify() {
     this.isShow = !this.isShow;
   }
-  updateStatusButtons() {
-    if (this.phase === 'WL') {
-      $('.btn-opensea').show();
-    } else {
-      $('.btn-opensea').hide();
-    }
-  }
+  // updateStatusButtons() {
+  //   if (this.phase === 'WL') {
+  //     $('.btn-opensea').show();
+  //   } else {
+  //     $('.btn-opensea').hide();
+  //   }
+  // }
 }
