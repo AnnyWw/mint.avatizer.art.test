@@ -1,7 +1,7 @@
 export const environment = {
   production: true,
   minting_status: 'stop', //not_start | start | stop  | paused | start2
-  minting_status_ugfs: 'phase_whitelist', // not_started | phase_whitelist | stoped
+  minting_status_ugfs: 'stoped', // not_started | phase_whitelist | stoped
   token: 'jdjaosiij28892SIAHI049923701CIGknlklajal',
   mainsiteUrl: 'https://www.avatizer.art',
   openseaUrl: 'https://opensea.io/collection/avatizer',
