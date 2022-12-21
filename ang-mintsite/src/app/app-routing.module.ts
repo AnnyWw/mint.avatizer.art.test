@@ -7,23 +7,8 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ManageUglyfacesComponent } from './pages/manage-uglyfaces/manage-uglyfaces.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'mint-ugly-faces', pathMatch: 'full' },
+  { path: '', redirectTo: 'manage-ugly-faces', pathMatch: 'full' },
   
-  {
-    path: 'mint-ugly-faces',
-    component: MintUglyfacesComponent,
-    title: 'Ugly Faces - Mint',
-    data: {
-      seo: {
-        metaTags: [
-          {
-            name: 'description',
-            content: "Ugly Faces NFT - Free Mint.",
-          },
-        ],
-      },
-    },
-  },
   {
     path: 'manage-ugly-faces',
     component: ManageUglyfacesComponent,
