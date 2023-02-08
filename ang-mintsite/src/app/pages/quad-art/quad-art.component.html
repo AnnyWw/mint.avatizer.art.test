@@ -36,7 +36,7 @@
                 <div class="quadart-notice--description">Reveal QuadArto canvas Monday, 20 February 2023</div>
               </div>
                 <pinch-zoom listeners="mouse and touch" overflow="hidden" disableZoomControl='disable' [wheel]="false">
-              <div class="quadart-square">
+              <div class="quadart-square" [ngStyle]="{'background-image': 'url(' + environment.api_url + 'img/token.jpg?' + this.date + ')'}">
                 <div class="canvas-btns">
                 <button class="manage-btn">1</button><button class="manage-btn">2</button><button
                   class="manage-btn">3</button><button class="manage-btn">4</button><button
