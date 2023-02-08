@@ -13,14 +13,19 @@ export const environment = {
   twitterUrl: 'https://twitter.com/Avatizer_NFT',
   discordUrl: 'https://discord.gg/avatizer',
   siteName: 'Avatizer',
-  contractAv: '0x41C28eb53d68ae62eA47656Ce6DeC63e2327D2EA',
+  contractAv: '0x41C28eb53d68ae62eA47656Ce6DeC63e2327D2EA', //0x41C28eb53d68ae62eA47656Ce6DeC63e2327D2EA
   contractAvUgfs: '0x2efFA076413407bFB02293208d43EdB9BeED2a86', //0x5Df831E020B3Bb0Ce568DB8A12b2a0845F3e3C9D
   walletconnect_infuraId: '5cefff2052fb40bd93b90658d9949089', //'68bbfa6dd6594f328012419c5b654b2f',//'5cefff2052fb40bd93b90658d9949089',
   minting_date_start: 'Tue, Oct 18, 2022 @ 11:00 AM EST (NYC Time)',
   minting_date_start_ugfs: 'Thu, Dec 8, 2022 @ 08:00 AM EST (NYC Time)',
   moralis_api_key:'8kEmud1tbZttJ6IZdoVSejGjUt4NXlbJXjLqEu5HsjRezZYkXZv1pEX6BslaWQ8T',
-  network:'main', 
-  chain:''
+  network:'goerli',
+  chain:'?chain=goerli',
+  contractAvQuadArto: '0x1de6D34817FFc7167e1990CAA0078C8B7d89E440', 
+  recaptcha: {
+    siteKey: '6Le_52IkAAAAAMpX60Au6UYN10PO-5rFkWzAYMcB',
+  },
+  api_url: 'http://www.quadarto.local/'
 };
 
 /*

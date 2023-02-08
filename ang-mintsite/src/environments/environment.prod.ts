@@ -15,8 +15,13 @@ export const environment = {
   minting_date_start: 'Tue, Oct 18, 2022 @ 11:00 AM EST (NYC Time)',
   minting_date_start_ugfs: 'Thu, Dec 8, 2022 @ 08:00 AM EST (NYC Time)',
   moralis_api_key: '8kEmud1tbZttJ6IZdoVSejGjUt4NXlbJXjLqEu5HsjRezZYkXZv1pEX6BslaWQ8T',
-  network:'main',
-  chain:''
+  network:'goerli',
+  chain:'?chain=goerli',
+  contractAvQuadArto: '0x1de6D34817FFc7167e1990CAA0078C8B7d89E440', 
+  recaptcha: {
+    siteKey: '6Le_52IkAAAAAMpX60Au6UYN10PO-5rFkWzAYMcB',
+  },
+  api_url: 'http://www.quadarto.local/'
 };
 
 /*

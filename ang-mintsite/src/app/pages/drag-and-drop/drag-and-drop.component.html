@@ -1,0 +1,43 @@
+<div class="dnd-container" appDnd (fileDropped)="onFileDropped($event)">
+  <div class="dnd-content" *ngIf="statusFile === ''">
+    <input type="file" #fileDropRef id="fileDropRef" (change)="fileBrowseHandler($event.target['files'][0])" />
+    <span class="file-icon">
+      <svg width="60" height="45" viewBox="0 0 60 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M58.5 1.5H1.5V43.5H58.5V1.5ZM0 0V45H60V0H0Z" fill="white"/>
+      <path opacity="0.4" d="M1.60846e-06 9.99986C7.83909 8.64879 13.3417 11.6917 19.8003 15.1613C22.8164 16.7816 26.0391 18.5128 29.802 19.9678C29.7644 20.0008 29.7268 20.0338 29.6892 20.0667C22.0503 26.762 14.525 33.3578 0.00102109 27.7157C-7.00951e-05 20.5002 -4.60753e-05 13.5002 1.60846e-06 9.99986Z" fill="white" fill-opacity="0.2"/>
+      <path d="M0 27.7153C29.0294 38.9923 30.0999 1.38065 60 11.8001C60 16.722 60 45 60 45H0C0 45 0.00126179 32.0742 0 27.7153Z" fill="white" fill-opacity="0.2"/>
+      </svg>
+
+      <div class="arrow-circle">
+        <svg class="arrow-mask" width="16" height="25" viewBox="0 0 16 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0.744383 7.92603C0.345622 7.5354 0.345622 6.88989 0.744383 6.49829L7.25232 0.283447C7.63947 -0.0944824 8.25116 -0.0944824 8.6383 0.283447L15.1462 6.49829C15.545 6.88989 15.545 7.5354 15.1462 7.92603C14.763 8.30298 14.1513 8.30298 13.768 7.92603L8.93641 3.36157V27.6038C8.93641 28.1565 8.49119 28.6038 7.94531 28.6038C7.39944 28.6038 6.95422 28.1565 6.95422 27.6038V3.36157L2.12263 7.92603C1.73935 8.30298 1.12766 8.30298 0.744383 7.92603Z" fill="#B2B2B2"/>
+        </svg>
+      </div>
+    </span>
+
+    <div class="dnd-title">Drag and drop or browse image for generate to pixer art</div>
+    <div class="dnd-description">JPG, PNG or GIF Max 5 mb</div>
+  </div>
+  <div class="dnd-content loaded" *ngIf="statusFile === 'loaded'">
+    <svg class="loader" width="41" height="40" viewBox="0 0 41 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g opacity="0.7">
+    <mask id="mask0_1853_301715" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="41" height="40">
+    <path d="M20.9453 0L0.945312 0L0.945313 40H40.9453V20H20.9453V0Z" fill="#D9D9D9"/>
+    </mask>
+    <g mask="url(#mask0_1853_301715)">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M20.9453 38.3333C30.5182 38.3333 39.2786 29.5729 39.2786 20C39.2786 10.4271 30.5182 1.66667 20.9453 1.66667C11.3724 1.66667 2.61198 10.4271 2.61198 20C2.61198 29.5729 11.3724 38.3333 20.9453 38.3333ZM20.9453 40C31.991 40 40.9453 31.0457 40.9453 20C40.9453 8.9543 31.991 0 20.9453 0C9.89962 0 0.945312 8.9543 0.945312 20C0.945312 31.0457 9.89962 40 20.9453 40Z" fill="white"/>
+    </g>
+    </g>
+    </svg>
+    <div class="dnd-title">Pixel Art Creating</div>
+    <div class="dnd-description" *ngIf="isShowCancel"><a class="dnd-link" (click)="cancelUpload()">Cancel</a></div>
+  </div>
+  <div class="dnd-content error" *ngIf="statusFile === 'error'">
+    <div>
+      <span class="file-icon error"></span>
+      <div class="dnd-title">Oops!</div>
+      <div class="dnd-description">Something went wrong</div>
+    </div>
+    <a (click)="statusFile = ''" class="dnd-link">Try again</a>
+  </div>
+</div>

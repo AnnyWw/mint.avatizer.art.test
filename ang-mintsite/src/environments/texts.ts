@@ -70,6 +70,7 @@ export const texts = {
   tokens_loading_start    :'Loading... one moment, please',
   tokens_loading_stop    :'You own %length% Avatizer(s)',
   tokens_loading_stop_ugfs    :'You own %length% Ugly Faces NFT(s)',
+  tokens_loading_stop_quadart    :'You own %length% QuadArto NFTs',
 	manage_nft_description: 'You can manage NFTs here from both collections',
 	menu_text_manage_uglyfaces :'Manage Ugly Faces',
 	menu_text_mint_uglyfaces : 'MINT Ugly Faces',
