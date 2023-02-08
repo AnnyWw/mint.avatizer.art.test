@@ -76,6 +76,7 @@ export class QuadArtComponent implements OnInit, OnDestroy {
   updateGridMetadata(data) {
     // console.log(data);
     let date = new Date().getTime();
+    this.date = date;
     this.nfts.find((nft, index)=> {
       // console.log('find id',nft.Id, data.token_id);
       

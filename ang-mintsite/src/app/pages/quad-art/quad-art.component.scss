@@ -161,10 +161,9 @@
 //   height: 100%;
 //   background-size: contain;
 // }
-.canvas-quadart .quadart-square::before{
-  content: '';
-  background: url(https://www.avatizer.art/quadarto/img/token.jpg) no-repeat;
-  position: absolute;
+.canvas-quadart .quadart-square{
+  background-repeat: no-repeat;
+  position: relative;
   width: 100%;
   height: 100%;
   background-size: 100% 100%;
