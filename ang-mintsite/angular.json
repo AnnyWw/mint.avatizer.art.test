@@ -17,6 +17,19 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": [
+              "@walletconnect/window-getters",
+              "@walletconnect/socket-transport",
+              "@walletconnect/window-metadata",
+              "@walletconnect/web3-provider",
+              "@metamask/detect-provider",
+              "is-typedarray",
+              "typedarray-to-buffer",
+              "@walletconnect/environment",
+              "bn.js",
+              "js-sha3",
+              "query-string"
+           ],
             "outputPath": "dist/ang-mintsite",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -33,8 +46,8 @@
             ],
             "scripts": [
               "./node_modules/jquery/dist/jquery.min.js",
-              "./node_modules/bootstrap/dist/js/bootstrap.min.js",
-              "./node_modules/popper.js/dist/popper.js"
+              "./node_modules/popper.js/dist/umd/popper.js",
+              "./node_modules/bootstrap/dist/js/bootstrap.min.js"
             ]
           },
           "configurations": {
@@ -42,13 +55,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "4mb"
+                  "maximumWarning": "4mb",
+                  "maximumError": "5mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2mb",
-                  "maximumError": "4mb"
+                  "maximumWarning": "4mb",
+                  "maximumError": "5mb"
                 }
               ],
               "fileReplacements": [

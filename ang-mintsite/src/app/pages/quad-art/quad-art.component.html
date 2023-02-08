@@ -1,0 +1,248 @@
+<app-header></app-header>
+<div class="wrap bkg-color-353D4D">
+  <div class="container">
+    <div class="splash-mint splash-mint--connect row">
+      <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="quadart-title">QuadArto</div>
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs quadart-tabs" role="tablist">
+          <li role="presentation" ><a href="#canvas" aria-controls="canvas" role="tab" data-toggle="tab">
+              <svg class="visible-xs" width="31" height="30" viewBox="0 0 31 30" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path opacity="0.7" fill-rule="evenodd" clip-rule="evenodd"
+                  d="M2.41406 30C1.58564 30 0.914062 29.3284 0.914062 28.5V1.5C0.914062 0.671573 1.58564 0 2.41406 0H29.4141C30.2425 0 30.9141 0.671573 30.9141 1.5V28.5C30.9141 29.3284 30.2425 30 29.4141 30H2.41406ZM2.41406 11V19H10.4141L10.4141 11H2.41406ZM2.41406 20.5H10.4141L10.4141 28.5H2.41406V20.5ZM11.9141 20.5L11.9141 28.5H19.9141V20.5H11.9141ZM21.4141 20.5V28.5H29.4141V20.5H21.4141ZM19.9141 1.5H11.9141L11.9141 9.5H19.9141V1.5ZM21.4141 9.5V1.5H29.4141V9.5H21.4141ZM21.4141 11H29.4141V19H21.4141L21.4141 11ZM19.9141 11L19.9141 19H11.9141L11.9141 11H19.9141ZM2.41406 1.5H10.4141L10.4141 9.5H2.41406V1.5Z"
+                  fill="#ffffff" />
+              </svg>
+              <span class="hidden-xs">Canvas</span></a></li>
+          <li role="presentation" class="active"><a href="#management" aria-controls="management" role="tab" data-toggle="tab">
+              <svg class="visible-xs" width="31" height="30" viewBox="0 0 31 30" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path opacity="0.7" fill-rule="evenodd" clip-rule="evenodd"
+                  d="M0.914062 28.5C0.914062 29.3284 1.58563 30 2.41406 30H29.4141C30.2425 30 30.9141 29.3284 30.9141 28.5V1.5C30.9141 0.67157 30.2425 0 29.4141 0H2.41406C1.58563 0 0.914062 0.67157 0.914062 1.5V28.5ZM2.41406 19V11V9.5V1.5H10.4141H11.9141H19.9141H21.4141H29.4141V9.5V11V19V20.5V28.5H21.4141H19.9141H11.9141H10.4141H2.41406V20.5V19ZM11.7744 12.3582C11.4815 12.0653 11.4815 11.5904 11.7744 11.2976L15.3994 7.67252C15.6841 7.38781 16.1457 7.38781 16.4305 7.67252L20.0556 11.2977C20.3485 11.5905 20.3485 12.0654 20.0556 12.3583C19.7627 12.6512 19.2878 12.6512 18.9949 12.3583L16.6659 10.0293V15.7439C16.6659 16.1581 16.3301 16.4939 15.9159 16.4939C15.5017 16.4939 15.1659 16.1581 15.1659 15.7439V10.0273L12.835 12.3582C12.5421 12.6511 12.0673 12.6511 11.7744 12.3582ZM21.9141 21.2676C22.3283 21.2676 22.6641 20.9318 22.6641 20.5176V18.8008C22.6641 18.3866 22.3283 18.0508 21.9141 18.0508C21.4998 18.0508 21.1641 18.3866 21.1641 18.8008V19.7676H10.6641L10.6641 18.8008C10.6641 18.3866 10.3283 18.0508 9.91406 18.0508C9.49985 18.0508 9.16406 18.3866 9.16406 18.8008V20.5176C9.16406 20.9318 9.49985 21.2676 9.91406 21.2676H21.9141Z"
+                  fill="white" />
+              </svg>
+              <span class="hidden-xs">Management</span></a></li>
+          <li *ngIf="status === 'connect'" class="quadart-li-connect"><a class="quadart-connect"
+              (click)="connect()">Connect Wallet</a></li>
+          <li *ngIf="status !== 'connect'" class="quadart-li-connect">
+            {{ wallet.substring(0, 5) }}...{{ wallet.substring(wallet.length - 4, wallet.length + 4)}}
+            <a class="quadart-connect" (click)="disconnect()">Disconnect</a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane fade " id="canvas">
+            <div class="canvas-quadart">
+              <div class="quadart-notice">
+                <div class="quadart-notice--description">Reveal QuadArto canvas Monday, 20 February 2023</div>
+              </div>
+              <div class="quadart-square">
+                <button class="manage-btn">1</button><button class="manage-btn">2</button><button
+                  class="manage-btn">3</button><button class="manage-btn">4</button><button
+                  class="manage-btn">5</button><button class="manage-btn">6</button><button
+                  class="manage-btn">7</button><button class="manage-btn">8</button><button
+                  class="manage-btn">9</button><button class="manage-btn">10</button><button
+                  class="manage-btn">11</button><button class="manage-btn">12</button><button
+                  class="manage-btn">13</button><button class="manage-btn">14</button><button
+                  class="manage-btn">15</button><button class="manage-btn">16</button><button
+                  class="manage-btn">17</button><button class="manage-btn">18</button><button
+                  class="manage-btn">19</button><button class="manage-btn">20</button><button
+                  class="manage-btn">21</button><button class="manage-btn">22</button><button
+                  class="manage-btn">23</button><button class="manage-btn">24</button><button
+                  class="manage-btn">25</button><button class="manage-btn">26</button><button
+                  class="manage-btn">27</button><button class="manage-btn">28</button><button
+                  class="manage-btn">29</button><button class="manage-btn">30</button><button
+                  class="manage-btn">31</button><button class="manage-btn">32</button><button
+                  class="manage-btn">33</button><button class="manage-btn">34</button><button
+                  class="manage-btn">35</button><button class="manage-btn">36</button><button
+                  class="manage-btn">37</button><button class="manage-btn">38</button><button
+                  class="manage-btn">39</button><button class="manage-btn">40</button><button
+                  class="manage-btn">41</button><button class="manage-btn">42</button><button
+                  class="manage-btn">43</button><button class="manage-btn">44</button><button
+                  class="manage-btn">45</button><button class="manage-btn">46</button><button
+                  class="manage-btn">47</button><button class="manage-btn">48</button><button
+                  class="manage-btn">49</button><button class="manage-btn">50</button><button
+                  class="manage-btn">51</button><button class="manage-btn">52</button><button
+                  class="manage-btn">53</button><button class="manage-btn">54</button><button
+                  class="manage-btn">55</button><button class="manage-btn">56</button><button
+                  class="manage-btn">57</button><button class="manage-btn">58</button><button
+                  class="manage-btn">59</button><button class="manage-btn">60</button><button
+                  class="manage-btn">61</button><button class="manage-btn">62</button><button
+                  class="manage-btn">63</button><button class="manage-btn">64</button><button
+                  class="manage-btn">65</button><button class="manage-btn">66</button><button
+                  class="manage-btn">67</button><button class="manage-btn">68</button><button
+                  class="manage-btn">69</button><button class="manage-btn">70</button><button
+                  class="manage-btn">71</button><button class="manage-btn">72</button><button
+                  class="manage-btn">73</button><button class="manage-btn">74</button><button
+                  class="manage-btn">75</button><button class="manage-btn">76</button><button
+                  class="manage-btn">77</button><button class="manage-btn">78</button><button
+                  class="manage-btn">79</button><button class="manage-btn">80</button><button
+                  class="manage-btn">81</button><button class="manage-btn">82</button><button
+                  class="manage-btn">83</button><button class="manage-btn">84</button><button
+                  class="manage-btn">85</button><button class="manage-btn">86</button><button
+                  class="manage-btn">87</button><button class="manage-btn">88</button><button
+                  class="manage-btn">89</button><button class="manage-btn">90</button><button
+                  class="manage-btn">91</button><button class="manage-btn">92</button><button
+                  class="manage-btn">93</button><button class="manage-btn">94</button><button
+                  class="manage-btn">95</button><button class="manage-btn">96</button><button
+                  class="manage-btn">97</button><button class="manage-btn">98</button><button
+                  class="manage-btn">99</button><button class="manage-btn">100</button><button
+                  class="manage-btn">101</button><button class="manage-btn">102</button><button
+                  class="manage-btn">103</button><button class="manage-btn">104</button><button
+                  class="manage-btn">105</button><button class="manage-btn">106</button><button
+                  class="manage-btn">107</button><button class="manage-btn">108</button><button
+                  class="manage-btn">109</button><button class="manage-btn">110</button><button
+                  class="manage-btn">111</button><button class="manage-btn">112</button><button
+                  class="manage-btn">113</button><button class="manage-btn">114</button><button
+                  class="manage-btn">115</button><button class="manage-btn">116</button><button
+                  class="manage-btn">117</button><button class="manage-btn">118</button><button
+                  class="manage-btn">119</button><button class="manage-btn">120</button><button
+                  class="manage-btn">121</button><button class="manage-btn">122</button><button
+                  class="manage-btn">123</button><button class="manage-btn">124</button><button
+                  class="manage-btn">125</button><button class="manage-btn">126</button><button
+                  class="manage-btn">127</button><button class="manage-btn">128</button><button
+                  class="manage-btn">129</button><button class="manage-btn">130</button><button
+                  class="manage-btn">131</button><button class="manage-btn">132</button><button
+                  class="manage-btn">133</button><button class="manage-btn">134</button><button
+                  class="manage-btn">135</button><button class="manage-btn">136</button><button
+                  class="manage-btn">137</button><button class="manage-btn">138</button><button
+                  class="manage-btn">139</button><button class="manage-btn">140</button><button
+                  class="manage-btn">141</button><button class="manage-btn">142</button><button
+                  class="manage-btn">143</button><button class="manage-btn">144</button><button
+                  class="manage-btn">145</button><button class="manage-btn">146</button><button
+                  class="manage-btn">147</button><button class="manage-btn">148</button><button
+                  class="manage-btn">149</button><button class="manage-btn">150</button><button
+                  class="manage-btn">151</button><button class="manage-btn">152</button><button
+                  class="manage-btn">153</button><button class="manage-btn">154</button><button
+                  class="manage-btn">155</button><button class="manage-btn">156</button><button
+                  class="manage-btn">157</button><button class="manage-btn">158</button><button
+                  class="manage-btn">159</button><button class="manage-btn">160</button><button
+                  class="manage-btn">161</button><button class="manage-btn">162</button><button
+                  class="manage-btn">163</button><button class="manage-btn">164</button><button
+                  class="manage-btn">165</button><button class="manage-btn">166</button><button
+                  class="manage-btn">167</button><button class="manage-btn">168</button><button
+                  class="manage-btn">169</button><button class="manage-btn">170</button><button
+                  class="manage-btn">171</button><button class="manage-btn">172</button><button
+                  class="manage-btn">173</button><button class="manage-btn">174</button><button
+                  class="manage-btn">175</button><button class="manage-btn">176</button><button
+                  class="manage-btn">177</button><button class="manage-btn">178</button><button
+                  class="manage-btn">179</button><button class="manage-btn">180</button><button
+                  class="manage-btn">181</button><button class="manage-btn">182</button><button
+                  class="manage-btn">183</button><button class="manage-btn">184</button><button
+                  class="manage-btn">185</button><button class="manage-btn">186</button><button
+                  class="manage-btn">187</button><button class="manage-btn">188</button><button
+                  class="manage-btn">189</button><button class="manage-btn">190</button><button
+                  class="manage-btn">191</button><button class="manage-btn">192</button><button
+                  class="manage-btn">193</button><button class="manage-btn">194</button><button
+                  class="manage-btn">195</button><button class="manage-btn">196</button><button
+                  class="manage-btn">197</button><button class="manage-btn">198</button><button
+                  class="manage-btn">199</button><button class="manage-btn">200</button><button
+                  class="manage-btn">201</button><button class="manage-btn">202</button><button
+                  class="manage-btn">203</button><button class="manage-btn">204</button><button
+                  class="manage-btn">205</button><button class="manage-btn">206</button><button
+                  class="manage-btn">207</button><button class="manage-btn">208</button><button
+                  class="manage-btn">209</button><button class="manage-btn">210</button><button
+                  class="manage-btn">211</button><button class="manage-btn">212</button><button
+                  class="manage-btn">213</button><button class="manage-btn">214</button><button
+                  class="manage-btn">215</button><button class="manage-btn">216</button><button
+                  class="manage-btn">217</button><button class="manage-btn">218</button><button
+                  class="manage-btn">219</button><button class="manage-btn">220</button><button
+                  class="manage-btn">221</button><button class="manage-btn">222</button><button
+                  class="manage-btn">223</button><button class="manage-btn">224</button><button
+                  class="manage-btn">225</button>
+                <!-- Button trigger modal -->
+                <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                  Launch demo modal
+                </button> -->
+              </div>
+            </div>
+          </div>
+          <div role="tabpanel" class="tab-pane fade in active" id="management">
+            <div class="management-quadart">
+              <div class="quadart-notice">
+                <div *ngIf="status === 'connect'" class="quadart-notice--description">To view your
+                  QuadArto NFTs please <a class="quadart-link" (click)="connect()">connect wallet</a></div>
+                <div *ngIf="status === 'network'" class="quadart-notice--description" >!
+                  Please <a class="quadart-link" (click)="switchNetworks()">change network</a> to Etherium</div>
+                <div *ngIf="status === 'connected' && nfts.length > 0" class="quadart-notice--description" [innerHTML]="nft_collect_title">You have 0 QuadArto NFTs</div>
+                <div *ngIf="status === 'connected' && nfts.length <= 0" class="quadart-notice--description opensea">
+                  You have 0 QuadArto NFTs 
+                  <a class="quadart-link" (click)="goToOpenSea()"><svg width="21" height="19" viewBox="0 0 21 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M2.13778 10.4625L2.20261 10.3671L6.41654 3.9124C6.48137 3.81701 6.61103 3.81701 6.67586 3.9442C7.38899 5.50223 7.97246 7.41002 7.71314 8.61829C7.58348 9.12703 7.25933 9.79476 6.87035 10.3989C6.83794 10.4943 6.77311 10.5897 6.70828 10.6533C6.67586 10.6851 6.64345 10.7169 6.57862 10.7169H2.23502C2.13778 10.6851 2.07295 10.5579 2.13778 10.4625Z" fill="#3A7FF0"/>
+                  <path d="M20.9062 11.6706V12.6881C20.9062 12.7517 20.8738 12.7834 20.809 12.8152C20.4849 12.9424 19.3503 13.4512 18.8965 14.0871C17.6972 15.7087 16.7896 18.0299 14.7798 18.0299H6.31954C3.33737 18.0299 0.90625 15.6451 0.90625 12.6881V12.5927C0.90625 12.5291 0.97108 12.4655 1.03591 12.4655H5.8009C5.89815 12.4655 5.96298 12.5609 5.96298 12.6245C5.93056 12.9106 5.99539 13.2286 6.12505 13.5148C6.41678 14.0871 7.00025 14.4051 7.61614 14.4051H9.95001V12.6245H7.64855C7.51889 12.6245 7.45406 12.4973 7.51889 12.4019C7.55131 12.3701 7.58372 12.3383 7.61614 12.2747C7.84304 11.9567 8.13477 11.5116 8.45892 10.971C8.68583 10.6213 8.88032 10.2079 9.04239 9.82637C9.07481 9.76278 9.10722 9.69919 9.13964 9.6038C9.17205 9.47661 9.23688 9.34942 9.26929 9.25403C9.30171 9.15864 9.33413 9.06326 9.36654 8.96787C9.43137 8.6499 9.46379 8.30014 9.46379 7.91858C9.46379 7.7914 9.46378 7.63241 9.43137 7.47343C9.43137 7.31445 9.39896 7.15546 9.39896 6.99648C9.39896 6.8693 9.36654 6.71032 9.33412 6.58313C9.30171 6.36056 9.2693 6.16978 9.20447 5.9472L9.17205 5.8836C9.13963 5.75642 9.10722 5.59744 9.04239 5.47025C8.91273 5.0251 8.75066 4.57995 8.58858 4.19839C8.52375 4.03941 8.45892 3.88043 8.39409 3.72145C8.29685 3.49887 8.1996 3.27629 8.10236 3.08552C8.06994 2.99013 8.00511 2.92653 7.9727 2.83114C7.94028 2.73575 7.87546 2.64036 7.84304 2.54497C7.81063 2.48138 7.77821 2.41779 7.7458 2.35419L7.45406 1.84545C7.42165 1.78186 7.48648 1.68647 7.55131 1.71826L9.33412 2.19521L9.56103 2.2588L9.82035 2.3224L9.91759 2.35419V1.30491C9.91759 0.796165 10.339 0.382812 10.8252 0.382812C11.0845 0.382812 11.3114 0.478198 11.4735 0.637181C11.6356 0.796163 11.7328 1.01874 11.7328 1.27311V2.79934L11.9273 2.86294C11.9273 2.86294 11.9597 2.86294 11.9597 2.89473C11.9921 2.92653 12.057 2.99012 12.1542 3.05372C12.2191 3.11731 12.2839 3.1809 12.3811 3.2445C12.5432 3.37168 12.7701 3.56246 12.997 3.75324C13.0618 3.81683 13.1267 3.84863 13.1591 3.91222C13.4508 4.16659 13.775 4.48456 14.0991 4.83432C14.1964 4.92971 14.2612 5.0251 14.3584 5.12049C14.4557 5.21588 14.5205 5.34306 14.6178 5.43845C14.715 5.56564 14.8447 5.72462 14.9419 5.85181C14.9743 5.9154 15.0392 5.979 15.0716 6.07438C15.2012 6.26516 15.2985 6.45594 15.4281 6.64672C15.4605 6.74211 15.5254 6.8375 15.5578 6.93289C15.6874 7.18726 15.7847 7.44163 15.8171 7.7278C15.8495 7.79139 15.8495 7.85499 15.8495 7.88678C15.8819 7.95038 15.8819 8.04577 15.8819 8.14116C15.9144 8.42733 15.8819 8.6817 15.8495 8.96787C15.8171 9.09505 15.7847 9.19044 15.7523 9.31763C15.7199 9.41302 15.6874 9.5402 15.6226 9.66739C15.5254 9.88997 15.3957 10.1125 15.2661 10.3351C15.2336 10.3987 15.1688 10.4941 15.104 10.5895C15.0391 10.6849 14.9743 10.7485 14.9419 10.8439C14.8771 10.9392 14.7798 11.0346 14.715 11.13C14.6502 11.2254 14.5853 11.3208 14.4881 11.4162C14.3909 11.5434 14.2612 11.6706 14.1639 11.7978C14.0991 11.8613 14.0343 11.9567 13.937 12.0203C13.8722 12.0839 13.8074 12.1793 13.7101 12.2429C13.6129 12.3383 13.5156 12.4337 13.4184 12.4973L13.2239 12.6563C13.1915 12.6881 13.1591 12.6881 13.1267 12.6881H11.7004V14.4687H13.4832C13.8722 14.4687 14.2612 14.3415 14.5529 14.0871C14.6502 13.9917 15.104 13.6102 15.655 13.0378C15.6874 13.006 15.6875 13.006 15.7199 13.006L20.6469 11.607C20.8414 11.5116 20.9062 11.5752 20.9062 11.6706Z" fill="#3A7FF0"/>
+                  </svg> Visit OpenSea</a></div>
+              </div>
+              <pinch-zoom listeners="mouse and touch" overflow="hidden" disableZoomControl='disable' [wheel]="false">
+                <div class="quadart-square">
+                  <ng-container *ngFor="let grid of nftsGrid; let i = index">
+                    <button class="manage-btn" id="grid.id" [disabled]="grid.disabled"
+                    [ngStyle]="{'background-image': 'url(' + grid.url + ')'}" data-toggle="modal" data-target="#exampleModalCenter"
+                    (click)="popup(grid)"
+                    >{{grid.text}}</button>
+                  </ng-container>
+                </div>
+              </pinch-zoom>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>
+
+<!-- Modal -->
+<div class="modal-quadart modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">QuadArto#{{ selectedNft?.id+1 }}</h4>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <svg
+            width="30"
+            height="31"
+            viewBox="0 0 30 31"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M29.7089 1.76777L28.2947 0.353553L15.0312 13.617L1.41421 0L0 1.41421L13.617 15.0312L0 28.6482L1.41421 30.0624L15.0312 16.4454L28.2947 29.7089L29.7089 28.2947L16.4454 15.0312L29.7089 1.76777Z" fill="#5E6E8D"/>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <ng-container *ngIf="!isChangeNft && modalStatus === ''">
+        <div class="body-content">
+          <img
+                src="{{selectedNft?.url}}"
+                width="300"
+                height="300"
+                alt="quadarto-nft-image"
+          />
+          
+        </div>
+        </ng-container> 
+        <div class="body-content body-border dnd" *ngIf="isChangeNft && modalStatus != 'success'">
+          <app-drag-and-drop (statusChanged)="checkStatus($event)" [token_id]="selectedNft?.id"></app-drag-and-drop>
+        </div>
+        <div class="body-content body-border blockchain" *ngIf="modalStatus === 'success'">
+          <img src="{{environment.api_url}}img/{{selectedNft?.id+1}}.{{imageType}}?{{date}}" width="300" height="300" alt="quadarto-nft-image">
+        </div>
+      </div>
+      <div class="modal-footer" *ngIf="!isChangeNft && modalStatus === ''"><a (click)="this.isChangeNft = !this.isChangeNft">Change NFT</a></div>
+      <div class="modal-footer blockchain" *ngIf="modalStatus === 'success'">
+        <div class="blockchain-cta">
+          <a class="blockchaine-cta--cancel" data-dismiss="modal" aria-label="Close">Close</a>
+          <a class="blockchaine-cta--save" data-dismiss="modal" aria-label="Close">Save</a>
+        </div>
+        <div class="blockchaine-desc">
+        After paying the commission and some time, your picture will be on the canvas. 
+        Maybe some more information about what's going on?</div>
+      </div>
+    </div>
+  </div>
+</div>

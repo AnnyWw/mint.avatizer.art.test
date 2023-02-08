@@ -5,20 +5,20 @@ import { MintUglyfacesComponent } from './pages/mint-uglyfaces/mint-uglyfaces.co
 import { MintComponent } from './pages/mint/mint.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ManageUglyfacesComponent } from './pages/manage-uglyfaces/manage-uglyfaces.component';
+import { QuadArtComponent } from './pages/quad-art/quad-art.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'mint-ugly-faces', pathMatch: 'full' },
-  
+  { path: '', redirectTo: 'quad-arto', pathMatch: 'full' },
   {
-    path: 'mint-ugly-faces',
-    component: MintUglyfacesComponent,
-    title: 'Ugly Faces - Mint',
+    path: 'quad-arto',
+    component: QuadArtComponent,
+    title: 'Quad Arto - Manage my collection',
     data: {
       seo: {
         metaTags: [
           {
             name: 'description',
-            content: "Ugly Faces NFT - Free Mint.",
+            content: 'Manage my Quad Arto. Pausing or restoring daily reloads.',
           },
         ],
       },
@@ -54,8 +54,8 @@ const routes: Routes = [
       },
     },
   },
-  { 
-  path: '404', 
+  {
+  path: '404',
   component: NotFoundComponent,
   title: 'Avatizer - Page Not Found 404',
     data: {
@@ -69,7 +69,7 @@ const routes: Routes = [
       },
     },
   },
-  
+
   { path: '**', redirectTo: '/404' }
 ];
 
