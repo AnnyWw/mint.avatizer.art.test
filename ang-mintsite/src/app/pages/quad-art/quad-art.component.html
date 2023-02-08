@@ -35,7 +35,9 @@
               <div class="quadart-notice">
                 <div class="quadart-notice--description">Reveal QuadArto canvas Monday, 20 February 2023</div>
               </div>
+                <pinch-zoom listeners="mouse and touch" overflow="hidden" disableZoomControl='disable' [wheel]="false">
               <div class="quadart-square">
+                <div class="canvas-btns">
                 <button class="manage-btn">1</button><button class="manage-btn">2</button><button
                   class="manage-btn">3</button><button class="manage-btn">4</button><button
                   class="manage-btn">5</button><button class="manage-btn">6</button><button
@@ -148,12 +150,13 @@
                   class="manage-btn">219</button><button class="manage-btn">220</button><button
                   class="manage-btn">221</button><button class="manage-btn">222</button><button
                   class="manage-btn">223</button><button class="manage-btn">224</button><button
-                  class="manage-btn">225</button>
+                  class="manage-btn">225</button></div>
                 <!-- Button trigger modal -->
                 <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
                   Launch demo modal
                 </button> -->
               </div>
+                </pinch-zoom>
             </div>
           </div>
           <div role="tabpanel" class="tab-pane fade in active" id="management">

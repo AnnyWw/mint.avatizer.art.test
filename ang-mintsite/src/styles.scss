@@ -293,7 +293,7 @@ body.header-open {
     position: fixed;
     width: 100%;
     left: 0;
-    z-index: 3;
+    z-index: 9999;
     height: 180px;
     top: 0;
     background: linear-gradient(180deg,
@@ -5669,6 +5669,7 @@ table.table-check-list td.row2 {
     .header {
         padding-left: 25px;
         padding-right: 25px;
+        height: 100px;
     }
 
     .header .logo-header .site_name {
