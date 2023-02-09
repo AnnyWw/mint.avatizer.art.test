@@ -84,7 +84,7 @@ export class QuadArtComponent implements OnInit, OnDestroy {
         // console.log('grid index',this.nftsGrid[index], index);
         // console.log(this.date);
           
-        this.nftsGrid[data.token_id].url = `${environment.api_url}img/${data?.token_id+1}.${this.imageType}?${date}`;
+        this.nftsGrid[data.token_id].url = `${environment.api_url}img/${data?.token_id+1}.png?${date}`;
       }
     });
   }
