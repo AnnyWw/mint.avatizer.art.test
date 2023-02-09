@@ -177,7 +177,7 @@
                 <div class="quadart-square">
                   <ng-container *ngFor="let grid of nftsGrid; let i = index">
                     <button class="manage-btn" id="grid.id" [disabled]="grid.disabled"
-                    [ngStyle]="{'background-image': 'url(' + grid.url + ')'}" (error)="onImgError($event)" data-toggle="modal" data-target="#exampleModalCenter"
+                    [ngStyle]="{'background-image': 'url(' + grid.url + ')'}" data-toggle="modal" data-target="#exampleModalCenter"
                     (click)="popup(grid)"
                     >{{grid.text}}</button>
                   </ng-container>
