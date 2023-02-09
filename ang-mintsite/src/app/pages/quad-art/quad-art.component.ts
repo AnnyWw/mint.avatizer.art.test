@@ -53,6 +53,8 @@ export class QuadArtComponent implements OnInit, OnDestroy {
       }
       this.getStatus();
     }));
+    let date = new Date().getTime();
+    this.date = date;
   }
 
   // create an array of 225 elements, with the help of which we display the grid in view
@@ -67,6 +69,7 @@ export class QuadArtComponent implements OnInit, OnDestroy {
   }
 
   setMetadataToCorrectGrid() {
+    let date = new Date().getTime();
     this.nfts.find((nft, index)=> {
       this.nftsGrid[nft.Id].disabled = false;
       this.nftsGrid[nft.Id].url = nft.Image || '../../../assets/imgnew/quadarto/photo.png';
