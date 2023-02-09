@@ -15,6 +15,22 @@
 .quadart-tabs{
   border-bottom: 0;
 }
+.tab-content{
+  position: relative;
+  min-height: 975px;
+}
+.tab-content>.tab-pane {
+  display: block;
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .5s linear, visibility .5s linear;
+}
+.tab-content>.tab-pane.active {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
 .quadart-tabs li{
   margin-bottom: 0;
 }
@@ -45,7 +61,6 @@
   color: #FFFFFF;
 }
 .quadart-tabs li a:focus{
-  background: #0E0E0E;
   color: #FFFFFF;
 }
 .quadart-tabs li.active a{
@@ -97,6 +112,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
 }
 .quadart-notice .quadart-link{
   color: #3A7FF0;
@@ -148,10 +164,21 @@
 .canvas-btns .manage-btn{
   margin: 0px;
   display: inline-block;
-  border: 0.5px solid #0E0E0E;
   flex-grow: 1;
-  font-size: 0;
   cursor: auto;
+  max-width: 61px;
+  max-height: 61px;
+  height: 61px;
+  width: 61px;
+  border-right: 1px solid #0e0e0e;
+  border-top: 1px solid #0e0e0e;
+}
+.canvas-btns .manage-btn:nth-child(-n+15){
+  border-top: 0;
+  max-height: 60px;
+}
+.canvas-btns .manage-btn:nth-child(15n){
+  border-right: 0;
 }
 // .canvas-quadart .quadart-square::before{
 //   content: '';
@@ -216,9 +243,9 @@
   color: rgba(255, 255, 255, .7);
 }
 .modal-body img {
-    object-fit: cover;
-    max-width: 300px !important;
-    height: auto;
+  object-fit: cover;
+  max-width: 300px !important;
+  height: auto;
 }
 .modal-footer{
   padding: 0 10px;
@@ -332,6 +359,9 @@
     align-items: center;
     justify-content: center;
   }
+  .modal-body img{
+    width: 100%;
+  }
 }
 @media (max-width:767px) and (min-width:425px) {
   .manage-btn{
@@ -345,7 +375,7 @@
     margin: 0 auto;
   }
 }
-@media (max-width:425px) and (min-width:375px){
+@media (max-width:424px) and (min-width:375px){
   .manage-btn{
     width: 23px;
     min-width: 23px;
@@ -357,7 +387,7 @@
     margin: 0 auto;
   }
 }
-@media (max-width:375px){
+@media (max-width:374px){
   .manage-btn{
     width: 19.3px;
     min-width: 19.3px;
@@ -367,5 +397,8 @@
   .tab-content,.quadart-tabs{
     max-width:304px;
     margin: 0 auto;
+  }
+  .quadart-tabs li.quadart-li-connect{
+    font-size: 14px;
   }
 }

@@ -30,7 +30,7 @@
           </li>
         </ul>
         <div class="tab-content">
-          <div role="tabpanel" class="tab-pane fade " id="canvas">
+          <div role="tabpanel" class="tab-pane " id="canvas">
             <div class="canvas-quadart">
               <div class="quadart-notice">
                 <div class="quadart-notice--description">Reveal QuadArto canvas Monday, 20 February 2023</div>
@@ -159,7 +159,7 @@
                 </pinch-zoom>
             </div>
           </div>
-          <div role="tabpanel" class="tab-pane fade in active" id="management">
+          <div role="tabpanel" class="tab-pane active" id="management">
             <div class="management-quadart">
               <div class="quadart-notice">
                 <div *ngIf="status === 'connect'" class="quadart-notice--description">To view your
@@ -199,7 +199,7 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title">QuadArto#{{ selectedNft?.id+1 }}</h4>
+        <h4 class="modal-title">QuadArto# {{ selectedNft?.id+1 }}</h4>
         <button
           type="button"
           class="close"

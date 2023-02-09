@@ -68,8 +68,10 @@ export class DragAndDropComponent implements OnInit, OnDestroy {
   /**
      * on file drop handler
      */
-  onFileDropped($event) {
-    this.prepareFile($event);
+  onFileDropped(files) {
+    console.log(files);
+    
+    this.prepareFile(files);
   }
 
   /**

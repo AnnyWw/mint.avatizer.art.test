@@ -34,8 +34,10 @@ export class DndDirective {
     evt.stopPropagation();
     this.fileOver = false;
     let files = evt.dataTransfer.files;
+    console.log(files);
+    
     if (files.length > 0) {
-      this.fileDropped.emit(files);
+      this.fileDropped.emit(files[0]);
     }
   }
 }
