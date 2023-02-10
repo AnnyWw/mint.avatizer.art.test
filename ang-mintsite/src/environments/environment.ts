@@ -21,11 +21,11 @@ export const environment = {
   moralis_api_key:'8kEmud1tbZttJ6IZdoVSejGjUt4NXlbJXjLqEu5HsjRezZYkXZv1pEX6BslaWQ8T',
   network:'goerli',
   chain:'?chain=goerli',
-  contractAvQuadArto: '0xe76434027fEB80a0E99a6727D3055367Dc8C87Df', 
+  contractAvQuadArto: '0xe76434027fEB80a0E99a6727D3055367Dc8C87Df', //0xe76434027fEB80a0E99a6727D3055367Dc8C87Df
   recaptcha: {
     siteKey: '6Le_52IkAAAAAMpX60Au6UYN10PO-5rFkWzAYMcB',
   },
-  api_url: 'https://www.avatizer.art/quadarto/'
+  api_url: 'http://www.quadarto.local/'
 };
 
 /*
