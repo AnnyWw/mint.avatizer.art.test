@@ -80,7 +80,6 @@ export class QuadArtComponent implements OnInit, OnDestroy {
   }
 
   setMetadataToCorrectGrid() {
-    let date = new Date().getTime();
     this.nfts.find((nft, index)=> {
       this.nftsGrid[nft.Id-1].disabled = false;
       this.nftsGrid[nft.Id-1].url = nft.Image || '../../../assets/imgnew/quadarto/photo.png';
@@ -91,12 +90,7 @@ export class QuadArtComponent implements OnInit, OnDestroy {
     let date = new Date().getTime();
     this.date = date;
     this.nfts.find((nft, index)=> {
-      // console.log('find id',nft.Id, data.token_id);
-      
       if(nft.Id-1 == data.token_id){
-        // console.log('grid index',this.nftsGrid[index], index);
-        // console.log(this.date);
-          
         this.nftsGrid[data.token_id].url = `${environment.api_url}img/${data?.token_id+1}.png?${date}`;
       }
     });
@@ -178,14 +172,10 @@ export class QuadArtComponent implements OnInit, OnDestroy {
 
   async decodeURL(url: any) {
     try {
-      let response = await fetch(url, {
-        headers: new Headers({
-          'Access-Control-Allow-Origin': '*',
-        }),
-        mode: 'no-cors'
-      });
+      let response = await fetch(url);
+      
       let data = null;
-
+      console.log('decode responce', response);
       if (response) {
         data = await response.json();
       }
@@ -214,6 +204,7 @@ export class QuadArtComponent implements OnInit, OnDestroy {
       if (response) {
         data = await response.json();
       }
+      console.log(data);
       
       return data;
     } catch (err) {

@@ -176,7 +176,7 @@
               <pinch-zoom listeners="mouse and touch" overflow="hidden" disableZoomControl='disable' [wheel]="false">
                 <div class="quadart-square">
                   <ng-container *ngFor="let grid of nftsGrid; let i = index">
-                    <button class="manage-btn" id="grid.id" [disabled]="grid.disabled"
+                    <button class="manage-btn" [disabled]="grid.disabled"
                     [ngStyle]="{'background-image': 'url(' + grid.url + ')'}" data-toggle="modal" data-target="#exampleModalCenter"
                     (click)="popup(grid)"
                     >{{grid.text}}</button>
