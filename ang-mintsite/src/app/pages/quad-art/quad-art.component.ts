@@ -82,8 +82,8 @@ export class QuadArtComponent implements OnInit, OnDestroy {
   setMetadataToCorrectGrid() {
     let date = new Date().getTime();
     this.nfts.find((nft, index)=> {
-      this.nftsGrid[nft.Id].disabled = false;
-      this.nftsGrid[nft.Id].url = nft.Image || '../../../assets/imgnew/quadarto/photo.png';
+      this.nftsGrid[nft.Id-1].disabled = false;
+      this.nftsGrid[nft.Id-1].url = nft.Image || '../../../assets/imgnew/quadarto/photo.png';
     });
   }
 
@@ -93,7 +93,7 @@ export class QuadArtComponent implements OnInit, OnDestroy {
     this.nfts.find((nft, index)=> {
       // console.log('find id',nft.Id, data.token_id);
       
-      if(nft.Id == data.token_id){
+      if(nft.Id-1 == data.token_id){
         // console.log('grid index',this.nftsGrid[index], index);
         // console.log(this.date);
           
@@ -167,6 +167,7 @@ export class QuadArtComponent implements OnInit, OnDestroy {
       );
 
       console.log('nfts', this.nfts);
+      
 
       await this.setMetadataToCorrectGrid();
       
@@ -199,7 +200,7 @@ export class QuadArtComponent implements OnInit, OnDestroy {
         'https://deep-index.moralis.io/api/v2/' + token_address + '/nft' + environment.chain;
 
       if (cursor) {
-        url += '?cursor=' + cursor;
+        url += '&cursor=' + cursor;
       }
 
       let response = await fetch(url, {
@@ -213,7 +214,7 @@ export class QuadArtComponent implements OnInit, OnDestroy {
       if (response) {
         data = await response.json();
       }
-
+      
       return data;
     } catch (err) {
       console.log(err);
@@ -253,7 +254,7 @@ export class QuadArtComponent implements OnInit, OnDestroy {
     })
       .then((response) => {
           this.nfts.find((nft, index)=> {
-            if(nft.Id == this.selectedNft.id){
+            if(nft.Id-1 == this.selectedNft.id){
               this.nftsGrid[this.selectedNft.id].url = '../../../assets/imgnew/quadarto/photo.png'; // TODO: change to default image
             }
           });
