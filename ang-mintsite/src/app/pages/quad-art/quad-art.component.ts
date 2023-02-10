@@ -263,6 +263,8 @@ export class QuadArtComponent implements OnInit, OnDestroy {
         console.error('Error:::', error);
       })
       .finally(()=> {
+        let date = new Date().getTime();
+        this.date = date;
       });
   }
 

@@ -17,7 +17,7 @@ export const environment = {
   moralis_api_key: '8kEmud1tbZttJ6IZdoVSejGjUt4NXlbJXjLqEu5HsjRezZYkXZv1pEX6BslaWQ8T',
   network:'goerli',
   chain:'?chain=goerli',
-  contractAvQuadArto: '0x1de6D34817FFc7167e1990CAA0078C8B7d89E440', 
+  contractAvQuadArto: '0xe76434027fEB80a0E99a6727D3055367Dc8C87Df', 
   recaptcha: {
     siteKey: '6Le_52IkAAAAAMpX60Au6UYN10PO-5rFkWzAYMcB',
   },
