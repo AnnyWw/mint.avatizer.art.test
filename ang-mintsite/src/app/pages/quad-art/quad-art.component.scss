@@ -1,5 +1,11 @@
 .wrap {
   background-color: #000000;
+  position: relative;
+}
+.wrap-quadarto::before{
+  content: '';
+  position: absolute;
+  background: url(../../../assets/imgnew/quadarto/animations.gif);
 }
 .splash-mint {
   padding-top: 129px;
