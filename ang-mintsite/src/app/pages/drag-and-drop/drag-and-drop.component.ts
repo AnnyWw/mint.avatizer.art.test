@@ -1,4 +1,5 @@
 import { Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output, Renderer2, ViewChild } from '@angular/core';
+import { log } from 'console';
 import { OnExecuteData, OnExecuteErrorData, ReCaptchaV3Service } from 'ng-recaptcha';
 import { Subscription, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -68,10 +69,8 @@ export class DragAndDropComponent implements OnInit, OnDestroy {
   /**
      * on file drop handler
      */
-  onFileDropped(files) {
-    console.log(files);
-    
-    this.prepareFile(files);
+  onFileDropped($event) {
+    this.prepareFile($event);
   }
 
   /**

@@ -1,4 +1,4 @@
-<div class="dnd-container" appDnd (fileDropped)="onFileDropped($event.target['files'])">
+<div class="dnd-container" appDnd (fileDropped)="onFileDropped($event)">
   <div class="dnd-content" *ngIf="statusFile === ''">
     <input type="file" #fileDropRef id="fileDropRef" (change)="fileBrowseHandler($event.target['files'][0])" />
     <span class="file-icon">
