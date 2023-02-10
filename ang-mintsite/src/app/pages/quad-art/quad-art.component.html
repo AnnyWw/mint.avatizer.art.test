@@ -250,7 +250,7 @@
       <div class="modal-footer" *ngIf="!isChangeNft && modalStatus === ''"><a (click)="this.isChangeNft = !this.isChangeNft">Change NFT</a></div>
       <div class="modal-footer blockchain" *ngIf="modalStatus === 'success'">
         <div class="blockchain-cta">
-          <a class="blockchaine-cta--cancel" data-dismiss="modal" aria-label="Close">Close</a>
+          <a class="blockchaine-cta--cancel" data-dismiss="modal" aria-label="Close" (click)="executeAction('remove')">Cancel</a>
           <a class="blockchaine-cta--save" data-dismiss="modal" aria-label="Close">Save</a>
         </div>
         <div class="blockchaine-desc">

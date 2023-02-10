@@ -5,6 +5,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { environment } from 'src/environments/environment';
 import { texts } from 'src/environments/texts';
 declare var $: any;
+import { OnExecuteData, OnExecuteErrorData, ReCaptchaV3Service } from 'ng-recaptcha';
 
 @Component({
   selector: 'app-quad-art',
@@ -34,11 +35,12 @@ export class QuadArtComponent implements OnInit, OnDestroy {
   selectedNft: any;
   isChangeNft: boolean;
   
+  singleExecutionSubscription: any;
   @HostListener('window:load')
   onLoad() {
     $('body').addClass('loaded quadart');
   }
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService, private recaptchaV3Service: ReCaptchaV3Service) {
     this.onLoad();
    }
 
@@ -55,6 +57,15 @@ export class QuadArtComponent implements OnInit, OnDestroy {
     }));
     let date = new Date().getTime();
     this.date = date;
+  }
+
+  public executeAction(action: string): void {
+    this.singleExecutionSubscription = this.recaptchaV3Service.execute(action).subscribe(
+      (token) => {
+        this.removeFile(token);
+      },
+      (error) => {},
+    );
   }
 
   // create an array of 225 elements, with the help of which we display the grid in view
@@ -77,7 +88,6 @@ export class QuadArtComponent implements OnInit, OnDestroy {
   }
 
   updateGridMetadata(data) {
-    // console.log(data);
     let date = new Date().getTime();
     this.date = date;
     this.nfts.find((nft, index)=> {
@@ -229,6 +239,31 @@ export class QuadArtComponent implements OnInit, OnDestroy {
     this.modalStatus = data.status;
     this.imageType = data.typeImage.slice(6);
     this.updateGridMetadata(data);
+  }
+
+  async removeFile(token) {
+    const form_data = new FormData();
+    form_data.append('image-name', this.selectedNft.id+1+'.png');
+    form_data.append('token', token);
+    form_data.append('number', this.selectedNft.id+1);
+    
+    await fetch(environment.api_url, {
+      method: "POST",
+      body: form_data,
+    })
+      .then((response) => {
+          this.nfts.find((nft, index)=> {
+            if(nft.Id == this.selectedNft.id){
+              this.nftsGrid[this.selectedNft.id].url = '../../../assets/imgnew/quadarto/photo.png'; // TODO: change to default image
+            }
+          });
+        return response;
+      })
+      .catch((error) => {
+        console.error('Error:::', error);
+      })
+      .finally(()=> {
+      });
   }
 
   ngOnDestroy() {
