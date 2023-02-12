@@ -150,10 +150,7 @@
 }
 .manage-btn {
   background-color: transparent;
-  color: rgba(255, 255, 255, 0.7);
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 30px;
+  font-size: 0;
   border: 0;
   background-repeat: no-repeat;
   display: flex;
@@ -166,6 +163,12 @@
   width: 61px;
   border-right: 1px solid #0e0e0e;
   border-top: 1px solid #0e0e0e;
+}
+.manage-btn:disabled{
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 30px;
 }
 .canvas-quadart .manage-btn{
   font-size: 0;

@@ -37,6 +37,9 @@
               </div>
                 <pinch-zoom listeners="mouse and touch" overflow="hidden" disableZoomControl='disable' [wheel]="false">
                   <div class="quadart-square" [ngStyle]="{'background-image': 'url(' + environment.api_url + 'img/token.png?' + this.date + ')'}">
+                    <!-- [ngStyle]="{'background-image': environment.isReveal ? 
+                  'url(' + environment.api_url + 'img/token.png?' + this.date + ')' :
+                  'url(../../../assets/imgnew/quadarto/225.svg)'}" -->
                     <button class="manage-btn">1</button><button class="manage-btn">2</button><button
                       class="manage-btn">3</button><button class="manage-btn">4</button><button
                       class="manage-btn">5</button><button class="manage-btn">6</button><button
@@ -244,14 +247,14 @@
           <app-drag-and-drop (statusChanged)="checkStatus($event)" [token_id]="selectedNft?.id"></app-drag-and-drop>
         </div>
         <div class="body-content body-border blockchain" *ngIf="modalStatus === 'success'">
-          <img src="{{environment.api_url}}img/{{selectedNft?.id+1}}.png?{{date}}" width="300" height="300" alt="quadarto-nft-image">
+          <img src="{{environment.api_url}}img/{{selectedNft?.id+1}}-preview.png" width="300" height="300" alt="quadarto-nft-image">
         </div>
       </div>
       <div class="modal-footer" *ngIf="!isChangeNft && modalStatus === ''"><a (click)="this.isChangeNft = !this.isChangeNft">Change NFT</a></div>
       <div class="modal-footer blockchain" *ngIf="modalStatus === 'success'">
         <div class="blockchain-cta">
-          <a class="blockchaine-cta--cancel" data-dismiss="modal" aria-label="Close" (click)="executeAction('remove')">Cancel</a>
-          <a class="blockchaine-cta--save" data-dismiss="modal" aria-label="Close">Save</a>
+          <a class="blockchaine-cta--cancel" (click)="isChangeNft = true; modalStatus = ''">Cancel</a>
+          <a class="blockchaine-cta--save" data-dismiss="modal" aria-label="Close" (click)="executeAction('save')">Save</a>
         </div>
         <div class="blockchaine-desc">
         After paying the commission and some time, your picture will be on the canvas. 
