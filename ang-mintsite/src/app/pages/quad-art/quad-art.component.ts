@@ -62,7 +62,7 @@ export class QuadArtComponent implements OnInit, OnDestroy {
   public executeAction(action: string): void {
     this.singleExecutionSubscription = this.recaptchaV3Service.execute(action).subscribe(
       (token) => {
-        this.removeFile(token);
+        this.actionSave(token);
       },
       (error) => {},
     );
@@ -80,9 +80,10 @@ export class QuadArtComponent implements OnInit, OnDestroy {
   }
 
   setMetadataToCorrectGrid() {
-    this.nfts.find((nft, index)=> {
-      this.nftsGrid[nft.Id-1].disabled = false;
-      this.nftsGrid[nft.Id-1].url = nft.Image || '../../../assets/imgnew/quadarto/photo.png';
+    let date = new Date().getTime();
+    this.nfts.find( (nft, index)=> {
+        this.nftsGrid[nft.Id-1].disabled = environment.isReveal ? true : false;
+        this.nftsGrid[nft.Id-1].url = `${environment.api_url}img/${nft.Id}.png?${date}`; //`${nft.Image}?${date}`;
     });
   }
 
@@ -143,15 +144,18 @@ export class QuadArtComponent implements OnInit, OnDestroy {
           let tok = await this.contractAv.methods.tokenURI(nft.token_id).call();
           let data = (await this.decodeURL(tok)) as any;
           
-          //Decode URL
-          let nftObj = {
-            Id: nft.token_id,
-            Name: data?.name,
-            Image: data?.image,
-            showPreloader: false,
-          };
+          if(nft.token_id != '0'){
+            //Decode URL
+            let nftObj = {
+              Id: nft.token_id,
+              Name: data?.name,
+              Image: data?.image,
+              showPreloader: false,
+            };
 
-          this.nfts.push(nftObj);
+            this.nfts.push(nftObj);
+          }
+          
         }
       }
 
@@ -175,7 +179,6 @@ export class QuadArtComponent implements OnInit, OnDestroy {
       let response = await fetch(url);
       
       let data = null;
-      console.log('decode responce', response);
       if (response) {
         data = await response.json();
       }
@@ -204,7 +207,6 @@ export class QuadArtComponent implements OnInit, OnDestroy {
       if (response) {
         data = await response.json();
       }
-      console.log(data);
       
       return data;
     } catch (err) {
@@ -233,6 +235,35 @@ export class QuadArtComponent implements OnInit, OnDestroy {
     this.updateGridMetadata(data);
   }
 
+  async actionSave(token) {
+    const form_data = new FormData();
+    form_data.append('act', 'save');
+    form_data.append('token', token);
+    form_data.append('number', this.selectedNft.id+1);
+    
+    await fetch(environment.api_url, {
+      method: "POST",
+      body: form_data,
+    })
+      .then((response) => {
+          let date = new Date().getTime();
+          this.nfts.find((nft, index)=> {
+            if(nft.Id-1 == this.selectedNft.id){
+              this.nftsGrid[this.selectedNft.id].url = `${environment.api_url}img/${this.selectedNft.id+1}.png?${date}`; // TODO: change to default image
+            }
+          });
+        return response;
+      })
+      .catch((error) => {
+        console.error('Error:::', error);
+      })
+      .finally(()=> {
+        let date = new Date().getTime();
+        this.date = date;
+      });
+  }
+
+  // remove file NOW don`t used
   async removeFile(token) {
     const form_data = new FormData();
     form_data.append('image-name', this.selectedNft.id+1+'.png');
