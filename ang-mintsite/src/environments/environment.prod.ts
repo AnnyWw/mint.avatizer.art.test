@@ -21,7 +21,8 @@ export const environment = {
   recaptcha: {
     siteKey: '6Le_52IkAAAAAMpX60Au6UYN10PO-5rFkWzAYMcB',
   },
-  api_url: 'https://www.avatizer.art/quadarto/'
+  api_url: 'https://www.avatizer.art/quadarto/',
+  isReveal: false
 };
 
 /*
