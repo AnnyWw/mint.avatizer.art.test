@@ -164,6 +164,15 @@
   border-right: 1px solid #0e0e0e;
   border-top: 1px solid #0e0e0e;
 }
+.manage-btn:hover{
+  border: 2px solid #FFFFFF;
+}
+.manage-btn:disabled:hover{
+  border-right: 1px solid #0e0e0e;
+  border-top: 1px solid #0e0e0e;
+  border-left: 0;
+  border-bottom: 0;
+}
 .manage-btn:disabled{
   color: rgba(255, 255, 255, 0.7);
   font-weight: 500;
@@ -472,7 +481,7 @@
     font-size: 14px;
     line-height: 17px;
   }
-  .manage-btn {
+  .manage-btn:disabled {
     font-size: 6px;
     line-height: 30px;
     display: flex;
@@ -481,6 +490,9 @@
   }
   .modal-body img {
     width: 100%;
+  }
+  .modal-dialog{
+    margin-top: 97px;
   }
 }
 @media (max-width: 767px) and (min-width: 425px) {
