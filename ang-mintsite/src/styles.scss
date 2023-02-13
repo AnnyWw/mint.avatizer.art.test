@@ -302,6 +302,10 @@ body.header-open {
             rgba(0, 0, 0, 0.8) 0%,
             rgba(0, 0, 0, 0) 84.73%);
 }
+.quadart .header{
+  height: 74px;
+  background: none;
+}
 .quadart.modal-open .header{
     z-index: 1;
 }
