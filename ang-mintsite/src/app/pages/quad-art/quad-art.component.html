@@ -247,7 +247,7 @@
           <app-drag-and-drop (statusChanged)="checkStatus($event)" [token_id]="selectedNft?.id"></app-drag-and-drop>
         </div>
         <div class="body-content body-border blockchain" *ngIf="modalStatus === 'success'">
-          <img src="{{environment.api_url}}img/{{selectedNft?.id+1}}-preview.png" width="300" height="300" alt="quadarto-nft-image">
+          <img src="{{environment.api_url}}img/{{selectedNft?.id+1}}-preview.png?{{date}}" width="300" height="300" alt="quadarto-nft-image">
         </div>
       </div>
       <div class="modal-footer" *ngIf="!isChangeNft && modalStatus === ''"><a (click)="this.isChangeNft = !this.isChangeNft">Change NFT</a></div>
