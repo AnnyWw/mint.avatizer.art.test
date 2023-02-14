@@ -3,6 +3,7 @@ import { log } from 'console';
 import { OnExecuteData, OnExecuteErrorData, ReCaptchaV3Service } from 'ng-recaptcha';
 import { Subscription, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { texts } from 'src/environments/texts';
 
 
 @Component({
@@ -20,6 +21,7 @@ export class DragAndDropComponent implements OnInit, OnDestroy {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   public recentError?: { error: any };
   public readonly executionLog: Array<OnExecuteData | OnExecuteErrorData> = [];
+  readonly texts = texts;
   fileIcon: any;
   statusFile: string = '';
   isShowCancel: boolean = true;
