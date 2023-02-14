@@ -144,15 +144,14 @@ export class QuadArtComponent implements OnInit, OnDestroy {
           let tok = await this.contractAv.methods.tokenURI(nft.token_id).call();
           let data = (await this.decodeURL(tok)) as any;
           
-          if(nft.token_id != '0' && nft.token_id <= '225'){
-            //Decode URL
+          //Decode URL
+          if(nft.token_id != '0' && Number(nft.token_id) < 226){
             let nftObj = {
               Id: nft.token_id,
               Name: data?.name,
               Image: data?.image,
               showPreloader: false,
             };
-
             this.nfts.push(nftObj);
           }
           
