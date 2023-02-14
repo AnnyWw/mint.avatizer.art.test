@@ -201,6 +201,14 @@
   }
 }
 
+@media (max-width:576px) {
+  .dnd-container {
+    width: 280px;
+    height: 280px;
+    padding: 26px 30px 28px;
+  }
+}
+
 /* Shake animation */
 @keyframes shake {
   0% {
