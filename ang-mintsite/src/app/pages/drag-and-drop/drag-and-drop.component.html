@@ -15,8 +15,8 @@
       </div>
     </span>
 
-    <div class="dnd-title">Drag and drop or browse image for generate to pixer art</div>
-    <div class="dnd-description">JPG, PNG or JPEG max 5 mb</div>
+    <div class="dnd-title">{{texts.quadarto_draw_image}}</div>
+    <div class="dnd-description">{{texts.quadarto_image_format}}</div>
   </div>
   <div class="dnd-content loaded" *ngIf="statusFile === 'loaded'">
     <svg class="loader" width="41" height="40" viewBox="0 0 41 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -29,7 +29,7 @@
     </g>
     </g>
     </svg>
-    <div class="dnd-title">Pixel Art Creating</div>
+    <div class="dnd-title">{{texts.quadarto_pixel_create_image}}</div>
     <div class="dnd-description" *ngIf="isShowCancel"><a class="dnd-link" (click)="cancelUpload()">Cancel</a></div>
   </div>
   <div class="dnd-content error" *ngIf="statusFile === 'error'">

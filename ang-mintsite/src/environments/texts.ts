@@ -78,7 +78,22 @@ export const texts = {
   manage_nft_ugfs_manage:'Manage my',
   manage_nft_ugfs:'Ugly Faces NFT(s)',
   status_mint_error:'Mint failed! Please try again!',
-  status_mint_error_2:'Transaction canceled! Please try again!'
+  status_mint_error_2:'Transaction canceled! Please try again!',
+  quadarto_title: 'QuadArto',
+  quadarto_tab_canvas: 'Canvas',
+  quadarto_tab_managment: 'Management',
+  quadarto_connect_btn: 'Connect Wallet',
+  quadarto_notice_canvas: 'QuadArto canvas will be revealed on',
+  quadarto_notice_canvas_reveal: 'This canvas depicts all 225 QuadArto NFTs and shows on the Initial QuadArto Token',
+  quadarto_notice_connect: 'To view your QuadArto NFTs, please',
+  quadarto_notice_switch_network: 'to the Ethereum network',
+  quadarto_notice_missing_nfts: 'You have 0 QuadArto NFTs',
+  quadarto_change_image : 'Upload your image',
+  quadarto_draw_image : 'Drag and drop or browse for an image to generate pixel art',
+  quadarto_image_format : 'JPG, JPEG, or PNG (Max 5 MB)',
+  quadarto_pixel_create_image : 'Creating Pixel Art',
+  quadarto_loading_start: 'One moment, please. Loading <span class="loading-dots"></span>',
+  quadarto_modal_description: 'Your image will appear on the canvas in a while. You can upload new images anytime you want, no need to pay gas fees.',
 };
 
 /*

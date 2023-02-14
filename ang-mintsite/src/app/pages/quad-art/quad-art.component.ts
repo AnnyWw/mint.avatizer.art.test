@@ -20,7 +20,7 @@ export class QuadArtComponent implements OnInit, OnDestroy {
   network: '';
   contractAv: any = null;
   nfts: any[] = [];
-  nft_collect_title: string = texts.tokens_loading_start;
+  nft_collect_title: string = texts.quadarto_loading_start;
   numbers: any;
   date: any;
   public captchaResponse = "";
