@@ -1,5 +1,5 @@
 <app-header></app-header>
-<div class="wrap wrap-quadarto bkg-color-353D4D">
+<div class="wrap wrap-quadarto bkg-color-353D4D" id="quadarto">
   <div class="container">
     <div class="splash-mint splash-mint--connect row">
       <div class="col-xs-12 col-sm-12 col-md-12">
@@ -33,7 +33,7 @@
           <div role="tabpanel" class="tab-pane " id="canvas">
             <div class="canvas-quadart">
               <div class="quadart-notice">
-                <div class="quadart-notice--description"><a href="javascript:void(0);" (click)="onClick('text-desc')" class="ancor quadart-link">Here</a> is a short sentence that consists of ten words</div>
+                <div class="quadart-notice--description">{{texts.quadarto_notice_top_canvas}}<a href="javascript:void(0);" (click)="onClick('text-desc')" class="ancor quadart-link">{{texts.quadarto_notice_top_canvas_ancor}}</a>.</div>
                 <div class="quadart-notice--description">{{texts.quadarto_notice_canvas}} {{environment.quadarto_date_start}}</div>
               </div>
                 <pinch-zoom listeners="mouse and touch" overflow="hidden" disableZoomControl='disable' [wheel]="false">
@@ -161,6 +161,7 @@
                   </div>
                 </pinch-zoom>
             </div>
+            <div id="text-desc" class="quadart-text">{{texts.quadarto_canvas_text}} (visit <a class="quadart-link" (click)="onClick('quadarto'); " href="#management" aria-controls="management" role="tab" data-toggle="tab">Management</a>). {{texts.quadarto_canvas_text_2}}</div>
           </div>
           <div role="tabpanel" class="tab-pane active" id="management">
             <div class="management-quadart">
@@ -186,9 +187,10 @@
                 </div>
               </pinch-zoom>
             </div>
+            <div id="text-desc" class="quadart-text">{{texts.quadarto_managment_text}}</div>
           </div>
         </div>
-        <div id="text-desc" class="quadart-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.</div>
+        
       </div>
     </div>
   </div>

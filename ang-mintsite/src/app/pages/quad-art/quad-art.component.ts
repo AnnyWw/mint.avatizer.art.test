@@ -61,7 +61,10 @@ export class QuadArtComponent implements OnInit, OnDestroy {
   }
 
   public onClick(elementId: string): void { 
-      this.viewportScroller.scrollToAnchor(elementId);
+    if (elementId == 'quadarto') { 
+      $('.quadart-tabs a[href="#management"]').tab('show');
+    }
+    this.viewportScroller.scrollToAnchor(elementId);
   }
   
   public executeAction(action: string): void {

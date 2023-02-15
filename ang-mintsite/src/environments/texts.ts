@@ -84,6 +84,8 @@ export const texts = {
   quadarto_tab_managment: 'Management',
   quadarto_connect_btn: 'Connect Wallet',
   quadarto_notice_canvas: 'QuadArto canvas will be revealed on',
+  quadarto_notice_top_canvas: 'QuadArto is an experimental cooperative pixel art project with a ',
+  quadarto_notice_top_canvas_ancor: 'unique concept',
   quadarto_notice_canvas_reveal: 'This canvas depicts all 225 QuadArto NFTs and shows on the Initial QuadArto Token',
   quadarto_notice_connect: 'To view your QuadArto NFTs, please',
   quadarto_notice_switch_network: 'to the Ethereum network',
@@ -96,6 +98,9 @@ export const texts = {
   quadarto_pixel_create_image : 'Creating Pixel Art',
   quadarto_loading_start: 'One moment, please. Loading <span class="loading-dots"></span>',
   quadarto_modal_description: 'Your image will appear on the canvas in a while. You can upload new images anytime you want, no need to pay gas fees.',
+  quadarto_managment_text: 'Here you can upload new images to your QuadArto NFTs. Connect your wallet, click your token’s number, choose an image file, and wait until pixel art is created - that’s all. No need to pay gas fees, so you can upload unlimited times! The more tokens you own - the bigger images you create!',
+  quadarto_canvas_text: 'Only 225 QuadArto NFTs combined represent the collection’s art on the Initial QuadArto Token and the canvas above. Holders can upload any image they want to their tokens, changing the canvas in real-time without transaction fees',
+  quadarto_canvas_text_2: 'Also, no creator’s fee for pure art on OpenSea!'
 };
 
 /*
