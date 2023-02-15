@@ -90,7 +90,7 @@ export class QuadArtComponent implements OnInit, OnDestroy {
   setMetadataToCorrectGrid() {
     let date = new Date().getTime();
     this.nfts.find( (nft, index)=> {
-        this.nftsGrid[nft.Id-1].disabled = environment.isReveal ? true : false;
+        this.nftsGrid[nft.Id-1].disabled = false;
         this.nftsGrid[nft.Id-1].url = `${environment.api_url}img/${nft.Id}.png?${date}`; //`${nft.Image}?${date}`;
     });
   }
