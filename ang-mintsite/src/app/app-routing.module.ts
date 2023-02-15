@@ -7,6 +7,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ManageUglyfacesComponent } from './pages/manage-uglyfaces/manage-uglyfaces.component';
 import { QuadArtComponent } from './pages/quad-art/quad-art.component';
 
+
 const routes: Routes = [
   { path: '', redirectTo: 'quad-arto', pathMatch: 'full' },
   {
@@ -74,7 +75,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { anchorScrolling: 'enabled'})],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
