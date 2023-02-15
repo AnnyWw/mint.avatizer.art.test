@@ -6,6 +6,7 @@ import { environment } from 'src/environments/environment';
 import { texts } from 'src/environments/texts';
 declare var $: any;
 import { OnExecuteData, OnExecuteErrorData, ReCaptchaV3Service } from 'ng-recaptcha';
+import { ViewportScroller } from '@angular/common';
 
 @Component({
   selector: 'app-quad-art',
@@ -40,7 +41,7 @@ export class QuadArtComponent implements OnInit, OnDestroy {
   onLoad() {
     $('body').addClass('loaded quadart');
   }
-  constructor(private authService: AuthService, private recaptchaV3Service: ReCaptchaV3Service) {
+  constructor(private authService: AuthService, private recaptchaV3Service: ReCaptchaV3Service, private viewportScroller: ViewportScroller) {
     this.onLoad();
    }
 
@@ -59,6 +60,10 @@ export class QuadArtComponent implements OnInit, OnDestroy {
     this.date = date;
   }
 
+  public onClick(elementId: string): void { 
+      this.viewportScroller.scrollToAnchor(elementId);
+  }
+  
   public executeAction(action: string): void {
     this.singleExecutionSubscription = this.recaptchaV3Service.execute(action).subscribe(
       (token) => {

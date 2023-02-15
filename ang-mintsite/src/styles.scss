@@ -20,7 +20,9 @@ body {
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
 }
-
+html{
+    scroll-behavior: smooth;
+}
 body {
     margin: 0;
     // font-family: "ClashGrotesk", Helvetica, Arial, Verdana, sans-serif;
