@@ -13,13 +13,13 @@ const routes: Routes = [
   {
     path: 'quad-arto',
     component: QuadArtComponent,
-    title: 'Quad Arto - Manage my collection',
+    title: 'QuadArto - Manage my collection',
     data: {
       seo: {
         metaTags: [
           {
             name: 'description',
-            content: 'Manage my Quad Arto. Pausing or restoring daily reloads.',
+            content: 'Manage my QuadArto NFTs. Change images, and complete the canvas.',
           },
         ],
       },

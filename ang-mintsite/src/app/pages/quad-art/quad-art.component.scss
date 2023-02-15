@@ -26,8 +26,6 @@
   font-weight: 500;
   font-size: 16px;
   line-height: 20px;
-  display: flex;
-  align-items: center;
   text-align: center;
   color: rgba(255, 255, 255, 0.7);
   max-width: 710px;
@@ -38,7 +36,7 @@
 }
 .tab-content {
   position: relative;
-  min-height: 995px;
+  min-height: 1125px;
 }
 .tab-content > .tab-pane {
   display: block;
@@ -140,12 +138,12 @@
   justify-content: center;
   flex-wrap: wrap;
 }
-.quadart-notice .quadart-link {
+.quadart-link {
   color: #3a7ff0;
   text-decoration: none;
   cursor: pointer;
 }
-.quadart-notice .quadart-link:hover {
+.quadart-link:hover {
   text-decoration: underline;
 }
 .quadart-notice--description.opensea .quadart-link {
@@ -342,7 +340,7 @@
     max-height: 47px;
   }
   .tab-content {
-    min-height: 800px;
+    min-height: 930px;
   }
 }
 @media (max-width: 767px) {
@@ -432,7 +430,7 @@
     max-height: 26.27px;
   }
   .tab-content {
-    min-height: 485px;
+    min-height: 645px;
   }
 }
 @media (max-width: 424px) and (min-width: 375px) {
@@ -451,7 +449,7 @@
     max-height: 23px;
   }
   .tab-content {
-    min-height: 435px;
+    min-height: 615px;
   }
 }
 @media (max-width: 374px) {
@@ -465,7 +463,7 @@
     max-height: 19.3px;
   }
   .tab-content {
-    min-height: 377px;
+    min-height: 587px;
   }
   .tab-content,
   .quadart-tabs {
