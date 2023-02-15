@@ -99,7 +99,7 @@ export const texts = {
   quadarto_loading_start: 'One moment, please. Loading <span class="loading-dots"></span>',
   quadarto_modal_description: 'Your image will appear on the canvas in a while. You can upload new images anytime you want, no need to pay gas fees.',
   quadarto_managment_text: 'Here you can upload new images to your QuadArto NFTs. Connect your wallet, click your token’s number, choose an image file, and wait until pixel art is created - that’s all. No need to pay gas fees, so you can upload unlimited times! The more tokens you own - the bigger images you create!',
-  quadarto_canvas_text: 'Only 225 QuadArto NFTs combined represent the collection’s art on the Initial QuadArto Token and the canvas above. Holders can upload any image they want to their tokens, changing the canvas in real-time without transaction fees',
+  quadarto_canvas_text: 'Only 225 QuadArto NFTs combined represent the collection’s art on the Initial Token and the canvas above. Holders can upload any image they want to their tokens, changing the canvas in real-time without transaction fees',
   quadarto_canvas_text_2: 'Also, no creator’s fee for pure art on OpenSea!'
 };
 
