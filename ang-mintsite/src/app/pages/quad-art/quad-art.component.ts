@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { log } from 'console';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
@@ -7,13 +7,14 @@ import { texts } from 'src/environments/texts';
 declare var $: any;
 import { OnExecuteData, OnExecuteErrorData, ReCaptchaV3Service } from 'ng-recaptcha';
 import { ViewportScroller } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-quad-art',
   templateUrl: './quad-art.component.html',
   styleUrls: ['./quad-art.component.scss']
 })
-export class QuadArtComponent implements OnInit, OnDestroy {
+export class QuadArtComponent implements OnInit, OnDestroy, AfterViewInit {
   status: string = 'connect';
   modalStatus: string = '';
   imageType: string = '';
@@ -41,7 +42,7 @@ export class QuadArtComponent implements OnInit, OnDestroy {
   onLoad() {
     $('body').addClass('loaded quadart');
   }
-  constructor(private authService: AuthService, private recaptchaV3Service: ReCaptchaV3Service, private viewportScroller: ViewportScroller) {
+  constructor(private authService: AuthService, private recaptchaV3Service: ReCaptchaV3Service, private viewportScroller: ViewportScroller, private activatedRoute: ActivatedRoute) {
     this.onLoad();
    }
 
@@ -62,9 +63,22 @@ export class QuadArtComponent implements OnInit, OnDestroy {
 
   public onClick(elementId: string): void { 
     if (elementId == 'quadarto') { 
-      $('.quadart-tabs a[href="#management"]').tab('show');
+      $('.quadart-tabs a[href="#my-management"]').tab('show');
     }
     this.viewportScroller.scrollToAnchor(elementId);
+  }
+
+  ngAfterViewInit(){
+    this.subscription.push(this.activatedRoute.fragment.subscribe(params => {
+      if (params == 'management') { 
+        $('.quadart-tabs a[href="#my-management"]').tab('show');
+        // this.viewportScroller.scrollToPosition()
+      }
+      if (params == 'canvas') { 
+        $('.quadart-tabs a[href="#my-canvas"]').tab('show');
+        // this.viewportScroller.scrollToPosition()
+      }
+    }));
   }
   
   public executeAction(action: string): void {
