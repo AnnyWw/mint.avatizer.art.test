@@ -6,7 +6,7 @@
         <div class="quadart-title">{{texts.quadarto_title}}</div>
         <!-- Nav tabs -->
         <ul class="nav nav-tabs quadart-tabs" role="tablist">
-          <li role="presentation" class="active"><a href="#canvas" aria-controls="canvas" role="tab" data-toggle="tab">
+          <li role="presentation" class="active"><a href="#my-canvas" aria-controls="canvas" role="tab" data-toggle="tab">
               <svg class="visible-xs" width="31" height="30" viewBox="0 0 31 30" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
                 <path opacity="0.7" fill-rule="evenodd" clip-rule="evenodd"
@@ -14,7 +14,7 @@
                   fill="#ffffff" />
               </svg>
               <span class="hidden-xs">{{texts.quadarto_tab_canvas}}</span></a></li>
-          <li role="presentation" ><a href="#management" aria-controls="management" role="tab" data-toggle="tab">
+          <li role="presentation" ><a href="#my-management" aria-controls="management" role="tab" data-toggle="tab">
               <svg class="visible-xs" width="31" height="30" viewBox="0 0 31 30" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
                 <path opacity="0.7" fill-rule="evenodd" clip-rule="evenodd"
@@ -30,7 +30,7 @@
           </li>
         </ul>
         <div class="tab-content">
-          <div role="tabpanel" class="tab-pane active" id="canvas">
+          <div role="tabpanel" class="tab-pane active" id="my-canvas">
             <div class="canvas-quadart">
               <div class="quadart-notice">
                 <div class="quadart-notice--description">{{texts.quadarto_notice_top_canvas}}<a href="javascript:void(0);" (click)="onClick('text-desc')" class="ancor quadart-link">{{texts.quadarto_notice_top_canvas_ancor}}</a>.</div>
@@ -163,9 +163,9 @@
                   </div>
                 </pinch-zoom>
             </div>
-            <div id="text-desc" class="quadart-text">{{texts.quadarto_canvas_text}} (visit <a class="quadart-link" (click)="onClick('quadarto'); " href="#management" aria-controls="management" role="tab" data-toggle="tab">Management</a>). {{texts.quadarto_canvas_text_2}}</div>
+            <div id="text-desc" class="quadart-text">{{texts.quadarto_canvas_text}} (visit <a class="quadart-link" (click)="onClick('quadarto'); " href="#my-management" aria-controls="management" role="tab" data-toggle="tab">Management</a>). {{texts.quadarto_canvas_text_2}}</div>
           </div>
-          <div role="tabpanel" class="tab-pane" id="management">
+          <div role="tabpanel" class="tab-pane" id="my-management">
             <div class="management-quadart">
               <div class="quadart-notice">
                 <div *ngIf="status === 'connect'" class="quadart-notice--description">{{texts.quadarto_notice_connect}} <a class="quadart-link" (click)="connect()">connect wallet</a></div>
